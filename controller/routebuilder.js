@@ -969,8 +969,103 @@ async function getuserlist(req, res) {
 
 
 
+// async function getassignedsegmnets(req, res) {
+//    let connection;
+//     try {
+//         let userid = req.params.id;
+//         if (!userid) return res.status(400).json({ success: false, details: "Please provide UserId" });
+
+//         connection = await pool.getConnection();
+//         await connection.beginTransaction();
+
+//         // Fetch connections for user
+//         const [connections] = await connection.query(
+//             'SELECT * FROM connections WHERE user_id = ?',
+//             [userid]
+//         );
+//         if (connections.length === 0) {
+//             throw new Error('No connections found for the given User ID');
+//         }
+
+//         // ---- Fetch Network Info from networks table ----
+//         let networkDetails = null, stateDetails = null, districtDetails = null, blockDetails = null;
+//         if (connections[0].network_id) {
+//             const [network] = await connection.query(
+//                 'SELECT id, name, st_code, st_name, dt_code, dt_name, blk_code, blk_name FROM networks WHERE id = ?',
+//                 [connections[0].network_id]
+//             );
+//             if (network.length > 0) {
+//                 networkDetails = network[0];
+
+//                 // Now also fetch from states, districts, blocks
+//                 const [stateRes] = await connection.query(
+//                     'SELECT * FROM states WHERE state_code = ?',
+//                     [network[0].st_code]
+//                 );
+//                 const [districtRes] = await connection.query(
+//                     'SELECT * FROM districts WHERE district_code = ?',
+//                     [network[0].dt_code]
+//                 );
+//                 const [blockRes] = await connection.query(
+//                     'SELECT * FROM blocks WHERE block_code = ?',
+//                     [network[0].blk_code]
+//                 );
+
+//                 stateDetails = stateRes.length > 0 ? stateRes[0] : null;
+//                 districtDetails = districtRes.length > 0 ? districtRes[0] : null;
+//                 blockDetails = blockRes.length > 0 ? blockRes[0] : null;
+//             }
+//         }
+
+//         // ---- Loop over connections & attach start/end from gpslist ----
+//         for (let i = 0; i < connections.length; i++) {
+//             if (connections[i].coordinates) {
+//                 try {
+//                     connections[i].coordinates = JSON.parse(connections[i].coordinates);
+//                 } catch {
+//                     connections[i].coordinates = [];
+//                 }
+//             }
+
+//             const [startPoint] = await connection.query(
+//                 'SELECT * FROM gpslist WHERE lgd_code = ?',
+//                 [connections[i].start_latlong]
+//             );
+
+//             const [endPoint] = await connection.query(
+//                 'SELECT * FROM gpslist WHERE lgd_code = ?',
+//                 [connections[i].end_latlong]
+//             );
+
+//             connections[i].start_coordinates = startPoint.length > 0 ? startPoint[0] : null;
+//             connections[i].end_coordinates = endPoint.length > 0 ? endPoint[0] : null;
+//         }
+
+//         await connection.commit();
+
+//         res.status(200).json({
+//             success: true,
+//             data: {
+//                 network: networkDetails,
+//                 state: stateDetails,
+//                 district: districtDetails,
+//                 block: blockDetails,
+//                 connections
+//             },
+//             message: 'Assigned segments data retrieved successfully'
+//         });
+
+//     } catch (error) {
+//         if (connection) await connection.rollback();
+//         console.error('Error:', error.message);
+//         res.status(500).json({ error: 'Failed to get the assigned segments', details: error.message });
+//     } finally {
+//         if (connection) connection.release();
+//     }
+// }
+
 async function getassignedsegmnets(req, res) {
-   let connection;
+    let connection;
     try {
         let userid = req.params.id;
         if (!userid) return res.status(400).json({ success: false, details: "Please provide UserId" });
@@ -987,38 +1082,9 @@ async function getassignedsegmnets(req, res) {
             throw new Error('No connections found for the given User ID');
         }
 
-        // ---- Fetch Network Info from networks table ----
-        let networkDetails = null, stateDetails = null, districtDetails = null, blockDetails = null;
-        if (connections[0].network_id) {
-            const [network] = await connection.query(
-                'SELECT id, name, st_code, st_name, dt_code, dt_name, blk_code, blk_name FROM networks WHERE id = ?',
-                [connections[0].network_id]
-            );
-            if (network.length > 0) {
-                networkDetails = network[0];
-
-                // Now also fetch from states, districts, blocks
-                const [stateRes] = await connection.query(
-                    'SELECT * FROM states WHERE state_code = ?',
-                    [network[0].st_code]
-                );
-                const [districtRes] = await connection.query(
-                    'SELECT * FROM districts WHERE district_code = ?',
-                    [network[0].dt_code]
-                );
-                const [blockRes] = await connection.query(
-                    'SELECT * FROM blocks WHERE block_code = ?',
-                    [network[0].blk_code]
-                );
-
-                stateDetails = stateRes.length > 0 ? stateRes[0] : null;
-                districtDetails = districtRes.length > 0 ? districtRes[0] : null;
-                blockDetails = blockRes.length > 0 ? blockRes[0] : null;
-            }
-        }
-
-        // ---- Loop over connections & attach start/end from gpslist ----
+        // ---- Loop over connections & attach details ----
         for (let i = 0; i < connections.length; i++) {
+            // Parse coordinates
             if (connections[i].coordinates) {
                 try {
                     connections[i].coordinates = JSON.parse(connections[i].coordinates);
@@ -1027,11 +1093,11 @@ async function getassignedsegmnets(req, res) {
                 }
             }
 
+            // Start & End gps points
             const [startPoint] = await connection.query(
                 'SELECT * FROM gpslist WHERE lgd_code = ?',
                 [connections[i].start_latlong]
             );
-
             const [endPoint] = await connection.query(
                 'SELECT * FROM gpslist WHERE lgd_code = ?',
                 [connections[i].end_latlong]
@@ -1039,19 +1105,43 @@ async function getassignedsegmnets(req, res) {
 
             connections[i].start_coordinates = startPoint.length > 0 ? startPoint[0] : null;
             connections[i].end_coordinates = endPoint.length > 0 ? endPoint[0] : null;
+
+            // ---- Get Network details for this connection ----
+            if (connections[i].network_id) {
+                const [network] = await connection.query(
+                    'SELECT id, name, st_code, st_name, dt_code, dt_name, blk_code, blk_name FROM networks WHERE id = ?',
+                    [connections[i].network_id]
+                );
+
+                if (network.length > 0) {
+                    connections[i].network = network[0];
+
+                    // Also fetch states/districts/blocks for this network
+                    const [stateRes] = await connection.query(
+                        'SELECT * FROM states WHERE state_code = ?',
+                        [network[0].st_code]
+                    );
+                    const [districtRes] = await connection.query(
+                        'SELECT * FROM districts WHERE district_code = ?',
+                        [network[0].dt_code]
+                    );
+                    const [blockRes] = await connection.query(
+                        'SELECT * FROM blocks WHERE block_code = ?',
+                        [network[0].blk_code]
+                    );
+
+                    connections[i].state = stateRes.length > 0 ? stateRes[0] : null;
+                    connections[i].district = districtRes.length > 0 ? districtRes[0] : null;
+                    connections[i].block = blockRes.length > 0 ? blockRes[0] : null;
+                }
+            }
         }
 
         await connection.commit();
 
         res.status(200).json({
             success: true,
-            data: {
-                network: networkDetails,
-                state: stateDetails,
-                district: districtDetails,
-                block: blockDetails,
-                connections
-            },
+            data: { connections },
             message: 'Assigned segments data retrieved successfully'
         });
 
@@ -1063,6 +1153,7 @@ async function getassignedsegmnets(req, res) {
         if (connection) connection.release();
     }
 }
+
 
 
 
