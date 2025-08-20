@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="images/favicon.png">
+    <title>Tricad Route Builder</title>
+    <style>
+        /* Existing styles unchanged */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #636363;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #container {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 350px;
+            background: white;
+            padding: 10px;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #search-bar {
+            background: white;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #search-bar input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #search-bar button {
+            padding: 8px 12px;
+            background-color: #1a3c5e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #search-bar button:hover {
+            background-color: #00FFFF;
+            color: #1a3c5e;
+        }
+
+        #map {
+            flex: 1;
+            width: 100%;
+            display: block;
+        }
+
+        #splash-image {
+            flex: 1;
+            width: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        #result ul {
+            max-height: 100px;
+            overflow-y: auto;
+            padding: 5px;
+            margin: 0;
+        }
+
+        #result li a:hover {
+            color: #00FFFF;
+            text-decoration: underline;
+        }
+
+        #uploadPointsForm,
+        #uploadConnectionsForm,
+        #uploadFilteredPointsForm {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        #uploadPointsForm label,
+        #uploadConnectionsForm label,
+        #uploadFilteredPointsForm label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #uploadPointsForm input[type="file"],
+        #uploadConnectionsForm input[type="file"],
+        #uploadFilteredPointsForm input[type="file"] {
+            margin: 5px 0;
+        }
+
+        #uploadPointsForm button,
+        #uploadConnectionsForm button,
+        #uploadFilteredPointsForm button {
+            padding: 8px;
+            background-color: #1a3c5e;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        #uploadPointsForm button:hover,
+        #uploadConnectionsForm button:hover,
+        #uploadFilteredPointsForm button:hover {
+            background-color: #00FFFF;
+            color: #1a3c5e;
+        }
+
+        #points-data-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 12px;
+        }
+
+        #points-data-box h3 {
+            margin: 0 0 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        #points-data-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #points-data-box tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #points-data-box td {
+            padding: 2px 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #points-data-box td:first-child {
+            font-weight: bold;
+            color: #333;
+        }
+
+        #points-data-box td:first-child.type,
+        #points-data-box td:first-child.olt_ip {
+            color: #d32f2f;
+        }
+
+        #result {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            line-height: 1.2;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        #result {
+            margin: 5px;
+            padding: 5px;
+            background: white;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #route-box {
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background: linear-gradient(135deg, #1a3c5e, #0a1e3a);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #ffffff;
+            width: 300px;
+            border: 1px solid #00FFFF;
+            pointer-events: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #route-box[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #route-box[style*="display: none"] {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        #route-box h3 {
+            margin: 0 0 15px;
+            font-size: 16px;
+            color: #00FFFF;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+            padding-bottom: 8px;
+        }
+
+        #route-box p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #route-box span {
+            font-weight: normal;
+            color: #d0d0d0;
+            flex: 1;
+            max-width: 220px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #route-box button {
+            padding: 10px 16px;
+            margin: 10px 8px 0 0;
+            background-color: #00FFFF;
+            color: #1a3c5e;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        #route-box button:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 255, 255, 0.5);
+        }
+
+        #route-box button:disabled {
+            background-color: #4a6a8a;
+            color: #a0a0a0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #route-loading {
+            margin-top: 12px;
+            color: #00FFFF;
+            font-weight: bold;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+        #route-loading::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #00FFFF;
+            border-top-color: transparent;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #points-loading,
+        #connections-loading,
+        #filtered-points-loading {
+            color: #1a3c5e;
+            font-weight: bold;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        #points-loading span,
+        #connections-loading span,
+        #filtered-points-loading span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #00FFFF;
+            border-top-color: transparent;
+            border-radius: 50%;
+            margin-left: 8px;
+            animation: spin 1s linear infinite;
+        }
+
+        .leaflet-control-summary {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            color: #333;
+        }
+
+        .distance-label {
+            font-size: 12px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2px 5px;
+            border-radius: 3px;
+            min-width: 50px;
+            display: inline-block;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .drag-marker {
+            cursor: move;
+        }
+
+        .line-indicator {
+            display: inline-block;
+            width: 20px;
+            height: 4px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .existing-line {
+            background-color: #00FF00;
+        }
+
+        .proposed-line {
+            background-color: #FF0000;
+        }
+
+        .leaflet-container {
+            pointer-events: auto !important;
+        }
+
+        #controlPanel {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background: white;
+            margin: 10px;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        #controlPanel button {
+            padding: 8px 16px;
+            background-color: #1a3c5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        #controlPanel button:hover {
+            background-color: #00FFFF;
+            color: #1a3c5e;
+        }
+
+        #controlPanel select {
+            padding: 8px 16px;
+            background-color: #1a3c5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            flex-shrink: 0;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            padding-right: 30px;
+        }
+
+        #controlPanel select:hover {
+            background-color: #00FFFF;
+            color: #1a3c5e;
+        }
+
+        #controlPanel select:disabled {
+            background-color: #4a6a8a;
+            color: #a0a0a0;
+            cursor: not-allowed;
+        }
+
+        #controlPanel select option {
+            background-color: #1a3c5e;
+            color: white;
+        }
+
+        #logo {
+            display: block;
+            max-width: 200px;
+            height: auto;
+            margin: 10px auto;
+            padding: 5px;
+            background: #1a3c5e;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+            }
+
+            #container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                height: auto;
+                max-height: 40vh;
+            }
+
+            #main {
+                flex: 1;
+            }
+
+            #search-bar input {
+                font-size: 12px;
+            }
+
+            #search-bar button {
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+
+            #points-data-box {
+                font-size: 11px;
+            }
+
+            #result {
+                margin: 2px;
+                padding: 3px;
+                font-size: 5px;
+            }
+
+            #route-box {
+                width: 90%;
+                max-width: 260px;
+                right: 5px;
+                top: 50px;
+                padding: 15px;
+            }
+
+            #route-box button {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            #logo {
+                max-width: 150px;
+                margin: 8px auto;
+            }
+        }
+
+        #search-bar {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 10px;
+        }
+
+        #search-input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        #search-btn {
+            padding: 8px 15px;
+            background-color: #1a3c5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #search-btn:hover {
+            background-color: #00FFFF;
+            color: #1a3c5e;
+        }
+
+        #clear-btn {
+            font-size: 20px;
+            color: #888;
+            cursor: pointer;
+            padding: 0 8px;
+            border-radius: 50%;
+            transition: color 0.3s;
+        }
+
+        #clear-btn:hover {
+            color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <img id="logo" src="images/tricad-logo-1.png" alt="Tricad Logo">
+            <div id="uploadPointsForm">
+                <label for="pointsFile">Upload GP Points File:</label>
+                <input type="file" id="pointsFile" name="pointsFile" accept=".kml">
+                <button type="button" id="uploadPointsBtn">Upload Points</button>
+                <div id="points-loading" style="display: none;">
+                    Processing points...
+                    <span></span>
+                </div>
+            </div>
+            <div id="uploadConnectionsForm">
+                <label for="connectionsFile">Upload Incremental File:</label>
+                <input type="file" id="connectionsFile" name="connectionsFile" accept=".kml">
+                <button type="button" id="uploadConnectionsBtn" disabled>Upload Connections</button>
+                <div id="connections-loading" style="display: none;">
+                    Processing connections...
+                    <span></span>
+                </div>
+            </div>
+            <div id="uploadFilteredPointsForm">
+                <label for="filteredPointsFile">Upload KML for Filtering (10m apart):</label>
+                <input type="file" id="filteredPointsFile" name="filteredPointsFile" accept=".kml">
+                <button type="button" id="uploadFilteredPointsBtn">Process & Display</button>
+                <div id="filtered-points-loading" style="display: none;">
+                    Processing filtered points...
+                    <span></span>
+                </div>
+            </div>
+            <div id="points-data-box">
+                <h3>Point Details</h3>
+                <p>Hover over a marker to view details.</p>
+            </div>
+        </div>
+        <div id="main">
+            <div id="controlPanel">
+                <button type="button" id="show-route-btn">Auto Mode</button>
+                <button type="button" id="generate-auto-route-btn">AI Mode</button>
+                <select id="downloadFormat" disabled>
+                    <option value="" disabled selected>Select Download Format</option>
+                    <option value="kml">KML</option>
+                    <option value="csv">CSV</option>
+                    <option value="parsed-kml-points">Parsed KML Points</option>
+                </select>
+            </div>
+            <div id="search-bar">
+                <input type="text" id="search-input" placeholder="Search for a location...">
+                <span id="clear-btn">×</span>
+                <button id="search-btn">Search</button>
+                <button id="save-btn">Save KML</button>
+            </div>
+            <img id="splash-image" src="https://www.tricadinfo.com/frontend/images/slider/match3dx.png" alt="TricadDesign Splash">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div id="route-box" style="display: none;">
+        <h3>Route Selection</h3>
+        <p>Start: <span id="start-point">Not selected</span></p>
+        <p>End: <span id="end-point">Not selected</span></p>
+        <button id="calculate-route-btn" disabled>Calculate Route</button>
+        <button id="delete-route-btn" disabled>Delete Route</button>
+        <button id="close-box-btn">Close</button>
+        <div id="route-loading" style="display: none;">Loading...</div>
+    </div>
+    <div id="result"></div>
+    <script src="script.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPHNQoyCkDJ3kOdYZAjZElbhXuJvx-Odg&libraries=places,drawing&callback=initMap"></script>
+  
+    <script>
+        document.getElementById('generate-auto-route-btn').addEventListener('click', function () {
+            window.open('index2.html', '_blank');
+        });
+
+        document.getElementById("clear-btn").addEventListener("click", () => {
+            const searchInput = document.getElementById("search-input");
+            searchInput.value = "";
+            searchInput.focus();
+        });
+
+        document.getElementById('downloadFormat').addEventListener('change', function () {
+            const format = this.value;
+             if (format === 'parsed-kml-points') {
+            generateParsedKMLPoints(filteredPoints);
+            }
+            if (format == 'kml' || format == "csv") {
+                downloadFile(format);
+                this.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

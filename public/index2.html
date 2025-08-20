@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tricad Route Builder</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #636363;
+        }
+
+        #uploadForm {
+            padding: 10px;
+            background: white;
+            margin: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #uploadForm label {
+            font-weight: bold;
+        }
+
+        #uploadForm input[type="file"] {
+            margin: 5px 0;
+        }
+
+        #uploadForm button {
+            padding: 5px 10px;
+            background-color: #1a3c5e;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #uploadForm button:hover {
+            background-color: #00FFFF;
+            color: #1a3c5e;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            display: none;
+        }
+
+        #result {
+            margin: 5px;
+            padding: 5px;
+            background: white;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #splash-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        #route-box {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #1a3c5e, #0a1e3a);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #ffffff;
+            width: 300px;
+            border: 1px solid #00FFFF;
+            pointer-events: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #route-box[style*="display: block"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #route-box[style*="display: none"] {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        #route-box h3 {
+            margin: 0 0 15px;
+            font-size: 16px;
+            color: #00FFFF;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+            padding-bottom: 8px;
+        }
+
+        #route-box p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #route-box span {
+            font-weight: normal;
+            color: #d0d0d0;
+            flex: 1;
+            max-width: 220px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #route-box button {
+            padding: 10px 16px;
+            margin: 10px 8px 0 0;
+            background-color: #00FFFF;
+            color: #1a3c5e;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        #route-box button:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 255, 255, 0.5);
+        }
+
+        #route-box button:disabled {
+            background-color: #4a6a8a;
+            color: #a0a0a0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #route-loading {
+            margin-top: 12px;
+            color: #00FFFF;
+            font-weight: bold;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+        #route-loading::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #00FFFF;
+            border-top-color: transparent;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .leaflet-control-summary {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            color: #333;
+        }
+
+        #undo-move-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #f0f0f0;
+            border: 1px solid #999;
+            cursor: pointer;
+        }
+
+        #undo-move-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .distance-label {
+            font-size: 12px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2px 5px;
+            border-radius: 3px;
+            min-width: 50px;
+            display: inline-block;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .drag-marker {
+            cursor: move;
+        }
+
+        .line-indicator {
+            display: inline-block;
+            width: 20px;
+            height: 4px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .existing-line {
+            background-color: #00FF00;
+        }
+
+        .proposed-line {
+            background-color: #FF0000;
+        }
+
+        .leaflet-container {
+            pointer-events: auto !important;
+        }
+
+        @media (max-width: 600px) {
+            #route-box {
+                width: 90%;
+                max-width: 260px;
+                right: 5px;
+                top: 5px;
+                padding: 15px;
+            }
+
+            #route-box button {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            #uploadForm {
+                margin: 5px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+         
+        }
+         #logo {
+    float: right;
+    margin: 1px 5px 1px;
+    max-width: 200px;
+    height: auto;
+}
+    </style>
+</head>
+<body>
+    <img id="logo" src="images/tricad-logo-1.png" alt="Logo">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="pointsFile">Upload Gp Points File:</label>
+        <input type="file" id="pointsFile" name="pointsFile" accept=".kml" required>
+        <label for="connectionsFile">Upload Incremental File:</label>
+        <input type="file" id="connectionsFile" name="connectionsFile" accept=".kml" required>
+        <button type="button" id="show-route-btn">Auto Mode</button>
+        <button type="submit">AI Mode</button>
+        <button type="button" id="downloadKml">Download KML</button>
+        
+    </form>
+    <div id="route-box" style="display: none;">
+        <h3>Select Route Points</h3>
+        <p><strong>Start Point:</strong> <span id="start-point">Not selected</span></p>
+        <p><strong>End Point:</strong> <span id="end-point">Not selected</span></p>
+        <button id="calculate-route-btn" disabled>Calculate Route</button>
+        <button id="clear-routes-btn">Clear All Routes</button>
+        <button id="close-box-btn">Close</button>
+        <div id="route-loading" style="display: none;">Loading...</div>
+    </div>
+    <img id="splash-image" src="https://www.tricadinfo.com/frontend/images/slider/match3dx.png" alt="TricadDesign Splash">
+    <div id="map"></div>
+    <div id="result"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-editable@1.2.0/src/Leaflet.Editable.js"></script>
+    <script src="autoscript.js"></script>
+</body>
+</html>
