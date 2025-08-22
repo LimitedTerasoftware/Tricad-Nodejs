@@ -327,6 +327,7 @@ app.get("/machine-monthly-amount", construction.getMachineMonthlyAmount)
 
 app.get("/get-physical-survey", smartinventory.getSurveysByLocation)
 app.post("/update-physical-survey", construction.editphysicalsurvey)
+app.post("/get-desktop-planning", smartinventory.getdesktopPlanning)
 
 app.get("/get-firm-names", construction.getAllFirmNames)
 app.get("/get-machines", construction.getMachinesByFirm)
@@ -361,17 +362,15 @@ app.post('/upload-kmz', uploadss.single('file'), async (req, res) => {
     }
 });
 
+
 app.post("/download-shape", smartinventory.downloadshape)
 
 app.post("/download-excel", smartinventory.downloadExcel)
 
 app.post("/save-properties", routebuilder.saveproperties)
-
+app.post("/survey-status", routebuilder.surveyStatus)
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-
-
-
 

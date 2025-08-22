@@ -8,14 +8,12 @@ const shpwrite = require('shp-write');
 
 
 
-
-
 const dbConfig = {
     host: "localhost",
     port: 3306,
-    user: "keesizta_tracking",
-    password: "Welcome@022",
-    database: "keesizta_tracking",
+    user: "pmadmin",
+    password: "AllowTsl",
+    database: "tracking",
     connectTimeout: 10000, // 10 seconds
     connectionLimit: 10,
     waitForConnections: true,
@@ -108,6 +106,64 @@ async function getSurveysByLocation(req, res) {
         if (connection) connection.release();
     }
 }
+
+async function getdesktopPlanning(req, res) {
+    let connection;
+    try {
+        const { stateId, districtId, blockId } = req.body;
+
+        if (!stateId || !districtId || !blockId) {
+            return res.status(400).json({
+                status: false,
+                message: "stateId, districtId and blockId are required"
+            });
+        }
+
+        connection = await pool.getConnection();
+
+        // 1️⃣ Get all networks for given state/district/block
+        const [networks] = await connection.query(
+            `SELECT * FROM networks 
+             WHERE st_code = ? AND dt_code = ? AND blk_code = ?`,
+            [stateId, districtId, blockId]
+        );
+
+        // 2️⃣ For each network, get points + connections
+        const results = [];
+        for (const net of networks) {
+            const [points] = await connection.query(
+                `SELECT * FROM points WHERE network_id = ?`,
+                [net.id]
+            );
+
+            const [connections] = await connection.query(
+                `SELECT * FROM connections WHERE network_id = ?`,
+                [net.id]
+            );
+
+            results.push({
+                ...net,
+                points,
+                connections
+            });
+        }
+
+        res.json({
+            status: true,
+            data: results
+        });
+
+    } catch (error) {
+        console.error("Error in getdesktopPlanning:", error);
+        return res.status(500).json({
+            status: false,
+            error: error.message
+        });
+    } finally {
+        if (connection) connection.release();
+    }
+}
+
 
 
 
@@ -227,7 +283,6 @@ async function getEXternalfiles(req, res) {
         }
 
         connection = await pool.getConnection();
-
 
         const [rows] = await connection.execute(query, params);
         const groupedByDataId = rows.reduce((acc, row) => {
@@ -477,6 +532,78 @@ async function insertFpoi(req, res) {
         });
     } finally {
         if (connection) connection.release?.(); // or connection.end() if not using a pool
+    }
+}
+
+
+
+async function getGpsListPaginated(req, res) {
+    let connection;
+    try {
+        // Get pagination details
+        const page = parseInt(req.query.page) || 1;
+        const limit = 15;
+        const offset = (page - 1) * limit;
+
+        // Get optional filters
+        const { st_code, dt_code, blk_code, type } = req.query;
+
+        const conditions = [];
+        const params = [];
+
+        if (st_code) {
+            conditions.push("st_code = ?");
+            params.push(st_code);
+        }
+        if (dt_code) {
+            conditions.push("dt_code = ?");
+            params.push(dt_code);
+        }
+        if (blk_code) {
+            conditions.push("blk_code = ?");
+            params.push(blk_code);
+        }
+        if (type) {
+            conditions.push("type = ?");
+            params.push(type);
+        }
+
+        const whereClause = conditions.length ? `WHERE ${conditions.join(" AND ")}` : "";
+
+        connection = await pool.getConnection();
+
+        // Count with filters
+        const [countResult] = await connection.execute(
+            `SELECT COUNT(*) AS total FROM gpslist ${whereClause}`,
+            params
+        );
+        const totalRows = countResult[0].total;
+        const totalPages = Math.ceil(totalRows / limit);
+
+        // Fetch paginated data with filters
+        const [rows] = await connection.execute(
+            `SELECT * FROM gpslist ${whereClause} ORDER BY id DESC LIMIT ? OFFSET ?`,
+            [...params, limit, offset]
+        );
+
+        return res.status(200).send({
+            status: true,
+            currentPage: page,
+            totalPages,
+            totalRows,
+            filters: { st_code, dt_code, blk_code, type },
+            data: rows
+        });
+
+    } catch (error) {
+        console.error("Error fetching paginated GPS list:", error);
+        return res.status(500).send({
+            status: false,
+            message: "Internal Server Error",
+            error: error.message
+        });
+    } finally {
+        if (connection) connection.release?.();
     }
 }
 
@@ -857,7 +984,6 @@ function parseKmz(buffer) {
 
     return { points, lines };
 }
-
 
 
 
@@ -1279,4 +1405,4 @@ function downloadExcel(req, res) {
 
 
 
-module.exports = { getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel }
+module.exports = { getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel, getdesktopPlanning }

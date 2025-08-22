@@ -17,14 +17,13 @@ const AdmZip = require('adm-zip');
 const dbConfig = {
     host: "localhost",
     port: 3306,
-    user: "keesizta_tracking",
-    password: "Welcome@022",
-    database: "keesizta_tracking",
+    user: "pmadmin",
+    password: "AllowTsl",
+    database: "tracking",
     connectTimeout: 10000, // 10 seconds
     connectionLimit: 10,
     waitForConnections: true,
 };
-
 
 
 const pool = mysql.createPool(dbConfig);
@@ -151,86 +150,8 @@ function getMidpoint(coordinates) {
 
 
 
-// async function uploadPoints(req, res) {
-//     try {
-//         const pointsPath = req.file.path;
-//         const pointsKmlData = fs.readFileSync(pointsPath, 'utf8');
-//         const pointsKml = new DOMParser().parseFromString(pointsKmlData, 'text/xml');
-//         const pointsGeoJson = toGeoJSON.kml(pointsKml);
 
-//         const rawPoints = new Map();
-//         const blockRouterFeature = pointsGeoJson.features.find(f => {
-//             const props = f.properties || {};
-//             const rawDesc = props.description || '';
-//             const typeFromExtended = props['type'] || props['ExtendedData']?.type;
-//             return (
-//                 (typeof rawDesc === 'string' && rawDesc.toLowerCase().includes('block router')) ||
-//                 (typeof typeFromExtended === 'string' && typeFromExtended.toLowerCase() === 'block router')
-//             );
-//         });
-
-//         // console.log(blockRouterFeature, "hjhj")
-
-//         mainPointName = blockRouterFeature?.properties?.name;
-//         console.log(mainPointName, "mammamm")
-//         if (!mainPointName) throw new Error('❌ Main point (Block Router) not found.');
-//         console.log('✅ Detected Main Point:', mainPointName);
-
-//         const pointsWithoutLgd = [];
-
-//         pointsGeoJson.features.forEach(feature => {
-//             if (feature.geometry.type === 'Point') {
-//                 let name = feature.properties.name?.trim() || '';
-//                 mainPointName = feature.properties.blk_name?.trim() || '';
-//                 name = normalizeName(name);
-//                 console.log(name);
-//                 const coordinates = feature.geometry.coordinates;
-//                 const properties = { ...feature.properties };
-//                 delete properties.description;
-
-//                 // Process ExtendedData
-//                 if (properties.ExtendedData) {
-//                     Object.entries(properties.ExtendedData).forEach(([key, value]) => {
-//                         properties[key] = value === 'NULL' ? null : value;
-//                     });
-//                     delete properties.ExtendedData;
-//                 }
-
-//                 // Check for LGD code
-//                 // const lgdCode = properties.lgd_code || properties.LGDCode || properties.lgd; // Adjust key name(s) as needed
-//                 // if (!lgdCode || lgdCode === 'NULL' || lgdCode === '') {
-//                 //     pointsWithoutLgd.push(name || 'Unnamed Point');
-//                 // }
-
-//                 if (!rawPoints.has(name)) {
-//                     rawPoints.set(name, {
-//                         name,
-//                         coordinates: coordinates.slice(0, 2),
-//                         properties,
-//                         styleUrl: feature.properties.styleUrl || null,
-//                     });
-//                 }
-//             }
-//         });
-
-//         // Throw error if any points lack LGD codes
-//         // if (pointsWithoutLgd.length > 0) {
-//         //     throw new Error(`❌ The following points are missing LGD codes: ${pointsWithoutLgd.join(', ')}`);
-//         // }
-
-//         globalPoints = Array.from(rawPoints.values());
-//         fs.unlinkSync(pointsPath);
-//         res.json({
-//             points: globalPoints,
-//             mainPointName,
-//         });
-//     } catch (err) {
-//         console.error('❌ Points processing error:', err);
-//         res.status(500).json({ error: 'Failed to process points KML file', details: err.message });
-//     }
-// };
-
-async  function uploadPoints(req, res) {
+async function uploadPoints(req, res) {
     try {
         const pointsPath = req.file.path;
         const pointsKmlData = fs.readFileSync(pointsPath, 'utf8');
@@ -249,7 +170,7 @@ async  function uploadPoints(req, res) {
         });
 
         const originalFileName = req.file.originalname;
-        const mainPointName = path.parse(originalFileName).name;
+        mainPointName = pointsPath
         // if (!mainPointName) throw new Error('❌ Main point (Block Router) not found.');
         // console.log('✅ Detected Main Point:', mainPointName);
 
@@ -258,7 +179,7 @@ async  function uploadPoints(req, res) {
         pointsGeoJson.features.forEach(feature => {
             if (feature.geometry.type === 'Point') {
                 let name = feature.properties.name?.trim() || '';
-                //mainPointName = feature.properties.blk_name?.trim() || '';
+                mainPointName = feature.properties.blk_name?.trim() || '';
                 name = normalizeName(name);
                 console.log(name);
                 const coordinates = feature.geometry.coordinates;
@@ -270,7 +191,7 @@ async  function uploadPoints(req, res) {
                     Object.entries(properties.ExtendedData).forEach(([key, value]) => {
                         properties[key] = value === 'NULL' ? null : value;
                     });
-                    properties.ExtendedData;
+                    delete properties.ExtendedData;
                 }
 
                 // Check for LGD code
@@ -291,9 +212,9 @@ async  function uploadPoints(req, res) {
         });
 
         // Throw error if any points lack LGD codes
-        if (pointsWithoutLgd.length > 0) {
-            throw new Error(`❌ The following points are missing LGD codes: ${pointsWithoutLgd.join(', ')}`);
-        }
+        // if (pointsWithoutLgd.length > 0) {
+        //     throw new Error(`❌ The following points are missing LGD codes: ${pointsWithoutLgd.join(', ')}`);
+        // }
 
         globalPoints = Array.from(rawPoints.values());
         fs.unlinkSync(pointsPath);
@@ -331,8 +252,8 @@ async function uploadConnection(req, res) {
                     parseFloat(
                         feature.properties.len ||
                         feature.properties.length ||
-                        feature.properties['Data.length'] || 
-                        feature.properties.seg_length || 
+                        feature.properties['Data.length'] ||
+                        feature.properties.seg_length ||
                         0
                     );
 
@@ -366,7 +287,6 @@ async function uploadConnection(req, res) {
         res.status(500).json({ error: 'Failed to process connections KML file', details: err.message });
     }
 }
-
 
 
 
@@ -491,9 +411,25 @@ async function savetodb(req, res) {
             throw new Error('Missing required fields: globalData.loop, globalData.mainPointName, or polylineHistory');
         }
 
-        // Connect to MySQL
-        connection = await pool.getConnection();
-        await connection.beginTransaction();
+        // ---- Validation ----
+        //1. Check lgd_code for all points
+        for (const point of globalData.loop) {
+            console.log(point.lgd_code)
+            if (!point.lgd_code || point.lgd_code.toString().trim() === "" || point.lgd_code == 'NULL') {
+                console.log("notherebro")
+                throw new Error(`Missing lgd_code for point: ${point.name || "unknown"}`);
+            }
+        }
+
+        // 2. Check startCords & endCords for all connections
+        for (const [key, data] of Object.entries(polylineHistory)) {
+            const startCords = data.segmentData?.startCords;
+            const endCords = data.segmentData?.endCords;
+
+            if (!startCords || !endCords) {
+                throw new Error(`Missing startCords or endCords in connection: ${key}`);
+            }
+        }
 
         // Extract data
         let totalLength = globalData.totalLength;
@@ -506,17 +442,21 @@ async function savetodb(req, res) {
         let blk_code = globalData.blk_code
         let blk_name = globalData.blk_name
 
-        if (!dt_code || !dt_name || !st_code || !st_name || !blk_code || !blk_name ) {
+        if (!dt_code || !dt_name || !st_code || !st_name || !blk_code || !blk_name) {
             throw new Error('Missing required fields: st_code, st_name, dt_code, dt_name, blk_name, blk_code');
         }
+
+
+        connection = await pool.getConnection();
+        await connection.beginTransaction();
 
         // Insert into networks
         const networkName = globalData.mainPointName;
         const [networkResult] = await connection.execute(
             `INSERT INTO networks 
-            (name, total_length, main_point_name, existing_length, proposed_length, dt_code, dt_name, st_code, st_name, blk_code, blk_name  user_id, user_name, status) 
+            (name, total_length, main_point_name, existing_length, proposed_length, dt_code, dt_name, st_code, st_name, blk_code, blk_name, user_id, user_name, status) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [networkName, totalLength, networkName, extlength, proposedlength, dt_code, dt_name, st_code, st_name, blk_code, blk_name,  user_id, user_name, "unverified"]
+            [networkName, totalLength, networkName, extlength, proposedlength, dt_code, dt_name, st_code, st_name, blk_code, blk_name, user_id, user_name, "unverified"]
         );
         const networkId = networkResult.insertId;
 
@@ -524,7 +464,7 @@ async function savetodb(req, res) {
         const pointIdMap = new Map();
         for (const point of globalData.loop) {
             if (!point.name || !point.coordinates) {
-                console.warn(`Skipping point: Invalid name or coordinates`, point);
+                console.warn(`Skipping point: Invalid name or coordinates, point`);
                 continue;
             }
 
@@ -532,14 +472,14 @@ async function savetodb(req, res) {
             if (!pointIdMap.has(normalizedName)) {
                 const coords = normalizeCoordinates(point.coordinates);
                 if (!coords || coords[0] === null || coords[1] === null) {
-                    console.warn(`Skipping point: Invalid coordinates for ${normalizedName}`, point.coordinates);
+                    console.warn(`Skipping point: Invalid coordinates for ${normalizedName}, point.coordinates`);
                     continue;
                 }
 
                 const [pointResult] = await connection.execute(
                     `INSERT INTO points (network_id, name, coordinates, lgd_code, properties) 
                      VALUES (?, ?, ?, ?, ?)`,
-                    [networkId, normalizedName, JSON.stringify(coords), point.lgd_code || null,  point.properties]
+                    [networkId, normalizedName, JSON.stringify(coords), point.lgd_code || null, point.properties]
                 );
 
                 pointIdMap.set(normalizedName, pointResult.insertId);
@@ -548,18 +488,14 @@ async function savetodb(req, res) {
 
         // Insert connections
         for (const [key, data] of Object.entries(polylineHistory)) {
-            const match = key.match(/^(.+?)\s+TO\s+(.+)$/);
-            if (!match) {
-                console.warn(`Skipping polylineHistory entry: Invalid key format: ${key}`);
-                continue;
-            }
-            let [start, end] = match.slice(1).map(normalizeName);
-
-            const startPointId = pointIdMap.get(start);
-            const endPointId = pointIdMap.get(end);
-
-            if (!startPointId || !endPointId) {
-                console.warn(`Skipping connection ${key}: Missing point IDs for start or end`);
+            const startCode = data.segmentData?.startCords;
+            const endCode = data.segmentData?.endCords;
+            const parts = key.split("To");
+            let startname = parts[0];
+            let endname = parts[1];
+            console.log(startname, endname)
+            if (!startCode || !endCode) {
+                console.warn(`Skipping connection ${key}: Missing startCords or endCords`);
                 continue;
             }
 
@@ -580,17 +516,16 @@ async function savetodb(req, res) {
 
             const length = data.segmentData?.connection?.length ||
                 (coordinates.length >= 2 ? calculateDistance(coordinates[0], coordinates[coordinates.length - 1]) : 0);
+
             const color = data.segmentData?.connection?.color || '#000000';
             const type = (data.segmentData?.connection?.existing === true) ? "existing" : "proposed";
-            const startlatlong = data.segmentData?.startCords || "000";
-            const endlatlong = data.segmentData?.endCords || "000";
-            const  properties = data.segmentData?.properties || ''
+            const properties = data.segmentData?.properties || '';
 
             await connection.execute(
                 `INSERT INTO connections 
-                (network_id, start, end, start_point_id, end_point_id, length, original_name, coordinates, color, start_latlong, end_latlong, type, properties) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                [networkId, start, end, startPointId, endPointId, length, key, JSON.stringify(coordinates), color, startlatlong, endlatlong, type, properties]
+        (network_id, start, end, length, original_name, coordinates, color, start_latlong, end_latlong, type, properties, status") 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [networkId, startCode, endCode, length, key, JSON.stringify(coordinates), color, startCode, endCode, type, properties, "Pending"]
             );
         }
 
@@ -655,6 +590,51 @@ async function saveproperties(req, res) {
     }
 }
 
+
+async function surveyStatus(req, res) {
+    let connection;
+    try {
+        const { connectionId, status } = req.body;
+
+        if (!connectionId || !status) {
+            return res.status(400).json({
+                success: false,
+                message: "connectionId and status are required"
+            });
+        }
+
+        connection = await pool.getConnection();
+
+        const query = `
+            UPDATE connections
+            SET status = ?
+            WHERE id = ?
+        `;
+
+        const [result] = await connection.query(query, [status, connectionId]);
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No connection found with given ID"
+            });
+        }
+
+        res.json({
+            success: true,
+            message: `Status updated to '${status}' for connection ${connectionId}`
+        });
+    } catch (error) {
+        console.error("Error updating status:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error updating status",
+            error: error.message
+        });
+    } finally {
+        if (connection) connection.release();
+    }
+}
 
 async function verifynetwok(req, res) {
     let connection;
@@ -878,7 +858,7 @@ async function getnetworkId(req, res) {
         });
     } finally {
         if (connection) {
-            connection.release?.()
+            connection.release?.();
         }
     }
 };
@@ -930,7 +910,7 @@ async function getgplist(req, res) {
         });
     } finally {
         if (connection) {
-           connection.release?.()
+            connection.release?.();
         }
     }
 };
@@ -964,105 +944,6 @@ async function getuserlist(req, res) {
     }
 }
 
-
-
-
-
-
-// async function getassignedsegmnets(req, res) {
-//    let connection;
-//     try {
-//         let userid = req.params.id;
-//         if (!userid) return res.status(400).json({ success: false, details: "Please provide UserId" });
-
-//         connection = await pool.getConnection();
-//         await connection.beginTransaction();
-
-//         // Fetch connections for user
-//         const [connections] = await connection.query(
-//             'SELECT * FROM connections WHERE user_id = ?',
-//             [userid]
-//         );
-//         if (connections.length === 0) {
-//             throw new Error('No connections found for the given User ID');
-//         }
-
-//         // ---- Fetch Network Info from networks table ----
-//         let networkDetails = null, stateDetails = null, districtDetails = null, blockDetails = null;
-//         if (connections[0].network_id) {
-//             const [network] = await connection.query(
-//                 'SELECT id, name, st_code, st_name, dt_code, dt_name, blk_code, blk_name FROM networks WHERE id = ?',
-//                 [connections[0].network_id]
-//             );
-//             if (network.length > 0) {
-//                 networkDetails = network[0];
-
-//                 // Now also fetch from states, districts, blocks
-//                 const [stateRes] = await connection.query(
-//                     'SELECT * FROM states WHERE state_code = ?',
-//                     [network[0].st_code]
-//                 );
-//                 const [districtRes] = await connection.query(
-//                     'SELECT * FROM districts WHERE district_code = ?',
-//                     [network[0].dt_code]
-//                 );
-//                 const [blockRes] = await connection.query(
-//                     'SELECT * FROM blocks WHERE block_code = ?',
-//                     [network[0].blk_code]
-//                 );
-
-//                 stateDetails = stateRes.length > 0 ? stateRes[0] : null;
-//                 districtDetails = districtRes.length > 0 ? districtRes[0] : null;
-//                 blockDetails = blockRes.length > 0 ? blockRes[0] : null;
-//             }
-//         }
-
-//         // ---- Loop over connections & attach start/end from gpslist ----
-//         for (let i = 0; i < connections.length; i++) {
-//             if (connections[i].coordinates) {
-//                 try {
-//                     connections[i].coordinates = JSON.parse(connections[i].coordinates);
-//                 } catch {
-//                     connections[i].coordinates = [];
-//                 }
-//             }
-
-//             const [startPoint] = await connection.query(
-//                 'SELECT * FROM gpslist WHERE lgd_code = ?',
-//                 [connections[i].start_latlong]
-//             );
-
-//             const [endPoint] = await connection.query(
-//                 'SELECT * FROM gpslist WHERE lgd_code = ?',
-//                 [connections[i].end_latlong]
-//             );
-
-//             connections[i].start_coordinates = startPoint.length > 0 ? startPoint[0] : null;
-//             connections[i].end_coordinates = endPoint.length > 0 ? endPoint[0] : null;
-//         }
-
-//         await connection.commit();
-
-//         res.status(200).json({
-//             success: true,
-//             data: {
-//                 network: networkDetails,
-//                 state: stateDetails,
-//                 district: districtDetails,
-//                 block: blockDetails,
-//                 connections
-//             },
-//             message: 'Assigned segments data retrieved successfully'
-//         });
-
-//     } catch (error) {
-//         if (connection) await connection.rollback();
-//         console.error('Error:', error.message);
-//         res.status(500).json({ error: 'Failed to get the assigned segments', details: error.message });
-//     } finally {
-//         if (connection) connection.release();
-//     }
-// }
 
 async function getassignedsegmnets(req, res) {
     let connection;
@@ -1153,7 +1034,6 @@ async function getassignedsegmnets(req, res) {
         if (connection) connection.release();
     }
 }
-
 
 
 
@@ -2508,7 +2388,7 @@ async function getunverifiednetwork(req, res) {
         });
     } finally {
         if (connection) {
-            connection.release?.()
+            connection.release?.();
         }
     }
 };
@@ -2705,4 +2585,4 @@ async function computeroute(req, res) {
 
 
 
-module.exports = { uploadPoints, uploadConnection, showRoute, savetodb, verifynetwok, getverifiednetworks, getconnections, assignsegmnets, getnetworkId, getgplist, getuserlist, getassignedsegmnets, updtaenetwork, deletenetwork, upload, generateRoute, searchlocation, downloadkml, downloadcsv, savekml, getunverifiednetwork, previewkml, uploadfilterpoints, computeroute, saveproperties }
+module.exports = { uploadPoints, uploadConnection, showRoute, savetodb, verifynetwok, getverifiednetworks, getconnections, assignsegmnets, getnetworkId, getgplist, getuserlist, getassignedsegmnets, updtaenetwork, deletenetwork, upload, generateRoute, searchlocation, downloadkml, downloadcsv, savekml, getunverifiednetwork, previewkml, uploadfilterpoints, computeroute, saveproperties, surveyStatus }

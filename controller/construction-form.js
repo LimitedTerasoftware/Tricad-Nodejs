@@ -1,21 +1,26 @@
 const mysql = require('mysql2/promise');
+const fs = require('fs');
+const path = require('path');
+const AdmZip = require('adm-zip');
+
 
 const dbConfig = {
     host: "localhost",
     port: 3306,
-    user: "keesizta_tracking",
-    password: "Welcome@022",
-    database: "keesizta_tracking",
+    user: "pmadmin",
+    password: "AllowTsl",
+    database: "tracking",
     connectTimeout: 10000, // 10 seconds
     connectionLimit: 10,
     waitForConnections: true,
 };
 
+
+const pool = mysql.createPool(dbConfig);
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const SECRET_KEY = 'Y!2#n9T$v8Z@wQe6^Jp3R!fL*Gz7H@dK';
-
-const pool = mysql.createPool(dbConfig);
 
 async function getDepthdata(req, res) {
     let connection;
@@ -33,17 +38,17 @@ async function getDepthdata(req, res) {
         await connection.beginTransaction();
 
         let query = `
-           SELECT 
-            cf.*, 
-            gps_start.name AS start_lgd_name, 
-            gps_end.name AS end_lgd_name,
-            hm.registration_number AS machine_registration_number
-            hm.firm_name AS firm_name
-        FROM construction_forms cf
-        LEFT JOIN gpslist gps_start ON cf.start_lgd = gps_start.id
-        LEFT JOIN gpslist gps_end ON cf.end_lgd = gps_end.id
-        LEFT JOIN Hdd_machines hm ON cf.machine_id = CAST(hm.machine_id AS CHAR)
-        WHERE cf.start_lgd = ? AND cf.end_lgd = ?
+            SELECT 
+                cf.*, 
+                gps_start.name AS start_lgd_name, 
+                gps_end.name AS end_lgd_name,
+                hm.registration_number AS machine_registration_number,
+                hm.firm_name AS firm_name
+            FROM construction_forms cf
+            LEFT JOIN gpslist gps_start ON cf.start_lgd = gps_start.id
+            LEFT JOIN gpslist gps_end ON cf.end_lgd = gps_end.id
+            LEFT JOIN Hdd_machines hm ON CAST(cf.machine_id AS CHAR) = CAST(hm.machine_id AS CHAR)
+            WHERE cf.start_lgd = ? AND cf.end_lgd = ?
         `;
 
         const params = [start_lgd, end_lgd];
@@ -53,7 +58,7 @@ async function getDepthdata(req, res) {
             params.push(eventType);
         }
 
-        query += ` ORDER BY cf.created_at ASC`;
+        query += ` ORDER BY cf.id ASC`;
 
         const [rows] = await connection.query(query, params);
 
@@ -61,7 +66,7 @@ async function getDepthdata(req, res) {
 
         return res.status(200).send({
             status: true,
-            data: rows,
+            data: rows
         });
 
     } catch (error) {
@@ -78,93 +83,81 @@ async function getDepthdata(req, res) {
 
 
 
-
-async function getLatestMachineActivity(req, res) {
+async function getFilteredSurveys(req, res) {
     let connection;
     try {
-        const { state_id, district_id, block_id } = req.query;
+        const { state_id, district_id, block_id, from_date, to_date } = req.query;
 
         connection = await pool.getConnection();
         await connection.beginTransaction();
 
-        // Get all machines and their registration_number
-        const [machines] = await connection.query(`SELECT machine_id, registration_number, authorised_person FROM Hdd_machines`);
+        let query = `
+            SELECT
+                ufs.*,
+                gps_start.name AS start_lgd_name,
+                gps_end.name AS end_lgd_name,
+                gps_start.st_name AS state_name,
+                gps_start.dt_name AS district_name,
+                gps_start.blk_name AS block_name,
+                users.fullname AS user_name,
+                users.contact_no  AS  user_mobile 
+            FROM underground_fiber_surveys ufs
+            LEFT JOIN gpslist gps_start ON ufs.startLocation = gps_start.id
+            LEFT JOIN gpslist gps_end ON ufs.endLocation = gps_end.id
+            LEFT JOIN users ON ufs.user_id = users.id
+            WHERE ufs.surveyType = '1'
+        `;
 
-        let results = [];
+        const params = [];
 
-        for (const machine of machines) {
-            let query = `
-                SELECT 
-                    cf.*, 
-                    gps_start.name AS start_lgd_name,
-                    gps_end.name AS end_lgd_name
-                FROM construction_forms cf
-                LEFT JOIN gpslist gps_start ON cf.start_lgd = gps_start.id
-                LEFT JOIN gpslist gps_end ON cf.end_lgd = gps_end.id
-                LEFT JOIN underground_fiber_surveys ufs ON cf.survey_id = ufs.id
-                WHERE cf.machine_id = ?
-            `;
-
-            let params = [machine.machine_id];
-
-            // Add optional filters
-            if (state_id) {
-                query += ` AND ufs.state_id = ?`;
-                params.push(state_id);
-            }
-
-            if (district_id) {
-                query += ` AND ufs.district_id = ?`;
-                params.push(district_id);
-            }
-
-            if (block_id) {
-                query += ` AND ufs.block_id = ?`;
-                params.push(block_id);
-            }
-
-            query += ` ORDER BY cf.created_at DESC LIMIT 1`;
-
-            const [rows] = await connection.query(query, params);
-
-            if (rows.length > 0) {
-                results.push({
-                    ...rows[0],
-                    machine_id: machine.machine_id,
-                    registration_number: machine.registration_number,
-                    authorised_person: machine.authorised_person
-
-
-                });
-            } else {
-                results.push({
-                    machine_id: machine.machine_id,
-                    registration_number: machine.registration_number,
-                    message: 'No activity found',
-                    authorised_person: machine.authorised_person
-                });
-            }
+        if (state_id) {
+            query += ` AND ufs.state_id = ?`;
+            params.push(state_id);
         }
+
+        if (district_id) {
+            query += ` AND ufs.district_id = ?`;
+            params.push(district_id);
+        }
+
+        if (block_id) {
+            query += ` AND ufs.block_id = ?`;
+            params.push(block_id);
+        }
+
+        if (from_date && to_date) {
+            query += ` AND DATE(ufs.created_at) BETWEEN ? AND ?`;
+            params.push(from_date, to_date);
+        } else if (from_date) {
+            query += ` AND DATE(ufs.created_at) >= ?`;
+            params.push(from_date);
+        } else if (to_date) {
+            query += ` AND DATE(ufs.created_at) <= ?`;
+            params.push(to_date);
+        }
+
+        query += ` ORDER BY ufs.created_at DESC`;
+
+        const [rows] = await connection.query(query, params);
 
         await connection.commit();
 
         return res.status(200).send({
             status: true,
-            latestActivities: results
+            data: rows,
         });
 
     } catch (error) {
         if (connection) await connection.rollback();
-        console.error("Error in getLatestMachineActivity:", error);
+        console.error("Error in getFilteredSurveys:", error);
         return res.status(500).send({
             status: false,
-            error: error.message || "Internal server error"
+            error: error.message || "Internal server error",
         });
     } finally {
         if (connection) connection.release();
     }
 }
-
 
 
 async function getDepthDataByDateAndMachine(req, res) {
@@ -183,11 +176,10 @@ async function getDepthDataByDateAndMachine(req, res) {
 
         connection = await pool.getConnection();
 
-        let query = `SELECT
+             let query = `SELECT
     cf.*,
     gps_start.name AS start_lgd_name,
     gps_end.name AS end_lgd_name,
-    hm.registration_number AS machine_registration_number,
     hm.registration_number AS machine_registration_number,
     gps_st.st_name AS state_name,
     gps_dt.dt_name AS district_name,
@@ -201,6 +193,9 @@ LEFT JOIN gpslist gps_st ON gps_st.st_code = ufs.state_id
 LEFT JOIN gpslist gps_dt ON gps_dt.dt_code = ufs.district_id
 LEFT JOIN gpslist gps_blk ON gps_blk.blk_code = ufs.block_id
 WHERE cf.created_at BETWEEN ? AND ?`
+
+
+
 
 
         const params = [from, to];
@@ -230,9 +225,6 @@ WHERE cf.created_at BETWEEN ? AND ?`
         if (connection) connection.release();
     }
 }
-
-
-
 
 
 async function createMachine(req, res) {
@@ -276,14 +268,18 @@ async function createMachine(req, res) {
 
         const [result] = await connection.execute(
             `INSERT INTO Hdd_machines (
-                serial_number, firm_name, authorised_person,
-                machine_make, capacity, machine_model, no_of_rods,
-                digitrack_make, digitrack_model,
-                truck_make, truck_model,
-                registration_number, registration_valid_upto,
-                driver_batch_no, driver_valid_upto,
-                status
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            serial_number, firm_name, authorised_person,
+            machine_make, capacity, machine_model, no_of_rods,
+            digitrack_make, digitrack_model,
+            truck_make, truck_model,
+            registration_number, registration_valid_upto,
+            driver_batch_no, driver_valid_upto,
+            status, supervisor_name,
+            supervisor_email,
+            supervisor_phone,
+            author_phone
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+
             [
                 serial_number,
                 firm_name || null,
@@ -301,7 +297,7 @@ async function createMachine(req, res) {
                 driver_batch_no || null,
                 driver_valid_upto || null,
                 status,
-                 supervisor_name || null,
+                supervisor_name || null,
                 supervisor_email || null,
                 supervisor_phone || null,
                 author_phone || null,
@@ -329,140 +325,6 @@ async function createMachine(req, res) {
 }
 
 
-async function updateMachine(req, res) {
-    let connection;
-    try {
-        const { machine_id } = req.params;
-        const data = req.body;
-
-        if (!machine_id) {
-            return res.status(400).send({
-                status: false,
-                message: "Missing machine_id in URL"
-            });
-        }
-
-        const {
-            serial_number,
-            firm_name,
-            authorised_person,
-            machine_make,
-            capacity,
-            machine_model,
-            no_of_rods,
-            digitrack_make,
-            digitrack_model,
-            truck_make,
-            truck_model,
-            registration_number,
-            registration_valid_upto,
-            driver_batch_no,
-            driver_valid_upto,
-            status
-        } = data;
-
-        connection = await pool.getConnection();
-        await connection.beginTransaction();
-
-        const [result] = await connection.execute(
-            `UPDATE Hdd_machines SET
-                serial_number = ?,
-                firm_name = ?,
-                authorised_person = ?,
-                machine_make = ?,
-                capacity = ?,
-                machine_model = ?,
-                no_of_rods = ?,
-                digitrack_make = ?,
-                digitrack_model = ?,
-                truck_make = ?,
-                truck_model = ?,
-                registration_number = ?,
-                registration_valid_upto = ?,
-                driver_batch_no = ?,
-                driver_valid_upto = ?,
-                status = ?
-             WHERE machine_id = ?`,
-            [
-                serial_number || null,
-                firm_name || null,
-                authorised_person || null,
-                machine_make || null,
-                capacity || null,
-                machine_model || null,
-                no_of_rods || null,
-                digitrack_make || null,
-                digitrack_model || null,
-                truck_make || null,
-                truck_model || null,
-                registration_number || null,
-                registration_valid_upto || null,
-                driver_batch_no || null,
-                driver_valid_upto || null,
-                status || 'active',
-                machine_id
-            ]
-        );
-
-        await connection.commit();
-
-        return res.status(200).send({
-            status: true,
-            message: result.affectedRows > 0 ? "Machine updated successfully" : "No machine found with this machine_id"
-        });
-
-    } catch (error) {
-        if (connection) await connection.rollback();
-        console.error("Error in updateMachine:", error);
-        return res.status(500).send({
-            status: false,
-            error: error.message || "Internal server error"
-        });
-    } finally {
-        if (connection) connection.release();
-    }
-}
-
-
-async function deleteMachine(req, res) {
-    let connection;
-    try {
-        const { machine_id } = req.params;
-
-        if (!machine_id) {
-            return res.status(400).send({
-                status: false,
-                message: "Missing machine_id in URL"
-            });
-        }
-
-        connection = await pool.getConnection();
-        await connection.beginTransaction();
-
-        const [result] = await connection.execute(
-            `UPDATE Hdd_machines SET status = 'inactive' WHERE machine_id = ?`,
-            [machine_id]
-        );
-
-        await connection.commit();
-
-        return res.status(200).send({
-            status: true,
-            message: result.affectedRows > 0 ? "Machine marked as inactive successfully" : "No machine found with this machine_id"
-        });
-
-    } catch (error) {
-        if (connection) await connection.rollback();
-        console.error("Error in deleteMachine:", error);
-        return res.status(500).send({
-            status: false,
-            error: error.message || "Internal server error"
-        });
-    } finally {
-        if (connection) connection.release();
-    }
-}
-
 
 async function getMachines(req, res) {
     let connection;
@@ -471,18 +333,7 @@ async function getMachines(req, res) {
 
         const [rows] = await connection.execute(`
             SELECT 
-                machine_id,
-                serial_number,
-                contractor_name,
-                registration_number,
-                model,
-                manufacturer,
-                year_of_manufacture,
-                gps_tracker_id,
-                status,
-                assigned_project,
-                created_at,
-                updated_at
+                *
             FROM Hdd_machines
             ORDER BY created_at DESC
         `);
@@ -514,6 +365,9 @@ async function createUser(req, res) {
 
         connection = await pool.getConnection();
         await connection.beginTransaction();
+
+        
+
 
         // 2. Create user_id (first 4 of username + last 4 of reg number)
         const userPart = username.substring(0, 4).toLowerCase().padEnd(4, 'x'); // e.g. 'john'
@@ -562,6 +416,7 @@ async function loginUser(req, res) {
     let connection;
     try {
         const { user_id, password } = req.body;
+        console.log(user_id, password, "hhh")
 
         connection = await pool.getConnection();
 
@@ -570,25 +425,25 @@ async function loginUser(req, res) {
             'SELECT * FROM users WHERE user_id = ?',
             [user_id]
         );
+        
+        console.log(rows, "roess")
 
         if (rows.length === 0) {
             return res.status(401).send({ status: false, message: "Invalid user_id or password" });
         }
 
         const user = rows[0];
-
-        // 2. Compare password using bcrypt
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            return res.status(401).send({ status: false, message: "Invalid user_id or password" });
+        if(password  != user.password ) {
+            return res.status(401).send({ status: false, message: " password is incorrect" });
         }
-
+        
+        
         // 3. Generate JWT token
         const token = jwt.sign(
             {
                 user_id: user.user_id,
                 company_id: user.company_id,
-                machine_id: user.machine_id
+                 machine_id : user.machine_id
             },
             SECRET_KEY,
             { expiresIn: '1d' }
@@ -619,14 +474,13 @@ async function loginUser(req, res) {
 }
 
 
-
 async function startpointevent(req, res) {
     let connection;
     try {
         const data = req.body;
         const {
             state_id, distrct_id, block_id, gp_id,
-            startPointCoordinates, startPointPhotoPaths,
+            startPointCoordinates,startPointPhotoPaths,
             routeBelongsTo, roadType, cableLaidOn, soilType,
             executionModality, start_lgd, end_lgd,
             machine_id, eventType, survey_id
@@ -727,7 +581,9 @@ async function createsurvey(req, res) {
             vehicleserialno,
             vehicle_image,
             startPointPhoto,
-            startPointCoordinates
+            startPointCoordinates,
+            dgps_accuracy,
+            dgps_siv
         } = req.body;
 
         const eventType = "STARTSURVEY";
@@ -757,8 +613,8 @@ async function createsurvey(req, res) {
 
         // 2️⃣ Insert vehicle info into construction_forms
         await connection.query(`
-            INSERT INTO construction_forms (survey_id, vehicleserialno, vehicle_image, start_lgd, end_lgd, eventType, startPointPhoto, startPointCoordinates)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO construction_forms (survey_id, vehicleserialno, vehicle_image, start_lgd, end_lgd, eventType, startPointPhoto, startPointCoordinates, dgps_siv, dgps_accuracy)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `, [
             survey_id,
             vehicleserialno,
@@ -767,7 +623,10 @@ async function createsurvey(req, res) {
             endLocation,
             eventType,
             startPointPhoto,
-            startPointCoordinates
+            startPointCoordinates,
+            dgps_siv,
+            dgps_accuracy
+            
         ]);
 
         await connection.commit();
@@ -795,7 +654,82 @@ async function createsurvey(req, res) {
 }
 
 
-async function getFilteredSurveys(req, res) {
+
+async function createEvent(req, res) {
+  let connection;
+  try {
+    const allowedFields = [
+      'state_id', 'distrct_id', 'block_id', 'gp_id',
+      'startPointPhoto', 'startPointCoordinates', 'routeBelongsTo', 'roadType',
+      'cableLaidOn', 'soilType', 'crossingType', 'crossingLength', 'crossingLatlong',
+      'crossingPhotos', 'executionModality', 'depthLatlong', 'depthPhoto', 'depthMeters',
+      'fpoiLatLong', 'fpoiPhotos', 'jointChamberLatLong', 'jointChamberPhotos',
+      'manholeLatLong', 'manholePhotos', 'routeIndicatorLatLong', 'routeIndicatorPhotos',
+      'landmarkLatLong', 'landmarkPhotos', 'fiberTurnLatLong', 'fiberTurnPhotos',
+      'kilometerstoneLatLong', 'kilometerstonePhotos', 'status', 'start_lgd', 'end_lgd',
+      'machine_id', 'contractor_details', 'vehicleserialno', 'distance',
+      'startPitLatlong', 'startPitPhotos', 'endPitLatlong', 'endPitPhotos','area_type',
+      'roadWidthLatlong', 'roadWidth', 'roadWidthPhotos', 'eventType', 'Roadfesibility', 
+      'survey_id', 'vehicle_image', 'endPitDoc', 'landmark_description', 'landmark_type', 'endPointCoordinates', 'endPointPhoto', 'holdLatlong', 'holdPhotos', "road_margin",
+      "dgps_accuracy", "dgps_siv", 'videoDetails', 'blowingLatLong', 'blowingPhotos'
+    ];
+
+    const body = req.body;
+    const columns = [];
+    const values = [];
+    const placeholders = [];
+
+    // Auto-generate link_name if both start_lgd and end_lgd are present
+    if (body.start_lgd && body.end_lgd) {
+      body.link_name = `${body.start_lgd}_${body.end_lgd}`;
+    }
+
+    for (const field of [...allowedFields, 'link_name']) {
+      if (body[field] !== undefined) {
+        columns.push(field);
+        const value = (Array.isArray(body[field]) || typeof body[field] === 'object')
+          ? JSON.stringify(body[field])
+          : body[field];
+        values.push(value);
+        placeholders.push('?');
+      }
+    }
+
+    if (columns.length === 0) {
+      return res.status(400).json({ status: false, message: 'No valid data provided.' });
+    }
+
+    connection = await pool.getConnection();
+    await connection.beginTransaction();
+
+    const query = `
+      INSERT INTO construction_forms (${columns.join(', ')})
+      VALUES (${placeholders.join(', ')})
+    `;
+
+    await connection.query(query, values);
+    await connection.commit();
+
+    res.status(201).json({
+      status: true,
+      message: "Construction data saved successfully",
+      link_name: body.link_name || null
+    });
+
+  } catch (error) {
+    if (connection) await connection.rollback();
+    console.error('Error saving construction data:', error);
+    res.status(500).json({
+      status: false,
+      error: error.message
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
+async function getLatestMachineActivity(req, res) {
     let connection;
     try {
         const { state_id, district_id, block_id } = req.query;
@@ -803,44 +737,75 @@ async function getFilteredSurveys(req, res) {
         connection = await pool.getConnection();
         await connection.beginTransaction();
 
-        // Start with surveyType = 1 condition
-        let query = `SELECT * FROM underground_fiber_surveys WHERE surveyType = '1'`;
-        let params = [];
+        // Get all machines and their registration_number
+ const [machines] = await connection.query(`SELECT machine_id, registration_number, authorised_person FROM Hdd_machines`);
 
-        // Optional filters
-        if (state_id) {
-            query += ` AND state_id = ?`;
-            params.push(state_id);
+        let results = [];
+
+        for (const machine of machines) {
+            let query = `
+                SELECT 
+                    cf.*, 
+                    gps_start.name AS start_lgd_name,
+                    gps_end.name AS end_lgd_name
+                FROM construction_forms cf
+                LEFT JOIN gpslist gps_start ON cf.start_lgd = gps_start.id
+                LEFT JOIN gpslist gps_end ON cf.end_lgd = gps_end.id
+                LEFT JOIN underground_fiber_surveys ufs ON cf.survey_id = ufs.id
+                WHERE cf.machine_id = ?
+            `;
+
+            let params = [machine.machine_id];
+
+            // Add optional filters
+            if (state_id) {
+                query += ` AND ufs.state_id = ?`;
+                params.push(state_id);
+            }
+
+            if (district_id) {
+                query += ` AND ufs.district_id = ?`;
+                params.push(district_id);
+            }
+
+            if (block_id) {
+                query += ` AND ufs.block_id = ?`;
+                params.push(block_id);
+            }
+
+            query += ` ORDER BY cf.created_at DESC LIMIT 1`;
+
+            const [rows] = await connection.query(query, params);
+
+            if (rows.length > 0) {
+                results.push({
+                    ...rows[0],
+                    machine_id: machine.machine_id,
+                    registration_number: machine.registration_number,
+                    authorised_person : machine.authorised_person
+                });
+            } else {
+                results.push({
+                    machine_id: machine.machine_id,
+                    registration_number: machine.registration_number,
+                    message: 'No activity found'
+                });
+            }
         }
-
-        if (district_id) {
-            query += ` AND district_id = ?`;
-            params.push(district_id);
-        }
-
-        if (block_id) {
-            query += ` AND block_id = ?`;
-            params.push(block_id);
-        }
-
-        // Sort by latest created_at
-        query += ` ORDER BY created_at DESC`;
-
-        const [rows] = await connection.query(query, params);
 
         await connection.commit();
 
         return res.status(200).send({
             status: true,
-            data: rows,
+            latestActivities: results
         });
 
     } catch (error) {
         if (connection) await connection.rollback();
-        console.error("Error in getFilteredSurveys:", error);
+        console.error("Error in getLatestMachineActivity:", error);
         return res.status(500).send({
             status: false,
-            error: error.message || "Internal server error",
+            error: error.message || "Internal server error"
         });
     } finally {
         if (connection) connection.release();
@@ -849,78 +814,141 @@ async function getFilteredSurveys(req, res) {
 
 
 
-async function createEvent(req, res) {
+
+async function updateMachine(req, res) {
     let connection;
     try {
-        const allowedFields = [
-            'state_id', 'distrct_id', 'block_id', 'gp_id',
-            'startPointPhoto', 'startPointCoordinates', 'routeBelongsTo', 'roadType',
-            'cableLaidOn', 'soilType', 'crossingType', 'crossingLength', 'crossingLatlong',
-            'crossingPhotos', 'executionModality', 'depthLatlong', 'depthPhoto', 'depthMeters',
-            'fpoiLatLong', 'fpoiPhotos', 'jointChamberLatLong', 'jointChamberPhotos',
-            'manholeLatLong', 'manholePhotos', 'routeIndicatorLatLong', 'routeIndicatorPhotos',
-            'landmarkLatLong', 'landmarkPhotos', 'fiberTurnLatLong', 'fiberTurnPhotos',
-            'kilometerstoneLatLong', 'kilometerstonePhotos', 'status', 'start_lgd', 'end_lgd',
-            'machine_id', 'contractor_details', 'vehicleserialno', 'distance',
-            'startPitLatlong', 'startPitPhotos', 'endPitLatlong', 'endPitPhotos',
-            'roadWidthLatlong', 'roadWidth', 'roadWidthPhotos', 'eventType',
-            'survey_id', 'vehicle_image', 'endPitDoc', 'holdLatlong', ''
-        ];
+        const { machine_id } = req.params;
+        const data = req.body;
 
-        const body = req.body;
-        const columns = [];
-        const values = [];
-        const placeholders = [];
-
-        // Auto-generate link_name if both start_lgd and end_lgd are present
-        if (body.start_lgd && body.end_lgd) {
-            body.link_name = `${body.start_lgd}_${body.end_lgd}`;
+        if (!machine_id) {
+            return res.status(400).send({
+                status: false,
+                message: "Missing machine_id in URL"
+            });
         }
 
-        for (const field of [...allowedFields, 'link_name']) {
-            if (body[field] !== undefined) {
-                columns.push(field);
-                const value = Array.isArray(body[field])
-                    ? JSON.stringify(body[field])
-                    : body[field];
-                values.push(value);
-                placeholders.push('?');
-            }
-        }
+        const {
+            serial_number,
+            firm_name,
+            authorised_person,
+            machine_make,
+            capacity,
+            machine_model,
+            no_of_rods,
+            digitrack_make,
+            digitrack_model,
+            truck_make,
+            truck_model,
+            registration_number,
+            registration_valid_upto,
+            driver_batch_no,
+            driver_valid_upto,
+            status
+        } = data;
 
-        if (columns.length === 0) {
-            return res.status(400).json({ status: false, message: 'No valid data provided.' });
+        connection = await pool.getConnection();
+        await connection.beginTransaction();
+
+        const [result] = await connection.execute(
+            `UPDATE Hdd_machines SET
+                serial_number = ?,
+                firm_name = ?,
+                authorised_person = ?,
+                machine_make = ?,
+                capacity = ?,
+                machine_model = ?,
+                no_of_rods = ?,
+                digitrack_make = ?,
+                digitrack_model = ?,
+                truck_make = ?,
+                truck_model = ?,
+                registration_number = ?,
+                registration_valid_upto = ?,
+                driver_batch_no = ?,
+                driver_valid_upto = ?,
+                status = ?
+             WHERE machine_id = ?`,
+            [
+                serial_number || null,
+                firm_name || null,
+                authorised_person || null,
+                machine_make || null,
+                capacity || null,
+                machine_model || null,
+                no_of_rods || null,
+                digitrack_make || null,
+                digitrack_model || null,
+                truck_make || null,
+                truck_model || null,
+                registration_number || null,
+                registration_valid_upto || null,
+                driver_batch_no || null,
+                driver_valid_upto || null,
+                status || 'active',
+                machine_id
+            ]
+        );
+
+        await connection.commit();
+
+        return res.status(200).send({
+            status: true,
+            message: result.affectedRows > 0 ? "Machine updated successfully" : "No machine found with this machine_id"
+        });
+
+    } catch (error) {
+        if (connection) await connection.rollback();
+        console.error("Error in updateMachine:", error);
+        return res.status(500).send({
+            status: false,
+            error: error.message || "Internal server error"
+        });
+    } finally {
+        if (connection) connection.release();
+    }
+}
+
+
+
+async function deleteMachine(req, res) {
+    let connection;
+    try {
+        const { machine_id } = req.params;
+
+        if (!machine_id) {
+            return res.status(400).send({
+                status: false,
+                message: "Missing machine_id in URL"
+            });
         }
 
         connection = await pool.getConnection();
         await connection.beginTransaction();
 
-        const query = `
-      INSERT INTO construction_forms (${columns.join(', ')})
-      VALUES (${placeholders.join(', ')})
-    `;
+        const [result] = await connection.execute(
+            `UPDATE Hdd_machines SET status = 'inactive' WHERE machine_id = ?`,
+            [machine_id]
+        );
 
-        await connection.query(query, values);
         await connection.commit();
 
-        res.status(201).json({
+        return res.status(200).send({
             status: true,
-            message: "Construction data saved successfully",
-            link_name: body.link_name || null
+            message: result.affectedRows > 0 ? "Machine marked as inactive successfully" : "No machine found with this machine_id"
         });
 
     } catch (error) {
         if (connection) await connection.rollback();
-        console.error('Error saving construction data:', error);
-        res.status(500).json({
+        console.error("Error in deleteMachine:", error);
+        return res.status(500).send({
             status: false,
-            error: error.message
+            error: error.message || "Internal server error"
         });
     } finally {
         if (connection) connection.release();
     }
 }
-
 
 
 async function getMachineDailyDistances(req, res) {
@@ -1013,9 +1041,18 @@ async function getMachineDailyDistances(req, res) {
 
 
 
-
-// Utility to calculate distance between two lat-long points
-
+// Haversine Distance (KM)
+function haversineDistance(lat1, lon1, lat2, lon2) {
+    const toRad = deg => deg * Math.PI / 180;
+    const R = 6371;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat / 2) ** 2 +
+              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+              Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
 
 
 async function editImages(req, res) {
@@ -1056,67 +1093,6 @@ async function editImages(req, res) {
         if (connection) connection.release();
     }
 }
-
-
-//----------------------edit physical survey image--------------------------------------
-
-async function editphysicalsurvey(req, res) {
-    let connection;
-    try {
-        const { id, ...updateFields } = req.body;
-
-        if (!id || Object.keys(updateFields).length === 0) {
-            return res.status(400).json({
-                status: false,
-                error: "Missing id or fields to update"
-            });
-        }
-
-        connection = await pool.getConnection();
-        await connection.beginTransaction();
-
-        // These are fields in your table that need to be stored as JSON (longtext)
-        const jsonFields = [
-            "patroller_details",
-            "road_crossing",
-            "route_details",
-            "route_feasibility",
-            "videoDetails",
-            "utility_features_checked",
-            "start_photos",
-            "end_photos"
-        ];
-
-        for (const key of jsonFields) {
-            if (updateFields[key] && typeof updateFields[key] !== 'string') {
-                updateFields[key] = JSON.stringify(updateFields[key]);
-            }
-        }
-
-        const setClause = Object.keys(updateFields)
-            .map(key => `${key} = ?`)
-            .join(', ');
-        const values = Object.values(updateFields);
-        values.push(id); // Add `id` for WHERE clause
-
-        const query = `UPDATE underground_survey_data SET ${setClause} WHERE id = ?`;
-        await connection.query(query, values);
-        await connection.commit();
-
-        return res.status(200).json({
-            status: true,
-            message: "Survey data updated successfully"
-        });
-
-    } catch (error) {
-        if (connection) await connection.rollback();
-        console.error("Error in editSurveyData:", error);
-        res.status(500).json({ status: false, error: error.message });
-    } finally {
-        if (connection) connection.release();
-    }
-}
-
 
 
 async function getSurveyHistoryByUser(req, res) {
@@ -1186,25 +1162,6 @@ async function getSurveyHistoryByUser(req, res) {
 
 
 
-
-
-
-const haversineDistance = (lat1, lon1, lat2, lon2) => {
-  const toRad = (val) => (val * Math.PI) / 180;
-  const R = 6371; // Earth radius in KM
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
-
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRad(lat1)) *
-      Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) ** 2;
-
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; // in KM
-};
-
 async function getMachineMonthlyAmount(req, res) {
     let connection;
     try {
@@ -1267,7 +1224,8 @@ async function getMachineMonthlyAmount(req, res) {
 
             // === DEPTH PENALTIES ===
             if (!depthMeters || isNaN(depthMeters)) continue;
-             const depth = parseFloat(depthMeters) * 100; 
+            const depth = parseFloat(depthMeters) * 100;
+            depthDetails.totalDepthEvents++;
 
             const event = {
                 id,
@@ -1351,7 +1309,7 @@ async function getMachineMonthlyAmount(req, res) {
                 monthlyPenalty = (monthlyTotalDistance < 5) ? segments * 42000 : segments * 40000;
             } else if (monthlyTotalDistance > monthlyBaseline) {
                 const excess = monthlyTotalDistance - monthlyBaseline;
-                const segments = (excess / segmentSize);
+                const segments =(excess / segmentSize);
                 monthlyIncentive = (monthlyTotalDistance <= 10) ? segments * 42000 : segments * 45000;
             }
 
@@ -1364,7 +1322,7 @@ async function getMachineMonthlyAmount(req, res) {
                 machineRent,
                 monthlyPenalty: monthlyPenalty > 0 ? monthlyPenalty : null,
                 monthlyIncentive: monthlyIncentive > 0 ? monthlyIncentive : null,
-                netCost: (netCost)
+                netCost: netCost
             });
         }
 
@@ -1391,6 +1349,66 @@ async function getMachineMonthlyAmount(req, res) {
         if (connection) connection.release();
     }
 }
+
+
+
+async function editphysicalsurvey(req, res) {
+    let connection;
+    try {
+        const { id, ...updateFields } = req.body;
+
+        if (!id || Object.keys(updateFields).length === 0) {
+            return res.status(400).json({
+                status: false,
+                error: "Missing id or fields to update"
+            });
+        }
+
+        connection = await pool.getConnection();
+        await connection.beginTransaction();
+
+        // These are fields in your table that need to be stored as JSON (longtext)
+        const jsonFields = [
+            "patroller_details",
+            "road_crossing",
+            "route_details",
+            "route_feasibility",
+            "videoDetails",
+            "utility_features_checked",
+            "start_photos",
+            "end_photos"
+        ];
+
+        for (const key of jsonFields) {
+            if (updateFields[key] && typeof updateFields[key] !== 'string') {
+                updateFields[key] = JSON.stringify(updateFields[key]);
+            }
+        }
+
+        const setClause = Object.keys(updateFields)
+            .map(key => `${key} = ?`)
+            .join(', ');
+        const values = Object.values(updateFields);
+        values.push(id); // Add `id` for WHERE clause
+
+        const query = `UPDATE underground_survey_data SET ${setClause} WHERE id = ?`;
+        await connection.query(query, values);
+        await connection.commit();
+
+        return res.status(200).json({
+            status: true,
+            message: "Survey data updated successfully"
+        });
+
+    } catch (error) {
+        if (connection) await connection.rollback();
+        console.error("Error in editSurveyData:", error);
+        res.status(500).json({ status: false, error: error.message });
+    } finally {
+        if (connection) connection.release();
+    }
+}
+
 
 async function getAllFirmNames(req, res) {
     let connection;
@@ -1434,81 +1452,5 @@ async function getMachinesByFirm(req, res) {
 }
 
 
-module.exports = { getDepthdata, getDepthDataByDateAndMachine, createMachine, getMachines, createUser, loginUser, startpointevent, createsurvey, createEvent, getLatestMachineActivity, getFilteredSurveys, updateMachine, deleteMachine, getMachineDailyDistances, editImages, getSurveyHistoryByUser, getMachineMonthlyAmount, editphysicalsurvey, getAllFirmNames, getMachinesByFirm };
 
-
-
-
-// {
-//                 "id": 318831,
-//                 "survey_id": "2051",
-//                 "area_type": "POPULATED",
-//                 "event_type": "VIDEORECORD",
-//                 "surveyUploaded": "true",
-//                 "fpoiUrl": "",
-//                 "execution_modality": "NONE",
-//                 "latitude": "17.4296097",
-//                 "longitude": "78.4070147",
-//                 "altitude": "517.7000122070312",
-//                 "accuracy": "7.107",
-//                 "depth": "0",
-//                 "distance_error": "0",
-//                 "patroller_details": {
-//                     "companyName": "",
-//                     "email": "",
-//                     "mobile": "",
-//                     "name": ""
-//                 },
-//                 "road_crossing": {
-//                     "endPhoto": "",
-//                     "endPhotoLat": 0,
-//                     "endPhotoLong": 0,
-//                     "length": "",
-//                     "roadCrossing": "NONE",
-//                     "startPhoto": "",
-//                     "startPhotoLat": 0,
-//                     "startPhotoLong": 0
-//                 },
-//                 "route_details": {
-//                     "centerToMargin": "2",
-//                     "roadWidth": "10",
-//                     "routeBelongsTo": "OTHERROADS",
-//                     "routeType": "THARROAD",
-//                     "soilType": "NORMAL"
-//                 },
-//                 "route_feasibility": {
-//                     "alternatePathAvailable": false,
-//                     "alternativePathDetails": "",
-//                     "routeFeasible": true
-//                 },
-//                 "routeIndicatorUrl": null,
-//                 "routeIndicatorType": "NONE",
-//                 "kmtStoneUrl": null,
-//                 "fiberTurnUrl": null,
-//                 "landMarkType": "NONE",
-//                 "landMarkUrls": null,
-//                 "side_type": "NONE",
-//                 "start_photos": [],
-//                 "end_photos": [],
-//                 "utility_features_checked": {
-//                     "localInfo": "",
-//                     "selectedGroundFeatures": []
-//                 },
-//                 "videoUrl": null,
-//                 "videoDetails": {
-//                     "endLatitude": 17.4296097,
-//                     "endLongitude": 78.4070147,
-//                     "endTimeStamp": 1753079588323,
-//                     "startLatitude": 17.4303997,
-//                     "startLongitude": 78.4062639,
-//                     "startTimeStamp": 1753079053913,
-//                     "videoUrl": "uploads\/videos\/UG_2051_1753082415_687dea2f3a42a.mp4"
-//                 },
-//                 "jointChamberUrl": "",
-//                 "createdTime": "2025-07-21 12:03:08",
-//                 "created_at": "2025-07-21 07:27:31",
-//                 "updated_at": "2025-07-21 07:27:31",
-//                 "routeIndicatorUrl_backup": null
-//             },
-//2051
-
+module.exports = { getDepthdata, getDepthDataByDateAndMachine, createMachine, getMachines, createUser, loginUser, startpointevent, createsurvey, createEvent, getLatestMachineActivity, getFilteredSurveys, updateMachine, deleteMachine, getMachineDailyDistances, editImages, getSurveyHistoryByUser, getMachineMonthlyAmount, editphysicalsurvey, getAllFirmNames, getMachinesByFirm};
