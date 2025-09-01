@@ -7,13 +7,16 @@ const mysql = require('mysql2/promise');
 const construction = require("./controller/construction-form")
 const smartinventory = require("./controller/smartinventory")
 const routebuilder = require("./controller/routebuilder")
+const gpinstallation = require("./controller/gpinstallation")
+const blockinstallation = require("./controller/block_installation")
 
+const pool = require("./db");
 
 
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '10mb' }))
-const port = 8000;
+const port = 3000;
 
 const upload = multer({ dest: 'uploads/' });
 
@@ -328,6 +331,7 @@ app.get("/machine-monthly-amount", construction.getMachineMonthlyAmount)
 app.get("/get-physical-survey", smartinventory.getSurveysByLocation)
 app.post("/update-physical-survey", construction.editphysicalsurvey)
 app.post("/get-desktop-planning", smartinventory.getdesktopPlanning)
+app.post("/delete-physicalsurvey/:id", smartinventory.deleteExternalFile)
 
 app.get("/get-firm-names", construction.getAllFirmNames)
 app.get("/get-machines", construction.getMachinesByFirm)
@@ -369,6 +373,18 @@ app.post("/download-excel", smartinventory.downloadExcel)
 
 app.post("/save-properties", routebuilder.saveproperties)
 app.post("/survey-status", routebuilder.surveyStatus)
+
+//----------------------------------------Gp installation and block installation----------------------------------------------------------
+
+app.post("/create-gp-installation",  gpinstallation.createInstallation)
+app.get("/get-gp-installation", gpinstallation.getAllInstallations)
+app.post("/update-gp-installation", gpinstallation.updateInstallation)
+
+
+app.post("/create-block-installation", blockinstallation.createBlockInstallation)
+app.get("/get-block-installation", blockinstallation.getAllBlockInstallations)
+app.post("/update-block-installation", blockinstallation.updateBlockInstallation)
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);

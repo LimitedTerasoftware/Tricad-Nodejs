@@ -14,19 +14,8 @@ const AdmZip = require('adm-zip');
 
 //local db 
 
-const dbConfig = {
-    host: "localhost",
-    port: 3306,
-    user: "pmadmin",
-    password: "AllowTsl",
-    database: "tracking",
-    connectTimeout: 10000, // 10 seconds
-    connectionLimit: 10,
-    waitForConnections: true,
-};
 
-
-const pool = mysql.createPool(dbConfig);
+const pool = require("../db");
 
 let globalPoints = null;
 let mainPointName = null;
@@ -127,11 +116,12 @@ async function getRoute(fromCoordinates, toCoordinates) {
 
 function normalizeName(name) {
     console.log(name, "rawname")
-    return name
-        .trim()
-        .replace(/\s*\([^)]+\)/, '')
-        .replace(/\s+/g, '-')
-        .toUpperCase();
+    if ((name) && name !== undefined)
+        return name
+            .trim()
+            .replace(/\s*\([^)]+\)/, '')
+            .replace(/\s+/g, '-')
+            .toUpperCase();
 }
 
 function getMidpoint(coordinates) {
@@ -1386,7 +1376,25 @@ async function upload(req, res) {
             });
         });
 
-        const mainPoint = pointMapFinal.get(normalizeName(mainPointName));
+
+        //const normalizedMainName = normalizeName(mainPointName);
+        if (mainPointName) {
+
+    const normalizedMainName = normalizeName(mainPointName);
+    mainPoint = pointMapFinal.get(normalizedMainName);
+}
+
+        if (!mainPoint) {
+            // Pick a random point from pointMapFinal
+            const allPoints = Array.from(pointMapFinal.values());
+            if (allPoints.length > 0) {
+                mainPoint = allPoints[Math.floor(Math.random() * allPoints.length)];
+                console.warn(`Main point "${mainPointName}" not found. Using random point: ${mainPoint.name}`);
+            } else {
+                console.error("pointMapFinal is empty! No points available.");
+                mainPoint = null;
+            }
+        }
         const visited = new Set([mainPoint.name]);
         const loop = [{ ...mainPoint, connection: null, route: null }];
         const polylineHistory = {};
@@ -1714,10 +1722,16 @@ async function generateRoute(req, res) {
         //if (!mainPointName) throw new Error('❌ Main point (Block Router) not found.');
         console.log('✅ Detected Main Point:', mainPointName);
 
+        //console.log(JSON.stringify(pointsGeoJson))
+
         pointsGeoJson.features.forEach(feature => {
             if (feature.geometry.type === 'Point') {
-                let name = feature.properties.name?.trim() || '';
+
+                let name = (feature.properties && feature.properties.name)
+                    ? feature.properties.name.trim()
+                    : 'noname';
                 name = normalizeName(name);
+                console.log(name, "nameee, form down")
                 const coordinates = roundCoordinates([feature.geometry.coordinates])[0];
                 const properties = { ...feature.properties };
                 delete properties.description;
@@ -1738,7 +1752,6 @@ async function generateRoute(req, res) {
                 }
             }
         });
-
         const pointMapFinal = new Map(rawPoints);
         const points = Array.from(rawPoints.values());
         const graph = {};
@@ -1753,7 +1766,26 @@ async function generateRoute(req, res) {
             });
         });
 
-        const mainPoint = pointMapFinal.get(normalizeName(mainPointName));
+        let mainPoint = null;
+
+            if (mainPointName) {
+                const normalizedMainName = normalizeName(mainPointName);
+                mainPoint = pointMapFinal.get(normalizedMainName);
+            }
+
+            if (!mainPoint) {
+                // Pick a fallback point
+                const allPoints = Array.from(pointMapFinal.values());
+                if (allPoints.length > 0) {
+                    mainPoint = allPoints[Math.floor(Math.random() * allPoints.length)];
+                    console.warn(
+                        `Main point "${mainPointName}" not found or undefined. Using fallback point: ${mainPoint.name}`
+                    );
+                } else {
+                    console.error("pointMapFinal is empty! No points available.");
+                }
+            }
+
         const visited = new Set([mainPoint.name]);
         const loop = [{ ...mainPoint, connection: null, route: null }];
         const polylineHistory = {};

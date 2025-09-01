@@ -8,21 +8,7 @@ const shpwrite = require('shp-write');
 
 
 
-const dbConfig = {
-    host: "localhost",
-    port: 3306,
-    user: "pmadmin",
-    password: "AllowTsl",
-    database: "tracking",
-    connectTimeout: 10000, // 10 seconds
-    connectionLimit: 10,
-    waitForConnections: true,
-};
-
-
-
-
-const pool = mysql.createPool(dbConfig);
+const pool = require("../db");
 
 async function getSurveysByLocation(req, res) {
     let connection;
@@ -174,7 +160,7 @@ async function uploadExternalData(req, res) {
             return res.status(400).json({ error: 'At least one file (desktop_planning or physical_survey) must be uploaded' });
         }
 
-        const { state_code, dtcode, block_code, FileName } = req.body;
+        const { state_code, dtcode, block_code, FileName, category } = req.body;
         if (!state_code || !dtcode || !block_code) {
             // Delete uploaded files if validation fails
             if (req.files.desktop_planning) fs.unlinkSync(req.files.desktop_planning[0].path);
@@ -207,8 +193,8 @@ async function uploadExternalData(req, res) {
         await connection.beginTransaction();
 
         const query = `
-            INSERT INTO external_data (state_code, dist_code, blk_code, filename, file_type, filepath, data_id)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO external_data (state_code, dist_code, blk_code, filename, file_type, filepath, data_id, category )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         `;
         const results = [];
         let dataid = Math.floor(Math.random() * 900) + 100;
@@ -216,7 +202,7 @@ async function uploadExternalData(req, res) {
             // Use connection.execute for database insertion
             await connection.execute(
                 query,
-                [state_code, dtcode, block_code, FileName, file.fileType, file.filepath, dataid]
+                [state_code, dtcode, block_code, FileName, file.fileType, file.filepath, dataid, category]
             );
             results.push({
                 state_code,
@@ -225,7 +211,8 @@ async function uploadExternalData(req, res) {
                 filename: FileName,
                 file_type: file.fileType,
                 filepath: file.filepath,
-                data_id: dataid
+                data_id: dataid,
+                category : category
             });
         }
 
@@ -257,9 +244,11 @@ async function uploadExternalData(req, res) {
 async function getEXternalfiles(req, res) {
     let connection;
     try {
-        const { state_code, dtcode, block_code, filename } = req.query;
+        const { state_code, dtcode, block_code, filename, category } = req.query;
 
-        let query = 'SELECT id,state_code, dist_code, blk_code, filename, file_type, filepath, data_id, uploaded_at FROM external_data WHERE 1=1';
+        let query = `SELECT id, state_code, dist_code, blk_code, filename, file_type, category, filepath, data_id, uploaded_at 
+                     FROM external_data 
+                     WHERE 1=1`;
         const params = [];
 
         if (state_code) {
@@ -282,13 +271,19 @@ async function getEXternalfiles(req, res) {
             params.push(`%${filename}%`);
         }
 
+        if (category) {
+            query += ' AND category = ?';
+            params.push(category);
+        }
+
         connection = await pool.getConnection();
 
         const [rows] = await connection.execute(query, params);
+
         const groupedByDataId = rows.reduce((acc, row) => {
             const rowWithUrl = {
                 ...row,
-                file_url: `/Uploads/${row.filepath}`
+                file_url: `/externaldata/${row.filepath}`  // fixed path
             };
             const existingGroup = acc.find(group => group[0]?.data_id === row.data_id);
             if (existingGroup) {
@@ -317,6 +312,57 @@ async function getEXternalfiles(req, res) {
     }
 };
 
+async function deleteExternalFile(req, res) {
+    let connection;
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).json({ error: "id is required" });
+        }
+
+        connection = await pool.getConnection();
+
+        // Get file path from DB
+        const [rows] = await connection.execute(
+            "SELECT filepath FROM external_data WHERE id = ?",
+            [id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({ error: "File not found in DB" });
+        }
+
+        const filePath = rows[0].filepath; // e.g. "externaldata/KMZ/20250823075546.kmz"
+        const fullFilePath = path.join(process.cwd(), filePath);
+
+        // Delete DB record first
+        await connection.execute("DELETE FROM external_data WHERE id = ?", [id]);
+
+        // Then try deleting file from server
+        fs.unlink(fullFilePath, (err) => {
+            if (err) {
+                console.error("File deletion error:", err);
+                return res.status(500).json({
+                    error: "DB record deleted, but file deletion failed",
+                    deleted_id: id,
+                    filepath: filePath
+                });
+            }
+        });
+
+        res.json({
+            message: "File deleted successfully (DB + externaldata folder)",
+            deleted_id: id,
+            filepath: filePath
+        });
+
+    } catch (err) {
+        console.error("Error deleting file:", err);
+        res.status(500).json({ error: "Server error", code: "SERVER_ERROR" });
+    } finally {
+        if (connection) connection.release();
+    }
+}
 
 async function previewfile(req, res) {
     //let connection;
@@ -540,12 +586,10 @@ async function insertFpoi(req, res) {
 async function getGpsListPaginated(req, res) {
     let connection;
     try {
-        // Get pagination details
         const page = parseInt(req.query.page) || 1;
         const limit = 15;
         const offset = (page - 1) * limit;
 
-        // Get optional filters
         const { st_code, dt_code, blk_code, type } = req.query;
 
         const conditions = [];
@@ -572,7 +616,7 @@ async function getGpsListPaginated(req, res) {
 
         connection = await pool.getConnection();
 
-        // Count with filters
+        // count
         const [countResult] = await connection.execute(
             `SELECT COUNT(*) AS total FROM gpslist ${whereClause}`,
             params
@@ -580,81 +624,10 @@ async function getGpsListPaginated(req, res) {
         const totalRows = countResult[0].total;
         const totalPages = Math.ceil(totalRows / limit);
 
-        // Fetch paginated data with filters
+        // fetch
         const [rows] = await connection.execute(
-            `SELECT * FROM gpslist ${whereClause} ORDER BY id DESC LIMIT ? OFFSET ?`,
-            [...params, limit, offset]
-        );
-
-        return res.status(200).send({
-            status: true,
-            currentPage: page,
-            totalPages,
-            totalRows,
-            filters: { st_code, dt_code, blk_code, type },
-            data: rows
-        });
-
-    } catch (error) {
-        console.error("Error fetching paginated GPS list:", error);
-        return res.status(500).send({
-            status: false,
-            message: "Internal Server Error",
-            error: error.message
-        });
-    } finally {
-        if (connection) connection.release?.();
-    }
-}
-
-
-async function getGpsListPaginated(req, res) {
-    let connection;
-    try {
-        // Get pagination details
-        const page = parseInt(req.query.page) || 1;
-        const limit = 15;
-        const offset = (page - 1) * limit;
-
-        // Get optional filters
-        const { st_code, dt_code, blk_code, type } = req.query;
-
-        const conditions = [];
-        const params = [];
-
-        if (st_code) {
-            conditions.push("st_code = ?");
-            params.push(st_code);
-        }
-        if (dt_code) {
-            conditions.push("dt_code = ?");
-            params.push(dt_code);
-        }
-        if (blk_code) {
-            conditions.push("blk_code = ?");
-            params.push(blk_code);
-        }
-        if (type) {
-            conditions.push("type = ?");
-            params.push(type);
-        }
-
-        const whereClause = conditions.length ? `WHERE ${conditions.join(" AND ")}` : "";
-
-        connection = await pool.getConnection();
-
-        // Count with filters
-        const [countResult] = await connection.execute(
-            `SELECT COUNT(*) AS total FROM gpslist ${whereClause}`,
+            `SELECT * FROM gpslist ${whereClause} ORDER BY id DESC LIMIT ${limit} OFFSET ${offset}`,
             params
-        );
-        const totalRows = countResult[0].total;
-        const totalPages = Math.ceil(totalRows / limit);
-
-        // Fetch paginated data with filters
-        const [rows] = await connection.execute(
-            `SELECT * FROM gpslist ${whereClause} ORDER BY id DESC LIMIT ? OFFSET ?`,
-            [...params, limit, offset]
         );
 
         return res.status(200).send({
@@ -1213,10 +1186,10 @@ async function downloadshape(req, res) {
 
             layerZip.getEntries().forEach((entry) => {
                 const ext = entry.entryName.split(".").pop();
-                zip.addFile(`${layerName}.${ext}`, entry.getData());
+                zip.addFile(`${layerName}/${layerName}.${ext}`, entry.getData());
             });
 
-            zip.addFile(`${layerName}.prj`, Buffer.from(wgs84prj, "utf8"));
+            zip.addFile(`${layerName}/${layerName}.prj`, Buffer.from(wgs84prj, "utf8"));
         };
 
         // Add polyline layers (separate features)
@@ -1245,10 +1218,10 @@ async function downloadshape(req, res) {
                     (err, result) => {
                         if (err) return reject(err);
 
-                        zip.addFile(`${layerName}.shp`, Buffer.from(result.shp.buffer));
-                        zip.addFile(`${layerName}.shx`, Buffer.from(result.shx.buffer));
-                        zip.addFile(`${layerName}.dbf`, Buffer.from(result.dbf.buffer));
-                        zip.addFile(`${layerName}.prj`, Buffer.from(wgs84prj, "utf8"));
+                        zip.addFile(`${layerName}/${layerName}.shp`, Buffer.from(result.shp.buffer));
+                        zip.addFile(`${layerName}/${layerName}.shx`, Buffer.from(result.shx.buffer));
+                        zip.addFile(`${layerName}/${layerName}.dbf`, Buffer.from(result.dbf.buffer));
+                        zip.addFile(`${layerName}/${layerName}.prj`, Buffer.from(wgs84prj, "utf8"));
 
                         resolve();
                     }
@@ -1323,7 +1296,7 @@ async function downloadshape(req, res) {
 
         // Send zip
         const buffer = zip.toBuffer();
-        //fs.writeFileSync("shapefilesall.zip", buffer)
+        fs.writeFileSync("shapefilesall.zip", buffer)
         res.set({
             "Content-Type": "application/zip",
             "Content-Disposition": 'attachment; filename="shapefiles.zip"',
@@ -1405,4 +1378,4 @@ function downloadExcel(req, res) {
 
 
 
-module.exports = { getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel, getdesktopPlanning }
+module.exports = { getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel, getdesktopPlanning, deleteExternalFile }
