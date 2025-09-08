@@ -72,37 +72,52 @@ async function createInstallation(req, res) {
 async function getAllInstallations(req, res) {
   let connection;
   try {
-    const { user_id, state_code, district_code, block_code, gp_code } = req.query;
+    const { user_id, state_code, district_code, block_code, gp_code } =
+      req.query;
 
     const conditions = [];
     const params = [];
 
     if (user_id) {
-      conditions.push("user_id = ?");
+      conditions.push("gi.user_id = ?");
       params.push(user_id);
     }
     if (state_code) {
-      conditions.push("state_code = ?");
+      conditions.push("gi.state_code = ?");
       params.push(state_code);
     }
     if (district_code) {
-      conditions.push("district_code = ?");
+      conditions.push("gi.district_code = ?");
       params.push(district_code);
     }
     if (block_code) {
-      conditions.push("block_code = ?");
+      conditions.push("gi.block_code = ?");
       params.push(block_code);
     }
     if (gp_code) {
-      conditions.push("gp_code = ?");
+      conditions.push("gi.gp_code = ?");
       params.push(gp_code);
     }
 
-    const whereClause = conditions.length ? `WHERE ${conditions.join(" AND ")}` : "";
+     connection = await pool.getConnection();
+    await connection.beginTransaction();
 
-    connection = await pool.getConnection();
+
+    const whereClause = conditions.length
+      ? `WHERE ${conditions.join(" AND ")}`
+      : "";
+
     const [rows] = await connection.execute(
-      `SELECT * FROM gp_installation ${whereClause} ORDER BY id DESC`,
+      `SELECT gi.*, 
+                  s.state_name, 
+                  d.district_name, 
+                  b.block_name
+          FROM gp_installation gi
+          LEFT JOIN states s ON gi.state_code = s.state_code
+          LEFT JOIN districts d ON gi.district_code = d.district_code
+          LEFT JOIN blocks b ON gi.block_code = b.block_code
+          ${whereClause}
+          ORDER BY gi.id DESC`,
       params
     );
 
@@ -110,15 +125,14 @@ async function getAllInstallations(req, res) {
       status: true,
       totalRows: rows.length,
       filters: { user_id, state_code, district_code, block_code, gp_code },
-      data: rows
+      data: rows,
     });
-
   } catch (error) {
     console.error("Error fetching gp_installation data:", error);
     res.status(500).json({
       status: false,
       message: "Internal Server Error",
-      error: error.message
+      error: error.message,
     });
   } finally {
     if (connection) connection.release();
