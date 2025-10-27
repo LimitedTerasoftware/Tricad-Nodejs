@@ -217,4 +217,52 @@ async function updateInstallation(req, res) {
 
 
 
-module.exports = { createInstallation, getAllInstallations, updateInstallation };
+async function getGPInstallationHistoryByUser(req, res) {
+    let connection;
+    try {
+        const { user_id } = req.query;
+
+        if (!user_id) {
+            return res.status(400).json({ status: false, error: "Missing user_id in query" });
+        }
+
+        connection = await pool.getConnection();
+
+          const query = `
+            SELECT
+                gpi.id,
+                gpi.gp_name,
+                gpi.gp_latitude,
+                gpi.gp_longitude,
+                gpi.gp_contact,
+                s.state_name,
+                d.district_name,
+                b.block_name
+            FROM gp_installation gpi
+            LEFT JOIN states s ON gpi.state_code = s.state_code
+            LEFT JOIN districts d 
+                ON gpi.state_code = d.state_code 
+                AND gpi.district_code = d.district_code
+            LEFT JOIN blocks b 
+                ON gpi.state_code = b.state_code 
+                AND gpi.district_code = b.district_code
+                AND gpi.block_code = b.block_code
+            WHERE gpi.user_id = ?
+            ORDER BY gpi.created_at DESC
+        `;
+
+        const [rows] = await connection.query(query, [user_id]);
+
+        return res.status(200).json({ status: true, history: rows });
+
+    } catch (error) {
+        console.error("Error in getGPInstallationHistoryByUser:", error);
+        res.status(500).json({ status: false, error: error.message || "Internal server error" });
+    } finally {
+        if (connection) connection.release();
+    }
+}
+
+
+
+module.exports = { createInstallation, getAllInstallations, updateInstallation, getGPInstallationHistoryByUser };

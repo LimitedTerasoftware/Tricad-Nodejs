@@ -67,27 +67,46 @@ async function getAllBlockInstallations(req, res) {
     const params = [];
 
     if (user_id) {
-      conditions.push("user_id = ?");
+      conditions.push("gi.user_id = ?");
       params.push(user_id);
     }
     if (state_code) {
-      conditions.push("state_code = ?");
+      conditions.push("gi.state_code = ?");
       params.push(state_code);
     }
     if (district_code) {
-      conditions.push("district_code = ?");
+      conditions.push("gi.district_code = ?");
       params.push(district_code);
     }
     if (block_code) {
-      conditions.push("block_code = ?");
+      conditions.push("gi.block_code = ?");
       params.push(block_code);
     }
 
-    const whereClause = conditions.length ? `WHERE ${conditions.join(" AND ")}` : "";
+     connection = await pool.getConnection();
+    await connection.beginTransaction();
 
-    connection = await pool.getConnection();
-    const [rows] = await connection.execute(
-      `SELECT * FROM block_installation ${whereClause} ORDER BY id DESC`,
+    const whereClause = conditions.length
+      ? `WHERE ${conditions.join(" AND ")}`
+      : "";
+
+   
+    // const [rows] = await connection.execute(
+    //   `SELECT * FROM block_installation ${whereClause} ORDER BY id DESC`,
+    //   params
+    // );
+
+      const [rows] = await connection.execute(
+      `SELECT gi.*, 
+                  s.state_name, 
+                  d.district_name, 
+                 
+          FROM gp_installation gi
+          LEFT JOIN states s ON gi.state_code = s.state_code
+          LEFT JOIN districts d ON gi.district_code = d.district_code
+          
+          ${whereClause}
+          ORDER BY gi.id DESC`,
       params
     );
 
@@ -172,8 +191,53 @@ async function updateBlockInstallation(req, res) {
   }
 }
 
+async function getBlockInstallationHistoryByUser(req, res) {
+    let connection;
+    try {
+        const { user_id } = req.query;
+
+        if (!user_id) {
+            return res.status(400).json({ status: false, error: "Missing user_id in query" });
+        }
+
+        connection = await pool.getConnection();
+
+        const query = `
+            SELECT
+                bi.id,
+                bi.block_code,
+                bi.block_name,
+                bi.block_contacts,
+                bi.block_latitude,
+                bi.block_longitude,
+                s.state_name,
+                d.district_name
+            FROM block_installation bi
+            LEFT JOIN states s 
+                ON bi.state_code = s.state_code
+            LEFT JOIN districts d 
+                ON bi.state_code = d.state_code 
+                AND bi.district_code = d.district_code
+            WHERE bi.user_id = ?
+            ORDER BY bi.created_at DESC
+        `;
+
+        const [rows] = await connection.query(query, [user_id]);
+
+        return res.status(200).json({ status: true, history: rows });
+
+    } catch (error) {
+        console.error("Error in getBlockInstallationHistoryByUser:", error);
+        res.status(500).json({ status: false, error: error.message || "Internal server error" });
+    } finally {
+        if (connection) connection.release();
+    }
+}
+
+
 module.exports = {
   createBlockInstallation,
   getAllBlockInstallations,
-  updateBlockInstallation
+  updateBlockInstallation,
+  getBlockInstallationHistoryByUser
 };

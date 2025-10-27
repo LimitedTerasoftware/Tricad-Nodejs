@@ -569,6 +569,7 @@ async function createsurvey(req, res) {
             endLocation,
             vehicleserialno,
             vehicle_image,
+            construction_type,
             startPointPhoto,
             startPointCoordinates,
             dgps_accuracy,
@@ -584,8 +585,8 @@ async function createsurvey(req, res) {
         // 1️⃣ Insert into underground_fiber_surveys
         const [surveyResult] = await connection.query(`
             INSERT INTO underground_fiber_surveys (
-                user_id, company_id, state_id, district_id, block_id, gp_id, startLocation, endLocation, surveyType
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                user_id, company_id, state_id, district_id, block_id, gp_id, startLocation, endLocation, surveyType, construction_type
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `, [
             user_id,
             company_id || null,
@@ -595,39 +596,43 @@ async function createsurvey(req, res) {
             gp_id,
             startLocation || null,
             endLocation || null,
-            surveyType
+            surveyType,
+            construction_type
         ]);
 
         const survey_id = surveyResult.insertId;
 
         // 2️⃣ Insert vehicle info into construction_forms
-        await connection.query(`
-            INSERT INTO construction_forms (survey_id, vehicleserialno, vehicle_image, start_lgd, end_lgd, eventType, startPointPhoto, startPointCoordinates, dgps_siv, dgps_accuracy)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        `, [
-            survey_id,
-            vehicleserialno,
-            vehicle_image,
-            startLocation,
-            endLocation,
-            eventType,
-            startPointPhoto,
-            startPointCoordinates,
-            dgps_siv,
-            dgps_accuracy
-            
-        ]);
 
+    if (construction_type === "Hdd" || construction_type === "OpenTrench") {
+    // ✅ Only runs for HDD or OpenTrench
+            await connection.query(`
+                INSERT INTO construction_forms (
+                    survey_id, vehicleserialno, vehicle_image, start_lgd, end_lgd, eventType, startPointPhoto, startPointCoordinates, dgps_siv, dgps_accuracy
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `, [
+                survey_id,
+                vehicleserialno,
+                vehicle_image,
+                startLocation,
+                endLocation,
+                eventType,
+                startPointPhoto,
+                startPointCoordinates,
+                dgps_siv,
+                dgps_accuracy
+            ]);
+                } else {
+                    console.log("Construction type is not HDD or OpenTrench, skipping vehicle info insertion");
+    }
+
+       
         await connection.commit();
 
         res.status(201).json({
             status: true,
             message: "Survey and vehicle info saved successfully",
-            survey_id,
-            vehicle: {
-                serial: vehicleserialno,
-                image: vehicle_image
-            }
+            survey_id
         });
 
     } catch (error) {
@@ -660,7 +665,7 @@ async function createEvent(req, res) {
       'startPitLatlong', 'startPitPhotos', 'endPitLatlong', 'endPitPhotos','area_type',
       'roadWidthLatlong', 'roadWidth', 'roadWidthPhotos', 'eventType', 'Roadfesibility', 
       'survey_id', 'vehicle_image', 'endPitDoc', 'landmark_description', 'landmark_type', 'endPointCoordinates', 'endPointPhoto', 'holdLatlong', 'holdPhotos', "road_margin",
-      "dgps_accuracy", "dgps_siv", 'videoDetails', 'blowingLatLong', 'blowingPhotos'
+      "dgps_accuracy", "dgps_siv", 'videoDetails', 'blowingLatLong', 'blowingPhotos',  'pole_type', 'existing_pole', 'new_pole'
     ];
 
     const body = req.body;
@@ -1441,5 +1446,148 @@ async function getMachinesByFirm(req, res) {
 }
 
 
+async function editUndergroundFiberSurvey(req, res) {
+    let connection;
+    try {
+        const { id } = req.body;
 
-module.exports = { getDepthdata, getDepthDataByDateAndMachine, createMachine, getMachines, createUser, loginUser, startpointevent, createsurvey, createEvent, getLatestMachineActivity, getFilteredSurveys, updateMachine, deleteMachine, getMachineDailyDistances, editImages, getSurveyHistoryByUser, getMachineMonthlyAmount, editphysicalsurvey, getAllFirmNames, getMachinesByFirm};
+        if (!id) {
+            return res.status(400).json({ status: false, error: "Missing id in request body" });
+        }
+
+        // Allowed fields to edit
+        const allowedFields = [
+            "user_id",
+            "company_id",
+            "state_id",
+            "district_id",
+            "block_id",
+            "gp_id",
+            "startLocation",
+            "endLocation",
+            "cableType",
+            "routeType",
+            "is_active",
+            "surveyType"
+        ];
+
+        // Build SET clause dynamically
+        const updates = [];
+        const values = [];
+        for (const field of allowedFields) {
+            if (req.body[field] !== undefined) {
+                updates.push(`${field} = ?`);
+                values.push(req.body[field]);
+            }
+        }
+
+        if (updates.length === 0) {
+            return res.status(400).json({ status: false, error: "No valid fields provided to update" });
+        }
+
+        // Add updated_at timestamp
+        //updates.push("updated_at = NOW()");
+
+        // Final query
+        const query = `
+            UPDATE underground_fiber_surveys
+            SET ${updates.join(", ")}
+            WHERE id = ?
+        `;
+        values.push(id);
+
+        connection = await pool.getConnection();
+        const [result] = await connection.query(query, values);
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ status: false, error: "Survey not found" });
+        }
+
+        res.json({ status: true, message: "Survey updated successfully" });
+
+    } catch (error) {
+        console.error("Error in editUndergroundFiberSurvey:", error);
+        res.status(500).json({ status: false, error: error.message || "Internal server error" });
+    } finally {
+        if (connection) connection.release();
+    }
+}
+
+
+
+async function getUndergroundSurvey(req, res) {
+  let connection;
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({ status: false, error: "Missing id in request params" });
+    }
+
+    connection = await pool.getConnection();
+
+    const query = `
+      SELECT 
+    ufs.id,
+    ufs.user_id,
+    ufs.company_id,
+    ufs.state_id,
+    ufs.district_id,
+    ufs.block_id,
+    ufs.gp_id,
+    ufs.startLocation,
+    ufs.endLocation,
+    ufs.cableType,
+    ufs.routeType,
+    ufs.is_active,
+    ufs.created_at,
+    ufs.updated_at,
+    ufs.surveyType,
+
+    -- GPS list joins for start location
+    gps_start.name AS start_location_name,
+    gps_start.lgd_code AS start_location_code,
+    gps_start.st_name AS start_state_name,
+    gps_start.dt_name AS start_district_name,
+    gps_start.blk_name AS start_block_name,
+
+    -- GPS list joins for end location
+    gps_end.name AS end_location_name,
+    gps_end.lgd_code AS end_location_code,
+    gps_end.st_name AS end_state_name,
+    gps_end.dt_name AS end_district_name,
+    gps_end.blk_name AS end_block_name,
+
+    -- User details
+    u.fullname,
+    u.email,
+    u.contact_no
+
+FROM underground_fiber_surveys ufs
+LEFT JOIN gpslist gps_start ON ufs.startLocation = gps_start.id
+LEFT JOIN gpslist gps_end ON ufs.endLocation = gps_end.id
+LEFT JOIN users u ON ufs.user_id = u.id
+WHERE ufs.id = ?;
+
+    `;
+
+    const [rows] = await connection.query(query, [id]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ status: false, error: "Survey not found" });
+    }
+
+    res.json({ status: true, data: rows[0] });
+
+  } catch (error) {
+    console.error("Error in getundergroundsurvey:", error);
+    res.status(500).json({ status: false, error: error.message || "Internal server error" });
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
+
+
+module.exports = { getDepthdata, getDepthDataByDateAndMachine, createMachine, getMachines, createUser, loginUser, startpointevent, createsurvey, createEvent, getLatestMachineActivity, getFilteredSurveys, updateMachine, deleteMachine, getMachineDailyDistances, editImages, getSurveyHistoryByUser, getMachineMonthlyAmount, editphysicalsurvey, getAllFirmNames, getMachinesByFirm, editUndergroundFiberSurvey, getUndergroundSurvey};

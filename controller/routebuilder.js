@@ -11,6 +11,7 @@ const cors = require('cors');
 const mysql = require('mysql2/promise');
 const { create } = require('xmlbuilder2');
 const AdmZip = require('adm-zip');
+const { json } = require('stream/consumers');
 
 //local db 
 
@@ -55,7 +56,7 @@ async function getRoute(fromCoordinates, toCoordinates) {
         !isNaN(coords[1]);
 
     if (!isValidCoords(fromCoordinates) || !isValidCoords(toCoordinates)) {
-        console.warn('⚠️ Skipping invalid route coordinates:', {
+        console.warn('âš ï¸ Skipping invalid route coordinates:', {
             from: fromCoordinates,
             to: toCoordinates,
         });
@@ -108,7 +109,7 @@ async function getRoute(fromCoordinates, toCoordinates) {
             ],
         };
     } catch (error) {
-        console.error('❌ Error fetching route from Google Maps:', error?.response?.data || error.message);
+        console.error('âŒ Error fetching route from Google Maps:', error?.response?.data || error.message);
         return null;
     }
 }
@@ -138,8 +139,58 @@ function getMidpoint(coordinates) {
     return { lng: totalLng / count, lat: totalLat / count };
 }
 
+async function insertversion(req, res) {
+  let connection;
+  try {
+    const { id, version } = req.body;
 
+    if (!id || !version) {
+      return res.status(400).json({
+        error: "Id or Version is missing",
+        details: "Both fields are required",
+      });
+    }
 
+    connection = await pool.getConnection();
+    await connection.beginTransaction();
+
+    // Check if record exists in underground_fiber_surveys
+    const [record] = await connection.query(
+      "SELECT id FROM underground_fiber_surveys WHERE id = ?",
+      [id]
+    );
+
+    if (record.length === 0) {
+      await connection.rollback();
+      return res.status(404).json({
+        error: "Record not found",
+        details: `No record exists in underground_fiber_surveys with id ${id}`,
+      });
+    }
+
+    // Update version
+    await connection.query(
+      "UPDATE underground_fiber_surveys SET versions = ? WHERE id = ?",
+      [version, id]
+    );
+
+    await connection.commit();
+
+    return res.status(200).json({
+      message: "Version updated successfully in underground_fiber_surveys",
+      data: { id, version },
+    });
+  } catch (err) {
+    if (connection) await connection.rollback();
+    console.error("? Version update error:", err);
+    res.status(500).json({
+      error: "Failed to update version",
+      details: err.message,
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+}
 
 async function uploadPoints(req, res) {
     try {
@@ -161,8 +212,8 @@ async function uploadPoints(req, res) {
 
         const originalFileName = req.file.originalname;
         mainPointName = pointsPath
-        // if (!mainPointName) throw new Error('❌ Main point (Block Router) not found.');
-        // console.log('✅ Detected Main Point:', mainPointName);
+        // if (!mainPointName) throw new Error('âŒ Main point (Block Router) not found.');
+        // console.log('âœ… Detected Main Point:', mainPointName);
 
         const pointsWithoutLgd = [];
 
@@ -203,7 +254,7 @@ async function uploadPoints(req, res) {
 
         // Throw error if any points lack LGD codes
         // if (pointsWithoutLgd.length > 0) {
-        //     throw new Error(`❌ The following points are missing LGD codes: ${pointsWithoutLgd.join(', ')}`);
+        //     throw new Error(`âŒ The following points are missing LGD codes: ${pointsWithoutLgd.join(', ')}`);
         // }
 
         globalPoints = Array.from(rawPoints.values());
@@ -213,7 +264,7 @@ async function uploadPoints(req, res) {
             mainPointName,
         });
     } catch (err) {
-        console.error('❌ Points processing error:', err);
+        console.error('âŒ Points processing error:', err);
         res.status(500).json({ error: 'Failed to process points KML file', details: err.message });
     }
 };
@@ -273,7 +324,7 @@ async function uploadConnection(req, res) {
             count: connections.length
         });
     } catch (err) {
-        console.error('❌ Connections processing error:', err);
+        console.error('âŒ Connections processing error:', err);
         res.status(500).json({ error: 'Failed to process connections KML file', details: err.message });
     }
 }
@@ -404,10 +455,10 @@ async function savetodb(req, res) {
         // ---- Validation ----
         //1. Check lgd_code for all points
         for (const point of globalData.loop) {
-            console.log(point.lgd_code)
+            //console.log(point.lgd_code)
             if (!point.lgd_code || point.lgd_code.toString().trim() === "" || point.lgd_code == 'NULL') {
-                console.log("notherebro")
-                throw new Error(`Missing lgd_code for point: ${point.name || "unknown"}`);
+                //console.log("notherebro")
+                 point.lgd_code == '0000'
             }
         }
 
@@ -446,7 +497,7 @@ async function savetodb(req, res) {
             `INSERT INTO networks 
             (name, total_length, main_point_name, existing_length, proposed_length, dt_code, dt_name, st_code, st_name, blk_code, blk_name, user_id, user_name, status) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [networkName, totalLength, networkName, extlength, proposedlength, dt_code, dt_name, st_code, st_name, blk_code, blk_name, user_id, user_name, "unverified"]
+            [networkName, totalLength, networkName, extlength, proposedlength, dt_code, dt_name, st_code, st_name, blk_code, blk_name, user_id, user_name, "verified"]
         );
         const networkId = networkResult.insertId;
 
@@ -469,7 +520,7 @@ async function savetodb(req, res) {
                 const [pointResult] = await connection.execute(
                     `INSERT INTO points (network_id, name, coordinates, lgd_code, properties) 
                      VALUES (?, ?, ?, ?, ?)`,
-                    [networkId, normalizedName, JSON.stringify(coords), point.lgd_code || null, point.properties]
+                    [networkId, normalizedName, JSON.stringify(coords),  point.lgd_code || "0000", point.properties]
                 );
 
                 pointIdMap.set(normalizedName, pointResult.insertId);
@@ -483,7 +534,7 @@ async function savetodb(req, res) {
             const parts = key.split("To");
             let startname = parts[0];
             let endname = parts[1];
-            console.log(startname, endname)
+            //console.log(startname, endname)
             if (!startCode || !endCode) {
                 console.warn(`Skipping connection ${key}: Missing startCords or endCords`);
                 continue;
@@ -511,14 +562,24 @@ async function savetodb(req, res) {
             const type = (data.segmentData?.connection?.existing === true) ? "existing" : "proposed";
             const properties = data.segmentData?.properties || '';
 
-            await connection.execute(
-                `INSERT INTO connections 
-        (network_id, start, end, length, original_name, coordinates, color, start_latlong, end_latlong, type, properties, status") 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                [networkId, startCode, endCode, length, key, JSON.stringify(coordinates), color, startCode, endCode, type, properties, "Pending"]
-            );
-        }
+           await connection.execute(
+    `INSERT INTO connections 
+    (network_id, start, end, length, original_name, coordinates, color, start_latlong, end_latlong, type, properties, status) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [networkId, startCode, endCode, length, key, JSON.stringify(coordinates), color, startCode, endCode, type, properties, "Pending"]
+);        }
 
+          // ? Update block_status.desktop_status = 'Completed'
+                 await connection.execute(
+                `UPDATE block_status 
+                SET desktop_status = 'Completed', 
+                    desktop_startDate = IFNULL(desktop_startDate, CURDATE()), 
+                    desktop_endDate = CURDATE(),
+                    proposed_length = ?, 
+                    incremental_length = ?
+                WHERE block_id = ?`,
+                [proposedlength, extlength, blk_code]
+            );
         await connection.commit();
         res.json({ success: true, networkId, message: 'Data saved to database' });
 
@@ -656,33 +717,72 @@ async function verifynetwok(req, res) {
 async function getverifiednetworks(req, res) {
     let connection;
     try {
-        connection = await pool.getConnection();;
-        await connection.beginTransaction();
-        const [rows] = await connection.query("SELECT * FROM networks WHERE status = ?", ["verified"]);
+        // pagination params
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 15;
+        const offset = (page - 1) * limit;
+
+        // filters
+        const { st_code, dt_code, blk_code } = req.query;
+
+        const conditions = ["status = ?"];
+        const params = ["verified"];
+
+        if (st_code) {
+            conditions.push("st_code = ?");
+            params.push(st_code);
+        }
+        if (dt_code) {
+            conditions.push("dt_code = ?");
+            params.push(dt_code);
+        }
+        if (blk_code) {
+            conditions.push("blk_code = ?");
+            params.push(blk_code);
+        }
+
+        const whereClause = `WHERE ${conditions.join(" AND ")}`;
+
+        connection = await pool.getConnection();
+
+        // total count
+        const [countResult] = await connection.query(
+            `SELECT COUNT(*) AS total FROM networks ${whereClause}`,
+            params
+        );
+        const totalRows = countResult[0].total;
+        const totalPages = Math.ceil(totalRows / limit);
+
+        // paginated data
+        const [rows] = await connection.query(
+            `SELECT * FROM networks ${whereClause} ORDER BY id DESC LIMIT ? OFFSET ?`,
+            [...params, limit, offset]
+        );
 
         res.status(200).json({
             success: true,
-            data: rows,
-            message: 'Networks retrieved successfully'
+            message: "Verified networks retrieved successfully",
+            pagination: {
+                currentPage: page,
+                totalPages,
+                totalRows,
+                limit
+            },
+            filters: { st_code, dt_code, blk_code },
+            data: rows
         });
+
     } catch (err) {
-        console.error('Error fetching networks:', {
-            message: err.message,
-            code: err.code,
-            stack: err.stack
-        });
+        console.error("Error fetching verified networks:", err);
         res.status(500).json({
             success: false,
-            message: 'Failed to retrieve networks',
+            message: "Failed to retrieve networks",
             error: err.message
         });
     } finally {
-        if (connection) {
-            connection.release?.()
-        }
+        if (connection) connection.release?.();
     }
-};
-
+}
 
 
 async function getconnections(req, res) {
@@ -879,7 +979,15 @@ async function getgplist(req, res) {
 
 
         // Fetch connections
-        const [connections] = await connection.query('SELECT * FROM connections WHERE network_id = ?', [networkId]);
+        const [connections] = await connection.query(
+            `SELECT 
+                c.*, 
+                u.fullname AS user_name
+            FROM connections c
+            LEFT JOIN users u ON c.user_id = u.id
+            WHERE c.network_id = ?`,
+            [networkId]
+            );
         res.status(200).json({
             success: true,
             data: {
@@ -905,9 +1013,117 @@ async function getgplist(req, res) {
     }
 };
 
-async function getuserlist(req, res) {
+
+async function updateConnection(req, res) {
+    let connection;
     try {
-        let connection;
+        const connectionId = parseInt(req.params.id);
+        if (isNaN(connectionId) || connectionId <= 0) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid connection ID"
+            });
+        }
+
+        // Extract fields from request body
+        const {
+            network_id,
+            start_point_id,
+            end_point_id,
+            start,
+            end,
+            length,
+            original_name,
+            coordinates,
+            type,
+            color,
+            start_latlong,
+            end_latlong,
+            user_id,
+            user_name,
+            status,
+            properties
+        } = req.body;
+
+        connection = await pool.getConnection();
+        await connection.beginTransaction();
+
+        // Update query (only fields provided will be updated)
+        const [result] = await connection.query(
+            `
+            UPDATE connections 
+            SET 
+                network_id = COALESCE(?, network_id),
+                start_point_id = COALESCE(?, start_point_id),
+                end_point_id = COALESCE(?, end_point_id),
+                start = COALESCE(?, start),
+                end = COALESCE(?, end),
+                length = COALESCE(?, length),
+                original_name = COALESCE(?, original_name),
+                coordinates = COALESCE(?, coordinates),
+                type = COALESCE(?, type),
+                color = COALESCE(?, color),
+                start_latlong = COALESCE(?, start_latlong),
+                end_latlong = COALESCE(?, end_latlong),
+                user_id = COALESCE(?, user_id),
+                user_name = COALESCE(?, user_name),
+                status = COALESCE(?, status),
+                properties = COALESCE(?, properties)
+            WHERE id = ?
+            `,
+            [
+                network_id,
+                start_point_id,
+                end_point_id,
+                start,
+                end,
+                length,
+                original_name,
+                coordinates,
+                type,
+                color,
+                start_latlong,
+                end_latlong,
+                user_id,
+                user_name,
+                status,
+                properties,
+                connectionId
+            ]
+        );
+
+        await connection.commit();
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                success: false,
+                message: `Connection with ID ${connectionId} not found`
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Connection updated successfully",
+            connection_id: connectionId
+        });
+
+    } catch (err) {
+        if (connection) await connection.rollback();
+        console.error("Error updating connection:", err);
+        res.status(500).json({
+            success: false,
+            message: "Failed to update connection",
+            error: err.message
+        });
+    } finally {
+        if (connection) connection.release?.();
+    }
+}
+
+async function getuserlist(req, res) {
+    let connection;
+    try {
+        
         connection = await pool.getConnection();;
         await connection.beginTransaction();
 
@@ -1099,7 +1315,7 @@ async function updtaenetwork(req, res) {
                 globalData.st_name,
                 user_id,
                 user_name,
-                'unverified',
+                'verified',
                 networkId,
             ]
         );
@@ -1251,8 +1467,8 @@ async function upload(req, res) {
         });
 
         let mainPointName = blockRouterFeature?.properties?.name;
-        if (!mainPointName) throw new Error('❌ Main point (Block Router) not found.');
-        console.log('✅ Detected Main Point:', mainPointName);
+        if (!mainPointName) throw new Error('âŒ Main point (Block Router) not found.');
+        console.log('âœ… Detected Main Point:', mainPointName);
         let pointsWithoutLgd = [];
         pointsGeoJson.features.forEach(feature => {
             if (feature.geometry.type === 'Point') {
@@ -1286,7 +1502,7 @@ async function upload(req, res) {
         });
 
         if (pointsWithoutLgd.length > 0) {
-            throw new Error(`❌ The following points are missing LGD codes: ${pointsWithoutLgd.join(', ')}`);
+            throw new Error(`âŒ The following points are missing LGD codes: ${pointsWithoutLgd.join(', ')}`);
         }
 
         globalPoints = Array.from(rawPoints.values());
@@ -1300,7 +1516,7 @@ async function upload(req, res) {
                 const name = feature.properties.name?.trim() || '';
                 const toIndex = name.toLowerCase().lastIndexOf(' to ');
                 if (toIndex === -1) {
-                    console.warn(`❌ Skipping: Invalid route name: ${name}`);
+                    console.warn(`âŒ Skipping: Invalid route name: ${name}`);
                     return;
                 }
 
@@ -1308,7 +1524,7 @@ async function upload(req, res) {
                 let endName = normalizeName(name.substring(toIndex + 4).trim());
                 const coordinates = roundCoordinates(feature.geometry.coordinates);
                 if (!isValidLineString(coordinates)) {
-                    console.warn(`❌ Skipping: Invalid LineString for ${startName} to ${endName}`);
+                    console.warn(`âŒ Skipping: Invalid LineString for ${startName} to ${endName}`);
                     return;
                 }
 
@@ -1316,7 +1532,7 @@ async function upload(req, res) {
                 const endPoint = pointMap.get(endName) || pointMap.get(endName.replace(/\s+/g, '-')) || pointMap.get(endName.replace(/-/g, ' '));
 
                 if (!startPoint || !endPoint) {
-                    console.warn(`❌ Skipping: No matching points for ${startName} to ${endName}`);
+                    console.warn(`âŒ Skipping: No matching points for ${startName} to ${endName}`);
                     return;
                 }
 
@@ -1357,7 +1573,7 @@ async function upload(req, res) {
             const startPoint = pointMapFinal.get(start);
             const endPoint = pointMapFinal.get(end);
             if (!startPoint || !endPoint) {
-                console.warn(`🚫 No match for: ${name}`);
+                console.warn(`ðŸš« No match for: ${name}`);
                 return;
             }
             if (startPoint.name === endPoint.name) return;
@@ -1681,7 +1897,7 @@ async function upload(req, res) {
         });
     } catch (err) {
         if (connection) await connection.rollback();
-        console.error('❌ Processing error:', {
+        console.error('âŒ Processing error:', {
             message: err.message,
             stack: err.stack,
         });
@@ -1719,8 +1935,8 @@ async function generateRoute(req, res) {
         });
 
         let mainPointName = blockRouterFeature?.properties?.name;
-        //if (!mainPointName) throw new Error('❌ Main point (Block Router) not found.');
-        console.log('✅ Detected Main Point:', mainPointName);
+        //if (!mainPointName) throw new Error('âŒ Main point (Block Router) not found.');
+        console.log('âœ… Detected Main Point:', mainPointName);
 
         //console.log(JSON.stringify(pointsGeoJson))
 
@@ -2042,7 +2258,7 @@ async function generateRoute(req, res) {
         });
     } catch (err) {
         if (connection) await connection.rollback();
-        console.error('❌ Generate route error:', {
+        console.error('âŒ Generate route error:', {
             message: err.message,
             stack: err.stack,
         });
@@ -2536,7 +2752,7 @@ async function uploadfilterpoints(req, res) {
 
         res.json({ points: filteredPoints });
     } catch (err) {
-        console.error('❌ Filtered points processing error:', err);
+        console.error('âŒ Filtered points processing error:', err);
         res.status(500).json({ error: 'Failed to process KML file', details: err.message });
     } finally {
         // Clean up file
@@ -2544,11 +2760,12 @@ async function uploadfilterpoints(req, res) {
             try {
                 await fs.unlink(pointsPath);
             } catch (unlinkErr) {
-                console.error('❌ Failed to delete temp file:', unlinkErr);
+                console.error('âŒ Failed to delete temp file:', unlinkErr);
             }
         }
-    }
+  
 };
+}
 
 const GOOGLE_API_KEY = googleMapsApiKey;
 
@@ -2616,5 +2833,196 @@ async function computeroute(req, res) {
 
 
 
+async function getSurveysByUser(req, res) {
+  let connection;
 
-module.exports = { uploadPoints, uploadConnection, showRoute, savetodb, verifynetwok, getverifiednetworks, getconnections, assignsegmnets, getnetworkId, getgplist, getuserlist, getassignedsegmnets, updtaenetwork, deletenetwork, upload, generateRoute, searchlocation, downloadkml, downloadcsv, savekml, getunverifiednetwork, previewkml, uploadfilterpoints, computeroute, saveproperties, surveyStatus }
+  try {
+    const { user_id } = req.query;
+
+    if (!user_id) {
+      return res.status(400).json({
+        status: false,
+        error: "user_id is required"
+      });
+    }
+
+    connection = await pool.getConnection();
+
+    // 1?? Physical & Construction surveys
+    const [surveyCounts] = await connection.query(
+      `
+      SELECT 
+        COUNT(CASE WHEN surveyType IS NULL OR surveyType <> '1' THEN 1 END) AS physicalSurveyCount,
+        COUNT(CASE WHEN surveyType = '1' THEN 1 END) AS constructionSurveyCount,
+        COUNT(CASE WHEN is_active= 1 THEN 1 END) AS approvalCount
+      FROM underground_fiber_surveys
+      WHERE user_id = ?
+      `,
+      [user_id]
+    );
+
+    // 2?? GP Installation
+    const [gpCounts] = await connection.query(
+      `SELECT COUNT(*) AS gpInstallationCount 
+       FROM gp_installation 
+       WHERE user_id = ?`,
+      [user_id]
+    );
+
+    // 3?? Block Installation
+    const [blockCounts] = await connection.query(
+      `SELECT COUNT(*) AS blockInstallationCount 
+       FROM block_installation 
+       WHERE user_id = ?`,
+      [user_id]
+    );
+
+    // 4?? Links count from connections
+    const [linkCounts] = await connection.query(
+      `SELECT COUNT(*) AS linksCount
+       FROM connections
+       WHERE user_id = ?`,
+      [user_id]
+    );
+
+    res.json({
+      status: true,
+      physicalSurveyCount: surveyCounts[0].physicalSurveyCount,
+      constructionSurveyCount: surveyCounts[0].constructionSurveyCount,
+      gpInstallationCount: gpCounts[0].gpInstallationCount,
+      blockInstallationCount: blockCounts[0].blockInstallationCount,
+        approvalCount: surveyCounts[0].approvalCount,
+      linksCount: linkCounts[0].linksCount
+    });
+
+  } catch (err) {
+    console.error("? API error:", err);
+    res.status(500).json({
+      status: false,
+      error: err.message
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
+
+async function insertUndergroundSurvey(req, res) {
+  let connection;
+  try {
+    const {
+      surveyId,
+      areaType,
+      eventType,
+      surveyUploaded,
+      executionModality,
+      latitude,
+      longitude,
+      altitude,
+      accuracy,
+      depth,
+      distance_error,
+      patrollerDetails,
+      roadCrossing,
+      routeDetails,
+      routeFeasibility,
+      sideType,
+      startPhotos,
+      endPhotos,
+      utilityFeaturesChecked,
+      videoUrl,
+      videoDetails,
+      routeIndicatorUrl,
+      routeIndicatorType,
+      kmtStoneUrl,
+      fiberTurnUrl,
+      landMarkType,
+      landMarkUrls,
+      landMarkDescription,
+      fpoiUrl,
+      jointChamberUrl,
+      createdTime
+    } = req.body;
+
+    if (!surveyId) {
+      return res.status(400).json({
+        success: false,
+        message: "surveyId is required"
+      });
+    }
+
+    connection = await pool.getConnection();
+
+    const query = `
+      INSERT INTO underground_survey_data (
+        survey_id, area_type, event_type, surveyUploaded, fpoiUrl,
+        execution_modality, latitude, longitude, altitude, accuracy,
+        depth, distance_error, patroller_details, road_crossing,
+        route_details, route_feasibility, side_type,
+        start_photos, end_photos, utility_features_checked,
+        videoUrl, videoDetails, routeIndicatorUrl, routeIndicatorType,
+        kmtStoneUrl, fiberTurnUrl, landMarkType, landMarkDescription,
+        landMarkUrls, jointChamberUrl, createdTime
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    const values = [
+      surveyId,
+      areaType || null,
+      eventType || null,
+      surveyUploaded || "false",
+      fpoiUrl || null,
+      executionModality || null,
+      latitude || null,
+      longitude || null,
+      altitude || 0,
+      accuracy || 0,
+      depth || 0,
+      distance_error || 0,
+      JSON.stringify(patrollerDetails || {"companyName":"","email":"","mobile":"","name":""} ),
+      JSON.stringify(roadCrossing || {}),
+      JSON.stringify(routeDetails || {}),
+      JSON.stringify(routeFeasibility || {}),
+      sideType || null,
+      JSON.stringify(startPhotos || []),
+      JSON.stringify(endPhotos || []),
+      JSON.stringify(utilityFeaturesChecked || []),
+      videoUrl ? JSON.stringify(videoUrl) : null,
+      videoDetails ? JSON.stringify(videoDetails) : null,
+      routeIndicatorUrl ? JSON.stringify(routeIndicatorUrl) : null,
+      routeIndicatorType || null,
+      kmtStoneUrl || null,
+      fiberTurnUrl || null,
+      landMarkType || null,
+      landMarkDescription || null,
+      landMarkUrls ? JSON.stringify(landMarkUrls) : null,
+      jointChamberUrl || null,
+      createdTime
+        ? new Date(createdTime).toISOString().slice(0, 19).replace("T", " ")
+        : null,
+    ];
+
+    const [result] = await connection.execute(query, values);
+
+    res.status(201).json({
+      success: true,
+      message: "Survey data inserted successfully",
+      inserted_id: result.insertId,
+    });
+  } catch (error) {
+    console.error("Insert Underground Survey Error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Database error",
+      error: error.message,
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
+
+module.exports = { uploadPoints, uploadConnection, showRoute,getSurveysByUser, savetodb, verifynetwok,updateConnection, insertversion, getverifiednetworks, getconnections, assignsegmnets, getnetworkId, getgplist, getuserlist, getassignedsegmnets, updtaenetwork, deletenetwork, upload, generateRoute, searchlocation, downloadkml, downloadcsv, savekml, getunverifiednetwork, previewkml, uploadfilterpoints, computeroute, saveproperties, surveyStatus, insertUndergroundSurvey }

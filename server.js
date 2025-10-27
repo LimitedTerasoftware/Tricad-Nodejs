@@ -9,6 +9,8 @@ const smartinventory = require("./controller/smartinventory")
 const routebuilder = require("./controller/routebuilder")
 const gpinstallation = require("./controller/gpinstallation")
 const blockinstallation = require("./controller/block_installation")
+const fleetcontroller = require("./controller/fleetcontroller")
+const blockManagement = require("./controller/block_management")
 
 const pool = require("./db");
 
@@ -40,6 +42,10 @@ app.get('/show-route', routebuilder.showRoute)
 
 app.post('/save-to-db', routebuilder.savetodb)
 
+app.post("/update-version", routebuilder.insertversion)
+
+app.post("/underground-survey-insert", routebuilder.insertUndergroundSurvey)
+
 app.post("/verify-network", routebuilder.verifynetwok)
 
 app.get('/get-verified-netwrorks', routebuilder.getverifiednetworks)
@@ -51,6 +57,82 @@ app.post("/assign-segment", routebuilder.assignsegmnets)
 app.get('/get-networks/:id', routebuilder.getnetworkId)
 
 app.get('/get-gplist/:id', routebuilder.getgplist);
+
+
+//  {
+//                 "id": 184430,
+//                 "survey_id": "1426",
+//                 "area_type": "NONPOPULATED",
+//                 "event_type": "LIVELOCATION",
+//                 "surveyUploaded": "",
+//                 "fpoiUrl": "",
+//                 "execution_modality": "NONE",
+//                 "latitude": "23.0291944",
+//                 "longitude": "86.3615227",
+//                 "altitude": "190.20001220703125",
+//                 "accuracy": "2.075",
+//                 "depth": "0",
+//                 "distance_error": "0",
+//                 "patroller_details": {
+//                     "companyName": "",
+//                     "email": "",
+//                     "mobile": "",
+//                     "name": ""
+//                 },
+//                 "road_crossing": {
+//                     "endPhoto": "",
+//                     "endPhotoLat": 0,
+//                     "endPhotoLong": 0,
+//                     "length": "",
+//                     "roadCrossing": "NONE",
+//                     "startPhoto": "",
+//                     "startPhotoLat": 0,
+//                     "startPhotoLong": 0
+//                 },
+//                 "route_details": {
+//                     "centerToMargin": "",
+//                     "roadWidth": "",
+//                     "routeBelongsTo": "NATIONALHIGHWAYS",
+//                     "routeType": "THARROAD",
+//                     "soilType": "NORMAL"
+//                 },
+//                 "route_feasibility": {
+//                     "alternatePathAvailable": false,
+//                     "alternativePathDetails": "",
+//                     "routeFeasible": true
+//                 },
+//                 "routeIndicatorUrl": null,
+//                 "routeIndicatorType": "NONE",
+//                 "kmtStoneUrl": null,
+//                 "fiberTurnUrl": null,
+//                 "landMarkType": "NONE",
+//                 "landMarkDescription": null,
+//                 "landMarkUrls": null,
+//                 "side_type": "BOTH",
+//                 "start_photos": [],
+//                 "end_photos": [],
+//                 "utility_features_checked": {
+//                     "localInfo": "",
+//                     "selectedGroundFeatures": []
+//                 },
+//                 "videoUrl": null,
+//                 "videoDetails": {
+//                     "endLatitude": 0,
+//                     "endLongitude": 0,
+//                     "endTimeStamp": 0,
+//                     "startLatitude": 0,
+//                     "startLongitude": 0,
+//                     "startTimeStamp": 0,
+//                     "videoUrl": ""
+//                 },
+//                 "jointChamberUrl": "",
+//                 "createdTime": "2025-07-04 12:49:56",
+//                 "created_at": "2025-07-04 12:23:35",
+//                 "updated_at": "2025-07-04 12:23:35",
+//                 "routeIndicatorUrl_backup": null
+//  },
+
+app.post("/update-connections/:id", routebuilder.updateConnection)
 
 app.get("/user-list", routebuilder.getuserlist)
 
@@ -76,7 +158,7 @@ app.get('/get-unverified-networks', routebuilder.getunverifiednetwork);
 
 // Preview KML file
 app.get('/preview-file', async (req, res) => {
-    let connection;
+    //let connection;
     try {
         const { filepath, fileType } = req.query;
 
@@ -84,7 +166,7 @@ app.get('/preview-file', async (req, res) => {
             return res.status(400).json({ error: 'filepath query parameter is required' });
         }
 
-        connection = await pool.getConnection();
+        //connection = await pool.getConnection();
 
         // Check if file exists on filesystem
         const fullPath = path.join(__dirname, filepath);
@@ -229,9 +311,9 @@ app.get('/preview-file', async (req, res) => {
             res.status(500).json({ error: 'Server error', code: 'SERVER_ERROR' });
         }
     } finally {
-        if (connection) {
-            connection.release();
-        }
+        // if (connection) {
+        //     //connection.release();
+        // }
     }
 });
 
@@ -285,7 +367,8 @@ const uploads = multer({
     limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
 }).fields([
     { name: 'desktop_planning', maxCount: 1 },
-    { name: 'physical_survey', maxCount: 1 }
+    { name: 'physical_survey', maxCount: 1 },
+    { name: 'BSNL_Cables', maxCount: 1 }
 ]);
 
 
@@ -296,6 +379,8 @@ app.get('/get-external-files', smartinventory.getEXternalfiles);
 app.get('/preview-file', smartinventory.previewfile);
 
 //----------------------------CONSTRUCTION-FORM -APIS-------------------------------------------------------------
+app.post("/edit-fiber-survey", construction.editUndergroundFiberSurvey)
+app.get("/underground-survey/:id", construction.getUndergroundSurvey)
 app.get("/get-depth-data", construction.getDepthdata)
 
 app.get("/get-filtered-data", construction.getDepthDataByDateAndMachine)
@@ -330,7 +415,10 @@ app.get("/machine-monthly-amount", construction.getMachineMonthlyAmount)
 
 app.get("/get-physical-survey", smartinventory.getSurveysByLocation)
 app.post("/update-physical-survey", construction.editphysicalsurvey)
+
 app.post("/get-desktop-planning", smartinventory.getdesktopPlanning)
+
+app.get("/get-rectification-survey", smartinventory.getRectificationSurveysByLocation)
 app.post("/delete-physicalsurvey/:id", smartinventory.deleteExternalFile)
 
 app.get("/get-firm-names", construction.getAllFirmNames)
@@ -366,24 +454,53 @@ app.post('/upload-kmz', uploadss.single('file'), async (req, res) => {
     }
 });
 
-
 app.post("/download-shape", smartinventory.downloadshape)
-
 app.post("/download-excel", smartinventory.downloadExcel)
-
 app.post("/save-properties", routebuilder.saveproperties)
 app.post("/survey-status", routebuilder.surveyStatus)
 
 //----------------------------------------Gp installation and block installation----------------------------------------------------------
-
 app.post("/create-gp-installation",  gpinstallation.createInstallation)
 app.get("/get-gp-installation", gpinstallation.getAllInstallations)
 app.post("/update-gp-installation", gpinstallation.updateInstallation)
-
-
+app.get("/gpinstallation-history", gpinstallation.getGPInstallationHistoryByUser)
 app.post("/create-block-installation", blockinstallation.createBlockInstallation)
 app.get("/get-block-installation", blockinstallation.getAllBlockInstallations)
 app.post("/update-block-installation", blockinstallation.updateBlockInstallation)
+app.get("/blkinstallation-history", blockinstallation.getBlockInstallationHistoryByUser)
+
+
+
+//------------------------------------Fleet---------------------------------------------------------
+
+app.get("/get-desktop-plan", fleetcontroller.getAllExternalFilesWithPreview)
+app.get("/get-bsnl-cables", fleetcontroller.getExternalFiles)
+
+//-------------------------------blockManagement----------------------------------
+app.get("/dashboard-count", blockManagement.dashboard)
+app.get("/dashboard-data", blockManagement.dashboardData)
+app.post("/assign-block", blockManagement.assignBlockConnections)
+app.get("/get-newtworks", blockManagement.getUserNetworks)
+app.get("/get-connections", blockManagement.getNetworkConnections)
+app.post("/Survey-startDate", blockManagement.startPhysicalSurveyDate )
+app.post("/update-endDate", blockManagement.updatePhysicalEndDate)
+app.post("/update-block", blockManagement.updateBlockStatus)
+app.get("/gplist-block/:block_id", blockManagement.getConnectionsByBlock)
+
+//-------------------temp api for lgd_codes--------------------------------------------------
+
+app.post("/update-lgdcodes", blockManagement.updateConnectionsByNetwork)
+
+
+//----------------------------------dashboardcount----------------------------------------------
+
+app.get("/get-dashboard-count", routebuilder.getSurveysByUser)
+
+//----------------------------------survey Count ------------------------------------------------------
+
+app.get("/get-survey-count", blockManagement.surveyCount)
+app.get("/get-users-survey", blockManagement.surveyCountByUser)
+
 
 
 app.listen(port, () => {

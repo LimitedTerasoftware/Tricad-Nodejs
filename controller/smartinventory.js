@@ -14,7 +14,7 @@ async function getSurveysByLocation(req, res) {
     let connection;
     try {
         const { state_id, district_id, block_id } = req.query;
-
+        
         if (!state_id || !district_id || !block_id) {
             return res.status(400).json({
                 status: false,
@@ -39,42 +39,41 @@ async function getSurveysByLocation(req, res) {
         const placeholders = blockIds.map(() => '?').join(', ');
 
         const query = `
-    SELECT 
-        usd.*, -- all underground_survey_data fields
-        ufs.state_id,
-        ufs.district_id,
-        ufs.block_id,
-        ufs.startLocation,
-        ufs.endLocation,
-        gps_start.name AS start_lgd_name,
-        gps_end.name AS end_lgd_name,
-        gps_start.st_name AS state_name,
-        gps_start.dt_name AS district_name,
-        gps_start.blk_name AS block_name
-    FROM underground_fiber_surveys ufs
-    INNER JOIN underground_survey_data usd 
-        ON ufs.id = CAST(usd.survey_id AS UNSIGNED)
-    LEFT JOIN gpslist gps_start 
-        ON ufs.startLocation = gps_start.id
-    LEFT JOIN gpslist gps_end 
-        ON ufs.endLocation = gps_end.id
-    WHERE ufs.state_id = ? 
-      AND ufs.district_id = ? 
-      AND ufs.block_id IN (${placeholders});
-`;
-
+            SELECT 
+                usd.*, -- all underground_survey_data fields
+                ufs.state_id,
+                ufs.district_id,
+                ufs.block_id,
+                ufs.startLocation,
+                ufs.endLocation,
+                gps_start.name AS start_lgd_name,
+                gps_end.name AS end_lgd_name,
+                gps_start.st_name AS state_name,
+                gps_start.dt_name AS district_name,
+                gps_start.blk_name AS block_name
+            FROM underground_fiber_surveys ufs
+            INNER JOIN underground_survey_data usd 
+                ON ufs.id = CAST(usd.survey_id AS UNSIGNED)
+            LEFT JOIN gpslist gps_start 
+                ON ufs.startLocation = gps_start.id
+            LEFT JOIN gpslist gps_end 
+                ON ufs.endLocation = gps_end.id
+            WHERE ufs.state_id = ? 
+              AND ufs.district_id = ? 
+              AND ufs.block_id IN (${placeholders})
+              AND ufs.is_active = 1;
+        `;
 
         const [rows] = await connection.query(query, [state_id, district_id, ...blockIds]);
 
         // Group data by block_id
         const groupedData = {};
         for (const row of rows) {
-            const { block_id, latitude, longitude, event_type } = row;
+            const { block_id } = row;
             if (!groupedData[block_id]) {
                 groupedData[block_id] = [];
             }
             groupedData[block_id].push(row);
-
         }
 
         return res.status(200).json({
@@ -150,60 +149,145 @@ async function getdesktopPlanning(req, res) {
     }
 }
 
+async function getRectificationSurveysByLocation(req, res) {
+    let connection;
+    try {
+        const { state_id, district_id, block_id } = req.query;
+        
+        if (!state_id || !district_id || !block_id) {
+            return res.status(400).json({
+                status: false,
+                error: "Missing required parameters: state_id, district_id, or block_id"
+            });
+        }
+
+        // Convert block_id to array if it's a comma-separated string
+        const blockIds = Array.isArray(block_id)
+            ? block_id.map(id => parseInt(id))
+            : block_id.split(',').map(id => parseInt(id.trim())).filter(Boolean);
+
+        if (blockIds.length === 0 || blockIds.length > 10) {
+            return res.status(400).json({
+                status: false,
+                error: "You must provide between 1 and 10 block IDs"
+            });
+        }
+
+        connection = await pool.getConnection();
+
+        const placeholders = blockIds.map(() => '?').join(', ');
+
+        const query = `
+            SELECT 
+                usd.*,  -- all underground_survey_data fields
+                ufs.state_id,
+                ufs.district_id,
+                ufs.block_id,
+                ufs.startLocation,
+                ufs.endLocation,
+                ufs.routeType,
+                gps_start.name AS start_lgd_name,
+                gps_end.name AS end_lgd_name,
+                gps_start.st_name AS state_name,
+                gps_start.dt_name AS district_name,
+                gps_start.blk_name AS block_name
+            FROM underground_fiber_surveys ufs
+            INNER JOIN underground_survey_data usd 
+                ON ufs.id = CAST(usd.survey_id AS UNSIGNED)
+            LEFT JOIN gpslist gps_start 
+                ON ufs.startLocation = gps_start.id
+            LEFT JOIN gpslist gps_end 
+                ON ufs.endLocation = gps_end.id
+            WHERE ufs.state_id = ? 
+              AND ufs.district_id = ? 
+              AND ufs.block_id IN (${placeholders})
+              AND ufs.routeType = 'Rectification'
+              AND ufs.is_active = 1;
+        `;
+
+        const [rows] = await connection.query(query, [state_id, district_id, ...blockIds]);
+
+        // Group data by block_id
+        const groupedData = {};
+        for (const row of rows) {
+            const { block_id } = row;
+            if (!groupedData[block_id]) {
+                groupedData[block_id] = [];
+            }
+            groupedData[block_id].push(row);
+        }
+
+        return res.status(200).json({
+            status: true,
+            data: groupedData
+        });
+
+    } catch (error) {
+        console.error("Error in getRectificationSurveysByLocation:", error);
+        return res.status(500).json({
+            status: false,
+            error: error.message
+        });
+    } finally {
+        if (connection) connection.release();
+    }
+}
 
 
 
 async function uploadExternalData(req, res) {
     let connection;
     try {
-        if (!req.files || (!req.files.desktop_planning && !req.files.physical_survey)) {
-            return res.status(400).json({ error: 'At least one file (desktop_planning or physical_survey) must be uploaded' });
+        // Validate that at least one file exists
+        if (!req.files || (!req.files.desktop_planning && !req.files.physical_survey && !req.files.BSNL_Cables)) {
+            return res.status(400).json({ error: 'At least one file (desktop_planning, physical_survey, or BSNL_Cables) must be uploaded' });
         }
 
         const { state_code, dtcode, block_code, FileName, category } = req.body;
         if (!state_code || !dtcode || !block_code) {
             // Delete uploaded files if validation fails
-            if (req.files.desktop_planning) fs.unlinkSync(req.files.desktop_planning[0].path);
-            if (req.files.physical_survey) fs.unlinkSync(req.files.physical_survey[0].path);
+            ['desktop_planning', 'physical_survey', 'BSNL_Cables'].forEach(key => {
+                if (req.files[key]) fs.unlinkSync(req.files[key][0].path);
+            });
             return res.status(400).json({ error: 'Missing required fields: state_code, dtcode, block_code' });
         }
 
         const filesToSave = [];
-        if (req.files.desktop_planning) {
-            const file = req.files.desktop_planning[0];
-            const ext = path.extname(file.originalname).toLowerCase();
-            filesToSave.push({
-                originalFilename: file.originalname,
-                fileType: ext === '.kml' ? 'KML' : 'KMZ',
-                filepath: path.join(file.destination, file.filename).replace(/\\/g, '/')
-            });
-        }
-        if (req.files.physical_survey) {
-            const file = req.files.physical_survey[0];
-            const ext = path.extname(file.originalname).toLowerCase();
-            filesToSave.push({
-                originalFilename: file.originalname,
-                fileType: ext === '.kml' ? 'KML' : 'KMZ',
-                filepath: path.join(file.destination, file.filename).replace(/\\/g, '/')
-            });
-        }
 
-        // Get database connection and start transaction
-        connection = await pool.getConnection();
-        await connection.beginTransaction();
+        // Helper to push files to filesToSave array
+        const addFiles = (key, typeName) => {
+            if (req.files[key]) {
+                const file = req.files[key][0];
+                const ext = path.extname(file.originalname).toLowerCase();
+                filesToSave.push({
+                    originalFilename: file.originalname,
+                    fileType: ext === '.kml' ? 'KML' : 'KMZ',
+                    filepath: path.join(file.destination, file.filename).replace(/\\/g, '/'),
+                    category: typeName
+                });
+            }
+        };
 
-        const query = `
-            INSERT INTO external_data (state_code, dist_code, blk_code, filename, file_type, filepath, data_id, category )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        `;
+        addFiles('desktop_planning', 'desktop_planning');
+        addFiles('physical_survey', 'physical_survey');
+        addFiles('BSNL_Cables', 'BSNL_Cables');
+
+        // Get DB connection and start transaction
+        // connection = await pool.getConnection();
+        // await connection.beginTransaction();
+
+        // const query = `
+        //     INSERT INTO external_data (state_code, dist_code, blk_code, filename, file_type, filepath, data_id, category )
+        //     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        // `;
         const results = [];
         let dataid = Math.floor(Math.random() * 900) + 100;
+
         for (const file of filesToSave) {
-            // Use connection.execute for database insertion
-            await connection.execute(
-                query,
-                [state_code, dtcode, block_code, FileName, file.fileType, file.filepath, dataid, category]
-            );
+            // await connection.execute(
+            //     query,
+            //     [state_code, dtcode, block_code, FileName, file.fileType, file.filepath, dataid, category]
+            // );
             results.push({
                 state_code,
                 dtcode,
@@ -212,12 +296,11 @@ async function uploadExternalData(req, res) {
                 file_type: file.fileType,
                 filepath: file.filepath,
                 data_id: dataid,
-                category : category
+                category: category
             });
         }
 
-        // Commit transaction
-        await connection.commit();
+       // await connection.commit();
 
         res.status(201).json({
             message: 'Files uploaded successfully',
@@ -225,19 +308,18 @@ async function uploadExternalData(req, res) {
         });
     } catch (err) {
         console.error(err);
-        if (connection) {
-            await connection.rollback(); // Roll back transaction on error
-        }
-        // Clean up uploaded files on error
-        if (req.files.desktop_planning) fs.unlinkSync(req.files.desktop_planning[0].path);
-        if (req.files.physical_survey) fs.unlinkSync(req.files.physical_survey[0].path);
+        if (connection) await connection.rollback();
+
+        ['desktop_planning', 'physical_survey', 'BSNL_Cables'].forEach(key => {
+            if (req.files[key]) fs.unlinkSync(req.files[key][0].path);
+        });
+
         res.status(500).json({ error: 'Server error', code: 'SERVER_ERROR' });
     } finally {
-        if (connection) {
-            connection.release(); // Release connection back to pool
-        }
+        if (connection) connection.release();
     }
-};
+}
+
 
 
 
@@ -590,11 +672,12 @@ async function getGpsListPaginated(req, res) {
         const limit = 15;
         const offset = (page - 1) * limit;
 
-        const { st_code, dt_code, blk_code, type } = req.query;
+        const { st_code, dt_code, blk_code, st_name, dt_name, blk_name, type, noPagination } = req.query;
 
         const conditions = [];
         const params = [];
 
+        // Filters by code
         if (st_code) {
             conditions.push("st_code = ?");
             params.push(st_code);
@@ -607,16 +690,33 @@ async function getGpsListPaginated(req, res) {
             conditions.push("blk_code = ?");
             params.push(blk_code);
         }
+
+        // Filters by name
+        if (st_name) {
+            conditions.push("st_name = ?");
+            params.push(st_name);
+        }
+        if (dt_name) {
+            conditions.push("dt_name = ?");
+            params.push(dt_name);
+        }
+        if (blk_name) {
+            conditions.push("blk_name = ?");
+            params.push(blk_name);
+        }
+
+        // Filter by type
         if (type) {
             conditions.push("type = ?");
             params.push(type);
         }
 
         const whereClause = conditions.length ? `WHERE ${conditions.join(" AND ")}` : "";
+        const disablePagination = noPagination === "true";
 
         connection = await pool.getConnection();
 
-        // count
+        // Count total rows
         const [countResult] = await connection.execute(
             `SELECT COUNT(*) AS total FROM gpslist ${whereClause}`,
             params
@@ -624,20 +724,32 @@ async function getGpsListPaginated(req, res) {
         const totalRows = countResult[0].total;
         const totalPages = Math.ceil(totalRows / limit);
 
-        // fetch
-        const [rows] = await connection.execute(
-            `SELECT * FROM gpslist ${whereClause} ORDER BY id DESC LIMIT ${limit} OFFSET ${offset}`,
-            params
-        );
+        // Fetch data
+        let query = `SELECT * FROM gpslist ${whereClause} ORDER BY id DESC`;
+        if (!disablePagination) {
+            query += ` LIMIT ${limit} OFFSET ${offset}`;
+        }
 
-        return res.status(200).send({
-            status: true,
-            currentPage: page,
-            totalPages,
-            totalRows,
-            filters: { st_code, dt_code, blk_code, type },
-            data: rows
-        });
+        const [rows] = await connection.execute(query, params);
+
+        // Response
+        if (disablePagination) {
+            return res.status(200).send({
+                status: true,
+                totalRows: rows.length,
+                filters: { st_code, st_name, dt_code, dt_name, blk_code, blk_name, type },
+                data: rows
+            });
+        } else {
+            return res.status(200).send({
+                status: true,
+                currentPage: page,
+                totalPages,
+                totalRows,
+                filters: { st_code, st_name, dt_code, dt_name, blk_code, blk_name, type },
+                data: rows
+            });
+        }
 
     } catch (error) {
         console.error("Error fetching paginated GPS list:", error);
@@ -904,6 +1016,9 @@ function parseKmz(buffer) {
 
         const properties = { ...descriptionFields, ...extendedProps };
 
+        console.log("descriptionFields:", descriptionFields);
+
+
         const getTypeValue = () => {
             if (extendedData) {
                 const dataTags = extendedData.getElementsByTagName('Data');
@@ -920,7 +1035,9 @@ function parseKmz(buffer) {
             if (descriptionFields.loc_type) return descriptionFields.loc_type;
 
             if (description) {
+                console.log(description)
                 const match = description.match(/(?:type|loc_type|asset_type)\s*[:=]\s*([\w\s]+)/i);
+                console.log(match)
                 if (match) return match[1].trim();
             }
             return null;
@@ -1378,4 +1495,4 @@ function downloadExcel(req, res) {
 
 
 
-module.exports = { getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel, getdesktopPlanning, deleteExternalFile }
+module.exports = { getRectificationSurveysByLocation, getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel, getdesktopPlanning, deleteExternalFile }
