@@ -11,6 +11,24 @@ const gpinstallation = require("./controller/gpinstallation")
 const blockinstallation = require("./controller/block_installation")
 const fleetcontroller = require("./controller/fleetcontroller")
 const blockManagement = require("./controller/block_management")
+//import { pool2 } from "./db";
+
+
+// async function testDB() {
+//   try {
+//     const [rows] = await pool2.query("SHOW TABLES");
+//     console.log("✅ Connected successfully!");
+//     console.log("Tables:", rows);
+//   } catch (err) {
+//     console.error("❌ Connection failed:", err.message);
+//   } finally {
+//     await pool.end();
+//   }
+// }
+
+// testDB();
+
+
 
 const pool = require("./db");
 
@@ -26,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 //--------------------------------routeBuilder-------------------------------------------------
-
+app.get("/test-connection", fleetcontroller.testConnections)
 app.post('/upload-points', upload.single('pointsFile'), routebuilder.uploadPoints)
 
 
@@ -463,13 +481,14 @@ app.post("/survey-status", routebuilder.surveyStatus)
 app.post("/create-gp-installation",  gpinstallation.createInstallation)
 app.get("/get-gp-installation", gpinstallation.getAllInstallations)
 app.post("/update-gp-installation", gpinstallation.updateInstallation)
+app.delete("/gp-installation/:id", gpinstallation.deleteInstallation)
 app.get("/gpinstallation-history", gpinstallation.getGPInstallationHistoryByUser)
 app.post("/create-block-installation", blockinstallation.createBlockInstallation)
 app.get("/get-block-installation", blockinstallation.getAllBlockInstallations)
 app.post("/update-block-installation", blockinstallation.updateBlockInstallation)
 app.get("/blkinstallation-history", blockinstallation.getBlockInstallationHistoryByUser)
-
-
+app.delete("/block-installation/:id", blockinstallation.deleteBlockInstallation)
+app.post("/update-status", gpinstallation.updtaeStatus) 
 
 //------------------------------------Fleet---------------------------------------------------------
 
@@ -501,6 +520,13 @@ app.get("/get-dashboard-count", routebuilder.getSurveysByUser)
 app.get("/get-survey-count", blockManagement.surveyCount)
 app.get("/get-users-survey", blockManagement.surveyCountByUser)
 
+
+//----------------------------------installation dashboard-----------------------------------
+app.get("/get-gpinstallation-data", gpinstallation.getGPBasicDetails)
+
+//----------------------------------db-backups-----------------------------------------------
+
+require("./cron/dbBackup");  
 
 
 app.listen(port, () => {

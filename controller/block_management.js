@@ -1,15 +1,14 @@
 // GET /api/dashboard?state_code=19
+
 const pool = require("../db");
 
-async function dashboard(req, res) {
+ async function dashboard (req, res)  {
   let connection;
   try {
     const { state_code } = req.query;
 
     if (!state_code) {
-      return res
-        .status(400)
-        .json({ status: false, error: "state_code is required" });
+      return res.status(400).json({ status: false, error: "state_code is required" });
     }
 
     connection = await pool.getConnection();
@@ -23,26 +22,12 @@ async function dashboard(req, res) {
     );
 
     const totalBlocks = rows.length;
-    const assigned = rows.filter((r) => r.assigned_to !== null).length;
+    const assigned = rows.filter(r => r.assigned_to !== null).length;
     const unassigned = totalBlocks - assigned;
-    const overdue = rows.filter(
-      (r) => r.physical_survey_status !== "Completed"
-    ).length;
-    const surveyProgress = (
-      (rows.filter((r) => r.physical_survey_status === "Completed").length /
-        totalBlocks) *
-      100
-    ).toFixed(0);
-    const constructionProgress = (
-      (rows.filter((r) => r.construction_status === "Completed").length /
-        totalBlocks) *
-      100
-    ).toFixed(0);
-    const installationProgress = (
-      (rows.filter((r) => r.installation_status === "Completed").length /
-        totalBlocks) *
-      100
-    ).toFixed(0);
+     const overdue = rows.filter(r => r.physical_survey_status !== 'Completed').length;
+     const surveyProgress = ((rows.filter(r => r.physical_survey_status === 'Completed').length / totalBlocks) * 100).toFixed(0);
+    const constructionProgress = ((rows.filter(r => r.construction_status === 'Completed').length / totalBlocks) * 100).toFixed(0);
+    const installationProgress = ((rows.filter(r => r.gp_installation_status === 'Completed').length / totalBlocks) * 100).toFixed(0);
 
     res.json({
       status: true,
@@ -55,140 +40,16 @@ async function dashboard(req, res) {
         overdue,
         surveyProgress: `${surveyProgress}%`,
         constructionProgress: `${constructionProgress}%`,
-        installationProgress: `${installationProgress}%`,
-      },
+        installationProgress: `${installationProgress}%`
+      }
     });
   } catch (err) {
-    console.error("❌ Dashboard State API error:", err);
+    console.error("? Dashboard State API error:", err);
     res.status(500).json({ status: false, error: "Server error" });
   } finally {
     if (connection) connection.release();
   }
-}
-
-// GET /api/dashboard/blocks?state_code=19&district_code=303&stage=survey&status=In%20Progress
-// async function dashboardData(req, res) {
-//   let connection;
-
-//   try {
-//     const {
-//       state_code,
-//       district_code,
-//       stage,
-//       status,
-//       date,
-//       from_date,
-//       to_date,
-//     } = req.query;
-
-//     if (!state_code || !stage) {
-//       return res
-//         .status(400)
-//         .json({ status: false, error: "state_code and stage are required" });
-//     }
-
-//     // Map stage -> db field
-//     const stageMap = {
-//       survey: {
-//         statusField: "physical_survey_status",
-//         start: "physical_startDate",
-//         end: "physical_endDate",
-//       },
-//       construction: {
-//         statusField: "construction_status",
-//         start: "construction_startDate",
-//         end: "construction_endDate",
-//       },
-//       installation: {
-//         statusField: "installation_status",
-//         start: "installation_startDate",
-//         end: "installation_endDate",
-//       },
-//       desktop: {
-//         statusField: "desktop_status",
-//         start: "desktop_startDate",
-//         end: "desktop_endDate",
-//       },
-//       boq: { statusField: "boq_status", start: null, end: null },
-//     };
-
-//     if (!stageMap[stage]) {
-//       return res.status(400).json({ status: false, error: "Invalid stage" });
-//     }
-
-//     const { statusField, start, end } = stageMap[stage];
-
-//     connection = await pool.getConnection();
-
-//     let query = `
-//       SELECT 
-//         b.block_code,
-//         b.block_name,
-//         bs.block_id,
-//         bs.no_of_gps,
-//         d.district_name,
-//         (bs.proposed_length + bs.incremental_length) AS total_length_km,
-//         ? AS stage,
-//         bs.${statusField} AS status,
-//         u.fullname AS assigned_to,
-//         bs.progress
-//         ${start ? `, bs.${start} AS start_date` : ""}
-//         ${end ? `, bs.${end} AS end_date` : ""}
-//       FROM blocks b
-//       JOIN block_status bs ON b.block_code = bs.block_code
-//       JOIN districts d ON b.district_code = d.district_code
-//       LEFT JOIN users u ON bs.assigned_to = u.id
-//       WHERE b.state_code = ?
-//     `;
-
-//     const params = [stage, state_code];
-
-//     if (district_code) {
-//       query += " AND b.district_code = ?";
-//       params.push(district_code);
-//     }
-//     if (status) {
-//       query += ` AND bs.${statusField} = ?`;
-//       params.push(status);
-//     }
-
-//     // 📅 Date filters
-//     if (date && start) {
-//       // filter for a single day (today or passed date)
-//       query += ` AND DATE(bs.${start}) = ?`;
-//       params.push(date);
-//     } else if (from_date && to_date && start) {
-//       // filter for range
-//       query += ` AND DATE(bs.${start}) BETWEEN ? AND ?`;
-//       params.push(from_date, to_date);
-//     }
-
-//     const [rows] = await connection.query(query, params);
-
-//     res.json({
-//       status: true,
-//       data: rows.map((r) => ({
-//         blockName: r.block_name,
-//         blockCode: r.block_code,
-//         blockId: r.block_id,
-//         district: r.district_name,
-//         no_of_gps: r.no_of_gps,
-//         length: r.total_length_km + " km",
-//         stage: r.stage,
-//         status: r.status,
-//         assignedTo: r.assigned_to || "Unassigned",
-//         progress: r.progress + "%",
-//         startDate: r.start_date || null,
-//         endDate: r.end_date || null,
-//       })),
-//     });
-//   } catch (err) {
-//     console.error("❌ API error:", err);
-//     res.status(500).json({ status: false, error: err.message });
-//   } finally {
-//     if (connection) connection.release();
-//   }
-// }
+};
 
 
 async function dashboardData(req, res) {
@@ -212,7 +73,29 @@ async function dashboardData(req, res) {
     }
 
     // Map stage -> db field
-       
+    const stageMap = {
+      survey: {
+        statusField: "physical_survey_status",
+        start: "physical_startDate",
+        end: "physical_endDate",
+      },
+      construction: {
+        statusField: "construction_status",
+        start: "construction_startDate",
+        end: "construction_endDate",
+      },
+      installation: {
+        statusField: "gp_installation_status",
+        start: "gp_installation_startDate",
+        end: "gp_installation_endDate",
+      },
+      desktop: {
+        statusField: "desktop_status",
+        start: "desktop_startDate",
+        end: "desktop_endDate",
+      },
+      boq: { statusField: "boq_status", start: null, end: null },
+    };
 
     if (!stageMap[stage]) {
       return res.status(400).json({ status: false, error: "Invalid stage" });
@@ -238,20 +121,20 @@ async function dashboardData(req, res) {
         IFNULL(s.survey_docs,0) AS survey_docs,
         IFNULL(c.connection_docs,0) AS connection_docs,
         CASE 
-        WHEN '${stage}' = 'survey' AND bs.physical_survey_status = 'Completed'
-          THEN 100
-        WHEN '${stage}' = 'survey' AND c.connection_docs > 0 
-          THEN ROUND((s.survey_docs / c.connection_docs) * 100,2)
-        WHEN '${stage}' = 'construction' AND bs.construction_status = 'Completed'
-          THEN 100
-        WHEN '${stage}' = 'installation' AND bs.installation_status = 'Completed'
-          THEN 100
-        WHEN '${stage}' = 'desktop' AND bs.desktop_status = 'Completed'
+             WHEN '${stage}' = 'survey' AND bs.physical_survey_status = 'Completed'
+             THEN 100
+             WHEN '${stage}' = 'survey' AND c.connection_docs > 0 
+             THEN ROUND((s.survey_docs / c.connection_docs) * 100,2)
+             WHEN '${stage}' = 'construction' AND bs.construction_status = 'Completed'
+             THEN 100
+            WHEN '${stage}' = 'installation' AND bs.gp_installation_status = 'Completed'
+            THEN 100
+          WHEN '${stage}' = 'desktop' AND bs.desktop_status = 'Completed'
           THEN 100
         WHEN '${stage}' = 'boq' AND bs.boq_status = 'Completed'
-          THEN 100
-        ELSE 0
-      END AS progress_percent
+        THEN 100
+       ELSE 0
+       END AS progress_percent
 
 
         ${start ? `, bs.${start} AS start_date` : ""}
@@ -337,24 +220,14 @@ async function dashboardData(req, res) {
 
 
 
+
 async function assignBlockConnections(req, res) {
   let connection;
   try {
     const { block_ids, user_id, user_name } = req.body;
 
-    if (
-      !block_ids ||
-      !Array.isArray(block_ids) ||
-      block_ids.length === 0 ||
-      !user_id ||
-      !user_name
-    ) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          error: "block_ids (array), user_id, and user_name are required",
-        });
+    if (!block_ids || !Array.isArray(block_ids) || block_ids.length === 0 || !user_id || !user_name) {
+      return res.status(400).json({ success: false, error: "block_ids (array), user_id, and user_name are required" });
     }
 
     connection = await pool.getConnection();
@@ -363,7 +236,7 @@ async function assignBlockConnections(req, res) {
     // Convert block_ids to strings (blk_code is varchar)
     const blockIdsStr = block_ids.map(String);
 
-    // 1️⃣ Fetch networks for these blocks
+    // 1?? Fetch networks for these blocks
     const blockPlaceholders = blockIdsStr.map(() => "?").join(",");
     const [networks] = await connection.query(
       `SELECT id, blk_code FROM networks WHERE blk_code IN (${blockPlaceholders})`,
@@ -372,29 +245,19 @@ async function assignBlockConnections(req, res) {
 
     if (networks.length === 0) {
       await connection.rollback();
-      return res
-        .status(404)
-        .json({
-          success: false,
-          error: "No networks found for provided blocks",
-        });
+      return res.status(404).json({ success: false, error: "No networks found for provided blocks" });
     }
 
-    const networkIds = networks.map((n) => n.id);
+    const networkIds = networks.map(n => n.id);
     if (networkIds.length === 0) {
       await connection.rollback();
-      return res
-        .status(404)
-        .json({
-          success: false,
-          error: "No networks have corresponding connections",
-        });
+      return res.status(404).json({ success: false, error: "No networks have corresponding connections" });
     }
 
     // Convert user_id to string (connections.user_id is varchar)
     const userIdStr = user_id.toString();
 
-    // 2️⃣ Update connections
+    // 2?? Update connections
     const netPlaceholders = networkIds.map(() => "?").join(",");
     const [updateResult] = await connection.query(
       `UPDATE connections
@@ -403,8 +266,7 @@ async function assignBlockConnections(req, res) {
       [userIdStr, user_name, ...networkIds]
     );
 
-
-       const [blockUpdate] = await connection.query(
+    const [blockUpdate] = await connection.query(
       `UPDATE block_status 
        SET assigned_to = ?, updated_at = NOW()
        WHERE block_id IN (${blockPlaceholders})`,
@@ -415,29 +277,26 @@ async function assignBlockConnections(req, res) {
 
     res.json({
       success: true,
-      assignedBlocks: [...new Set(networks.map((n) => n.blk_code))],
+      assignedBlocks: [...new Set(networks.map(n => n.blk_code))],
       assignedConnections: updateResult.affectedRows,
-      message: `Assigned ${updateResult.affectedRows} connections of blocks [${[
-        ...new Set(networks.map((n) => n.blk_code)),
-      ].join(", ")}] to ${user_name}`,
+      message: `Assigned ${updateResult.affectedRows} connections of blocks [${[...new Set(networks.map(n => n.blk_code))].join(", ")}] to ${user_name}`
     });
+
   } catch (err) {
     if (connection) await connection.rollback();
-    console.error("❌ Block connection assignment error:", err);
+    console.error("? Block connection assignment error:", err);
     res.status(500).json({ success: false, error: err.message });
   } finally {
     if (connection) connection.release();
   }
 }
 
+
 async function getUserNetworks(req, res) {
   let connection;
   try {
     const { user_id } = req.query;
-    if (!user_id)
-      return res
-        .status(400)
-        .json({ success: false, error: "user_id is required" });
+    if (!user_id) return res.status(400).json({ success: false, error: "user_id is required" });
 
     connection = await pool.getConnection();
 
@@ -451,7 +310,7 @@ async function getUserNetworks(req, res) {
       return res.json({ success: true, networks: [] });
     }
 
-    const ids = networkIds.map((n) => n.network_id);
+    const ids = networkIds.map(n => n.network_id);
 
     // 2?? Fetch network details from networks table
     const [networks] = await connection.query(
@@ -460,6 +319,7 @@ async function getUserNetworks(req, res) {
     );
 
     res.json({ success: true, networks });
+
   } catch (err) {
     console.error("? getUserNetworks error:", err);
     res.status(500).json({ success: false, error: err.message });
@@ -468,12 +328,13 @@ async function getUserNetworks(req, res) {
   }
 }
 
+
 async function getNetworkConnections(req, res) {
   let connection;
   try {
     const { network_id, user_id } = req.query;
 
-    // ✅ Validate required params
+    // ? Validate required params
     if (!network_id) {
       return res.status(400).json({
         success: false,
@@ -491,7 +352,7 @@ async function getNetworkConnections(req, res) {
     connection = await pool.getConnection();
     await connection.beginTransaction();
 
-    // ✅ Fetch only connections that match both network_id and user_id
+    // ? Fetch only connections that match both network_id and user_id
     const [connections] = await connection.query(
       `SELECT * 
        FROM connections 
@@ -503,7 +364,7 @@ async function getNetworkConnections(req, res) {
       throw new Error("No connections found for the given network ID and user ID");
     }
 
-    // ✅ Process each connection
+    // ? Process each connection
     for (let i = 0; i < connections.length; i++) {
       // Parse coordinates JSON safely
       if (connections[i].coordinates) {
@@ -514,7 +375,7 @@ async function getNetworkConnections(req, res) {
         }
       }
 
-      // ✅ Fetch start & end points from gpslist
+      // ? Fetch start & end points from gpslist
       const [startPoint] = await connection.query(
         "SELECT * FROM gpslist WHERE lgd_code = ?",
         [connections[i].start]
@@ -530,7 +391,7 @@ async function getNetworkConnections(req, res) {
       connections[i].end_coordinates =
         endPoint.length > 0 ? endPoint[0] : null;
 
-      // ✅ Fetch network + state/district/block info
+      // ? Fetch network + state/district/block info
       const [network] = await connection.query(
         `SELECT id, name, st_code, st_name, dt_code, dt_name, blk_code, blk_name 
          FROM networks 
@@ -581,92 +442,17 @@ async function getNetworkConnections(req, res) {
 }
 
 
-
-
-async function getConnectionsByBlock(req, res) {
-    let connection;
-    try {
-        const blockId = parseInt(req.params.block_id);
-        if (isNaN(blockId) || blockId <= 0) {
-            return res.status(400).json({
-                success: false,
-                message: 'Invalid block ID'
-            });
-        }
-
-        connection = await pool.getConnection();
-        await connection.beginTransaction();
-
-        // Step 1: Fetch networks for the given block_id
-        const [networkRows] = await connection.query(
-            'SELECT id FROM networks WHERE blk_code = ?',
-            [blockId.toString()] // CAST block_id to string because blk_code is varchar
-        );
-
-        if (networkRows.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: `No networks found for block ID ${blockId}`
-            });
-        }
-
-        const networkIds = networkRows.map(n => n.id);
-
-        // Step 2: Fetch connections for those network IDs
-           const [connections] = await connection.query(
-          `SELECT 
-              c.*, 
-              u.fullname AS user_name
-          FROM connections c
-          LEFT JOIN users u ON c.user_id = u.id
-          WHERE c.network_id = ?`,
-          [networkIds]
-        );
-
-        
-
-        res.status(200).json({
-            success: true,
-            data: {
-                connections
-            },
-            message: 'Connections retrieved successfully'
-        });
-
-    } catch (err) {
-        console.error('Error fetching connections by block:', {
-            message: err.message,
-            code: err.code,
-            stack: err.stack
-        });
-        res.status(500).json({
-            success: false,
-            message: 'Failed to retrieve connections',
-            error: err.message
-        });
-    } finally {
-        if (connection) {
-            connection.release?.();
-        }
-    }
-}
-
-
-
-// Update connections for a given network_id
 async function updateConnectionsByNetwork(req, res) {
   let connection;
   try {
     const { network_id } = req.query;
     if (!network_id) {
-      return res
-        .status(400)
-        .json({ success: false, error: "network_id is required" });
+      return res.status(400).json({ success: false, error: "network_id is required" });
     }
 
     connection = await pool.getConnection();
 
-    // 1️⃣ Get points for the network
+    // 1?? Get points for the network
     const [points] = await connection.query(
       "SELECT name, lgd_code FROM points WHERE network_id = ?",
       [network_id]
@@ -674,15 +460,12 @@ async function updateConnectionsByNetwork(req, res) {
 
     // Normalize point names
     const pointMap = {};
-    points.forEach((p) => {
-      let cleanName = p.name
-        .replace(/\(.*?\)/g, "")
-        .trim()
-        .toLowerCase();
+    points.forEach(p => {
+      let cleanName = p.name.replace(/\(.*?\)/g, "").trim().toLowerCase();
       pointMap[cleanName] = p.lgd_code;
     });
 
-    // 2️⃣ Get connections for the network
+    // 2?? Get connections for the network
     const [connections] = await connection.query(
       "SELECT id, original_name FROM connections WHERE network_id = ?",
       [network_id]
@@ -690,7 +473,7 @@ async function updateConnectionsByNetwork(req, res) {
 
     const updates = [];
 
-    // 3️⃣ Match and update each connection
+    // 3?? Match and update each connection
     for (const conn of connections) {
       const parts = conn.original_name.split(" TO ");
       if (parts.length !== 2) continue;
@@ -710,18 +493,20 @@ async function updateConnectionsByNetwork(req, res) {
         connection_id: conn.id,
         original_name: conn.original_name,
         start: startCode,
-        end: endCode,
+        end: endCode
       });
     }
 
     res.json({ success: true, network_id, updates });
+
   } catch (err) {
-    console.error("❌ updateConnectionsByNetwork error:", err);
+    console.error("? updateConnectionsByNetwork error:", err);
     res.status(500).json({ success: false, error: err.message });
   } finally {
     if (connection) connection.release();
   }
 }
+
 
 // POST /start-physical-survey
 async function startPhysicalSurveyDate(req, res) {
@@ -736,7 +521,7 @@ async function startPhysicalSurveyDate(req, res) {
 
     connection = await pool.getConnection();
 
-    // 1️⃣ Check block_status for given block_id
+    // 1?? Check block_status for given block_id
     const [block] = await connection.query(
       `SELECT id, physical_startDate, physical_survey_status 
        FROM block_status 
@@ -752,7 +537,7 @@ async function startPhysicalSurveyDate(req, res) {
 
     const currentBlock = block[0];
 
-    // 2️⃣ If already in progress and has a startDate → do nothing
+    // 2?? If already in progress and has a startDate ? do nothing
     if (
       currentBlock.physical_survey_status === "In Progress" &&
       currentBlock.physical_startDate !== null
@@ -763,7 +548,7 @@ async function startPhysicalSurveyDate(req, res) {
       });
     }
 
-    // 3️⃣ If status is "Not started" OR NULL → fetch first record from underground_fiber_surveys
+    // 3?? If status is "Not started" OR NULL ? fetch first record from underground_fiber_surveys
     if (
       currentBlock.physical_survey_status === "Not started" ||
       currentBlock.physical_survey_status === null
@@ -799,15 +584,79 @@ async function startPhysicalSurveyDate(req, res) {
       });
     }
   } catch (err) {
-    console.error("❌ startPhysicalSurvey error:", err);
+    console.error("? startPhysicalSurvey error:", err);
     res.status(500).json({ success: false, error: err.message });
   } finally {
     if (connection) connection.release();
   }
 }
 
+async function getConnectionsByBlock(req, res) {
+    let connection;
+    try {
+        const blockId = parseInt(req.params.block_id);
+        if (isNaN(blockId) || blockId <= 0) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid block ID'
+            });
+        }
 
-// ✅ Update Physical End Date API
+        connection = await pool.getConnection();
+        await connection.beginTransaction();
+
+        // Step 1: Fetch networks for the given block_id
+        const [networkRows] = await connection.query(
+            'SELECT id FROM networks WHERE blk_code = ?',
+            [blockId.toString()] // CAST block_id to string because blk_code is varchar
+        );
+
+        if (networkRows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: `No networks found for block ID ${blockId}`
+            });
+        }
+
+        const networkIds = networkRows.map(n => n.id);
+
+        // Step 2: Fetch connections for those network IDs
+       // Step 2: Fetch connections for those network IDs
+           const [connections] = await connection.query(
+          `SELECT 
+              c.*, 
+              u.fullname AS user_name
+          FROM connections c
+          LEFT JOIN users u ON c.user_id = u.id
+          WHERE c.network_id = ?`,
+          [networkIds]
+        );
+
+        res.status(200).json({
+            success: true,
+            data: {
+                connections
+            },
+            message: 'Connections retrieved successfully'
+        });
+    } catch (err) {
+        console.error('Error fetching connections by block:', {
+            message: err.message,
+            code: err.code,
+            stack: err.stack
+        });
+        res.status(500).json({
+            success: false,
+            message: 'Failed to retrieve connections',
+            error: err.message
+        });
+    } finally {
+        if (connection) {
+            connection.release?.();
+        }
+    }
+}
+
 async function updatePhysicalEndDate(req, res) {
   let connection;
   try {
@@ -842,7 +691,7 @@ async function updatePhysicalEndDate(req, res) {
       message: `Physical survey end date updated for block_id ${block_id}`,
     });
   } catch (err) {
-    console.error("❌ Error updating physical_endDate:", err);
+    console.error("? Error updating physical_endDate:", err);
     res.status(500).json({ success: false, error: err.message });
   } finally {
     if (connection) connection.release();
@@ -850,7 +699,7 @@ async function updatePhysicalEndDate(req, res) {
 }
 
 
-// ✅ Generic Update API for block_status
+
 async function updateBlockStatus(req, res) {
   let connection;
   try {
@@ -878,7 +727,7 @@ async function updateBlockStatus(req, res) {
     connection = await pool.getConnection();
     await connection.beginTransaction();
 
-    // 1️⃣ Update block_status
+    // 1?? Update block_status
     const [result] = await connection.query(
       `UPDATE block_status SET ${setClause} WHERE block_id = ?`,
       [...values, block_id]
@@ -892,21 +741,33 @@ async function updateBlockStatus(req, res) {
       });
     }
 
-    // 2️⃣ Only if physical_survey_status is Completed
-    if (updates.physical_survey_status === "Completed") {
-      // Get blk_code of the block
-        const blk_code = block_id;
+    // 2?? Only if physical_survey_status is Completed
+             if (updates.physical_survey_status === "Completed") {
+  // Get blk_code of the block
+  const blk_code = block_id;
+   console.log(updates, "updates")
 
-        // Update all connections linked to networks of this block
-        await connection.query(
-          `UPDATE connections c
-           JOIN networks n ON c.network_id = n.id
-           SET c.status = 'Completed'
-           WHERE n.blk_code = ?`,
-          [blk_code]
-        );
-      
-    }
+  if (updates.assigned_to) {
+    // assigned_to exists ? update both status and user_id
+    await connection.query(
+      `UPDATE connections c
+       JOIN networks n ON c.network_id = n.id
+       SET c.status = 'Completed',
+           c.user_id = ?
+       WHERE n.blk_code = ?`,
+      [updates.assigned_to, blk_code]
+    );
+  } else {
+    // assigned_to does NOT exist ? update only status
+    await connection.query(
+      `UPDATE connections c
+       JOIN networks n ON c.network_id = n.id
+       SET c.status = 'Completed'
+       WHERE n.blk_code = ?`,
+      [blk_code]
+    );
+  }
+}
 
     await connection.commit();
 
@@ -921,7 +782,7 @@ async function updateBlockStatus(req, res) {
 
   } catch (err) {
     if (connection) await connection.rollback();
-    console.error("❌ Error updating block_status:", err);
+    console.error("? Error updating block_status:", err);
     res.status(500).json({ success: false, error: err.message });
   } finally {
     if (connection) connection.release();
@@ -932,7 +793,7 @@ async function updateBlockStatus(req, res) {
 
 ///-----------------------------------------------Survey dahsboard apis--------------------------------------------------------------------------------
 
-async function surveyCount (req, res){
+async function surveyCount  (req, res){
   let connection;
   try {
     const { state_code } = req.query;
@@ -963,12 +824,132 @@ async function surveyCount (req, res){
   }
 }
 
+// async function surveyCountByUser(req, res) {
+//   let connection;
+//   try {
+//     const { state_code, from_date, to_date, page = 1, limit = 10 } = req.query;
+//     connection = await pool.getConnection();
+
+//     // Pagination logic
+//     const offset = (page - 1) * limit;
+
+//     // Start base WHERE
+//     let where = "WHERE s.user_id IS NOT NULL";
+//     const params = [];
+
+//     // Filters
+//     if (state_code) {
+//       where += " AND s.state_id = ?";
+//       params.push(state_code);
+//     }
+//     if (from_date && to_date) {
+//       where += " AND DATE(s.created_at) BETWEEN ? AND ?";
+//       params.push(from_date, to_date);
+//     } else if (from_date) {
+//       where += " AND DATE(s.created_at) >= ?";
+//       params.push(from_date);
+//     } else if (to_date) {
+//       where += " AND DATE(s.created_at) <= ?";
+//       params.push(to_date);
+//     }
+
+//     // Main query with LIMIT/OFFSET
+//     const [rows] = await connection.query(
+//       `
+//       SELECT
+//         u.id AS user_id,
+//         u.fullname AS username,
+//         u.email,
+//         u.version,
+//         c.name AS company_name,
+//         SUM(CASE WHEN s.is_active = 1 THEN 1 ELSE 0 END) AS completed_surveys,
+//         SUM(CASE WHEN s.is_active = 0 THEN 1 ELSE 0 END) AS pending_surveys,
+//         SUM(CASE WHEN s.is_active = 2 THEN 1 ELSE 0 END) AS rejected_surveys,
+//         COUNT(s.id) AS total_surveys,
+//         ROUND(
+//           COALESCE((
+//             SELECT SUM(DISTINCT n.total_length)
+//             FROM networks n
+//             WHERE n.blk_code IN (
+//               SELECT DISTINCT s2.block_id
+//               FROM underground_fiber_surveys s2
+//               WHERE s2.user_id = u.id
+//                 AND s2.block_id IS NOT NULL
+//             )
+//           ), 0),
+//         2) AS total_kms
+//       FROM underground_fiber_surveys s
+//       LEFT JOIN users u ON s.user_id = u.id
+//       LEFT JOIN companies c ON u.company_id = c.id
+//       ${where}
+//       GROUP BY u.id, u.fullname, u.email, u.version, c.name
+//       ORDER BY completed_surveys DESC
+//       LIMIT ? OFFSET ?
+//       `,
+//       [...params, parseInt(limit), parseInt(offset)]
+//     );
+
+//     // Total count (for frontend to know total pages)
+//     const [countRows] = await connection.query(
+//       `
+//       SELECT COUNT(DISTINCT u.id) AS total_users
+//       FROM underground_fiber_surveys s
+//       LEFT JOIN users u ON s.user_id = u.id
+//       ${where}
+//       `,
+//       params
+//     );
+
+//     const totalUsers = countRows[0]?.total_users || 0;
+//     const totalPages = Math.ceil(totalUsers / limit);
+
+//     res.json({
+//       success: true,
+//       data: rows,
+//       pagination: {
+//         total_users: totalUsers,
+//         total_pages: totalPages,
+//         current_page: parseInt(page),
+//         limit: parseInt(limit),
+//       },
+//     });
+//   } catch (err) {
+//     console.error("Error fetching survey counts:", err);
+//     res.status(500).json({ success: false, error: "Internal Server Error" });
+//   } finally {
+//     if (connection) connection.release();
+//   }
+// }
 
 async function surveyCountByUser(req, res) {
   let connection;
   try {
+    const { state_code, from_date, to_date } = req.query;
     connection = await pool.getConnection();
 
+    // Start base WHERE
+    let where = "WHERE s.user_id IS NOT NULL";
+    const params = [];
+
+    // Filter by state if provided
+    if (state_code) {
+      where += " AND s.state_id = ?";
+      params.push(state_code);
+    }
+
+    // Filter by date range if provided
+    if (from_date && to_date) {
+      where += " AND DATE(s.created_at) BETWEEN ? AND ?";
+      params.push(from_date, to_date);
+    } else if (from_date) {
+      where += " AND DATE(s.created_at) >= ?";
+      params.push(from_date);
+    } else if (to_date) {
+      where += " AND DATE(s.created_at) <= ?";
+      params.push(to_date);
+    }
+
+    // Main query
     const [rows] = await connection.query(
       `
       SELECT
@@ -977,44 +958,44 @@ async function surveyCountByUser(req, res) {
         u.email,
         u.version,
         c.name AS company_name,
-       SUM(CASE WHEN LOWER(TRIM(con.status)) = 'completed' THEN 1 ELSE 0 END) AS completed,
-      SUM(CASE WHEN LOWER(TRIM(con.status)) = 'assigned' THEN 1 ELSE 0 END) AS assigned,
-      SUM(CASE WHEN LOWER(TRIM(con.status)) = 'inprogress' THEN 1 ELSE 0 END) AS in_progress,
-      SUM(CASE WHEN LOWER(TRIM(con.status)) = 'pending' THEN 1 ELSE 0 END) AS pending
 
-        COUNT(*) AS total_connections,
-        SUM(con.length) AS total_kms
-      FROM connections con
-      LEFT JOIN users u ON con.user_id = u.id
+        -- Survey counts by status
+        SUM(CASE WHEN s.is_active = 1 THEN 1 ELSE 0 END) AS completed_surveys,
+        SUM(CASE WHEN s.is_active = 0 THEN 1 ELSE 0 END) AS pending_surveys,
+        SUM(CASE WHEN s.is_active = 2 THEN 1 ELSE 0 END) AS rejected_surveys,
+        COUNT(s.id) AS total_surveys,
+
+        -- Total length (KM) by mapping unique block_ids to networks.blk_code
+        ROUND(
+          COALESCE((
+            SELECT SUM(DISTINCT n.total_length)
+            FROM networks n
+            WHERE n.blk_code IN (
+              SELECT DISTINCT s2.block_id
+              FROM underground_fiber_surveys s2
+              WHERE s2.user_id = u.id
+                AND s2.block_id IS NOT NULL
+            )
+          ), 0),
+        2) AS total_kms
+
+      FROM underground_fiber_surveys s
+      LEFT JOIN users u ON s.user_id = u.id
       LEFT JOIN companies c ON u.company_id = c.id
-      WHERE con.user_id IS NOT NULL
+      ${where}
       GROUP BY u.id, u.fullname, u.email, u.version, c.name
-      ORDER BY completed DESC;
-      `
+      ORDER BY completed_surveys DESC
+      `,
+      params
     );
 
     res.json({ success: true, data: rows });
   } catch (err) {
-    console.error("Error fetching connection counts:", err);
+    console.error("Error fetching survey counts:", err);
     res.status(500).json({ success: false, error: "Internal Server Error" });
   } finally {
     if (connection) connection.release();
   }
 }
 
-
-
-module.exports = {
-  dashboard,
-  dashboardData,
-  assignBlockConnections,
-  getUserNetworks,
-  getNetworkConnections,
-  updateConnectionsByNetwork,
-  startPhysicalSurveyDate,
-  updatePhysicalEndDate,
-  updateBlockStatus,
-  getConnectionsByBlock,
-  surveyCount,
-  surveyCountByUser
-};
+module.exports = {dashboard, dashboardData, assignBlockConnections, surveyCount,surveyCountByUser, updatePhysicalEndDate,getConnectionsByBlock,  updateBlockStatus,  getUserNetworks,  startPhysicalSurveyDate,  getNetworkConnections, updateConnectionsByNetwork}

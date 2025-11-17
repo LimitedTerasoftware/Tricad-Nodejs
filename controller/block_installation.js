@@ -1,15 +1,15 @@
 const pool = require("../db");
 
-// ✅ Create Block Installation
+// âœ… Create Block Installation
 async function createBlockInstallation(req, res) {
   let connection;
   try {
     const allowedFields = [
       "user_id", "state_code", "district_code", "block_code", "block_name",
       "block_latitude", "block_longitude", "block_photos", "smart_rack",
-      "fdms_shelf", "ip_mpls_router",
-      "sfp_10g", "sfp_1g", "sfp_100g",
-      "rfms", "equipment_photo", "block_contacts"
+      "fdms_shelf", "ip_mpls_router","fiber_entry", 'splicing_photo',
+      "sfp_10g_40", "sfp_1g_10", "sfp_10g_10",
+      "rfms", "equipment_photo", "block_contacts", "RFMS_FILTER"
     ];
 
     const body = req.body;
@@ -57,56 +57,54 @@ async function createBlockInstallation(req, res) {
   }
 }
 
-// ✅ Get All Block Installations (with filters)
-async function getAllBlockInstallations(req, res) {
+  async function getAllBlockInstallations(req, res) {
   let connection;
   try {
-    const { user_id, state_code, district_code, block_code } = req.query;
+    const {id, user_id, state_code, district_code, block_code } = req.query;
 
     const conditions = [];
     const params = [];
 
+       if (id) {
+      conditions.push("bi.id = ?");
+      params.push(id);
+    }
+
     if (user_id) {
-      conditions.push("gi.user_id = ?");
+      conditions.push("bi.user_id = ?");
       params.push(user_id);
     }
     if (state_code) {
-      conditions.push("gi.state_code = ?");
+      conditions.push("bi.state_code = ?");
       params.push(state_code);
     }
     if (district_code) {
-      conditions.push("gi.district_code = ?");
+      conditions.push("bi.district_code = ?");
       params.push(district_code);
     }
     if (block_code) {
-      conditions.push("gi.block_code = ?");
+      conditions.push("bi.block_code = ?");
       params.push(block_code);
     }
 
-     connection = await pool.getConnection();
-    await connection.beginTransaction();
+    connection = await pool.getConnection();
 
     const whereClause = conditions.length
       ? `WHERE ${conditions.join(" AND ")}`
       : "";
 
-   
-    // const [rows] = await connection.execute(
-    //   `SELECT * FROM block_installation ${whereClause} ORDER BY id DESC`,
-    //   params
-    // );
-
-      const [rows] = await connection.execute(
-      `SELECT gi.*, 
-                  s.state_name, 
-                  d.district_name, 
-                 
-          FROM gp_installation gi
-          LEFT JOIN states s ON gi.state_code = s.state_code
-          LEFT JOIN districts d ON gi.district_code = d.district_code
-          
-          ${whereClause}
-          ORDER BY gi.id DESC`,
+    const [rows] = await connection.execute(
+      `SELECT 
+          bi.*, 
+          s.state_name, 
+          d.district_name
+       FROM block_installation bi
+       LEFT JOIN states s ON bi.state_code = s.state_code
+       LEFT JOIN districts d 
+          ON bi.state_code = d.state_code 
+          AND bi.district_code = d.district_code
+       ${whereClause}
+       ORDER BY bi.id DESC`,
       params
     );
 
@@ -125,18 +123,18 @@ async function getAllBlockInstallations(req, res) {
   }
 }
 
-// ✅ Update Block Installation
+// âœ… Update Block Installation
 async function updateBlockInstallation(req, res) {
   let connection;
   try {
     const allowedFields = [
       "user_id", "state_code", "district_code", "block_code", "block_name", 
       "block_latitude", "block_longitude", "block_photos", "smart_rack",
-      "fdms_shelf", "ip_mpls_router",
-      "sfp_10g", "sfp_1g", "sfp_100g",
-      "rfms", "equipment_photo", "block_contacts"
+      "fdms_shelf", "ip_mpls_router","fiber_entry", 'splicing_photo',
+       "sfp_10g_40", "sfp_1g_10", "sfp_10g_10",
+      "rfms", "equipment_photo", "block_contacts", "RFMS_FILTER"
     ];
-   
+
     const body = req.body;
     const updates = [];
     const values = [];
@@ -210,6 +208,17 @@ async function getBlockInstallationHistoryByUser(req, res) {
                 bi.block_contacts,
                 bi.block_latitude,
                 bi.block_longitude,
+                bi.smart_rack,
+                bi.fdms_shelf,
+                bi.ip_mpls_router,
+                bi.sfp_10g_40,
+                bi.sfp_1g_10,
+                bi.sfp_10g_10,
+                bi.rfms,
+                bi.RFMS_FILTER,
+                bi.equipment_photo,
+                bi.fiber_entry,
+                bi.splicing_photo,
                 s.state_name,
                 d.district_name
             FROM block_installation bi
@@ -224,7 +233,39 @@ async function getBlockInstallationHistoryByUser(req, res) {
 
         const [rows] = await connection.query(query, [user_id]);
 
-        return res.status(200).json({ status: true, history: rows });
+        // Now calculate status
+        const history = rows.map((row) => {
+            const checkFields = [
+                row.smart_rack,
+                row.fdms_shelf,
+                row.ip_mpls_router,
+                row.sfp_10g_40,
+                row.sfp_1g_10,
+                row.sfp_10g_10,
+                row.rfms,
+                row.RFMS_FILTER,
+                row.equipment_photo,
+                row.fiber_entry,
+                row.splicing_photo,
+            ];
+
+            // Parse JSON safely and check if any field is empty
+            const isIncomplete = checkFields.some((field) => {
+                try {
+                    const val = JSON.parse(field || "[]" || "{}");
+                    return Array.isArray(val) ? val.length === 0 : Object.keys(val).length === 0;
+                } catch {
+                    return true; // if invalid JSON, treat as incomplete
+                }
+            });
+
+            return {
+                ...row,
+                status: isIncomplete ? "InProgress" : "Completed",
+            };
+        });
+
+        return res.status(200).json({ status: true, history });
 
     } catch (error) {
         console.error("Error in getBlockInstallationHistoryByUser:", error);
@@ -235,9 +276,57 @@ async function getBlockInstallationHistoryByUser(req, res) {
 }
 
 
+ async function deleteBlockInstallation (req, res)  {
+  let connection;
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({
+        status: false,
+        message: "Missing block_installation id",
+      });
+    }
+
+    connection = await pool.getConnection();
+
+    // Check if record exists
+    const [existing] = await connection.query(
+      "SELECT id FROM block_installation WHERE id = ?",
+      [id]
+    );
+
+    if (existing.length === 0) {
+      return res.status(404).json({
+        status: false,
+        message: "Record not found",
+      });
+    }
+
+    // Delete the record
+    await connection.query("DELETE FROM block_installation WHERE id = ?", [id]);
+
+    res.status(200).json({
+      status: true,
+      message: `Block Installation record with ID ${id} deleted successfully`,
+    });
+  } catch (error) {
+    console.error("Error deleting Block Installation:", error);
+    res.status(500).json({
+      status: false,
+      error: error.message || "Internal server error",
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+};
+
+
+
 module.exports = {
   createBlockInstallation,
   getAllBlockInstallations,
   updateBlockInstallation,
-  getBlockInstallationHistoryByUser
+getBlockInstallationHistoryByUser,
+deleteBlockInstallation 
 };

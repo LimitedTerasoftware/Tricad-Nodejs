@@ -8,9 +8,9 @@ async function createInstallation(req, res) {
       'user_id', 'state_code', 'district_code', 'block_code', 'gp_code', 'gp_name',
       'gp_latitude', 'gp_longitude', 'gp_photos',
       'smart_rack', 'fdms_shelf', 'ip_mpls_router',
-      'sfp_10g', 'sfp_1g',
+      'sfp_10g_40', 'sfp_1g_10',  'sfp_10g_10',
       'power_system_with_mppt', 'power_system_with_out_mppt',
-      'mppt_solar_1kw', 'equipment_photo', 'electricity_meter',
+      'mppt_solar_1kw', 'equipment_photo', 'RFMS_FILTERS',
       'earthpit', 'gp_contact', 'key_person'
     ];
 
@@ -68,15 +68,20 @@ async function createInstallation(req, res) {
 
 
 
-// ✅ Get all GP Installation records (with optional filters)
-async function getAllInstallations(req, res) {
+// âœ… Get all GP Installation records (with optional filters)
+       async function getAllInstallations(req, res) {
   let connection;
   try {
-    const { user_id, state_code, district_code, block_code, gp_code } =
+    const {id, user_id, state_code, district_code, block_code, gp_code } =
       req.query;
 
     const conditions = [];
     const params = [];
+
+       if (id) {
+      conditions.push("gi.id = ?");
+      params.push(id);
+    }
 
     if (user_id) {
       conditions.push("gi.user_id = ?");
@@ -99,7 +104,7 @@ async function getAllInstallations(req, res) {
       params.push(gp_code);
     }
 
-     connection = await pool.getConnection();
+       connection = await pool.getConnection();
     await connection.beginTransaction();
 
 
@@ -139,7 +144,6 @@ async function getAllInstallations(req, res) {
   }
 }
 
-
 async function updateInstallation(req, res) {
   let connection;
   try {
@@ -148,9 +152,9 @@ async function updateInstallation(req, res) {
       'user_id', 'state_code', 'district_code', 'block_code', 'gp_code', 'gp_name',
       'gp_latitude', 'gp_longitude', 'gp_photos',
       'smart_rack', 'fdms_shelf', 'ip_mpls_router',
-      'sfp_10g', 'sfp_1g',
+      'sfp_10g_40', 'sfp_1g_10',  'sfp_10g_10', 'RFMS_FILTERS',
       'power_system_with_mppt', 'power_system_with_out_mppt',
-      'mppt_solar_1kw', 'equipment_photo', 'electricity_meter',
+      'mppt_solar_1kw', 'equipment_photo',
       'earthpit', 'gp_contact', 'key_person'
     ];
 
@@ -216,7 +220,7 @@ async function updateInstallation(req, res) {
 }
 
 
-
+ 
 async function getGPInstallationHistoryByUser(req, res) {
     let connection;
     try {
@@ -228,13 +232,27 @@ async function getGPInstallationHistoryByUser(req, res) {
 
         connection = await pool.getConnection();
 
-          const query = `
+        const query = `
             SELECT
                 gpi.id,
                 gpi.gp_name,
                 gpi.gp_latitude,
                 gpi.gp_longitude,
                 gpi.gp_contact,
+                gpi.gp_photos,
+                gpi.smart_rack,
+                gpi.fdms_shelf,
+                gpi.ip_mpls_router,
+                gpi.RFMS_FILTERS,
+                gpi.sfp_10g_40,
+                gpi.sfp_1g_10,
+                gpi.sfp_10g_10,
+                gpi.power_system_with_mppt,
+                gpi.power_system_with_out_mppt,
+                gpi.mppt_solar_1kw,
+                gpi.equipment_photo,
+                
+                gpi.earthpit,
                 s.state_name,
                 d.district_name,
                 b.block_name
@@ -253,7 +271,42 @@ async function getGPInstallationHistoryByUser(req, res) {
 
         const [rows] = await connection.query(query, [user_id]);
 
-        return res.status(200).json({ status: true, history: rows });
+        const history = rows.map((row) => {
+            const checkFields = [
+                row.gp_photos,
+                row.smart_rack,
+                row.fdms_shelf,
+                row.ip_mpls_router,
+                row.sfp_10g_40,
+                row.sfp_1g_10,
+                row.sfp_10g_10,
+                row.RFMS_FILTERS,
+                row.power_system_with_mppt,
+                row.power_system_with_out_mppt,
+                row.mppt_solar_1kw,
+                row.equipment_photo,
+                row.earthpit,
+            ];
+
+                  // Parse JSON safely and check if any field is empty
+            const isIncomplete = checkFields.some((field) => {
+                try {
+                    const val = JSON.parse(field || "[]" || "{}");
+                    return Array.isArray(val) ? val.length === 0 : Object.keys(val).length === 0;
+                } catch {
+                    return true; // if invalid JSON, treat as incomplete
+                }
+            });
+
+             console.log(isIncomplete,"complete")
+
+            return {
+                ...row,
+                status: isIncomplete ? "InProgress" : "Completed",
+            };
+        });
+
+        return res.status(200).json({ status: true, history });
 
     } catch (error) {
         console.error("Error in getGPInstallationHistoryByUser:", error);
@@ -263,6 +316,288 @@ async function getGPInstallationHistoryByUser(req, res) {
     }
 }
 
+async function deleteInstallation (req, res)  {
+  let connection;
+  try {
+    const { id } = req.params;
+
+    if (!id) {
+      return res.status(400).json({
+        status: false,
+        message: "Missing gp_installation id",
+      });
+    }
+
+    connection = await pool.getConnection();
+
+    // Check if record exists
+    const [existing] = await connection.query(
+      "SELECT id FROM gp_installation WHERE id = ?",
+      [id]
+    );
+
+    if (existing.length === 0) {
+      return res.status(404).json({
+        status: false,
+        message: "Record not found",
+      });
+    }
+
+    // Delete the record
+    await connection.query("DELETE FROM gp_installation WHERE id = ?", [id]);
+
+    res.status(200).json({
+      status: true,
+      message: `GP Installation record with ID ${id} deleted successfully`,
+    });
+  } catch (error) {
+    console.error("Error deleting GP Installation:", error);
+    res.status(500).json({
+      status: false,
+      error: error.message || "Internal server error",
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+};
 
 
-module.exports = { createInstallation, getAllInstallations, updateInstallation, getGPInstallationHistoryByUser };
+async function updtaeStatus (req, res)  {
+  let connection;
+  try {
+        const { status, type, id  } = req.body; // expected values: PENDING / ACCEPT / REJECT
+
+    // ? Validate status value
+    const validStatuses = ["PENDING", "ACCEPT", "REJECT"];
+    if (!validStatuses.includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid status. Allowed: PENDING, ACCEPT, REJECT",
+      });
+    }
+
+    // ? Determine table name
+    let tableName = "";
+    if (type === "gp-installation") {
+      tableName = "gp_installation";
+    } else if (type === "block-installation") {
+      tableName = "block_installation";
+    } else {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid type. Use gp-installation or block-installation",
+      });
+    }
+
+    connection = await pool.getConnection();
+
+    const [result] = await connection.query(
+      `UPDATE ${tableName} SET status = ? WHERE id = ?`,
+      [status, id]
+    );
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "Record not found",
+      });
+    }
+
+    res.json({
+      success: true,
+      message: `Status updated to '${status}' successfully`,
+    });
+  } catch (error) {
+    console.error("Error updating status:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+};
+
+
+
+
+
+
+// async function getGPBasicDetails (req, res)  {
+//   let connection;
+//   try {
+//     connection = await pool.getConnection();
+
+//     const query = `
+//       SELECT 
+//         gi.id,
+//         gi.gp_name,
+//         gi.status,
+//         gi.key_person,
+//         u.fullname AS surveyor_name,
+//         u.email AS surveyor_email,
+//         u.version AS surveyor_version,
+//         s.state_name,
+//         d.district_name,
+//         b.block_name
+//       FROM gp_installation gi
+//       LEFT JOIN users u ON gi.user_id = u.id
+//       LEFT JOIN states s ON gi.state_code = s.state_code
+//       LEFT JOIN districts d ON gi.district_code = d.district_code
+//       LEFT JOIN blocks b ON gi.block_code = b.block_code
+//       ORDER BY gi.created_at DESC
+//     `;
+
+//     const [rows] = await connection.query(query);
+
+//     // Parse key_person JSON if stored that way
+//     const result = rows.map(row => {
+//       let keyPerson = {};
+//       try {
+//         keyPerson = row.key_person ? JSON.parse(row.key_person) : {};
+//       } catch {
+//         keyPerson = { name: row.key_person || "N/A" };
+//       }
+
+//       return {
+//         id: row.id,
+//         gp_name: row.gp_name,
+//         state_name: row.state_name || "N/A",
+//         district_name: row.district_name || "N/A",
+//         block_name: row.block_name || "N/A",
+//         status: row.status,
+//         key_person: {
+//           name: keyPerson.name || "N/A",
+//           phone: keyPerson.phone || "N/A"
+//         },
+//         surveyor: {
+//           name: row.surveyor_name || "N/A",
+//           email: row.surveyor_email || "N/A",
+//           version: row.surveyor_version || "N/A"
+//         }
+//       };
+//     });
+
+//     res.json({ success: true, data: result });
+//   } catch (error) {
+//     console.error("Error fetching GP basic details:", error);
+//     res.status(500).json({ success: false, error: error.message });
+//   } finally {
+//     if (connection) connection.release();
+//   }
+// };
+
+
+async function getGPBasicDetails(req, res) {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+
+    const query = `
+      SELECT 
+        gi.id,
+        gi.gp_name,
+        gi.status,
+        gi.key_person,
+        gi.gp_photos,
+        gi.smart_rack,
+        gi.fdms_shelf,
+        gi.ip_mpls_router,
+        gi.RFMS_FILTERS,
+        gi.sfp_10g_40,
+        gi.sfp_1g_10,
+        gi.sfp_10g_10,
+        gi.power_system_with_mppt,
+        gi.power_system_with_out_mppt,
+        gi.mppt_solar_1kw,
+        gi.equipment_photo,
+        gi.earthpit,
+        u.fullname AS surveyor_name,
+        u.email AS surveyor_email,
+        u.version AS surveyor_version,
+        s.state_name,
+        d.district_name,
+        b.block_name
+      FROM gp_installation gi
+      LEFT JOIN users u ON gi.user_id = u.id
+      LEFT JOIN states s ON gi.state_code = s.state_code
+      LEFT JOIN districts d ON gi.district_code = d.district_code
+      LEFT JOIN blocks b ON gi.block_code = b.block_code
+      ORDER BY gi.created_at DESC
+    `;
+
+    const [rows] = await connection.query(query);
+
+    const result = rows.map((row) => {
+      // Parse key_person JSON safely
+      let keyPerson = {};
+      try {
+        keyPerson = row.key_person ? JSON.parse(row.key_person) : {};
+      } catch {
+        keyPerson = { name: row.key_person || "N/A" };
+      }
+
+      // Equipment progress check
+      const checkFields = [
+        row.gp_photos,
+        row.smart_rack,
+        row.fdms_shelf,
+        row.ip_mpls_router,
+        row.RFMS_FILTERS,
+        row.sfp_10g_40,
+        row.sfp_1g_10,
+        row.sfp_10g_10,
+        row.power_system_with_mppt,
+        row.power_system_with_out_mppt,
+        row.mppt_solar_1kw,
+        row.equipment_photo,
+        row.earthpit,
+      ];
+
+      const isIncomplete = checkFields.some((field) => {
+        try {
+          const val = JSON.parse(field || "[]" || "{}");
+          return Array.isArray(val)
+            ? val.length === 0
+            : Object.keys(val).length === 0;
+        } catch {
+          return true; // treat invalid JSON as incomplete
+        }
+      });
+
+      const progress = isIncomplete ? "InProgress" : "Completed";
+
+      return {
+        id: row.id,
+        gp_name: row.gp_name,
+        state_name: row.state_name || "N/A",
+        district_name: row.district_name || "N/A",
+        block_name: row.block_name || "N/A",
+        status: row.status,
+        progress,
+        key_person: {
+          name: keyPerson.name || "N/A",
+          phone: keyPerson.phone || "N/A",
+        },
+        surveyor: {
+          name: row.surveyor_name || "N/A",
+          email: row.surveyor_email || "N/A",
+          version: row.surveyor_version || "N/A",
+        },
+      };
+    });
+
+    res.json({ success: true, data: result });
+  } catch (error) {
+    console.error("Error fetching GP basic details:", error);
+    res.status(500).json({ success: false, error: error.message });
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
+
+
+module.exports = { createInstallation, getAllInstallations, updateInstallation, updtaeStatus, getGPBasicDetails ,  getGPInstallationHistoryByUser, deleteInstallation };

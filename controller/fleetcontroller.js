@@ -243,4 +243,19 @@ async function getExternalFiles(req, res) {
 }
 
 
-module.exports = { getAllExternalFilesWithPreview, getExternalFiles };
+const  pool2  = require("../fleetdb"); // adjust path if needed
+
+async function testConnections(req, res) {
+  try {
+    const [rows2] = await pool2.query("SELECT DATABASE()");
+    console.log("Remote DB:", rows2);
+     res.status(200).json({data: rows2});
+  } catch (err) {
+    console.error("❌ Connection error:", err);
+     res.status(500).json({ error: err, code: 'SERVER_ERROR' });
+  }
+}
+
+
+
+module.exports = { testConnections, getAllExternalFilesWithPreview, getExternalFiles };

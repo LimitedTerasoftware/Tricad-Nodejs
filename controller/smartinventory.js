@@ -5,10 +5,12 @@ const path = require('path');
 const { DOMParser } = require('xmldom');
 const AdmZip = require('adm-zip');
 const shpwrite = require('shp-write');
-
-
+const axios = require('axios')
 
 const pool = require("../db");
+
+
+//------------------new -one------------------------
 
 async function getSurveysByLocation(req, res) {
     let connection;
@@ -22,7 +24,6 @@ async function getSurveysByLocation(req, res) {
             });
         }
 
-        // Convert block_id to array if it's a comma-separated string
         const blockIds = Array.isArray(block_id)
             ? block_id.map(id => parseInt(id))
             : block_id.split(',').map(id => parseInt(id.trim())).filter(Boolean);
@@ -35,12 +36,12 @@ async function getSurveysByLocation(req, res) {
         }
 
         connection = await pool.getConnection();
-
         const placeholders = blockIds.map(() => '?').join(', ');
 
-        const query = `
+        // Fetch main survey data
+        const [rows] = await connection.query(`
             SELECT 
-                usd.*, -- all underground_survey_data fields
+                usd.*,
                 ufs.state_id,
                 ufs.district_id,
                 ufs.block_id,
@@ -62,18 +63,76 @@ async function getSurveysByLocation(req, res) {
               AND ufs.district_id = ? 
               AND ufs.block_id IN (${placeholders})
               AND ufs.is_active = 1;
-        `;
+        `, [state_id, district_id, ...blockIds]);
 
-        const [rows] = await connection.query(query, [state_id, district_id, ...blockIds]);
-
-        // Group data by block_id
+        // Group survey data
         const groupedData = {};
         for (const row of rows) {
             const { block_id } = row;
-            if (!groupedData[block_id]) {
-                groupedData[block_id] = [];
-            }
+            if (!groupedData[block_id]) groupedData[block_id] = [];
             groupedData[block_id].push(row);
+        }
+
+        // Fetch GP-level data
+        const [gpRows] = await connection.query(`
+            SELECT 
+                block_id,
+                gpCoordinates,
+                gpPhotos,
+                roomSpacePhoto,
+                leakagesPhoto,
+                electricPhoto,
+                polePhoto,
+                earthPitPhoto,
+                roofSeepagePhoto,
+                gpLayoutPhoto,
+                gpEntirePhoto,
+                equipmentPhoto,
+                poleCoordinates,
+                earthPitCoordinates
+            FROM gp_level_survey
+            WHERE block_id IN (${placeholders});
+        `, [...blockIds]);
+
+        // Fetch block-level data
+            const [blkRows] = await connection.query(`
+            SELECT 
+                block_id,
+                bsnlCordinates,
+                bsnlCableEntryPhoto,
+                bsnlCableExitPhoto,
+                bsnlExistingRackPhoto,
+                bsnlLayoutPhoto,
+                bsnlProposedRackPhoto,
+                bsnlUPSPhoto
+            FROM bsnl_exchanges
+            WHERE block_id IN (${placeholders});
+        `, [...blockIds]);
+
+        // Push gp_data and blk_data into same groupedData array
+        for (const blkId of blockIds) {
+            const gpData = gpRows
+                .filter(gp => gp.block_id === blkId)
+                .map(gp => {
+                    const photos = [
+                        gp.gpPhotos, gp.roomSpacePhoto, gp.leakagesPhoto,
+                        gp.electricPhoto, gp.polePhoto, gp.earthPitPhoto,
+                        gp.roofSeepagePhoto, gp.gpLayoutPhoto,
+                        gp.gpEntirePhoto, gp.equipmentPhoto
+                    ].filter(p => p && p.trim() !== "");
+                    return {
+                        gpCoordinates: gp.gpCoordinates || "",
+                        poleCoordinates: gp.poleCoordinates || "",
+                        earthPitCoordinates: gp.earthPitCoordinates || "",
+                        photos
+                    };
+                });
+
+            const blkData = blkRows.find(b => b.block_id === blkId) || {};
+
+            if (!groupedData[blkId]) groupedData[blkId] = [];
+            groupedData[blkId].push({ gp_data: gpData });
+            groupedData[blkId].push({ blk_data: blkData });
         }
 
         return res.status(200).json({
@@ -150,87 +209,88 @@ async function getdesktopPlanning(req, res) {
 }
 
 async function getRectificationSurveysByLocation(req, res) {
-    let connection;
-    try {
-        const { state_id, district_id, block_id } = req.query;
-        
-        if (!state_id || !district_id || !block_id) {
-            return res.status(400).json({
-                status: false,
-                error: "Missing required parameters: state_id, district_id, or block_id"
-            });
-        }
+  let connection;
+  try {
+    const { state_id, district_id, block_id } = req.query;
 
-        // Convert block_id to array if it's a comma-separated string
-        const blockIds = Array.isArray(block_id)
-            ? block_id.map(id => parseInt(id))
-            : block_id.split(',').map(id => parseInt(id.trim())).filter(Boolean);
-
-        if (blockIds.length === 0 || blockIds.length > 10) {
-            return res.status(400).json({
-                status: false,
-                error: "You must provide between 1 and 10 block IDs"
-            });
-        }
-
-        connection = await pool.getConnection();
-
-        const placeholders = blockIds.map(() => '?').join(', ');
-
-        const query = `
-            SELECT 
-                usd.*,  -- all underground_survey_data fields
-                ufs.state_id,
-                ufs.district_id,
-                ufs.block_id,
-                ufs.startLocation,
-                ufs.endLocation,
-                ufs.routeType,
-                gps_start.name AS start_lgd_name,
-                gps_end.name AS end_lgd_name,
-                gps_start.st_name AS state_name,
-                gps_start.dt_name AS district_name,
-                gps_start.blk_name AS block_name
-            FROM underground_fiber_surveys ufs
-            INNER JOIN underground_survey_data usd 
-                ON ufs.id = CAST(usd.survey_id AS UNSIGNED)
-            LEFT JOIN gpslist gps_start 
-                ON ufs.startLocation = gps_start.id
-            LEFT JOIN gpslist gps_end 
-                ON ufs.endLocation = gps_end.id
-            WHERE ufs.state_id = ? 
-              AND ufs.district_id = ? 
-              AND ufs.block_id IN (${placeholders})
-              AND ufs.routeType = 'Rectification'
-              AND ufs.is_active = 1;
-        `;
-
-        const [rows] = await connection.query(query, [state_id, district_id, ...blockIds]);
-
-        // Group data by block_id
-        const groupedData = {};
-        for (const row of rows) {
-            const { block_id } = row;
-            if (!groupedData[block_id]) {
-                groupedData[block_id] = [];
-            }
-            groupedData[block_id].push(row);
-        }
-
-        return res.status(200).json({
-            status: true,
-            data: groupedData
-        });
-
-    } catch (error) {
-        console.error("Error in getRectificationSurveysByLocation:", error);
-        return res.status(500).json({
-            status: false,
-            error: error.message
-        });
-    } finally {
-        if (connection) connection.release();
+    if (!state_id || !district_id || !block_id) {
+      return res.status(400).json({
+        status: false,
+        error: "Missing required parameters: st_code, dt_code, or block_id",
+      });
     }
+
+    // Convert block_id to array if it's comma-separated
+    const blockIds = Array.isArray(block_id)
+      ? block_id.map((id) => parseInt(id))
+      : block_id
+          .split(",")
+          .map((id) => parseInt(id.trim()))
+          .filter(Boolean);
+
+    if (blockIds.length === 0 || blockIds.length > 10) {
+      return res.status(400).json({
+        status: false,
+        error: "You must provide between 1 and 10 block IDs",
+      });
+    }
+
+    connection = await pool.getConnection();
+
+    const placeholders = blockIds.map(() => "?").join(", ");
+
+    // ✅ Fetch directly from Rectification_data table
+    const query = `
+      SELECT 
+        id,
+        st_code,
+        dt_code,
+        blk_code,
+        block_id,
+        blk_name,
+        gp,
+        lgd_code,
+        note AS work_to_be_done,
+        length,
+        start_lat,
+        start_long,
+        end_lat,
+        end_long,
+        accuracy,
+        image,
+        created_at
+      FROM Rectification_data
+      WHERE st_code = ? 
+        AND dt_code = ?
+        AND block_id IN (${placeholders})
+      ORDER BY gp, id;
+    `;
+
+    const [rows] = await connection.query(query, [state_id, district_id, ...blockIds]);
+
+    // Group data by block_id
+    const groupedData = {};
+    for (const row of rows) {
+      const { block_id } = row;
+      if (!groupedData[block_id]) {
+        groupedData[block_id] = [];
+      }
+      groupedData[block_id].push(row);
+    }
+
+    return res.status(200).json({
+      status: true,
+      data: groupedData,
+    });
+  } catch (error) {
+    console.error("Error in getRectificationSurveysByLocation:", error);
+    return res.status(500).json({
+      status: false,
+      error: error.message,
+    });
+  } finally {
+    if (connection) connection.release();
+  }
 }
 
 
@@ -1495,4 +1555,80 @@ function downloadExcel(req, res) {
 
 
 
-module.exports = { getRectificationSurveysByLocation, getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel, getdesktopPlanning, deleteExternalFile }
+async function generateKMLFile(data, apiKey) {
+    if (!Array.isArray(data) || data.length === 0) {
+    throw new Error("Data array is empty or invalid");
+  }
+
+  // Google Roads API allows up to 100 points per request
+  const batchSize = 100;
+  let allPoints = [];
+
+  for (let i = 0; i < data.length; i += batchSize) {
+    const batch = data.slice(i, i + batchSize);
+    const pathParam = batch.map(p => `${p.latitude},${p.longitude}`).join("|");
+
+    const url = `https://roads.googleapis.com/v1/snapToRoads?path=${pathParam}&interpolate=true&key=${apiKey}`;
+    console.log(`📍 Processing batch ${i / batchSize + 1}`);
+
+    try {
+      const res = await axios.get(url);
+      if (res.data.snappedPoints) {
+        const points = res.data.snappedPoints.map(p => ({
+          lat: p.location.latitude,
+          lng: p.location.longitude,
+        }));
+        allPoints.push(...points);
+      }
+    } catch (err) {
+      console.error(`❌ Error snapping batch ${i / batchSize + 1}:`, err.message);
+    }
+
+    // Add a short delay to be safe with API limits
+    await new Promise(r => setTimeout(r, 200));
+  }
+
+  if (allPoints.length === 0) throw new Error("No snapped data returned");
+
+  // Build KML
+  let kml = `<?xml version="1.0" encoding="UTF-8"?>
+  <kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+      <name>Snap to Roads Path</name>
+      <Style id="lineStyle">
+        <LineStyle>
+          <color>ff0000ff</color>
+          <width>4</width>
+        </LineStyle>
+      </Style>
+      <Placemark>
+        <name>Snapped Route</name>
+        <styleUrl>#lineStyle</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>`;
+
+  for (const p of allPoints) {
+    kml += `\n            ${p.lng},${p.lat},0`;
+  }
+
+  kml += `
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Document>
+  </kml>`;
+
+  const filePath = path.join(process.cwd(), "snapped_output.kml");
+  fs.writeFileSync(filePath, kml, "utf8");
+  console.log(`✅ Snapped KML route saved: ${filePath}`);
+  return filePath;
+}
+
+/** Helper delay */
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+
+module.exports = {generateKMLFile,  getRectificationSurveysByLocation, getSurveysByLocation, uploadExternalData, getEXternalfiles, previewfile, insertFpoi, getGpsListPaginated, filterGpsList, updateGpsEntry, parseKmz, downloadshape, downloadExcel, getdesktopPlanning, deleteExternalFile }
