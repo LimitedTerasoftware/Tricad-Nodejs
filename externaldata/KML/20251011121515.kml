@@ -1,0 +1,4018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<name>Ram Nagar-1_Cable </name>
+<Style id="style1">
+	<LineStyle>
+		<color>ff17ff83</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style2">
+	<LineStyle>
+		<color>ff1c1ae3</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style3">
+	<LineStyle>
+		<color>ffea3f1d</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style4">
+	<LineStyle>
+		<color>ffcc6f9c</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-10
+<br/>name: Padima-II GP to FPOI-1008
+<br/>asset_code: 2967L1C13
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 234.04854369141
+<br/>start_node: Padima-II GP
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1008
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.234
+<br/>S_N: 4
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-10]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Padima-II GP to FPOI-1008]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C13]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[234.04854369141]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Padima-II GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1008]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.234]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[4]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.53248963800002,21.646810519999978,0.000
+			87.53260735700002,21.64672975799999,0.000
+			87.532584987,21.646697150000023,0.000
+			87.53249417900003,21.646569463000002,0.000
+			87.53221436299998,21.64615516499999,0.000
+			87.532020257,21.64588735000001,0.000
+			87.53179824199998,21.645567394999997,0.000
+			87.53164740300002,21.645339034000028,0.000
+			87.53153027299999,21.645175914999992,0.000
+			87.531459041,21.645069577000015,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-7-A
+<br/>name: FPOI-1005 to Haldia-I GP
+<br/>asset_code: 2967L1C7
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 1831.34218758708
+<br/>start_node: FPOI-1005
+<br/>s_coil_len: 0.0
+<br/>end_node: Haldia-I GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 1.831
+<br/>S_N: 10
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-7-A]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1005 to Haldia-I GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C7]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1831.34218758708]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1005]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Haldia-I GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.831]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[10]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.536900889,21.672727512,0.000
+			87.53690663499998,21.672869800000004,0.000
+			87.53689119600001,21.672987561000017,0.000
+			87.53686030000001,21.673075166000007,0.000
+			87.536812403,21.67315128400004,0.000
+			87.53677222900001,21.673187191000014,0.000
+			87.53676362400002,21.673223706999977,0.000
+			87.53673363399999,21.673314952,0.000
+			87.53668797000002,21.673449719000022,0.000
+			87.53663216799998,21.673541490000005,0.000
+			87.536542033,21.67375096400005,0.000
+			87.53651946999997,21.67378264200001,0.000
+			87.53647010800002,21.673876407000026,0.000
+			87.53639713500003,21.673984139000016,0.000
+			87.53632416,21.674089875999993,0.000
+			87.53626406400004,21.67417765700001,0.000
+			87.536236165,21.67424149700004,0.000
+			87.536216852,21.67430134600001,0.000
+			87.536184662,21.674393114999983,0.000
+			87.53611395600001,21.67448947000003,0.000
+			87.53607487099998,21.67454598400002,0.000
+			87.536009725,21.674606536999985,0.000
+			87.53589246500003,21.674735715,0.000
+			87.53582731799997,21.674792231000023,0.000
+			87.53576651399999,21.674840673999995,0.000
+			87.53570137600003,21.674977919000053,0.000
+			87.53566664099999,21.67509901599999,0.000
+			87.535653621,21.675187818,0.000
+			87.535636259,21.675300840000016,0.000
+			87.53560152199998,21.675401755000014,0.000
+			87.535508994,21.675623014999996,0.000
+			87.53548003300001,21.675719941000025,0.000
+			87.53544105800002,21.67585321600003,0.000
+			87.53540378700002,21.67598315200002,0.000
+			87.53538021700001,21.676105458000006,0.000
+			87.53536002900002,21.676218089000002,0.000
+			87.53532541099997,21.676309268000008,0.000
+			87.535296566,21.67641653700004,0.000
+			87.53530812000002,21.676515757000015,0.000
+			87.53536008100004,21.676687378000004,0.000
+			87.53542694599997,21.67688357,0.000
+			87.535452937,21.67705787500001,0.000
+			87.53544025299999,21.67715177399999,0.000
+			87.53542455399999,21.677213076999987,0.000
+			87.53540571600001,21.677300652,0.000
+			87.53535138199999,21.67740875300002,0.000
+			87.53533757500004,21.677541475999984,0.000
+			87.53533759300002,21.677708449000004,0.000
+			87.53532840000004,21.67790111000002,0.000
+			87.53532840999998,21.677991018999975,0.000
+			87.53530538600002,21.678106618000037,0.000
+			87.53525010800001,21.678179407000048,0.000
+			87.53528802199997,21.678340967000025,0.000
+			87.535312406,21.678434123000006,0.000
+			87.53531240500001,21.678544903999978,0.000
+			87.53529885699999,21.67868841500004,0.000
+			87.53529198100001,21.678784848000024,0.000
+			87.53528656200001,21.678832685,0.000
+			87.53526217799998,21.678860380000017,0.000
+			87.53522966499997,21.67890318100005,0.000
+			87.53523237399999,21.679008927000012,0.000
+			87.53523508199999,21.67909704700002,0.000
+			87.535235081,21.67922439000001,0.000
+			87.53523508100001,21.679287333999984,0.000
+			87.535213405,21.679430845000017,0.000
+			87.53517710800003,21.679624385000032,0.000
+			87.53512794699998,21.679862582999984,0.000
+			87.53500153499999,21.680107307999993,0.000
+			87.534906726,21.680254142000038,0.000
+			87.534790849,21.68036834600002,0.000
+			87.53473466600003,21.68042381700004,0.000
+			87.53447131000003,21.680476023000008,0.000
+			87.53427818199998,21.68049233600001,0.000
+			87.53411314499999,21.680547805000007,0.000
+			87.53397619800003,21.680616326999985,0.000
+			87.53390596999999,21.680642429999992,0.000
+			87.53381222200001,21.680668603999983,0.000
+			87.53361850099998,21.68072774900007,0.000
+			87.53344415200002,21.680807467000065,0.000
+			87.53331684999999,21.680848611999966,0.000
+			87.53309822199998,21.680866609000027,0.000
+			87.53301321499998,21.680849376999998,0.000
+			87.53281894499997,21.680845834000042,0.000
+			87.532578964,21.680856448,0.000
+			87.53247611400003,21.68089538300001,0.000
+			87.53241516299998,21.681033431999992,0.000
+			87.53235802100001,21.68116794000005,0.000
+			87.532217076,21.681288288000047,0.000
+			87.53211803200004,21.681429875000024,0.000
+			87.53204270399999,21.681498042999973,0.000
+			87.53197032700001,21.681522818999987,0.000
+			87.53176462900002,21.68151927399999,0.000
+			87.53164273300003,21.68150511200003,0.000
+			87.5315056,21.68151572699998,0.000
+			87.53137227399999,21.68156174000001,0.000
+			87.531269422,21.681607754000037,0.000
+			87.53122751800001,21.68167146799999,0.000
+			87.53123132200001,21.681837837000018,0.000
+			87.531269409,21.681993587000033,0.000
+			87.531277022,21.68213517700003,0.000
+			87.53126940099999,21.682198893000013,0.000
+			87.53125060600003,21.682223878000034,0.000
+			87.53115997499998,21.682223874999988,0.000
+			87.53111465900002,21.682215452,0.000
+			87.53106481200001,21.68221545000003,0.000
+			87.531019496,21.68221755500002,0.000
+			87.53093792700002,21.68223229000002,0.000
+			87.530902315,21.682239795999998,0.000
+			87.53086287500004,21.68223957599999,0.000
+			87.53080600200003,21.682241226000002,0.000
+			87.530711806,21.682231312999978,0.000
+			87.53064572699999,21.682229200999974,0.000
+			87.53058090100001,21.682221425999995,0.000
+			87.530541169,21.682236970000023,0.000
+			87.530518164,21.682287493000008,0.000
+			87.53050979700001,21.682338016000028,0.000
+			87.53049544800002,21.682481236000026,0.000
+			87.53048289700003,21.682586168999986,0.000
+			87.53046407199997,21.682679441999987,0.000
+			87.53042642700002,21.68277854500005,0.000
+			87.53039924000002,21.68282518099999,0.000
+			87.53031349999998,21.682871815000002,0.000
+			87.53016616299999,21.682894826000005,0.000
+			87.52988842899998,21.68267643100002,0.000
+			87.52977578799998,21.682600765000018,0.000
+			87.529619117,21.682505905000042,0.000
+			87.52938896299999,21.682428328000054,0.000
+			87.52922041800002,21.68240553999999,0.000
+			87.52904574399999,21.68238275099998,0.000
+			87.52892830399998,21.68237420300001,0.000
+			87.52866782500001,21.682345715000004,0.000
+			87.528631051,21.68234571300002,0.000
+			87.528407346,21.68231437899999,0.000
+			87.528183641,21.68228589199998,0.000
+			87.52797219500002,21.682246014999986,0.000
+			87.52784042500004,21.68219475000001,0.000
+			87.52774985899998,21.682186601000012,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-8-B
+<br/>name: FPOI-1006 to Talgachhari-II GP
+<br/>asset_code: 2967L1C11
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 1773.62845441902
+<br/>start_node: FPOI-1006
+<br/>s_coil_len: 0.0
+<br/>end_node: Talgachhari-II GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 1.774
+<br/>S_N: 2
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-8-B]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1006 to Talgachhari-II GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C11]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1773.62845441902]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1006]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Talgachhari-II GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.774]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[2]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.600379561,21.67865228,0.000
+			87.60029574069124,21.678652693847937,0.000
+			87.600299126,21.678576249000017,0.000
+			87.60030557099998,21.678461567000003,0.000
+			87.60029913500001,21.678415694000023,0.000
+			87.600293771,21.678386773,0.000
+			87.600257286,21.678353862999984,0.000
+			87.60021972700005,21.678342891000007,0.000
+			87.60010363767798,21.67832891229078,0.000
+			87.59997753208629,21.67831351567785,0.000
+			87.59983309719352,21.678304717613315,0.000
+			87.59975831364497,21.678298119064912,0.000
+			87.59968572961253,21.678295919548777,0.000
+			87.59937193197739,21.678278323419704,0.000
+			87.59923702832117,21.67826952535517,0.000
+			87.5991226534822,21.678265126322902,0.000
+			87.5986892391833,21.67824777945514,0.000
+			87.59853428999327,21.67824777945514,0.000
+			87.59828797925256,21.678255088379203,0.000
+			87.59798612068897,21.678249241239957,0.000
+			87.59776539118242,21.67822804536019,0.000
+			87.59761482734685,21.678209773050035,0.000
+			87.59725084292876,21.678126451315777,0.000
+			87.5970301134222,21.678067979923313,0.000
+			87.59693071205503,21.67804751493595,0.000
+			87.59694379199999,21.677931063000024,0.000
+			87.59695752400002,21.677852405000017,0.000
+			87.59694643600001,21.677774812000017,0.000
+			87.59693500299998,21.677698278000005,0.000
+			87.59691671700001,21.677504818999992,0.000
+			87.59691070899999,21.677333002000047,0.000
+			87.59688866,21.67711522399997,0.000
+			87.596878306,21.677062278999973,0.000
+			87.59681097700003,21.67702617700002,0.000
+			87.596552024,21.676864922000007,0.000
+			87.596451032,21.676816783999993,0.000
+			87.59622677599998,21.676679724999996,0.000
+			87.59617497900001,21.676596291,0.000
+			87.596199893,21.676369158000025,0.000
+			87.59622138700001,21.676240345000014,0.000
+			87.59622857300005,21.676203635000007,0.000
+			87.59625032200002,21.676118218999985,0.000
+			87.596287292,21.675743173000026,0.000
+			87.596328652,21.675312663000003,0.000
+			87.59632339799998,21.67506758100004,0.000
+			87.59628744600005,21.674854088000032,0.000
+			87.59625644200003,21.674707753999982,0.000
+			87.59621766599997,21.674598562000025,0.000
+			87.59619635000001,21.674533175000057,0.000
+			87.59617393799999,21.674390744999982,0.000
+			87.59613788899998,21.67409418400005,0.000
+			87.59610738300002,21.67386778600002,0.000
+			87.59610740199997,21.673638485000026,0.000
+			87.59613719599997,21.67330688200004,0.000
+			87.59614311399997,21.67312549800003,0.000
+			87.596146532,21.673050993999993,0.000
+			87.59616725299999,21.672844628000004,0.000
+			87.59618094199999,21.67270164099999,0.000
+			87.596239095,21.67239819100002,0.000
+			87.59630408100003,21.672149828999974,0.000
+			87.59639642500002,21.671857100999997,0.000
+			87.59650552900003,21.67150464700004,0.000
+			87.59652668199999,21.67142390700001,0.000
+			87.59655700100002,21.67131355700003,0.000
+			87.59660044200002,21.67118019499998,0.000
+			87.596683456,21.670907017999966,0.000
+			87.596730686,21.670623808000027,0.000
+			87.59674391300001,21.670501722000004,0.000
+			87.59674392500003,21.670356073000036,0.000
+			87.59670995300003,21.67015777799999,0.000
+			87.59667188499999,21.670007009000006,0.000
+			87.59663041500002,21.669809497000053,0.000
+			87.59661102799998,21.66968115300004,0.000
+			87.59661552000001,21.66951675899997,0.000
+			87.59662146800004,21.66937080200002,0.000
+			87.59662412300003,21.66916733300001,0.000
+			87.596642601,21.669000636000032,0.000
+			87.596650291,21.668825592000015,0.000
+			87.59664844500003,21.668770565,0.000
+			87.59666354500001,21.668464120000014,0.000
+			87.59667601199999,21.667905384000008,0.000
+			87.59667817299999,21.667625020000024,0.000
+			87.59668256200004,21.667298363,0.000
+			87.596662962,21.666917254999998,0.000
+			87.59666080500001,21.666609126000026,0.000
+			87.59665428300002,21.666345845000038,0.000
+			87.59664557600001,21.666124884000002,0.000
+			87.59664228700001,21.666027262,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-4
+<br/>name: FPOI-1003 to Talgachhari-I GP
+<br/>asset_code: 2967L1C4
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 493.95256027505
+<br/>start_node: FPOI-1003
+<br/>s_coil_len: 0.0
+<br/>end_node: Talgachhari-I GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.494
+<br/>S_N: 17
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-4]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1003 to Talgachhari-I GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C4]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[493.95256027505]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1003]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Talgachhari-I GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.494]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[17]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.561578747,21.67832335600002,0.000
+			87.56147776300003,21.678285233999986,0.000
+			87.56137210700001,21.67822481500003,0.000
+			87.56131818,21.678167458000026,0.000
+			87.56124887200002,21.678078604000007,0.000
+			87.561190254,21.67795829099998,0.000
+			87.56116472399998,21.677869379000008,0.000
+			87.561155138,21.67776564600001,0.000
+			87.561158293,21.67756114000003,0.000
+			87.56117137299998,21.67709688899999,0.000
+			87.56077318829661,21.677097488122083,0.000
+			87.56028872979262,21.67702606556748,0.000
+			87.55999692731883,21.676985007932977,0.000
+			87.55993534086709,21.67699673868569,0.000
+			87.5599033596661,21.677062445031485,0.000
+			87.55988841785623,21.677171233632322,0.000
+			87.55983562946898,21.677841719467157,0.000
+			87.55985762463031,21.678090997962343,0.000
+			87.5599602687166,21.678614482802224,0.000
+			87.55968896899998,21.678654612999992,0.000
+			87.559687516,21.67865412200001,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-3
+<br/>name: Talgachhari-I GP to Bhq Ramnagar-I
+<br/>asset_code: 2967L1C3
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 122.11572101033
+<br/>start_node: Talgachhari-I GP
+<br/>s_coil_len: 0.0
+<br/>end_node: Bhq Ramnagar-I
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS BHQ
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.122
+<br/>S_N: 18
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-3]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Talgachhari-I GP to Bhq Ramnagar-I]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C3]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[122.11572101033]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Talgachhari-I GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Bhq Ramnagar-I]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS BHQ]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.122]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[18]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.559687516,21.67865412200001,0.000
+			87.55990010699998,21.678607596000003,0.000
+			87.55984687,21.678333092000003,0.000
+			87.55981767499998,21.678184669000018,0.000
+			87.55979937199999,21.678092660999997,0.000
+			87.55958206899999,21.678115096000006,0.000
+			87.55943061400001,21.67821096199998,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-6
+<br/>name: Haldia-II GP to FPOI-1002
+<br/>asset_code: 2967L1C6
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 672.38019501053
+<br/>start_node: Haldia-I GP
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1002
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.672
+<br/>S_N: 12
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-6]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Haldia-II GP to FPOI-1002]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C6]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[672.38019501053]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Haldia-I GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1002]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.672]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[12]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.49542301899999,21.66924851800002,0.000
+			87.495422943,21.669248917000008,0.000
+			87.49536009100001,21.669334065999976,0.000
+			87.49534401699998,21.669355322999998,0.000
+			87.49544332400001,21.669503013999986,0.000
+			87.49563197200001,21.66983679300001,0.000
+			87.49576577300002,21.66999708899999,0.000
+			87.49585611600003,21.67011995000002,0.000
+			87.49598590400001,21.67030218100001,0.000
+			87.49618779600002,21.670551788000015,0.000
+			87.49630948599997,21.670647042999985,0.000
+			87.49638339299997,21.670670496000014,0.000
+			87.49647893100001,21.67069729899999,0.000
+			87.49666047800002,21.67075558699998,0.000
+			87.49672201099997,21.670788577999982,0.000
+			87.49680247700002,21.67083916299999,0.000
+			87.496872312,21.67098018600001,0.000
+			87.49696445299998,21.67110291900002,0.000
+			87.49701666599998,21.671191400999987,0.000
+			87.49712109199999,21.67125134100002,0.000
+			87.497231661,21.671277029000017,0.000
+			87.49738522899997,21.67127702800002,0.000
+			87.49745894199998,21.67124848499998,0.000
+			87.497584867,21.671217087000002,0.000
+			87.49768315099999,21.671197106000022,0.000
+			87.49779683899999,21.67116920900003,0.000
+			87.49785042799999,21.67116588800002,0.000
+			87.497920094,21.671160908,0.000
+			87.49799333300001,21.67117916699999,0.000
+			87.49803977800002,21.671212367999992,0.000
+			87.498047187,21.671357837000016,0.000
+			87.49803493799999,21.671437527000023,0.000
+			87.498038001,21.67154852399999,0.000
+			87.49804719000002,21.671636751999984,0.000
+			87.49809619199999,21.671756286000008,0.000
+			87.498166632,21.671878665999998,0.000
+			87.49817888299998,21.67197543200001,0.000
+			87.498188073,21.672137658,0.000
+			87.49825965299999,21.67226239500002,0.000
+			87.498349555,21.67236366100002,0.000
+			87.49843686976027,21.67243457563774,0.000
+			87.49850798744859,21.672497628433582,0.000
+			87.4985688407283,21.672550416820798,0.000
+			87.49862023899999,21.672599019000018,0.000
+			87.49859156906167,21.67262300085321,0.000
+			87.49852924943787,21.67268605364905,0.000
+			87.49844200196458,21.672724178595377,0.000
+			87.49837455013645,21.67274910644489,0.000
+			87.49829316803952,21.67277330112237,0.000
+			87.4981963893296,21.672798228971892,0.000
+			87.49811647357673,21.672822423649365,0.000
+			87.49806588470568,21.672850284187064,0.000
+			87.49796397379147,21.672897940369957,0.000
+			87.49786059653317,21.67293826483242,0.000
+			87.49786192099998,21.673012047999975,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-9
+<br/>name: FPOI-1007 to Padima-I GP
+<br/>asset_code: 2967L1C12
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 1714.0214193375
+<br/>start_node: FPOI-1007
+<br/>s_coil_len: 0.0
+<br/>end_node: Padima-I GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 1.714
+<br/>S_N: 6
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-9]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1007 to Padima-I GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C12]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1714.0214193375]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1007]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Padima-I GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.714]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[6]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.50814216600003,21.632442871000034,0.000
+			87.508131553,21.632452736000005,0.000
+			87.50812943,21.632707266000015,0.000
+			87.50811397400003,21.632948240000022,0.000
+			87.50809819900002,21.633107067000026,0.000
+			87.50808273899997,21.633183711000015,0.000
+			87.50805010200003,21.633265145999978,0.000
+			87.508022617,21.63338170899999,0.000
+			87.508052002,21.633440123999993,0.000
+			87.50809300399999,21.633498415000027,0.000
+			87.50812676999999,21.633549979999998,0.000
+			87.50812676999999,21.633630691,0.000
+			87.508129182,21.633724852999983,0.000
+			87.50813173699999,21.633816001000017,0.000
+			87.50815054700001,21.63385097000002,0.000
+			87.50815786200002,21.633912305000024,0.000
+			87.50817540100002,21.634021411,0.000
+			87.50821798300001,21.63416176599997,0.000
+			87.508228197,21.634198690000005,0.000
+			87.50827090500002,21.63435419000001,0.000
+			87.50829980700001,21.634397369,0.000
+			87.50833180699999,21.63444438499999,0.000
+			87.50835554899999,21.634501956999994,0.000
+			87.508353484,21.63452402600001,0.000
+			87.50833593599998,21.634577759000027,0.000
+			87.50832458100001,21.63462573499999,0.000
+			87.50831632299997,21.634692901999983,0.000
+			87.50832148500001,21.634721688000013,0.000
+			87.50833800100003,21.634748554999987,0.000
+			87.50835554899999,21.634760068999974,0.000
+			87.508378258,21.634768704000013,0.000
+			87.50840819299998,21.634775420999972,0.000
+			87.50843607299998,21.634781906,0.000
+			87.508464602,21.634789099999978,0.000
+			87.508493128,21.63480031900002,0.000
+			87.50852713900002,21.634826835000013,0.000
+			87.50857320900002,21.63487115200001,0.000
+			87.50859610499998,21.634894137,0.000
+			87.508624081,21.634933650999983,0.000
+			87.50864294299998,21.63496338099998,0.000
+			87.50865360400002,21.635009119000017,0.000
+			87.50865606399998,21.635031987999987,0.000
+			87.50865524400001,21.63507010400002,0.000
+			87.50865307100003,21.635128969999982,0.000
+			87.50865085200002,21.63518190999997,0.000
+			87.50864870599997,21.635268859000007,0.000
+			87.50864870599997,21.635341364000006,0.000
+			87.50864870700002,21.635382230000005,0.000
+			87.508627434,21.635438916,0.000
+			87.50859907,21.63548637399999,0.000
+			87.50857637899998,21.635514058000023,0.000
+			87.508525325,21.635558878999973,0.000
+			87.508459227,21.63563700899999,0.000
+			87.50841985300002,21.635681804,0.000
+			87.50836731499999,21.635740657999982,0.000
+			87.50837943900001,21.635805773000016,0.000
+			87.50841985300002,21.635867130999998,0.000
+			87.50845487800001,21.635908454000006,0.000
+			87.50847376799999,21.635936943999987,0.000
+			87.508547561,21.636014218000014,0.000
+			87.50860484999998,21.636060014999998,0.000
+			87.50868534099999,21.636126579000006,0.000
+			87.50873804700001,21.636175571000035,0.000
+			87.50879648199998,21.636237343999998,0.000
+			87.50881710599998,21.636275685999983,0.000
+			87.50883314700002,21.63632574299998,0.000
+			87.50883314700002,21.636376864999992,0.000
+			87.508834293,21.63640988200001,0.000
+			87.50883129699997,21.636454916999984,0.000
+			87.50882556900001,21.636486868000027,0.000
+			87.508812965,21.636550770999982,0.000
+			87.508799216,21.63659337299998,0.000
+			87.50879348699999,21.636626389999996,0.000
+			87.50879005000002,21.63666153600002,0.000
+			87.50878724900002,21.63670586500001,0.000
+			87.508793497,21.63676110199998,0.000
+			87.50880807599998,21.63681143399998,0.000
+			87.508828902,21.636858862999983,0.000
+			87.50881095900002,21.636874250999995,0.000
+			87.508692096,21.636901126999987,0.000
+			87.508566809,21.636920536999988,0.000
+			87.50844152100001,21.636953385000023,0.000
+			87.50837808799997,21.63696999400002,0.000
+			87.50832019400002,21.637010654,0.000
+			87.50829832199997,21.637060882000014,0.000
+			87.508289316,21.637105130000005,0.000
+			87.50828417000002,21.637141007000025,0.000
+			87.50828548300001,21.637239904000012,0.000
+			87.50826817799998,21.637300225999986,0.000
+			87.508257362,21.63740679400002,0.000
+			87.50823572600001,21.63761168700001,0.000
+			87.50822438199998,21.637703953000027,0.000
+			87.50809392399998,21.63784894399998,0.000
+			87.50793794100002,21.637914849000026,0.000
+			87.507805448,21.63795357300001,0.000
+			87.507698796,21.637979873999992,0.000
+			87.50760520300003,21.638020337999997,0.000
+			87.50755078899999,21.638070917999983,0.000
+			87.50757042599997,21.638170420999984,0.000
+			87.50757212299999,21.638241419999986,0.000
+			87.50756193799998,21.638298218999985,0.000
+			87.50755301100003,21.63835802800003,0.000
+			87.50754452400002,21.63842271599998,0.000
+			87.50752755000002,21.638526848000026,0.000
+			87.50750039100001,21.63862309199999,0.000
+			87.50750039100001,21.638673579999995,0.000
+			87.507506557,21.63871929200002,0.000
+			87.50749897399999,21.638867757000014,0.000
+			87.507466921,21.63896255700001,0.000
+			87.507376588,21.639038396999982,0.000
+			87.507274601,21.63910069299998,0.000
+			87.50726877199997,21.63916028199997,0.000
+			87.50731248099999,21.639271333000014,0.000
+			87.50738532899999,21.639360716,0.000
+			87.50746108999999,21.639520522000005,0.000
+			87.50747274499997,21.639612613,0.000
+			87.50745526100002,21.639669492999992,0.000
+			87.50732996099998,21.639745333000008,0.000
+			87.50728916600002,21.639785960999966,0.000
+			87.507277509,21.63986992700001,0.000
+			87.50726293899999,21.639934933000006,0.000
+			87.50722505700003,21.639962019000002,0.000
+			87.50717784900002,21.639974858000013,0.000
+			87.50711847999997,21.639979727000032,0.000
+			87.50703291999997,21.63999595699999,0.000
+			87.506977043,21.640017057000023,0.000
+			87.50693688199999,21.640065748999973,0.000
+			87.50691436,21.640136789999993,0.000
+			87.506914359,21.64025040400003,0.000
+			87.50687594200002,21.64040621800002,0.000
+			87.50683054199999,21.640454910000017,0.000
+			87.50676244200002,21.640498732000033,0.000
+			87.506698314,21.640514581999984,0.000
+			87.50662416,21.640523379999994,0.000
+			87.50655789500001,21.640527779000024,0.000
+			87.50648531899998,21.640536578000027,0.000
+			87.50640012100001,21.64056884000002,0.000
+			87.50635121099998,21.640599636999973,0.000
+			87.506291256,21.640640699000016,0.000
+			87.50622341299999,21.640693494000004,0.000
+			87.50617765700002,21.64074042200002,0.000
+			87.50613663500002,21.64079028399999,0.000
+			87.506087724,21.640854810999997,0.000
+			87.50595657399998,21.641036414999974,0.000
+			87.505906761,21.64112307099998,0.000
+			87.50588033899999,21.64116036399998,0.000
+			87.50585587400002,21.641207661999992,0.000
+			87.50579479999999,21.641371060999973,0.000
+			87.50578146800001,21.64142682200002,0.000
+			87.50577980100002,21.641462446999988,0.000
+			87.50579646400001,21.64150736599999,0.000
+			87.505828125,21.641558480000008,0.000
+			87.50585811899998,21.64160339900002,0.000
+			87.50589311300001,21.641621987000015,0.000
+			87.50595469400002,21.64163376900001,0.000
+			87.50600665399998,21.64164520800001,0.000
+			87.50606328200001,21.641663592999972,0.000
+			87.50608344,21.64170340999999,0.000
+			87.50608343900001,21.641745567999987,0.000
+			87.506080919,21.641778359000007,0.000
+			87.506080919,21.641815833000017,0.000
+			87.50608091800001,21.64185096500001,0.000
+			87.50610192099998,21.641881866000006,0.000
+			87.506141334,21.641915315999995,0.000
+			87.50615161600001,21.64193443099998,0.000
+			87.506139991,21.641949298999975,0.000
+			87.50613043700002,21.641969597000013,0.000
+			87.50613453099999,21.641998777000026,0.000
+			87.50615805899997,21.642026918999996,0.000
+			87.50618145700003,21.642072489999975,0.000
+			87.50617168000002,21.642109936000004,0.000
+			87.50616684699997,21.642145873999997,0.000
+			87.50616443000001,21.642187427000017,0.000
+			87.50612749700002,21.642203978999984,0.000
+			87.50609138200002,21.64222733100002,0.000
+			87.50606782800003,21.642260900000004,0.000
+			87.506050555,21.642303226000028,0.000
+			87.50603485200003,21.64235576900001,0.000
+			87.50601600800002,21.64240101500002,0.000
+			87.50599088299998,21.64247253100001,0.000
+			87.505964189,21.642517775999977,0.000
+			87.50594848600002,21.642551346000012,0.000
+			87.505954766,21.64259221200001,0.000
+			87.505934422,21.642630509999996,0.000
+			87.50592236799997,21.642648715999986,0.000
+			87.50590428700002,21.64266272100003,0.000
+			87.505878672,21.642689330999985,0.000
+			87.50581693599997,21.64274643099999,0.000
+			87.50577820000001,21.642777697999986,0.000
+			87.50571629299998,21.64283488600001,0.000
+			87.50566892299997,21.642899769999996,0.000
+			87.50564149799999,21.642953068000004,0.000
+			87.505641497,21.64301100099999,0.000
+			87.50563900399999,21.64305039599998,0.000
+			87.505639003,21.643078203000016,0.000
+			87.50561905699999,21.643145404999984,0.000
+			87.50558415299997,21.643217242,0.000
+			87.50556420700002,21.643268222000017,0.000
+			87.50552254299998,21.64336983800002,0.000
+			87.50548948099998,21.643431297999996,0.000
+			87.50543658200002,21.643446663000027,0.000
+			87.50536054100002,21.643462025999998,0.000
+			87.50529772499999,21.643443586999986,0.000
+			87.50522498999999,21.64343436699999,0.000
+			87.50513572300002,21.643486607,0.000
+			87.50504314900002,21.643575723000026,0.000
+			87.50495718799999,21.643667913,0.000
+			87.50487453199997,21.643753957,0.000
+			87.504758445,21.643880073,0.000
+			87.50474574200001,21.643900909000028,0.000
+			87.50474051100002,21.64392035600002,0.000
+			87.50473602699998,21.643943970000016,0.000
+			87.50472551600001,21.64402334300001,0.000
+			87.50470429400002,21.644046102000015,0.000
+			87.504673277,21.64406279299999,0.000
+			87.50462593600002,21.644071896000003,0.000
+			87.50459981699998,21.644071895000017,0.000
+			87.50457206499999,21.644079481,0.000
+			87.50453778299999,21.644100723000015,0.000
+			87.504493707,21.644112860999993,0.000
+			87.50443493900002,21.644114376999994,0.000
+			87.504389231,21.644102237000023,0.000
+			87.50433209599998,21.644094650000003,0.000
+			87.50428475500001,21.64409161399999,0.000
+			87.504206711,21.644131312000013,0.000
+			87.50415130099998,21.644154351999994,0.000
+			87.50407985200002,21.644181456000013,0.000
+			87.50405360500002,21.644195008999997,0.000
+			87.50402589999999,21.644207205999976,0.000
+			87.50391653999998,21.64421669099999,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-2
+<br/>name: FPOI-1002 to Basantapur GP
+<br/>asset_code: 2967L1C2
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 906.01317954259
+<br/>start_node: FPOI-1002
+<br/>s_coil_len: 0.0
+<br/>end_node: Basantapur GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.906
+<br/>S_N: 13
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-2]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1002 to Basantapur GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C2]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[906.01317954259]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1002]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Basantapur GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.906]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[13]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.49141106399998,21.664325797999986,0.000
+			87.49141253169459,21.664222682151607,0.000
+			87.49135514599999,21.664211196000004,0.000
+			87.49120137814575,21.664194088441864,0.000
+			87.49118964739303,21.66425494172157,0.000
+			87.49118378201668,21.66433852333466,0.000
+			87.49118150700002,21.664480294999986,0.000
+			87.49118405500002,21.664585750000022,0.000
+			87.49117829300002,21.664633743000028,0.000
+			87.49116836299999,21.664702026999972,0.000
+			87.49116736799999,21.664781385000033,0.000
+			87.491159359,21.66488134100001,0.000
+			87.49115423299997,21.664937611000028,0.000
+			87.49115406499999,21.66501602699998,0.000
+			87.49115869000002,21.665090023000005,0.000
+			87.49115393099999,21.665215268000004,0.000
+			87.49115280900003,21.66528776199999,0.000
+			87.49116261199998,21.665357008999994,0.000
+			87.49117633600002,21.665429899999992,0.000
+			87.49120770799999,21.665521015000024,0.000
+			87.49124999200001,21.665723768000024,0.000
+			87.491248671,21.665860187000025,0.000
+			87.49122662899998,21.665952361999985,0.000
+			87.49114673100001,21.66604453700001,0.000
+			87.491066832,21.66612134899998,0.000
+			87.49095938300002,21.66620584100003,0.000
+			87.49102676400003,21.66627099099997,0.000
+			87.49113149200002,21.666370640000025,0.000
+			87.491223752,21.666435528000022,0.000
+			87.49135875799999,21.666496106999993,0.000
+			87.49141846399999,21.666526164000008,0.000
+			87.49151119099997,21.666582430999995,0.000
+			87.49161930399998,21.666682906999995,0.000
+			87.49173090400001,21.666793107999972,0.000
+			87.49196805700001,21.666919514000035,0.000
+			87.492138947,21.66696165100001,0.000
+			87.492309836,21.66701999200001,0.000
+			87.49238656099999,21.667110745000002,0.000
+			87.49245269699998,21.667174610000018,0.000
+			87.49256160099998,21.667321645000026,0.000
+			87.49269704099999,21.667511651999973,0.000
+			87.49277513499999,21.667591949999984,0.000
+			87.49285821400002,21.667710852000035,0.000
+			87.49289147799999,21.667773524999973,0.000
+			87.49299164000001,21.66797158000004,0.000
+			87.49308845500002,21.668145019999997,0.000
+			87.49314386399999,21.66820047499999,0.000
+			87.493256814,21.668242066999994,0.000
+			87.49331755700001,21.66825271599999,0.000
+			87.493415589,21.668298268,0.000
+			87.49350083500002,21.668361645999997,0.000
+			87.49355837500002,21.66843096500003,0.000
+			87.493598867,21.668498302999982,0.000
+			87.49363010299999,21.66858325800002,0.000
+			87.493672543,21.668680822000006,0.000
+			87.49369734499999,21.66877903199998,0.000
+			87.49374648700001,21.668901505999997,0.000
+			87.493752229,21.66893967300001,0.000
+			87.49377819,21.669001707999996,0.000
+			87.49387023899999,21.669087088000037,0.000
+			87.49389999700003,21.669100915000005,0.000
+			87.49400414899998,21.66913317799999,0.000
+			87.494113261,21.669140089000003,0.000
+			87.494177735,21.669117043000018,0.000
+			87.49427940499999,21.6690456,0.000
+			87.49442323300002,21.66901563800002,0.000
+			87.49454226300003,21.669022550000026,0.000
+			87.494640011,21.669046153000007,0.000
+			87.49479127900003,21.669080717999975,0.000
+			87.49493662999998,21.669145877999988,0.000
+			87.49509238399997,21.669191199000018,0.000
+			87.49527016500002,21.669252603000025,0.000
+			87.49529278400001,21.669261333000005,0.000
+			87.49533062400002,21.669282598000002,0.000
+			87.49535305500001,21.669326402000024,0.000
+			87.49542301899999,21.66924851800002,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-5
+<br/>name: Gobra GP to FPOI-1004
+<br/>asset_code: 2967L1C5
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 692.39749888452
+<br/>start_node: Gobra GP
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1004
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.692
+<br/>S_N: 8
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-5]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Gobra GP to FPOI-1004]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C5]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[692.39749888452]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Gobra GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1004]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.692]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[8]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.51555099199999,21.663968893999993,0.000
+			87.51560291300001,21.663981320999994,0.000
+			87.51559497099998,21.664049567000003,0.000
+			87.51561963,21.664127525000026,0.000
+			87.51565931099998,21.664226306999968,0.000
+			87.51570227600001,21.664321379999997,0.000
+			87.51575739600003,21.66449133499998,0.000
+			87.51583110899998,21.664602308999974,0.000
+			87.51589032800001,21.664684650000027,0.000
+			87.51593217599998,21.664770486999988,0.000
+			87.51596195000002,21.66485349999999,0.000
+			87.51597798199998,21.66496844199998,0.000
+			87.515975691,21.66513021100001,0.000
+			87.51598485199997,21.665223259000015,0.000
+			87.51601233600002,21.665340329000003,0.000
+			87.51608104500002,21.665489326999996,0.000
+			87.516133723,21.665582982999986,0.000
+			87.516239079,21.665704310000034,0.000
+			87.516261982,21.665802223000014,0.000
+			87.51630091800001,21.665906522,0.000
+			87.516333589,21.66594988399998,0.000
+			87.51636794400002,21.666015868999978,0.000
+			87.516422912,21.666090368000027,0.000
+			87.51643207400002,21.666184024000017,0.000
+			87.51641145999997,21.666356436,0.000
+			87.51640916999997,21.66647350599998,0.000
+			87.51642915399998,21.666570508000007,0.000
+			87.51648661299998,21.66666204900002,0.000
+			87.516538599,21.66673833400001,0.000
+			87.51661311599997,21.66683898600001,0.000
+			87.51664223300003,21.66692561399999,0.000
+			87.51666877000002,21.667054529999973,0.000
+			87.516692895,21.667173357000024,0.000
+			87.51671581400001,21.667270884999994,0.000
+			87.516742351,21.66739868000002,0.000
+			87.51676165100002,21.66748163400002,0.000
+			87.51676768200002,21.667528716999982,0.000
+			87.51676044499999,21.667581403999964,0.000
+			87.51674476400001,21.667639697000023,0.000
+			87.51673632,21.667674448000017,0.000
+			87.51672546399999,21.667708077999976,0.000
+			87.51670857699997,21.66775291900002,0.000
+			87.51668807099998,21.667775339000002,0.000
+			87.51666153299999,21.66779663800003,0.000
+			87.51663867299999,21.667805052000006,0.000
+			87.51660514899999,21.667810036999988,0.000
+			87.51655821499998,21.667826237999975,0.000
+			87.51652737299997,21.66785365399999,0.000
+			87.51650457599999,21.667904749,0.000
+			87.51649384799998,21.667954597999994,0.000
+			87.516495942,21.668009754000025,0.000
+			87.51651438200003,21.668098293000014,0.000
+			87.516531284,21.668195400000002,0.000
+			87.51654005300003,21.668278933000018,0.000
+			87.51654755700002,21.66835215399999,0.000
+			87.51655318500002,21.668451527000006,0.000
+			87.51656343399998,21.66855282,0.000
+			87.51655495,21.668719940000013,0.000
+			87.51654646700001,21.668964349000028,0.000
+			87.51659948999998,21.66910232100002,0.000
+			87.51670765699998,21.66933490399998,0.000
+			87.51682430900001,21.669547776,0.000
+			87.51687644200001,21.669625844999985,0.000
+			87.51693588500001,21.669729377000014,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-1
+<br/>name: FPOI-1001 to Badhia GP
+<br/>asset_code: 2967L1C1
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 24.62440613454
+<br/>start_node: FPOI-1001
+<br/>s_coil_len: 0.0
+<br/>end_node: Badhia GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.025
+<br/>S_N: 15
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-1]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1001 to Badhia GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C1]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[24.62440613454]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1001]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Badhia GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.025]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[15]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.48626097099998,21.717381964000026,0.000
+			87.48635493,21.717385536999988,0.000
+			87.486417357,21.717384643999992,0.000
+			87.48640967300003,21.71730880400003,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: FPOI-1004 to FPOI-1005
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 2140.34497107018
+<br/>start_node: FPOI-1004
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1005
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: Proposed Cable
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 2.14
+<br/>S_N: 9
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1004 to FPOI-1005]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[2140.34497107018]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1004]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1005]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[2.14]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[9]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.51693588500001,21.669729377000014,0.000
+			87.51695471689791,21.669756656013995,0.000
+			87.51697021138796,21.66978718101218,0.000
+			87.51698784175663,21.669807676163245,0.000
+			87.5170374302874,21.669865891104138,0.000
+			87.5171289556182,21.669979285031506,0.000
+			87.5172670942829,21.670151044746877,0.000
+			87.51736000000001,21.670300000000008,0.000
+			87.51750000000001,21.67055,0.000
+			87.51759000000001,21.67062000000001,0.000
+			87.51767000000001,21.67066000000001,0.000
+			87.51780000000001,21.67068,0.000
+			87.51871791570849,21.670763532582978,0.000
+			87.5195686744689,21.670832967361534,0.000
+			87.5201029568176,21.670885591614763,0.000
+			87.52227078369333,21.671063929361786,0.000
+			87.52250905461764,21.67109755041245,0.000
+			87.5227809465926,21.67113994217199,0.000
+			87.52302652644097,21.671214493197386,0.000
+			87.52337735479578,21.671310970994956,0.000
+			87.52378226918866,21.671378213096293,0.000
+			87.52505840732927,21.6715419329952,0.000
+			87.52591793679852,21.671660337564955,0.000
+			87.52624683838116,21.671710038248552,0.000
+			87.5265538131916,21.671736350375163,0.000
+			87.52673653629306,21.67176412428658,0.000
+			87.52714729782514,21.671818210324613,0.000
+			87.52778025064859,21.671900070274067,0.000
+			87.52860000000001,21.671989999999994,0.000
+			87.53025870679686,21.672065251957783,0.000
+			87.53084342072152,21.672109105502134,0.000
+			87.53153045958302,21.672166846002202,0.000
+			87.53193975933033,21.672241397027605,0.000
+			87.53225550484964,21.672302791989694,0.000
+			87.53300101510365,21.672370034091042,0.000
+			87.53387223885143,21.672431429053127,0.000
+			87.53460020768765,21.67240073157209,0.000
+			87.5348077811309,21.67238465193916,0.000
+			87.53498904244755,21.672399269787277,0.000
+			87.53542,21.672489999999996,0.000
+			87.5361,21.672610000000002,0.000
+			87.536646706424,21.67268577961036,0.000
+			87.53678776865837,21.67269747388886,0.000
+			87.53689886430406,21.67269747388886,0.000
+			87.5369008890998,21.672727511621993,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: FPOI-1008 to FPOI-1007
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 3372.38171574565
+<br/>start_node: FPOI-1008
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1007
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: Proposed Cable
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 3.372
+<br/>S_N: 5
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1008 to FPOI-1007]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[3372.38171574565]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1008]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1007]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[3.372]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[5]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.53145904070672,21.645069576599187,0.000
+			87.53140459227286,21.644980490192847,0.000
+			87.53024618044229,21.643305925242846,0.000
+			87.52852615882554,21.640816072979174,0.000
+			87.52832673602941,21.6405096070645,0.000
+			87.52819036602912,21.640181145988496,0.000
+			87.52793375581352,21.639625401578645,0.000
+			87.52740513876932,21.63875072732935,0.000
+			87.52664923839127,21.637443481573722,0.000
+			87.52605830172328,21.63642290608756,0.000
+			87.52569171570097,21.635818772322764,0.000
+			87.52541000000001,21.635390000000008,0.000
+			87.52534000000001,21.635250000000003,0.000
+			87.52526,21.634880000000003,0.000
+			87.52521,21.634470000000007,0.000
+			87.52522,21.633980000000008,0.000
+			87.5252386153774,21.633452092962596,0.000
+			87.52519902408699,21.63335824694088,0.000
+			87.52512130785026,21.63326879995143,0.000
+			87.52499122522016,21.633173336722603,0.000
+			87.52482364000011,21.633081107907998,0.000
+			87.52444000000001,21.632860000000008,0.000
+			87.52407000000001,21.6326,0.000
+			87.52376000000001,21.63237000000001,0.000
+			87.52343,21.63222,0.000
+			87.52263,21.631770000000003,0.000
+			87.52243000000001,21.63167,0.000
+			87.52217,21.63153,0.000
+			87.52198000000001,21.631489999999996,0.000
+			87.52148000000001,21.631400000000003,0.000
+			87.521,21.63132000000001,0.000
+			87.51997590644085,21.630992300752773,0.000
+			87.51939816686965,21.63076355107484,0.000
+			87.51896999439556,21.630660906988588,0.000
+			87.51861000000001,21.630629999999993,0.000
+			87.51838199041575,21.63063597913907,0.000
+			87.51822000000001,21.63072,0.000
+			87.51788,21.630980000000005,0.000
+			87.51768547697348,21.631084680430412,0.000
+			87.51750511665033,21.631166795699404,0.000
+			87.51563406159238,21.63176946312013,0.000
+			87.51476305320331,21.632037804088473,0.000
+			87.51424250105164,21.632218164411462,0.000
+			87.51334363212487,21.632375063229016,0.000
+			87.51302836814567,21.632438116024858,0.000
+			87.5125620707253,21.63250556785296,0.000
+			87.51105000000001,21.6326,0.000
+			87.50992000000001,21.632720000000003,0.000
+			87.50922320523392,21.632792971294467,0.000
+			87.50894000000001,21.63281,0.000
+			87.50851936007108,21.632718187745922,0.000
+			87.50823195662957,21.632580351401526,0.000
+			87.50824662007047,21.632504101508882,0.000
+			87.50814216600003,21.632442871000034,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Bhq Ramnagar-I to Ramnagar-I TE
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 1264.28195327642
+<br/>start_node: Bhq Ramnagar-I
+<br/>s_coil_len: 0.0
+<br/>end_node: Ramnagar-I TE
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: Proposed Cable
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 1.264
+<br/>S_N: 19
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Bhq Ramnagar-I to Ramnagar-I TE]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1264.28195327642]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Bhq Ramnagar-I]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Ramnagar-I TE]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.264]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.55943061400001,21.67821096199998,0.000
+			87.55942945215627,21.678112993123694,0.000
+			87.55957022118884,21.678096863338713,0.000
+			87.5596992594687,21.678070469145105,0.000
+			87.55977844204952,21.67806167108057,0.000
+			87.55976715238809,21.67786379842701,0.000
+			87.55986788903898,21.677039262664284,0.000
+			87.55988218589385,21.676999304787863,0.000
+			87.55991297911974,21.676964112529717,0.000
+			87.55996393457681,21.67695531446518,0.000
+			87.5600262542006,21.676955681051204,0.000
+			87.56036058065295,21.677005536750244,0.000
+			87.56057173420182,21.677037796320207,0.000
+			87.56077408968615,21.677056858793367,0.000
+			87.56128217791306,21.67705172658905,0.000
+			87.5613508498086,21.677723259173288,0.000
+			87.56140828350472,21.67794546331148,0.000
+			87.56146840361238,21.678014381483678,0.000
+			87.56153878812867,21.678059838150446,0.000
+			87.56171768210756,21.678155150516254,0.000
+			87.56224548204689,21.67838098459591,0.000
+			87.56245890262937,21.678413143861764,0.000
+			87.56273861511791,21.678415054136998,0.000
+			87.56326690418328,21.67836252956277,0.000
+			87.5638370002598,21.678320137803233,0.000
+			87.56408842724738,21.678304058170305,0.000
+			87.56426713044058,21.678296749246247,0.000
+			87.56439962544735,21.67829225368859,0.000
+			87.56486592286775,21.678280522935875,0.000
+			87.56489231706135,21.678226268204565,0.000
+			87.56490404781407,21.67806790304292,0.000
+			87.56496710060989,21.677430043364062,0.000
+			87.56500375921216,21.67673499626573,0.000
+			87.56497736501852,21.676638217555833,0.000
+			87.56490038195383,21.676534840297535,0.000
+			87.56477940856648,21.676446859652177,0.000
+			87.56456825501762,21.676341282877747,0.000
+			87.56417674114579,21.676119864920263,0.000
+			87.56378302775781,21.675888915726173,0.000
+			87.56380868811861,21.675810572477612,0.000
+			87.56385341227407,21.675701956854795,0.000
+			87.56392672947854,21.675568519542665,0.000
+			87.56400554547338,21.67544754615531,0.000
+			87.56408159528841,21.675302902907664,0.000
+			87.56411845449324,21.67521926832383,0.000
+			87.56414213452747,21.675168591370902,0.000
+			87.5641833396942,21.674999578036015,0.000
+			87.56417307528557,21.674867607067977,0.000
+			87.56395359283529,21.6748279008232,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Ramnagar-I TE to FPOI-1006
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 485.41006583401
+<br/>start_node: Ramnagar-I TE
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1006
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: Proposed Cable
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 0.485
+<br/>S_N: 1
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Ramnagar-I TE to FPOI-1006]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[485.41006583401]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Ramnagar-I TE]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1006]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.485]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.56395359283529,21.6748279008232,0.000
+			87.5642097338878,21.674842679218457,0.000
+			87.56421706560825,21.67500984244464,0.000
+			87.56418773872646,21.675168207606287,0.000
+			87.5641490444075,21.67525939567005,0.000
+			87.56411640479737,21.67534528917478,0.000
+			87.56401339296474,21.67550236428487,0.000
+			87.56396350206239,21.67557784158911,0.000
+			87.56389919219346,21.675717845594306,0.000
+			87.56385781130636,21.675822930242163,0.000
+			87.56382811783854,21.675886716210048,0.000
+			87.56421486609207,21.676115465887992,0.000
+			87.56462148307554,21.676329308649507,0.000
+			87.5648010734906,21.67642822733861,0.000
+			87.56492888036526,21.67652408510692,0.000
+			87.5649955511886,21.676610555666258,0.000
+			87.56503381211675,21.676716828656993,0.000
+			87.56499625200372,21.677431397790905,0.000
+			87.56493599475287,21.67807372798542,0.000
+			87.56492639539056,21.67824997213229,0.000
+			87.56493808966906,21.67827043711965,0.000
+			87.56496440179566,21.67828651675258,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Talgachhari-II GP to Padima-II GP
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 9654.57098746981
+<br/>start_node: Talgachhari-II GP
+<br/>s_coil_len: NULL
+<br/>end_node: Padima-II GP
+<br/>e_coil_len: NULL
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: NULL
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 9.655
+<br/>S_N: 3
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Talgachhari-II GP to Padima-II GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[9654.57098746981]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Talgachhari-II GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Padima-II GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[9.655]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.58960943699998,21.65883110700002,0.000
+			87.58961368700042,21.658924872603237,0.000
+			87.58929,21.65893,0.000
+			87.5892,21.65896,0.000
+			87.58909,21.65905,0.000
+			87.58901,21.65912,0.000
+			87.58892,21.65915,0.000
+			87.58877,21.65918,0.000
+			87.5887,21.65919,0.000
+			87.58861,21.65919,0.000
+			87.58868,21.65953,0.000
+			87.58872,21.65977,0.000
+			87.58874,21.65984,0.000
+			87.58875,21.65991,0.000
+			87.58873,21.65998,0.000
+			87.58869,21.66009,0.000
+			87.58878,21.66096,0.000
+			87.58881,21.66114,0.000
+			87.58898,21.66163,0.000
+			87.58907,21.66211,0.000
+			87.58825,21.66228,0.000
+			87.58708,21.66252,0.000
+			87.58577,21.66272,0.000
+			87.58548,21.66277,0.000
+			87.58499,21.66281,0.000
+			87.58384,21.66292,0.000
+			87.58365,21.66294,0.000
+			87.58321,21.66298,0.000
+			87.58287,21.66301,0.000
+			87.5823,21.66304,0.000
+			87.58122,21.6631,0.000
+			87.58111,21.66308,0.000
+			87.58105,21.66302,0.000
+			87.58097,21.66285,0.000
+			87.58059,21.66292,0.000
+			87.58028,21.66295,0.000
+			87.57983,21.66305,0.000
+			87.57944,21.66302,0.000
+			87.5791,21.66304,0.000
+			87.57879,21.66307,0.000
+			87.57864,21.66307,0.000
+			87.57837,21.66303,0.000
+			87.57816,21.66302,0.000
+			87.57769,21.66311,0.000
+			87.5775,21.66313,0.000
+			87.57708,21.66312,0.000
+			87.5769,21.66314,0.000
+			87.57654,21.66327,0.000
+			87.5762,21.66337,0.000
+			87.5761,21.66343,0.000
+			87.57594,21.66356,0.000
+			87.57582,21.66363,0.000
+			87.57544,21.66366,0.000
+			87.57494,21.66384,0.000
+			87.57472,21.66386,0.000
+			87.57425,21.66388,0.000
+			87.57398,21.66388,0.000
+			87.57385,21.66384,0.000
+			87.57362,21.66384,0.000
+			87.57343,21.66386,0.000
+			87.57323,21.66394,0.000
+			87.57308,21.66365,0.000
+			87.57288,21.66331,0.000
+			87.57278,21.66316,0.000
+			87.57246,21.66282,0.000
+			87.57206,21.66245,0.000
+			87.57161,21.66202,0.000
+			87.57154,21.66192,0.000
+			87.57151,21.66182,0.000
+			87.57151,21.66176,0.000
+			87.57157,21.66165,0.000
+			87.57175,21.66144,0.000
+			87.57202,21.66113,0.000
+			87.5723,21.6606,0.000
+			87.57265,21.6599,0.000
+			87.57276,21.65966,0.000
+			87.57279,21.65951,0.000
+			87.57284,21.65879,0.000
+			87.57291,21.65745,0.000
+			87.57299,21.65609,0.000
+			87.57298,21.65586,0.000
+			87.57295,21.65562,0.000
+			87.57289,21.65511,0.000
+			87.57255,21.65283,0.000
+			87.57218,21.65034,0.000
+			87.57187,21.6485,0.000
+			87.57178,21.64803,0.000
+			87.57165,21.64708,0.000
+			87.57164,21.6466,0.000
+			87.57167,21.64579,0.000
+			87.5717,21.6456,0.000
+			87.57178,21.64542,0.000
+			87.57192,21.64529,0.000
+			87.57235,21.64497,0.000
+			87.5726,21.64482,0.000
+			87.57291,21.64459,0.000
+			87.57294282104895,21.64451804192566,0.000
+			87.5729,21.64448,0.000
+			87.57273,21.64455,0.000
+			87.57229,21.64485,0.000
+			87.57181,21.64521,0.000
+			87.57161,21.64538,0.000
+			87.57152,21.6455,0.000
+			87.57136,21.64586,0.000
+			87.57122,21.64608,0.000
+			87.57106,21.64622,0.000
+			87.57081,21.64632,0.000
+			87.57073,21.64633,0.000
+			87.57054,21.64631,0.000
+			87.57022,21.6462,0.000
+			87.56833,21.64541,0.000
+			87.56681410775249,21.644786794225617,0.000
+			87.56633391144189,21.644583606136813,0.000
+			87.56593484418832,21.644410384636636,0.000
+			87.56554,21.64425,0.000
+			87.56514,21.64415,0.000
+			87.56486,21.64415,0.000
+			87.56458,21.64419,0.000
+			87.56427,21.64429,0.000
+			87.56238,21.64485,0.000
+			87.56083,21.64534,0.000
+			87.56069,21.64537,0.000
+			87.56066,21.64536,0.000
+			87.56041,21.64471,0.000
+			87.56035,21.64456,0.000
+			87.56018,21.64441,0.000
+			87.56008,21.64426,0.000
+			87.55992,21.64373,0.000
+			87.55969,21.64289,0.000
+			87.5596709135471,21.642870851145258,0.000
+			87.55963583071161,21.642868658468043,0.000
+			87.55924918862893,21.642932976999752,0.000
+			87.5589064000906,21.64301118248718,0.000
+			87.55875437447018,21.642979023221322,0.000
+			87.55867982344479,21.64292493718329,0.000
+			87.55862427562195,21.64289643237946,0.000
+			87.55856,21.64289,0.000
+			87.5585,21.6429,0.000
+			87.55844155252052,21.642976099651698,0.000
+			87.55838454291286,21.64306673031002,0.000
+			87.5582895269001,21.643157360968345,0.000
+			87.55817112233034,21.643166131677205,0.000
+			87.55797378138077,21.64313397241135,0.000
+			87.55790069214018,21.64310912206955,0.000
+			87.55774720473492,21.643097427791055,0.000
+			87.55749,21.64311,0.000
+			87.55731,21.64316,0.000
+			87.55693,21.64325,0.000
+			87.5564,21.64336,0.000
+			87.5563,21.6434,0.000
+			87.55613,21.64354,0.000
+			87.55594,21.64359,0.000
+			87.55572,21.64358,0.000
+			87.55497,21.64358,0.000
+			87.55459,21.64354,0.000
+			87.55451,21.64351,0.000
+			87.55445,21.64342,0.000
+			87.5544,21.64333,0.000
+			87.55434,21.64329,0.000
+			87.55418,21.64329,0.000
+			87.55412,21.6433,0.000
+			87.55382,21.64337,0.000
+			87.55363,21.64351,0.000
+			87.55356,21.64356,0.000
+			87.55346,21.64356,0.000
+			87.55332,21.64353,0.000
+			87.55307,21.64352,0.000
+			87.55285,21.64354,0.000
+			87.55234,21.64365,0.000
+			87.55213,21.64365,0.000
+			87.55192,21.64366,0.000
+			87.55171,21.64366,0.000
+			87.5515,21.64367,0.000
+			87.55139,21.64373,0.000
+			87.55128,21.64376,0.000
+			87.55112,21.64374,0.000
+			87.55105,21.64371,0.000
+			87.55101,21.64365,0.000
+			87.55091,21.64361,0.000
+			87.55079,21.64361,0.000
+			87.55061,21.64358,0.000
+			87.55034,21.64357,0.000
+			87.54976,21.64361,0.000
+			87.54945,21.64363,0.000
+			87.54921,21.64368,0.000
+			87.54896,21.64373,0.000
+			87.54882,21.64376,0.000
+			87.54876,21.64375,0.000
+			87.54866,21.64369,0.000
+			87.54855,21.64364,0.000
+			87.54837,21.64362,0.000
+			87.54782,21.64353,0.000
+			87.54752,21.64345,0.000
+			87.54745,21.64344,0.000
+			87.54739,21.64348,0.000
+			87.54732,21.64348,0.000
+			87.54721,21.64342,0.000
+			87.54706,21.64332,0.000
+			87.54699,21.64333,0.000
+			87.54685,21.6434,0.000
+			87.54665956693825,21.643375897797682,0.000
+			87.54654847129255,21.643342276747013,0.000
+			87.54643335573864,21.643328024345102,0.000
+			87.54631458572268,21.643324735329276,0.000
+			87.54626671227011,21.643332409699525,0.000
+			87.54624,21.64335,0.000
+			87.5461395369915,21.643423771250255,0.000
+			87.54610262692499,21.643432907405337,0.000
+			87.5460529262414,21.64341828955722,0.000
+			87.54582196424116,21.643326197114085,0.000
+			87.54567688209862,21.64321327423737,0.000
+			87.5456125635669,21.643184038541136,0.000
+			87.54553801254151,21.64317819140189,0.000
+			87.54527489127541,21.643160649984143,0.000
+			87.54506951050934,21.643138723211965,0.000
+			87.54498765055988,21.64314530124362,0.000
+			87.54490505971806,21.643163573553768,0.000
+			87.54472672197099,21.643241779041198,0.000
+			87.54455,21.64331,0.000
+			87.54443801947069,21.643334602376733,0.000
+			87.54425602726165,21.643305366680504,0.000
+			87.54415881857167,21.643259320458935,0.000
+			87.54411496502732,21.643199387281655,0.000
+			87.54403895221712,21.64306417218657,0.000
+			87.54398121171707,21.643025434889058,0.000
+			87.54393004924866,21.643015933287785,0.000
+			87.54383064788146,21.642999122762436,0.000
+			87.5437,21.643,0.000
+			87.5436,21.64302,0.000
+			87.54345,21.64303,0.000
+			87.54335,21.64301,0.000
+			87.5431,21.64293,0.000
+			87.54302,21.64293,0.000
+			87.5429,21.64296,0.000
+			87.54282274725377,21.643040783629566,0.000
+			87.54278693352587,21.643108025730903,0.000
+			87.54276866121573,21.643128490718265,0.000
+			87.5427379637347,21.643143839458787,0.000
+			87.54259982506998,21.643146032136,0.000
+			87.54255450974082,21.643153341060057,0.000
+			87.54251504155091,21.643222044946206,0.000
+			87.54248580585468,21.643276130984237,0.000
+			87.54242441089258,21.643299519541223,0.000
+			87.54233524201908,21.643298057756414,0.000
+			87.54227384705699,21.643262974920933,0.000
+			87.54221537566451,21.64319865638922,0.000
+			87.54212474500619,21.64307001932579,0.000
+			87.54204946308839,21.642994737407992,0.000
+			87.5419880681263,21.642985966699126,0.000
+			87.541850660354,21.64304297630678,0.000
+			87.54182581001218,21.643058325047306,0.000
+			87.54179511253116,21.64305905593971,0.000
+			87.54170886722723,21.64300716257889,0.000
+			87.54156268874605,21.642956000110484,0.000
+			87.54144574596113,21.64295161475605,0.000
+			87.5412805642774,21.642975003313037,0.000
+			87.54113,21.64302,0.000
+			87.54099,21.64314,0.000
+			87.54071,21.64332,0.000
+			87.54065199680835,21.64331706095897,0.000
+			87.54061033594121,21.643288556155145,0.000
+			87.54050435654237,21.64314895570563,0.000
+			87.54033552039661,21.643035667382712,0.000
+			87.54028508882061,21.643022511319405,0.000
+			87.54019007280786,21.643035667382712,0.000
+			87.53996349616202,21.643083175389087,0.000
+			87.53985240051634,21.643151879275237,0.000
+			87.53981804857327,21.64320450352846,0.000
+			87.5397836966302,21.643303904895653,0.000
+			87.53975299914916,21.64334775844,0.000
+			87.5397,21.64338,0.000
+			87.53962,21.64341,0.000
+			87.53943,21.64346,0.000
+			87.5393,21.64352,0.000
+			87.53922,21.64355,0.000
+			87.53914124220546,21.643534136003495,0.000
+			87.53907984724336,21.643490282459144,0.000
+			87.53899652550909,21.64342450214262,0.000
+			87.53891028020522,21.64340842250969,0.000
+			87.5388,21.64344,0.000
+			87.53839,21.64355,0.000
+			87.53798,21.64364,0.000
+			87.53769,21.64375,0.000
+			87.53744,21.64379,0.000
+			87.5368126190004,21.643743171231563,0.000
+			87.53665766981038,21.643738054984727,0.000
+			87.53656265379763,21.643757789079682,0.000
+			87.53650052794313,21.643809682440498,0.000
+			87.53645375082915,21.64391346916212,0.000
+			87.5364113590696,21.644004099820442,0.000
+			87.53633,21.64406,0.000
+			87.53625714077195,21.64407645816862,0.000
+			87.53617235725287,21.644072072814186,0.000
+			87.53606710874644,21.64403260462427,0.000
+			87.5359750163033,21.643977056801425,0.000
+			87.53580983461957,21.643874731864614,0.000
+			87.53560810831556,21.643794333699972,0.000
+			87.53550724516354,21.643778254067044,0.000
+			87.53544146484703,21.643785562991102,0.000
+			87.53541076736597,21.64381772225696,0.000
+			87.53538445523937,21.643860114016498,0.000
+			87.53532744563171,21.6438981204216,0.000
+			87.53524997103669,21.643890811497542,0.000
+			87.53519149964423,21.643833801889887,0.000
+			87.53515349323912,21.64374170944675,0.000
+			87.53509,21.64366,0.000
+			87.53503,21.64364,0.000
+			87.53495615228952,21.643642308079546,0.000
+			87.53483043879572,21.643658387712474,0.000
+			87.53456877931443,21.643686161623894,0.000
+			87.53437436193445,21.643722706244187,0.000
+			87.53418,21.64381,0.000
+			87.5340293807189,21.643844034383555,0.000
+			87.53395775326312,21.64387180829498,0.000
+			87.53387443152886,21.643997521788783,0.000
+			87.53379403336422,21.644061840320497,0.000
+			87.53368586128815,21.644096923155978,0.000
+			87.5335594169019,21.644120311712953,0.000
+			87.53317,21.64419,0.000
+			87.53304852311022,21.64419267006113,0.000
+			87.53294765995821,21.644185361137072,0.000
+			87.53286433822394,21.64419267006113,0.000
+			87.53281171397073,21.64426137394728,0.000
+			87.5328,21.64436,0.000
+			87.53279271076818,21.644457253112044,0.000
+			87.53276201328713,21.64454057484631,0.000
+			87.53262168194516,21.644654594061613,0.000
+			87.53246,21.64476,0.000
+			87.53228,21.64489,0.000
+			87.53197,21.64503,0.000
+			87.53162417730015,21.645090649292563,0.000
+			87.53157138891294,21.64513903864751,0.000
+			87.53194090762345,21.645661057143307,0.000
+			87.5323514839685,21.64624612843495,0.000
+			87.53266821429177,21.646696296070367,0.000
+			87.53248963800002,21.646810519999978,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Padima-I GP to Gobra GP
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 5958.06443460272
+<br/>start_node: Padima-I GP
+<br/>s_coil_len: NULL
+<br/>end_node: Gobra GP
+<br/>e_coil_len: NULL
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: NULL
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 5.958
+<br/>S_N: 7
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Padima-I GP to Gobra GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[5958.06443460272]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Padima-I GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Gobra GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[5.958]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[7]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.50391653999998,21.64421669099999,0.000
+			87.50392823672763,21.644294241159063,0.000
+			87.50391064059855,21.64438808718078,0.000
+			87.50385,21.64469,0.000
+			87.50379,21.64515,0.000
+			87.50378,21.64529,0.000
+			87.50373,21.64548,0.000
+			87.50366,21.64561,0.000
+			87.50365,21.64567,0.000
+			87.50364,21.64598,0.000
+			87.50358,21.64635,0.000
+			87.50354112188802,21.646555343744787,0.000
+			87.50355189828693,21.646770527576344,0.000
+			87.50353874222363,21.646823151829565,0.000
+			87.50349,21.64687,0.000
+			87.50345103513492,21.646916706057514,0.000
+			87.50344372621086,21.646967868525923,0.000
+			87.5034627294134,21.647162285905875,0.000
+			87.50346565298302,21.647416636463106,0.000
+			87.50345980584378,21.647532117463232,0.000
+			87.50340571980576,21.647675372374774,0.000
+			87.50343,21.64785,0.000
+			87.50352,21.64799,0.000
+			87.50353,21.64819,0.000
+			87.50352,21.64833,0.000
+			87.50348,21.6484,0.000
+			87.50341,21.64852,0.000
+			87.50341,21.64866,0.000
+			87.50345,21.64891,0.000
+			87.5034296797374,21.648973345148104,0.000
+			87.50338862210289,21.648989474933085,0.000
+			87.50328157898437,21.64899973934171,0.000
+			87.50322182546275,21.649001572271818,0.000
+			87.50317160317768,21.64902320084714,0.000
+			87.50310965013993,21.64924131953044,0.000
+			87.50307555763975,21.649287142783205,0.000
+			87.50292012516628,21.649390520041504,0.000
+			87.5029,21.64947,0.000
+			87.50289,21.6495,0.000
+			87.50287540167153,21.649529822729985,0.000
+			87.50284680796179,21.64954668568701,0.000
+			87.50281968059613,21.649540820310655,0.000
+			87.50275369511212,21.64952469052567,0.000
+			87.50266388153679,21.649471535552458,0.000
+			87.50258763164415,21.649389420283455,0.000
+			87.50250258368696,21.649386487595276,0.000
+			87.50200842572885,21.649333699208068,0.000
+			87.50175,21.64928,0.000
+			87.50163964019038,21.649224456573414,0.000
+			87.50155092637297,21.649200995067986,0.000
+			87.50148860674916,21.649205394100253,0.000
+			87.50142042174899,21.649228122433634,0.000
+			87.50116601104948,21.64939601883187,0.000
+			87.50110882362999,21.64940701641254,0.000
+			87.50099224927489,21.649396018831887,0.000
+			87.5009299296511,21.649376956358726,0.000
+			87.50087714126389,21.64934616313285,0.000
+			87.50076863180128,21.64925085076704,0.000
+			87.50066195526878,21.649196229449704,0.000
+			87.50055087970401,21.64918853114324,0.000
+			87.50027080798294,21.649206860444355,0.000
+			87.50010217841269,21.649214192164816,0.000
+			87.49992,21.64931,0.000
+			87.49979,21.64935,0.000
+			87.49966,21.64934,0.000
+			87.49961,21.6493,0.000
+			87.49958,21.64923,0.000
+			87.49955,21.64912,0.000
+			87.49953,21.64909,0.000
+			87.49943,21.6491,0.000
+			87.49933,21.64914,0.000
+			87.49926,21.64914,0.000
+			87.49914,21.64908,0.000
+			87.49896,21.64907,0.000
+			87.49889,21.64906,0.000
+			87.49872,21.649,0.000
+			87.4982,21.6489,0.000
+			87.49797,21.64885,0.000
+			87.49767,21.64887,0.000
+			87.4973,21.64902,0.000
+			87.49714,21.64905,0.000
+			87.49701,21.64905,0.000
+			87.49691,21.64902,0.000
+			87.49684,21.64889,0.000
+			87.49678,21.64881,0.000
+			87.4965470254694,21.648744667964536,0.000
+			87.49626343921594,21.648613107331485,0.000
+			87.49594915548144,21.648423075305974,0.000
+			87.49583513626614,21.64838653068568,0.000
+			87.49566995458241,21.64836898926794,0.000
+			87.49549600218984,21.648398224964172,0.000
+			87.49536297977198,21.64841138102748,0.000
+			87.4952401898478,21.64838506890087,0.000
+			87.4952021834427,21.648373374622373,0.000
+			87.49508816422738,21.64842892244522,0.000
+			87.4949653743032,21.648484470268063,0.000
+			87.49488205256897,21.64848154669845,0.000
+			87.49480019261951,21.648471314204766,0.000
+			87.49467155555607,21.6485137059643,0.000
+			87.49438650751779,21.648648190166977,0.000
+			87.49423302011257,21.648709585129065,0.000
+			87.49413361874538,21.648737359040492,0.000
+			87.49406930021371,21.64873735904049,0.000
+			87.49392165994773,21.64865257552141,0.000
+			87.49386465034007,21.64862333982518,0.000
+			87.49378571396025,21.648611645546683,0.000
+			87.49356352266886,21.64864088124292,0.000
+			87.49343050025098,21.64868254211006,0.000
+			87.49330113229514,21.648758554920263,0.000
+			87.49315641559882,21.6488506473634,0.000
+			87.49279389296552,21.648951510515406,0.000
+			87.49223402938263,21.649017290831942,0.000
+			87.49202791772419,21.64901290547751,0.000
+			87.49190951315444,21.649023137971188,0.000
+			87.49182034428092,21.649055297237048,0.000
+			87.49175164039477,21.649094765426963,0.000
+			87.49172167380614,21.649145197002973,0.000
+			87.49163615939466,21.6493111095791,0.000
+			87.49159522941994,21.649365195617122,0.000
+			87.49158,21.64943,0.000
+			87.49158499692626,21.649743797883346,0.000
+			87.49159,21.65001,0.000
+			87.49157,21.65028,0.000
+			87.49151,21.6506,0.000
+			87.49151336947051,21.650842329169336,0.000
+			87.4915360271351,21.650888375390906,0.000
+			87.49158134246429,21.65094684678337,0.000
+			87.49168074383148,21.65104040101132,0.000
+			87.49180499554048,21.651097410618984,0.000
+			87.49189708798356,21.651122991853185,0.000
+			87.49197017722419,21.651167576289943,0.000
+			87.49200526005967,21.651227509467223,0.000
+			87.49201183809129,21.651270632119157,0.000
+			87.49197456257863,21.651353222961028,0.000
+			87.49184446373039,21.651490630733324,0.000
+			87.49174,21.65163,0.000
+			87.49171,21.65171,0.000
+			87.49169,21.65188,0.000
+			87.49164,21.65234,0.000
+			87.49155,21.65333,0.000
+			87.49148,21.65389,0.000
+			87.49145,21.65466,0.000
+			87.49142,21.65502,0.000
+			87.49145,21.65514,0.000
+			87.49157,21.65528,0.000
+			87.49191,21.65543,0.000
+			87.49199,21.6555,0.000
+			87.49203,21.65557,0.000
+			87.49214,21.65631,0.000
+			87.4922,21.65671,0.000
+			87.49222,21.65712,0.000
+			87.49221507661252,21.657617214767363,0.000
+			87.49221,21.65813,0.000
+			87.49221,21.65847,0.000
+			87.49218,21.65879,0.000
+			87.49209,21.65917,0.000
+			87.49195,21.6595,0.000
+			87.49189,21.65971,0.000
+			87.49184,21.66001,0.000
+			87.49186,21.66085,0.000
+			87.49188,21.66147,0.000
+			87.49199,21.66195,0.000
+			87.49203,21.66219,0.000
+			87.49207027866352,21.662252190634934,0.000
+			87.49210400457758,21.66228151751672,0.000
+			87.4921553266207,21.662316709774863,0.000
+			87.49230342737373,21.662313777086684,0.000
+			87.49254244146029,21.66228298386081,0.000
+			87.4930747243647,21.66223752719404,0.000
+			87.49362020436593,21.66222286375315,0.000
+			87.49456159727124,21.662133416763716,0.000
+			87.49481674114278,21.66212755138736,0.000
+			87.49498976974533,21.662123152355093,0.000
+			87.49528743759547,21.662145147516433,0.000
+			87.49585198006987,21.662193536871374,0.000
+			87.49656169060911,21.662265387731754,0.000
+			87.49689455071741,21.66225512332313,0.000
+			87.49709690620173,21.662225796441344,0.000
+			87.49728606458926,21.662252190634952,0.000
+			87.49742390093364,21.662293981441486,0.000
+			87.49756320362214,21.662337238592123,0.000
+			87.4979,21.66247,0.000
+			87.49801,21.66245,0.000
+			87.49829,21.66234,0.000
+			87.49852,21.66231,0.000
+			87.4987,21.66233,0.000
+			87.49887,21.66238,0.000
+			87.49898,21.66245,0.000
+			87.49917,21.66261,0.000
+			87.49936,21.66271,0.000
+			87.49951,21.66276,0.000
+			87.50002,21.66287,0.000
+			87.50026,21.66299,0.000
+			87.50045,21.66312,0.000
+			87.50059,21.66321,0.000
+			87.50077,21.66328,0.000
+			87.50089,21.66332,0.000
+			87.50137,21.66343,0.000
+			87.50171,21.66345,0.000
+			87.50232,21.66342,0.000
+			87.50258,21.66335,0.000
+			87.50276,21.66328,0.000
+			87.50299600847299,21.663175987411204,0.000
+			87.50318516686052,21.66314812687351,0.000
+			87.50350629621607,21.66311879999172,0.000
+			87.50380249772213,21.663127598056256,0.000
+			87.50404004546462,21.663192117196196,0.000
+			87.50416761740038,21.66320238160482,0.000
+			87.50440736465899,21.663147393701475,0.000
+			87.50456866250882,21.663129797572402,0.000
+			87.50470649885321,21.66313712929285,0.000
+			87.50486339767075,21.663184052303713,0.000
+			87.50508334928413,21.663291095422235,0.000
+			87.50537075272567,21.663418667358012,0.000
+			87.50561123315629,21.663434063970943,0.000
+			87.50648517423352,21.66349125139044,0.000
+			87.50713,21.66351,0.000
+			87.50759519670913,21.66350884751951,0.000
+			87.5079823115487,21.66354403977766,0.000
+			87.50850139735633,21.663632020423023,0.000
+			87.50885771897003,21.663668679025253,0.000
+			87.50931521832588,21.663642284831653,0.000
+			87.50990175596164,21.6635806983799,0.000
+			87.51046336574782,21.663601227197155,0.000
+			87.51114,21.6636,0.000
+			87.51138422983591,21.663585097412174,0.000
+			87.51165,21.66367,0.000
+			87.51189451757898,21.663703871283406,0.000
+			87.5120396856438,21.663721467412483,0.000
+			87.51262768962364,21.663762525046987,0.000
+			87.51380663027145,21.663860770100975,0.000
+			87.51410283177748,21.6638314432192,0.000
+			87.51458819167104,21.66375519332655,0.000
+			87.51489759027389,21.663746395262013,0.000
+			87.51546,21.6638,0.000
+			87.5156,21.66384,0.000
+			87.5156512911358,21.663887164294582,0.000
+			87.51564835844762,21.663961214671087,0.000
+			87.51555099199999,21.663968893999993,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Haldia-I GP to Haldia-II GP
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 5761.11341025944
+<br/>start_node: Haldia-I GP
+<br/>s_coil_len: NULL
+<br/>end_node: Haldia-II GP
+<br/>e_coil_len: NULL
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: NULL
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 5.761
+<br/>S_N: 11
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Haldia-I GP to Haldia-II GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[5761.11341025944]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Haldia-I GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Haldia-II GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[5.761]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[11]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.51919262400003,21.69291327500003,0.000
+			87.51924502555951,21.692936998694574,0.000
+			87.51924,21.69305,0.000
+			87.51927,21.6931,0.000
+			87.51932,21.69315,0.000
+			87.51934,21.69326,0.000
+			87.51935,21.69349,0.000
+			87.51933,21.69379,0.000
+			87.51932,21.69404,0.000
+			87.51934,21.69433,0.000
+			87.51942,21.6946,0.000
+			87.51944,21.6947,0.000
+			87.51941,21.69474,0.000
+			87.51922,21.69483,0.000
+			87.5189,21.69496,0.000
+			87.51867,21.69508,0.000
+			87.51853,21.69512,0.000
+			87.51836,21.69516,0.000
+			87.51808,21.69514,0.000
+			87.51787,21.69516,0.000
+			87.51761,21.69523,0.000
+			87.51738,21.69528,0.000
+			87.51727,21.69533,0.000
+			87.51721,21.6954,0.000
+			87.51719,21.6955,0.000
+			87.51721,21.6957,0.000
+			87.51728,21.69626,0.000
+			87.51726,21.6963,0.000
+			87.51682,21.69632,0.000
+			87.51611,21.69642,0.000
+			87.51602,21.69645,0.000
+			87.51597,21.69654,0.000
+			87.51598,21.69666,0.000
+			87.51613344340205,21.696774421176325,0.000
+			87.51651176017708,21.697006103542435,0.000
+			87.51686075007034,21.697336030962532,0.000
+			87.5172,21.69782,0.000
+			87.51727,21.69791,0.000
+			87.51726,21.69799,0.000
+			87.51726,21.6981,0.000
+			87.51732,21.69836,0.000
+			87.5174,21.69864,0.000
+			87.51742,21.69877,0.000
+			87.51748,21.69895,0.000
+			87.5175,21.69911,0.000
+			87.51745,21.69922,0.000
+			87.51735,21.69925,0.000
+			87.51668,21.69921,0.000
+			87.51612,21.69914,0.000
+			87.51554,21.6991,0.000
+			87.51464,21.69908,0.000
+			87.51308,21.69906,0.000
+			87.51233,21.69907,0.000
+			87.51202,21.69906,0.000
+			87.51163,21.69909,0.000
+			87.51141,21.69909,0.000
+			87.51103,21.69905,0.000
+			87.51004,21.69889,0.000
+			87.50891,21.69877,0.000
+			87.50811,21.69875,0.000
+			87.50795,21.69872,0.000
+			87.5079,21.69872,0.000
+			87.50788,21.69889,0.000
+			87.50758,21.69887,0.000
+			87.50716,21.69882,0.000
+			87.50641304843397,21.698793576987338,0.000
+			87.50587783284134,21.6987979760196,0.000
+			87.50514759348484,21.698831701933656,0.000
+			87.5050156225168,21.698819971180942,0.000
+			87.50495403606504,21.69877891354644,0.000
+			87.50495,21.69863,0.000
+			87.50433,21.69861,0.000
+			87.50422086402048,21.69858242343848,0.000
+			87.50418,21.69852,0.000
+			87.50418,21.69833,0.000
+			87.50419,21.69769,0.000
+			87.50423,21.69715,0.000
+			87.50423,21.69664,0.000
+			87.50423,21.69631,0.000
+			87.50426,21.69606,0.000
+			87.50422,21.69572,0.000
+			87.5042,21.69527,0.000
+			87.50416,21.69508,0.000
+			87.50412,21.69502,0.000
+			87.50394,21.69486,0.000
+			87.50377,21.6947,0.000
+			87.50365,21.69457,0.000
+			87.50354,21.69439,0.000
+			87.50349,21.6943,0.000
+			87.50343,21.69425,0.000
+			87.50327,21.69421,0.000
+			87.50319,21.69416,0.000
+			87.50316,21.69411,0.000
+			87.50314,21.69405,0.000
+			87.50316,21.69391,0.000
+			87.50327,21.69365,0.000
+			87.5033,21.69353,0.000
+			87.50331,21.69336,0.000
+			87.50328,21.69308,0.000
+			87.50324,21.69298,0.000
+			87.50312,21.69281,0.000
+			87.50299,21.69266,0.000
+			87.50295,21.69256,0.000
+			87.50289,21.69223,0.000
+			87.50289,21.69188,0.000
+			87.50295,21.69141,0.000
+			87.503,21.691,0.000
+			87.50298,21.69026,0.000
+			87.50292,21.68976,0.000
+			87.5028,21.68899,0.000
+			87.50277,21.68878,0.000
+			87.50275,21.68868,0.000
+			87.50269,21.68863,0.000
+			87.50253,21.68853,0.000
+			87.50247,21.68847,0.000
+			87.50243,21.68838,0.000
+			87.50249,21.688,0.000
+			87.50252,21.68775,0.000
+			87.50254,21.68738,0.000
+			87.50254,21.68711,0.000
+			87.50252,21.68703,0.000
+			87.50236,21.68664,0.000
+			87.50217,21.68626,0.000
+			87.50216,21.68616,0.000
+			87.50217,21.68602,0.000
+			87.50225,21.68563,0.000
+			87.50228,21.68544,0.000
+			87.50227,21.68525,0.000
+			87.50229,21.68515,0.000
+			87.50237,21.68507,0.000
+			87.50253,21.68502,0.000
+			87.50261,21.68494,0.000
+			87.50288,21.68434,0.000
+			87.50301,21.68383,0.000
+			87.50304,21.68359,0.000
+			87.50303,21.68344,0.000
+			87.50296,21.68323,0.000
+			87.50282,21.68294,0.000
+			87.50266,21.68204,0.000
+			87.5026,21.68174,0.000
+			87.50257,21.68157,0.000
+			87.50251,21.6815,0.000
+			87.50233,21.68143,0.000
+			87.50223,21.68136,0.000
+			87.50208,21.6812,0.000
+			87.50196,21.68097,0.000
+			87.5019,21.68092,0.000
+			87.50186,21.68085,0.000
+			87.50183,21.68071,0.000
+			87.50178,21.6805,0.000
+			87.50166,21.68044,0.000
+			87.50154,21.6804,0.000
+			87.50149,21.68031,0.000
+			87.50141,21.68,0.000
+			87.50134,21.6799,0.000
+			87.50125,21.67982,0.000
+			87.50125,21.67974,0.000
+			87.50132,21.67951,0.000
+			87.50145,21.67918,0.000
+			87.50145,21.67905,0.000
+			87.50135,21.67892,0.000
+			87.50119,21.67871,0.000
+			87.50105,21.67841,0.000
+			87.50098,21.67821,0.000
+			87.50096,21.67802,0.000
+			87.50096,21.67771,0.000
+			87.50098,21.67719,0.000
+			87.50095,21.67698,0.000
+			87.50085,21.67684,0.000
+			87.5008,21.67675,0.000
+			87.50079,21.67665,0.000
+			87.50086,21.67644,0.000
+			87.50091,21.67627,0.000
+			87.50091,21.67621,0.000
+			87.50085,21.67598,0.000
+			87.50084,21.67583,0.000
+			87.50088,21.6756,0.000
+			87.50093,21.67539,0.000
+			87.50093,21.67528,0.000
+			87.50084,21.67518,0.000
+			87.50055,21.67502,0.000
+			87.50048,21.67491,0.000
+			87.50051,21.67453,0.000
+			87.50044,21.67445,0.000
+			87.50027,21.67437,0.000
+			87.5002,21.67431,0.000
+			87.50019,21.6742,0.000
+			87.50023,21.67397,0.000
+			87.50021,21.67385,0.000
+			87.50015,21.6738,0.000
+			87.49998,21.67372,0.000
+			87.49987,21.67359,0.000
+			87.49969,21.67325,0.000
+			87.49957,21.67311,0.000
+			87.49937,21.67294,0.000
+			87.49916,21.67284,0.000
+			87.49887,21.67272,0.000
+			87.49863,21.67261,0.000
+			87.49854,21.67269,0.000
+			87.49847,21.67273,0.000
+			87.49812,21.67284,0.000
+			87.49787819266224,21.672949262413084,0.000
+			87.49786192099998,21.673012047999975,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Basantapur GP to FPOI-1001
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 6359.66681042556
+<br/>start_node: Basantapur GP
+<br/>s_coil_len: NULL
+<br/>end_node: FPOI-1001
+<br/>e_coil_len: NULL
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: NULL
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 6.36
+<br/>S_N: 14
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Basantapur GP to FPOI-1001]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[6359.66681042556]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Basantapur GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1001]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[6.36]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[14]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.49141106399998,21.664325797999986,0.000
+			87.49123712028181,21.664315428415193,0.000
+			87.49119,21.66504,0.000
+			87.49124,21.66541,0.000
+			87.49129,21.66561,0.000
+			87.49129,21.66585,0.000
+			87.49127,21.66598,0.000
+			87.49120779340005,21.666046447612633,0.000
+			87.49110588248584,21.666122697505276,0.000
+			87.49100837060391,21.666191615677473,0.000
+			87.49081847904432,21.666359512075704,0.000
+			87.49066,21.66669,0.000
+			87.4905,21.66707,0.000
+			87.49041,21.66736,0.000
+			87.49026,21.66764,0.000
+			87.49006,21.66793,0.000
+			87.48966,21.66846,0.000
+			87.48924,21.66903,0.000
+			87.48892,21.66982,0.000
+			87.48867,21.67036,0.000
+			87.48848,21.67066,0.000
+			87.48836,21.67095,0.000
+			87.48826,21.67109,0.000
+			87.48812,21.67129,0.000
+			87.48793,21.67168,0.000
+			87.48787,21.67183,0.000
+			87.48786,21.67196,0.000
+			87.48792,21.67218,0.000
+			87.48803,21.6724,0.000
+			87.48816,21.67256,0.000
+			87.48829,21.67272,0.000
+			87.48832,21.67285,0.000
+			87.48835,21.67332,0.000
+			87.48837,21.67383,0.000
+			87.48836,21.67422,0.000
+			87.48833,21.67445,0.000
+			87.48823,21.6749,0.000
+			87.48812,21.67545,0.000
+			87.48808,21.67565,0.000
+			87.488,21.67581,0.000
+			87.48785,21.67603,0.000
+			87.48779,21.67618,0.000
+			87.48778,21.67642,0.000
+			87.48788,21.67707,0.000
+			87.48792,21.67744,0.000
+			87.48788,21.67811,0.000
+			87.48796,21.67859,0.000
+			87.48798,21.67874,0.000
+			87.48794,21.679,0.000
+			87.48789,21.67921,0.000
+			87.48782,21.6794,0.000
+			87.48767,21.67963,0.000
+			87.48722,21.6799,0.000
+			87.48655,21.68032,0.000
+			87.48623,21.68052,0.000
+			87.48597,21.68075,0.000
+			87.48583,21.68097,0.000
+			87.48579,21.68109,0.000
+			87.48569,21.68135,0.000
+			87.48561,21.68152,0.000
+			87.48542,21.68176,0.000
+			87.48515,21.68205,0.000
+			87.48501,21.68221,0.000
+			87.48493,21.68236,0.000
+			87.48488,21.68246,0.000
+			87.48483,21.68262,0.000
+			87.48478,21.68282,0.000
+			87.48473,21.68302,0.000
+			87.48464,21.68323,0.000
+			87.48442,21.68356,0.000
+			87.48429,21.68384,0.000
+			87.48421,21.68411,0.000
+			87.48412,21.68476,0.000
+			87.48408,21.68521,0.000
+			87.48407,21.68543,0.000
+			87.4841,21.68564,0.000
+			87.48411,21.68588,0.000
+			87.48407,21.68605,0.000
+			87.48398,21.68628,0.000
+			87.48377,21.68682,0.000
+			87.48365,21.68708,0.000
+			87.4834,21.6876,0.000
+			87.48333,21.68777,0.000
+			87.48332,21.68792,0.000
+			87.48331,21.68818,0.000
+			87.4833,21.68863,0.000
+			87.48327,21.68942,0.000
+			87.48322,21.68979,0.000
+			87.48316,21.69004,0.000
+			87.48308,21.69018,0.000
+			87.4828,21.69038,0.000
+			87.48272,21.69047,0.000
+			87.48261,21.69065,0.000
+			87.48248,21.69089,0.000
+			87.48231,21.69136,0.000
+			87.48216,21.69179,0.000
+			87.48195,21.69236,0.000
+			87.48191,21.69257,0.000
+			87.4819,21.69273,0.000
+			87.48192,21.69301,0.000
+			87.48202,21.69361,0.000
+			87.48204,21.69382,0.000
+			87.48202,21.69407,0.000
+			87.48197,21.69452,0.000
+			87.48197,21.69489,0.000
+			87.48193,21.69519,0.000
+			87.48184,21.69559,0.000
+			87.48174,21.69621,0.000
+			87.4817,21.69707,0.000
+			87.48168,21.69787,0.000
+			87.48171,21.6981,0.000
+			87.48179,21.69855,0.000
+			87.4818,21.6988,0.000
+			87.4818,21.69923,0.000
+			87.48177,21.69984,0.000
+			87.48176,21.70054,0.000
+			87.48175,21.70115,0.000
+			87.48165,21.7017,0.000
+			87.48164,21.70252,0.000
+			87.4816,21.70339,0.000
+			87.48161,21.70381,0.000
+			87.48171,21.70434,0.000
+			87.4818,21.70489,0.000
+			87.48184,21.7055,0.000
+			87.48187,21.70582,0.000
+			87.48194,21.70618,0.000
+			87.482,21.70668,0.000
+			87.48208,21.70708,0.000
+			87.4821,21.70727,0.000
+			87.48209,21.70739,0.000
+			87.48183,21.70817,0.000
+			87.48179,21.70832,0.000
+			87.48166,21.70868,0.000
+			87.48159,21.70885,0.000
+			87.48159,21.7089,0.000
+			87.48184,21.70939,0.000
+			87.48212,21.70992,0.000
+			87.4827,21.71084,0.000
+			87.48328,21.71183,0.000
+			87.48383,21.71278,0.000
+			87.48424,21.7136,0.000
+			87.4844,21.71402,0.000
+			87.48453,21.71453,0.000
+			87.48461,21.71471,0.000
+			87.48486,21.71515,0.000
+			87.48537,21.71577,0.000
+			87.48556,21.71601,0.000
+			87.48588,21.71648,0.000
+			87.48599,21.71667,0.000
+			87.4861,21.71694,0.000
+			87.48617,21.7171,0.000
+			87.4862,21.71723,0.000
+			87.48621049274372,21.717382421007688,0.000
+			87.48626097099998,21.717381964000026,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Badhia GP to FPOI-1003
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 14096.88215715538
+<br/>start_node: Badhia GP
+<br/>s_coil_len: NULL
+<br/>end_node: FPOI-1003
+<br/>e_coil_len: NULL
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: NULL
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 14.097
+<br/>S_N: 16
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Badhia GP to FPOI-1003]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[14096.88215715538]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Badhia GP]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1003]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[14.097]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[16]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.48640967300003,21.71730880400003,0.000
+			87.48752397046174,21.717155504259875,0.000
+			87.48776738358059,21.71710711490493,0.000
+			87.48796020782834,21.71705725920589,0.000
+			87.48802619331235,21.717030131840232,0.000
+			87.48806945046299,21.716977343453017,0.000
+			87.48808118121569,21.71688423060335,0.000
+			87.48809291196844,21.71671046882876,0.000
+			87.48828,21.71644,0.000
+			87.48853,21.716,0.000
+			87.48884,21.7155,0.000
+			87.48914,21.71514,0.000
+			87.4893593510751,21.714811466344088,0.000
+			87.4896793510751,21.71458146634409,0.000
+			87.48993170745646,21.714362851941758,0.000
+			87.49012,21.71422,0.000
+			87.4905,21.71438,0.000
+			87.49073,21.71452,0.000
+			87.49135,21.71496,0.000
+			87.49157,21.71511,0.000
+			87.49182,21.71526,0.000
+			87.4923,21.7155,0.000
+			87.49253,21.71559,0.000
+			87.49274,21.71562,0.000
+			87.49297,21.71561,0.000
+			87.49319,21.71558,0.000
+			87.49338,21.71557,0.000
+			87.4935,21.71563,0.000
+			87.49378,21.71578,0.000
+			87.49395,21.71587,0.000
+			87.49458,21.71627,0.000
+			87.49479,21.71641,0.000
+			87.49529,21.7167,0.000
+			87.49634,21.71733,0.000
+			87.49682,21.71762,0.000
+			87.49716,21.71788,0.000
+			87.49725,21.71795,0.000
+			87.49726,21.71808,0.000
+			87.49729,21.71822,0.000
+			87.4974,21.71843,0.000
+			87.49749,21.71857,0.000
+			87.49756,21.71865,0.000
+			87.498,21.71902,0.000
+			87.49857,21.7194,0.000
+			87.4995,21.72006,0.000
+			87.49986,21.72024,0.000
+			87.50038,21.7204,0.000
+			87.50075,21.72049,0.000
+			87.50159,21.7208,0.000
+			87.50237,21.72112,0.000
+			87.5029,21.72133,0.000
+			87.5032,21.72142,0.000
+			87.50342,21.72146,0.000
+			87.50341,21.72118,0.000
+			87.5034,21.72067,0.000
+			87.50337,21.72024,0.000
+			87.50335,21.71995,0.000
+			87.50336,21.7197,0.000
+			87.5034,21.7192,0.000
+			87.5034,21.71879,0.000
+			87.50333,21.71816,0.000
+			87.50322,21.71733,0.000
+			87.50323,21.71722,0.000
+			87.50324,21.71716,0.000
+			87.50329303479853,21.717144506679208,0.000
+			87.50352471716465,21.71716503549646,0.000
+			87.5038605099611,21.71723542001275,0.000
+			87.50424762480068,21.71731166990539,0.000
+			87.50445437931728,21.717357126572157,0.000
+			87.50447270861841,21.717369957082933,0.000
+			87.50448,21.71739,0.000
+			87.50445034687107,21.71758294356191,0.000
+			87.50445327955923,21.717637198293218,0.000
+			87.50446207762377,21.717667991519093,0.000
+			87.50449140450556,21.71769731840088,0.000
+			87.50482426461386,21.71778896490646,0.000
+			87.50497236536688,21.71780656103553,0.000
+			87.50505887966813,21.717824890336644,0.000
+			87.5051336632167,21.71785641673457,0.000
+			87.50525,21.71798,0.000
+			87.50545,21.71806,0.000
+			87.50631,21.71827,0.000
+			87.50689,21.7184,0.000
+			87.50763,21.71851,0.000
+			87.50863,21.71867,0.000
+			87.50919,21.7187,0.000
+			87.50939,21.71865,0.000
+			87.50952,21.7186,0.000
+			87.50964,21.71858,0.000
+			87.51001,21.71859,0.000
+			87.51057,21.71867,0.000
+			87.51135,21.71875,0.000
+			87.51196,21.71879,0.000
+			87.51227,21.71877,0.000
+			87.51283,21.71887,0.000
+			87.51378,21.71912,0.000
+			87.51423,21.71926,0.000
+			87.51474,21.71944,0.000
+			87.51498,21.71953,0.000
+			87.51514,21.71961,0.000
+			87.51566,21.72002,0.000
+			87.5171,21.72107,0.000
+			87.51776,21.72167,0.000
+			87.51811,21.72199,0.000
+			87.5184,21.72212,0.000
+			87.51854,21.72211,0.000
+			87.51864,21.72205,0.000
+			87.51873,21.72198,0.000
+			87.51891,21.72193,0.000
+			87.51929,21.72193,0.000
+			87.5197,21.72198,0.000
+			87.52012,21.72197,0.000
+			87.52043,21.72197,0.000
+			87.52082,21.72198,0.000
+			87.52094,21.7219,0.000
+			87.52101,21.72181,0.000
+			87.52111,21.72171,0.000
+			87.52121,21.72166,0.000
+			87.52134,21.72162,0.000
+			87.52165,21.72159,0.000
+			87.52199,21.72159,0.000
+			87.52248,21.72165,0.000
+			87.52264,21.72169,0.000
+			87.52288,21.7218,0.000
+			87.52302,21.72187,0.000
+			87.52317,21.72191,0.000
+			87.52361,21.72197,0.000
+			87.5245,21.72202,0.000
+			87.52514,21.72205,0.000
+			87.52547,21.72203,0.000
+			87.5264,21.72216,0.000
+			87.5268,21.7222,0.000
+			87.52712,21.72229,0.000
+			87.52776,21.72252,0.000
+			87.52929,21.72303,0.000
+			87.5298,21.72328,0.000
+			87.5302,21.72346,0.000
+			87.53061,21.72357,0.000
+			87.53119,21.7237,0.000
+			87.53176,21.72378,0.000
+			87.53255,21.72391,0.000
+			87.53281,21.72392,0.000
+			87.53288,21.72387,0.000
+			87.53298,21.72367,0.000
+			87.53312,21.72356,0.000
+			87.5333,21.72356,0.000
+			87.53413,21.72367,0.000
+			87.5344,21.72371,0.000
+			87.53481,21.72383,0.000
+			87.53506,21.7239,0.000
+			87.53535,21.72404,0.000
+			87.53576,21.72416,0.000
+			87.5364,21.72427,0.000
+			87.53697,21.72433,0.000
+			87.53719,21.7244,0.000
+			87.53752,21.72451,0.000
+			87.53776,21.72453,0.000
+			87.53813,21.72446,0.000
+			87.53818,21.72446,0.000
+			87.53826,21.72451,0.000
+			87.53859599647281,21.724778217238384,0.000
+			87.53892,21.72504,0.000
+			87.53909,21.72515,0.000
+			87.53918,21.72525,0.000
+			87.53934,21.72537,0.000
+			87.53957,21.72547,0.000
+			87.54052,21.72584,0.000
+			87.54123,21.72613,0.000
+			87.54179,21.72626,0.000
+			87.54201,21.72629,0.000
+			87.5422,21.7263,0.000
+			87.54262,21.72635,0.000
+			87.54308,21.7265,0.000
+			87.54326,21.72654,0.000
+			87.54342,21.72656,0.000
+			87.54391,21.72658,0.000
+			87.54417,21.72662,0.000
+			87.54442,21.72669,0.000
+			87.54492,21.72688,0.000
+			87.54525,21.72704,0.000
+			87.5457,21.7273,0.000
+			87.54588,21.72738,0.000
+			87.54634,21.72747,0.000
+			87.54669,21.72753,0.000
+			87.54691,21.72757,0.000
+			87.54715,21.72757,0.000
+			87.54729,21.72756,0.000
+			87.54753,21.72749,0.000
+			87.54772,21.72743,0.000
+			87.54781,21.72733,0.000
+			87.54787,21.72709,0.000
+			87.54792,21.72684,0.000
+			87.54795,21.7267,0.000
+			87.54811,21.72637,0.000
+			87.54831,21.72606,0.000
+			87.54851,21.72585,0.000
+			87.54871,21.72566,0.000
+			87.54896,21.72545,0.000
+			87.54914,21.72538,0.000
+			87.54921,21.72538,0.000
+			87.54927,21.72541,0.000
+			87.54932,21.72546,0.000
+			87.54947,21.72581,0.000
+			87.54963,21.72619,0.000
+			87.54973,21.7263,0.000
+			87.549865261031,21.7263459814489,0.000
+			87.55007429625906,21.72636206108183,0.000
+			87.55056253238612,21.72637229357551,0.000
+			87.55072771406984,21.726375217145137,0.000
+			87.55092066966496,21.726318207537485,0.000
+			87.55120571770323,21.72613694622085,0.000
+			87.55153169571619,21.725846051043348,0.000
+			87.55180651126078,21.72561508904312,0.000
+			87.55200385221032,21.725508378751872,0.000
+			87.55253740366652,21.72534173528335,0.000
+			87.55292477664159,21.7252087128655,0.000
+			87.55308264940126,21.725141470764175,0.000
+			87.55337792993319,21.724910508763944,0.000
+			87.55375799398419,21.72446320261161,0.000
+			87.55392902280718,21.724219084548075,0.000
+			87.55443,21.72328,0.000
+			87.55466283878258,21.72289324572397,0.000
+			87.55524718726099,21.722145542792852,0.000
+			87.55555525841004,21.721749399108926,0.000
+			87.55618748034107,21.72061724677237,0.000
+			87.55633146614498,21.72018821293017,0.000
+			87.55641186430965,21.719979908594524,0.000
+			87.55664282630988,21.719610077037196,0.000
+			87.55680764254737,21.719326490783743,0.000
+			87.55699,21.71882,0.000
+			87.55729,21.71761,0.000
+			87.5577607262445,21.715738539963727,0.000
+			87.55800849877006,21.714719675950057,0.000
+			87.55813,21.71411,0.000
+			87.55822118846014,21.71355390256283,0.000
+			87.5583088955488,21.71314094835356,0.000
+			87.5584653065236,21.712554772644122,0.000
+			87.55855666807433,21.71220028982731,0.000
+			87.5588080950619,21.711144881193356,0.000
+			87.55907633257485,21.70995206478711,0.000
+			87.55923785979653,21.709231404875002,0.000
+			87.5593394538409,21.708827952267008,0.000
+			87.55943446985366,21.708430346798256,0.000
+			87.55966470096143,21.707605169272124,0.000
+			87.56042190549381,21.705343788168605,0.000
+			87.56076542492455,21.704273761686537,0.000
+			87.56097,21.7035,0.000
+			87.561,21.70324,0.000
+			87.56097,21.70247,0.000
+			87.56092,21.70128,0.000
+			87.56088,21.70036,0.000
+			87.56091014162095,21.698997083962958,0.000
+			87.5609,21.69859,0.000
+			87.56087944413986,21.698178484468492,0.000
+			87.56085897915247,21.697572574664097,0.000
+			87.56086,21.69691,0.000
+			87.56086,21.69565,0.000
+			87.56088,21.69426,0.000
+			87.56092695214615,21.69389618586298,0.000
+			87.56102,21.69363,0.000
+			87.56119957501352,21.693292468735798,0.000
+			87.56152043677962,21.692789614760613,0.000
+			87.56232441842602,21.69147985556944,0.000
+			87.56300707193297,21.690340394308812,0.000
+			87.56327019319907,21.68985069639693,0.000
+			87.56331112317379,21.689768836447488,0.000
+			87.56333597351558,21.68965189366256,0.000
+			87.56332391379085,21.68919106600071,0.000
+			87.5632767712307,21.68829097200298,0.000
+			87.5632479009807,21.687674098812497,0.000
+			87.56318,21.68671,0.000
+			87.56312511105652,21.685556703512937,0.000
+			87.56307,21.68463,0.000
+			87.56304836735394,21.684019636783564,0.000
+			87.56301036094882,21.683470736586827,0.000
+			87.56299,21.68308,0.000
+			87.56293288635382,21.68245260346557,0.000
+			87.56294,21.68182,0.000
+			87.56288,21.68139,0.000
+			87.56282,21.68082,0.000
+			87.56281,21.68051,0.000
+			87.56286,21.67961,0.000
+			87.5628988222715,21.679193322131486,0.000
+			87.56279617818525,21.67909654342159,0.000
+			87.56273165904533,21.679040822346195,0.000
+			87.56264074571179,21.67894697632448,0.000
+			87.56252637087283,21.67881500535644,0.000
+			87.56240173162524,21.678693298797025,0.000
+			87.56231228463578,21.67859212105486,0.000
+			87.56226242893675,21.678523202882662,0.000
+			87.56220601385702,21.67843123344879,0.000
+			87.562114104137,21.678394871551603,0.000
+			87.56196701204034,21.67833384203572,0.000
+			87.56166,21.6782,0.000
+			87.56144,21.67808,0.000
+			87.56132323554755,21.677963059440557,0.000
+			87.56128071156895,21.677775367397125,0.000
+			87.56126898081624,21.677646329117263,0.000
+			87.56125,21.67764,0.000
+			87.56122938952583,21.677728444386265,0.000
+			87.56122645683764,21.6778472182575,0.000
+			87.5612440529667,21.67792640083832,0.000
+			87.56130857210663,21.678049573741824,0.000
+			87.56140681716062,21.678149285139895,0.000
+			87.56159304285995,21.678260727290684,0.000
+			87.561578747,21.67832335600002,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-7-A
+<br/>name: FPOI-1005 to Haldia-I GP
+<br/>asset_code: 2967L1C7
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 1975.20894644518
+<br/>start_node: FPOI-1005
+<br/>s_coil_len: 0.0
+<br/>end_node: Haldia-I GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 1.975
+<br/>S_N: 10
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-7-A]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1005 to Haldia-I GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C7]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1975.20894644518]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1005]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Haldia-I GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.975]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[10]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.52774985899998,21.682186601000012,0.000
+			87.52774542600002,21.68218620200002,0.000
+			87.52754289900004,21.682155243000025,0.000
+			87.52745840900005,21.682136205000024,0.000
+			87.52733551300003,21.682121924000004,0.000
+			87.52689205100002,21.682055038999977,0.000
+			87.52671026799999,21.682005065,0.000
+			87.526646261,21.681981268999987,0.000
+			87.52656944900002,21.681964610000016,0.000
+			87.52650800100004,21.681950332,0.000
+			87.52642351100002,21.681926535000027,0.000
+			87.52632109899997,21.681907495000033,0.000
+			87.52623916700003,21.681897973000012,0.000
+			87.52614443599998,21.681874176000026,0.000
+			87.526034342,21.68185513600003,0.000
+			87.52592168899999,21.681828958,0.000
+			87.52583719900004,21.681807540000015,0.000
+			87.525711743,21.68178849800003,0.000
+			87.52560677000004,21.68176232000003,0.000
+			87.52544291100003,21.68172186400001,0.000
+			87.52528539000002,21.681694484000005,0.000
+			87.52511385100001,21.681649268,0.000
+			87.52500631800002,21.681632606999997,0.000
+			87.524878302,21.681606427000027,0.000
+			87.52480631700004,21.68157735600002,0.000
+			87.52470724599999,21.68155503100002,0.000
+			87.52459916900001,21.681535495000016,0.000
+			87.52453312199998,21.68152712099999,0.000
+			87.52449109000003,21.68153827700002,0.000
+			87.52446406700001,21.681585701000024,0.000
+			87.52444605000001,21.681630337000037,0.000
+			87.52441302300005,21.68167497100002,0.000
+			87.524367988,21.68169449599999,0.000
+			87.52430193800004,21.68171681000004,0.000
+			87.52420586599999,21.681736331000057,0.000
+			87.52413681500003,21.681741906000028,0.000
+			87.524046749,21.68174747900004,0.000
+			87.52395067800002,21.681750262,0.000
+			87.52388463000001,21.681755837000047,0.000
+			87.52378255299999,21.681778147000013,0.000
+			87.52370149299998,21.68179209000001,0.000
+			87.52364444800004,21.681831143000043,0.000
+			87.523605415,21.681886936000012,0.000
+			87.52364143,21.682012478999983,0.000
+			87.52373146999999,21.682316571999987,0.000
+			87.523785499,21.682439327000015,0.000
+			87.523872548,21.682612300000052,0.000
+			87.523911569,21.682695997000003,0.000
+			87.52393557800002,21.68279922099997,0.000
+			87.52390855300003,21.682857803999994,0.000
+			87.52382748999997,21.682894065000063,0.000
+			87.52380321300001,21.68303840300001,0.000
+			87.52379760600002,21.683150442000002,0.000
+			87.523780783,21.68323642600001,0.000
+			87.523677036,21.683301566000026,0.000
+			87.52352281700003,21.683356284000034,0.000
+			87.52332373500002,21.683470929999988,0.000
+			87.52321998700002,21.68351262000001,0.000
+			87.522995667,21.683562126000034,0.000
+			87.52293117500002,21.683575153999985,0.000
+			87.522785367,21.683601210000006,0.000
+			87.52261340700001,21.683675861999962,0.000
+			87.52236009799998,21.683741246000018,0.000
+			87.522280352,21.683763039999985,0.000
+			87.52208333300001,21.683858937000064,0.000
+			87.52184409300004,21.68409431999999,0.000
+			87.521675218,21.684255602,0.000
+			87.52157670700004,21.684307909,0.000
+			87.52138437500003,21.68436893300001,0.000
+			87.52124107800002,21.684376342999986,0.000
+			87.52117688099997,21.684369406000002,0.000
+			87.52112462800001,21.68437356700004,0.000
+			87.52108730399999,21.684383277999977,0.000
+			87.52103355700002,21.684399924999997,0.000
+			87.52103057099998,21.684438768999993,0.000
+			87.52103481900004,21.684481203000022,0.000
+			87.52104917999999,21.684585362000032,0.000
+			87.52105889100001,21.684630484000046,0.000
+			87.52104189599999,21.684655299999996,0.000
+			87.52096348900001,21.684654065000043,0.000
+			87.520886883,21.684658378000023,0.000
+			87.52075456300003,21.684671320000014,0.000
+			87.52065474300004,21.68467779000004,0.000
+			87.52055028000001,21.684690730999982,0.000
+			87.52049456600004,21.68470582999999,0.000
+			87.520380817,21.684727400000003,0.000
+			87.52023456799998,21.684746812000014,0.000
+			87.52011849799999,21.684764066999996,0.000
+			87.520025639,21.684805051000023,0.000
+			87.51992117499998,21.684852506000027,0.000
+			87.519742426,21.684917215999985,0.000
+			87.51962867600004,21.684964670000003,0.000
+			87.51956367600002,21.684984083000007,0.000
+			87.51942671299997,21.684997023000008,0.000
+			87.51939338199999,21.684986673000044,0.000
+			87.51928666300002,21.684973448000022,0.000
+			87.51916622499998,21.684966529000008,0.000
+			87.51900973699998,21.68497695600002,0.000
+			87.51887372800003,21.685003361000003,0.000
+			87.51877222899999,21.685020334999987,0.000
+			87.518727931,21.685020074000036,0.000
+			87.51867861599999,21.68509339100002,0.000
+			87.51860957600003,21.685102554000025,0.000
+			87.51855533100003,21.685094914999986,0.000
+			87.51850766100002,21.68509491400001,0.000
+			87.518469854,21.685091858000032,0.000
+			87.518422183,21.685091857000007,0.000
+			87.51839423899997,21.685091856000007,0.000
+			87.518369582,21.685099492000017,0.000
+			87.518338159,21.685101714999977,0.000
+			87.51826654799999,21.685087598000003,0.000
+			87.51817106499998,21.685111792999976,0.000
+			87.51810378900001,21.685220682000015,0.000
+			87.518060386,21.685287223999993,0.000
+			87.51805170400003,21.68534368500003,0.000
+			87.51807991300002,21.685379983000036,0.000
+			87.518254911,21.685387439000017,0.000
+			87.51838288200004,21.685402523999976,0.000
+			87.518614572,21.68544950400003,0.000
+			87.51882098599998,21.685535626000018,0.000
+			87.518976846,21.68571177899996,0.000
+			87.51899790300001,21.68594273100003,0.000
+			87.51895577300002,21.68610576600002,0.000
+			87.51890521899999,21.68618405400003,0.000
+			87.51887572599998,21.686379775000006,0.000
+			87.51887150999998,21.686508951000018,0.000
+			87.51885520299999,21.686569486999996,0.000
+			87.51886550299999,21.68662054200004,0.000
+			87.51888610700001,21.68663330599999,0.000
+			87.518892974,21.686657238000002,0.000
+			87.51890671000001,21.68666681100001,0.000
+			87.51890448900002,21.686685744999977,0.000
+			87.518906775,21.686701681000024,0.000
+			87.51891820899999,21.686710181000024,0.000
+			87.51896597100001,21.68680162099998,0.000
+			87.51900194000001,21.686852872,0.000
+			87.51902112300002,21.686901895000034,0.000
+			87.51903790799997,21.686962059000003,0.000
+			87.51903790600002,21.687013309000008,0.000
+			87.51903310900003,21.687062331000018,0.000
+			87.51903550499998,21.687131408000045,0.000
+			87.51902906200002,21.687216414,0.000
+			87.51901038199999,21.687266005000026,0.000
+			87.51899436899998,21.68732055599997,0.000
+			87.51898636200002,21.68740486299999,0.000
+			87.51899436500004,21.687489169000006,0.000
+			87.51899614500002,21.687594228000023,0.000
+			87.51899855699999,21.68766374299998,0.000
+			87.51899614100002,21.687757923000017,0.000
+			87.51898890000002,21.687818468,0.000
+			87.51898889799999,21.687865558000034,0.000
+			87.518989574,21.68794602399999,0.000
+			87.51899338400001,21.688045218000042,0.000
+			87.51899528899999,21.688107214000055,0.000
+			87.51899909999999,21.68817983899999,0.000
+			87.518999098,21.688240064000027,0.000
+			87.51900100300003,21.688305603000035,0.000
+			87.51902074200001,21.688332420999995,0.000
+			87.51904696499999,21.688353921999994,0.000
+			87.519079358,21.688382590999993,0.000
+			87.519090156,21.68840839200001,0.000
+			87.51910095300002,21.688438492999968,0.000
+			87.51913951699999,21.688457127000024,0.000
+			87.51937141200001,21.688614553000004,0.000
+			87.519359211,21.688664358999986,0.000
+			87.519326191,21.688739141999942,0.000
+			87.51935920800004,21.68878132899998,0.000
+			87.519447944,21.688796670999995,0.000
+			87.51957343599997,21.688839660999978,0.000
+			87.51968715800001,21.689075351999968,0.000
+			87.519723596,21.689166777000025,0.000
+			87.51972359400003,21.68926497400002,0.000
+			87.51972359199999,21.689386873000004,0.000
+			87.519672571,21.689542632999967,0.000
+			87.51962155199999,21.689630671000003,0.000
+			87.519490362,21.68972209300002,0.000
+			87.51938832600003,21.689769495999993,0.000
+			87.51926739300002,21.68980153299997,0.000
+			87.51926365100003,21.689951521000005,0.000
+			87.51926000999998,21.690016310000004,0.000
+			87.51925380400003,21.690090726999983,0.000
+			87.519248801,21.69012478899998,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-7-A
+<br/>name: FPOI-1005 to Haldia-I GP
+<br/>asset_code: 2967L1C7
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 343.58724170575
+<br/>start_node: FPOI-1005
+<br/>s_coil_len: 0.0
+<br/>end_node: Haldia-I GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.344
+<br/>S_N: 10
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-7-A]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1005 to Haldia-I GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C7]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[343.58724170575]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1005]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Haldia-I GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.344]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[10]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.519248801,21.69012478899998,0.000
+			87.51924062900004,21.690180424999987,0.000
+			87.51924523000002,21.690279315000023,0.000
+			87.51924566899999,21.690344325000023,0.000
+			87.51923770000002,21.690449882999985,0.000
+			87.51923781199997,21.69051613900001,0.000
+			87.519254285,21.690627418000012,0.000
+			87.51927147200001,21.690728959999994,0.000
+			87.51927370700004,21.690816371999972,0.000
+			87.519281106,21.690889566000006,0.000
+			87.51928258400001,21.690945624999987,0.000
+			87.51928187600001,21.69099966200002,0.000
+			87.51928890800002,21.69105501199999,0.000
+			87.51931011699999,21.69114494100001,0.000
+			87.51932414700002,21.691219869000005,0.000
+			87.51933374999999,21.691313202999993,0.000
+			87.51933602000003,21.691339745999997,0.000
+			87.51934067399999,21.691367662999987,0.000
+			87.519336506,21.691482774999983,0.000
+			87.51929338999999,21.69151605100001,0.000
+			87.519251333,21.691555441000013,0.000
+			87.51923216400003,21.691582722000017,0.000
+			87.51922203300002,21.691617973000003,0.000
+			87.51923270600004,21.691652850000036,0.000
+			87.51926574599997,21.691717521000026,0.000
+			87.51928912,21.691786750999984,0.000
+			87.51930485700002,21.69185155600004,0.000
+			87.51931976100002,21.691904459000014,0.000
+			87.51933004900003,21.691954355,0.000
+			87.51935055000001,21.692038940000018,0.000
+			87.51935654400002,21.69206298300004,0.000
+			87.51932440899998,21.69211599899998,0.000
+			87.51932147500003,21.69216896500002,0.000
+			87.51934688600001,21.69220801500002,0.000
+			87.51940974399997,21.69223685899999,0.000
+			87.51943488700002,21.69228655099999,0.000
+			87.51945687800003,21.692366037000028,0.000
+			87.51947871,21.692453182000005,0.000
+			87.519491657,21.692535302999993,0.000
+			87.519504989,21.69264253500001,0.000
+			87.51948602200002,21.69270219100004,0.000
+			87.51942666100001,21.692734131999995,0.000
+			87.51938961100001,21.69273456600002,0.000
+			87.51935651999999,21.69273731200003,0.000
+			87.51931206500004,21.692753421000013,0.000
+			87.51928427700001,21.692788622000034,0.000
+			87.519275299,21.692834043000005,0.000
+			87.519266954,21.692867419000017,0.000
+			87.51924530899998,21.692904931000026,0.000
+			87.51919262400003,21.69291327500004,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CS-8-B
+<br/>name: FPOI-1006 to Talgachhari-II GP
+<br/>asset_code: 2967L1C11
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 1443.07596738747
+<br/>start_node: FPOI-1006
+<br/>s_coil_len: 0.0
+<br/>end_node: Talgachhari-II GP
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: TOWARDS GP
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 1.443
+<br/>S_N: 2
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CS-8-B]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1006 to Talgachhari-II GP]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2967L1C11]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1443.07596738747]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1006]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Talgachhari-II GP]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[TOWARDS GP]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.443]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[2]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.59664228700001,21.666027262,0.000
+			87.59664559599997,21.665980169000033,0.000
+			87.596643454,21.665921652999995,0.000
+			87.59663058000002,21.66586313700001,0.000
+			87.59660168200003,21.66575683100003,0.000
+			87.59656358400004,21.665599009000022,0.000
+			87.59649645899998,21.66532093000002,0.000
+			87.59644622799999,21.66512335900001,0.000
+			87.59638317000004,21.66479687399999,0.000
+			87.59633263299999,21.664563325000035,0.000
+			87.59627912100001,21.664339449000007,0.000
+			87.59622897700001,21.664154731999968,0.000
+			87.59618305999999,21.663951167000015,0.000
+			87.596125195,21.66372986900001,0.000
+			87.596034455,21.663410035000048,0.000
+			87.59595407299997,21.663130396,0.000
+			87.59587225100002,21.662734802000013,0.000
+			87.595828337,21.662408808999995,0.000
+			87.59582762100001,21.662350716,0.000
+			87.59581372800001,21.662208521000004,0.000
+			87.59580461200001,21.662013301000005,0.000
+			87.59580919000003,21.661885983999987,0.000
+			87.59581605199998,21.661737448000036,0.000
+			87.59581149899999,21.661588911000017,0.000
+			87.59580120599999,21.66153072100004,0.000
+			87.595804408,21.661443522000003,0.000
+			87.59579425200002,21.661403394000015,0.000
+			87.59570536099999,21.66138686400002,0.000
+			87.59555805100003,21.66140573700002,0.000
+			87.595380266,21.661403363000016,0.000
+			87.59506025000003,21.661419860000034,0.000
+			87.594803727,21.661471769,0.000
+			87.594636096,21.661521325000034,0.000
+			87.59449894400002,21.661549638000025,0.000
+			87.594052429,21.661610355999994,0.000
+			87.593501533,21.661662551000028,0.000
+			87.59328792100003,21.66166949800001,0.000
+			87.592879613,21.661656651000005,0.000
+			87.592516859,21.661654846000005,0.000
+			87.59230554800003,21.661659797000027,0.000
+			87.59216378299999,21.661662268999983,0.000
+			87.59131448,21.661746889000025,0.000
+			87.591220851,21.66176279500004,0.000
+			87.59114596200001,21.661771882,0.000
+			87.59076277499997,21.661819934999993,0.000
+			87.590711378,21.661819929999993,0.000
+			87.59066827200004,21.661809139000013,0.000
+			87.59064174700002,21.661792187000014,0.000
+			87.59062019800002,21.66175058,0.000
+			87.59060196699998,21.661696647000003,0.000
+			87.59059202700001,21.66163501100002,0.000
+			87.59058322700002,21.66155077699999,0.000
+			87.59056622700004,21.661398542,0.000
+			87.59055134800003,21.661305619000043,0.000
+			87.59051929200002,21.661161832000012,0.000
+			87.590468538,21.660872951,0.000
+			87.590434356,21.660688337000018,0.000
+			87.59042087099999,21.660621456000026,0.000
+			87.59041187999998,21.66058801499997,0.000
+			87.590340761,21.66026500900001,0.000
+			87.590307162,21.660103097999993,0.000
+			87.59022633600001,21.659683816999983,0.000
+			87.59011017900004,21.65917613200005,0.000
+			87.59008008299999,21.65893553299997,0.000
+			87.59004352699998,21.658885864000055,0.000
+			87.58998727699998,21.65888063000002,0.000
+			87.58992821300001,21.65888846500002,0.000
+			87.589843837,21.658888455999993,0.000
+			87.58973695600002,21.65892503900001,0.000
+			87.58964976599998,21.658940713000003,0.000
+			87.58960943699998,21.65883110700003,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Block to FPOI Cable</name>
+<description><![CDATA[<p>cs: NULL
+<br/>name: Ramnagar-I TE to FPOI-1006
+<br/>asset_code: NULL
+<br/>blk_code: 2967
+<br/>dt_code: 345
+<br/>st_code: 19
+<br/>seg_length: 3741.49740601834
+<br/>start_node: Ramnagar-I TE
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1006
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: Proposed Cable
+<br/>fibre_pos: NULL
+<br/>type: Block to FPOI Cable
+<br/>length: 3.741
+<br/>S_N: 1
+<br/>st_name: WEST BENGAL
+<br/>dt_name: PURBA MEDINIPUR
+<br/>blk_name: RAMNAGAR-I</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Ramnagar-I TE to FPOI-1006]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2967]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[345]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[3741.49740601834]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Ramnagar-I TE]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1006]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Block to FPOI Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[3.741]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[PURBA MEDINIPUR]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[RAMNAGAR-I]]></value></Data>
+</ExtendedData>
+<styleUrl>#style3</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			87.56496440179566,21.67828651675258,0.000
+			87.5651643238896,21.678294819790754,0.000
+			87.56577276879646,21.678315752448807,0.000
+			87.56626539027795,21.678325984942486,0.000
+			87.56738950279802,21.678277746043705,0.000
+			87.56855162172323,21.67826166641078,0.000
+			87.56907932604021,21.67818711538539,0.000
+			87.56946962258489,21.678134491132173,0.000
+			87.56987746054733,21.67811694971444,0.000
+			87.57032915205411,21.678127182208122,0.000
+			87.57082615889004,21.678149108980293,0.000
+			87.57133778357411,21.678187115385402,0.000
+			87.57183332862523,21.678220736436067,0.000
+			87.5724005011321,21.678320137803254,0.000
+			87.57294574686681,21.678416615600817,0.000
+			87.57318986493034,21.678459007360352,0.000
+			87.57406401224766,21.678457545575544,0.000
+			87.57446161771638,21.67844731308186,0.000
+			87.57494254491938,21.678467778069223,0.000
+			87.57540154535025,21.67847508699329,0.000
+			87.5759131700343,21.67848970484141,0.000
+			87.57679462627567,21.678501399119906,0.000
+			87.5775693722258,21.67848897394901,0.000
+			87.57879873325233,21.678496282873066,0.000
+			87.57984098582298,21.6784875121642,0.000
+			87.58056603108953,21.678453891113534,0.000
+			87.58156296833103,21.678360336885596,0.000
+			87.58210821406576,21.678272629796897,0.000
+			87.58253213166111,21.678174690214522,0.000
+			87.5829618963957,21.678009508530817,0.000
+			87.58337850506699,21.677841403277483,0.000
+			87.58358315494064,21.677744925479914,0.000
+			87.58389597689032,21.67763090626461,0.000
+			87.58452308257446,21.677513963479697,0.000
+			87.58554194658814,21.677373632137783,0.000
+			87.5869131007414,21.677250842213613,0.000
+			87.5874283798875,21.67722964633385,0.000
+			87.5881512324768,21.677118550688164,0.000
+			87.58839681232516,21.677089314991935,0.000
+			87.58852544938857,21.677086391422314,0.000
+			87.5886672425153,21.677105394624864,0.000
+			87.58908969832584,21.67720479599205,0.000
+			87.58952238663005,21.677323200561787,0.000
+			87.58981035823791,21.677378748384626,0.000
+			87.58999600490898,21.677399213371988,0.000
+			87.59050324423859,21.67741090765048,0.000
+			87.59128091375835,21.677463531903697,0.000
+			87.59214921393642,21.67757170397975,0.000
+			87.59282602030419,21.677655025714007,0.000
+			87.5931929282919,21.677682799625433,0.000
+			87.59372355617849,21.67770764996723,0.000
+			87.59476873231874,21.67777489206856,0.000
+			87.59543384440802,21.67779097170148,0.000
+			87.59614865718089,21.67786406094207,0.000
+			87.59656088049773,21.677925455904155,0.000
+			87.59695556239677,21.678004392284,0.000
+			87.59743137335298,21.678130471223998,0.000
+			87.59761336556201,21.678174690214547,0.000
+			87.5978012049103,21.67820027144875,0.000
+			87.59827226506583,21.67822073643611,0.000
+			87.59859129960094,21.678220005543707,0.000
+			87.5991628574623,21.67824266320828,0.000
+			87.59967594393117,21.678267513550075,0.000
+			87.60011155580503,21.678287978537437,0.000
+			87.6003849095648,21.678305519955178,0.000
+			87.6003542120837,21.678648308493504,0.000
+			87.600379561,21.67865228,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+</Document>
+</kml>

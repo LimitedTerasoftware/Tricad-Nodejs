@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<name>Bamongola Cable</name>
+<Style id="style1">
+	<LineStyle>
+		<color>ff3de91a</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style2">
+	<LineStyle>
+		<color>ff1c1ae3</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style3">
+	<LineStyle>
+		<color>ffda2944</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: 7
+<br/>name: Block Router to Bamangola Bhq
+<br/>asset_code: 2932L1C1
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 62.44420127153
+<br/>start_node: PAKUAHAT TE
+<br/>s_coil_len: 0.0
+<br/>end_node: Bamangola  Bhq
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NEW IL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental OFC
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.062
+<br/>ty: Incremental Cable (29.92)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[7]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Block Router to Bamangola Bhq]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1C1]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[62.44420127153]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[PAKUAHAT TE]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Bamangola  Bhq]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NEW IL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.062]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Incremental Cable (29.92)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.36770899999999,25.12251900000001,0.000
+			88.36719699999998,25.122836000000007,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: 1
+<br/>name: Block Router to Bamangola
+<br/>asset_code: 2932L1C2
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 4756.25814676654
+<br/>start_node: PAKUAHAT TE
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1006
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NEW IL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental OFC
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 4.756
+<br/>ty: Incremental Cable (29.92)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Block Router to Bamangola]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1C2]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[4756.25814676654]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[PAKUAHAT TE]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1006]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NEW IL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[4.756]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Incremental Cable (29.92)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.36770899999999,25.12251900000001,0.000
+			88.36773664499998,25.124717117999978,0.000
+			88.36811599999999,25.125388999999984,0.000
+			88.36925400000001,25.12778800000001,0.000
+			88.36965806,25.12870390500001,0.000
+			88.36983600000002,25.129980999999983,0.000
+			88.37008900000001,25.133192000000008,0.000
+			88.370429,25.13673199999999,0.000
+			88.370467077,25.137955249000015,0.000
+			88.37105500000001,25.14004,0.000
+			88.371757,25.142870000000016,0.000
+			88.37250599999999,25.145817000000026,0.000
+			88.373152,25.148695999999973,0.000
+			88.37361199999998,25.151636999999994,0.000
+			88.37431099999998,25.154768999999987,0.000
+			88.37493,25.15768500000001,0.000
+			88.37554999999998,25.160597999999993,0.000
+			88.37618199999997,25.16330499999999,0.000
+			88.37637765800002,25.164110284000003,0.000
+			88.37676900000002,25.163962000000012,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: 5
+<br/>name: Chandpur to Jagdala
+<br/>asset_code: 2932L1C8
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 7032.91084171948
+<br/>start_node: FPOI-1013
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1012
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NEW IL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental OFC
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 7.033
+<br/>ty: Incremental Cable (29.92)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[5]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Chandpur to Jagdala]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1C8]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[7032.91084171948]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1013]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1012]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NEW IL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[7.033]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Incremental Cable (29.92)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.417575,25.158883999999993,0.000
+			88.418159,25.158938999999975,0.000
+			88.41924145399997,25.158524730000018,0.000
+			88.419312838,25.158289163000006,0.000
+			88.419576958,25.157489664000025,0.000
+			88.420069507,25.157389726999998,0.000
+			88.420861,25.156975999999982,0.000
+			88.42112598699998,25.15646887499997,0.000
+			88.42199686999999,25.156090541000026,0.000
+			88.42384499999997,25.15619600000001,0.000
+			88.42516631199999,25.156176201999983,0.000
+			88.42503900000003,25.15422599999999,0.000
+			88.42524483400001,25.152742638999978,0.000
+			88.42523769600001,25.151621912999985,0.000
+			88.42493999999999,25.150803999999994,0.000
+			88.42436800000002,25.147770999999974,0.000
+			88.42421690700002,25.14648227800002,0.000
+			88.423731497,25.145297305999982,0.000
+			88.42299300000002,25.145449999999972,0.000
+			88.42278209199998,25.144397869999978,0.000
+			88.42266899999998,25.142664000000025,0.000
+			88.42171133499998,25.14113562900001,0.000
+			88.42130500000002,25.14004499999999,0.000
+			88.42089755900003,25.138273137,0.000
+			88.42051300000003,25.13720000000001,0.000
+			88.42000526099997,25.136502817999997,0.000
+			88.41895591899998,25.135581967000007,0.000
+			88.41816399999999,25.135363999999957,0.000
+			88.417656733,25.13524646299998,0.000
+			88.41749255000002,25.134411272000023,0.000
+			88.41780663899999,25.134125736999973,0.000
+			88.41774199999998,25.13310399999999,0.000
+			88.41751396500001,25.131470258,0.000
+			88.41719273799998,25.131134754000012,0.000
+			88.41602799999998,25.131213000000006,0.000
+			88.41289,25.132346999999985,0.000
+			88.41207800000001,25.129662999999994,0.000
+			88.41172473699999,25.12886474800001,0.000
+			88.41103945200001,25.128536382999982,0.000
+			88.40988299999998,25.127744000000032,0.000
+			88.40964746700001,25.127379964999992,0.000
+			88.40927312399998,25.127172875999975,0.000
+			88.40910495000003,25.127023044999973,0.000
+			88.408790861,25.126102193999973,0.000
+			88.407914,25.126420999999993,0.000
+			88.40717029400003,25.126447675000026,0.000
+			88.40646374900001,25.126216408000005,0.000
+			88.40567852599997,25.126259237999985,0.000
+			88.40536443799999,25.12633062200001,0.000
+			88.404875,25.126530000000002,0.000
+			88.40377257799997,25.127158674999976,0.000
+			88.402844588,25.127965311999994,0.000
+			88.40283699999998,25.128489,0.000
+			88.40014300000001,25.128713000000005,0.000
+			88.39978936,25.128836195000037,0.000
+			88.39881140199998,25.12806524899997,0.000
+			88.398324,25.126745000000014,0.000
+			88.398285509,25.126237103999983,0.000
+			88.39809756400001,25.126259237999985,0.000
+			88.39769781400003,25.12489580699998,0.000
+			88.39778347499998,25.124074892999996,0.000
+			88.39811400000002,25.123973999999976,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: 6
+<br/>name: Jagdala to Block Router
+<br/>asset_code: 2932L1C15
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 4862.46337908937
+<br/>start_node: FPOI-1005
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1011
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NEW IL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental OFC
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 4.862
+<br/>ty: Incremental Cable (29.92)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[6]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Jagdala to Block Router]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1C15]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[4862.46337908937]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1005]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1011]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NEW IL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[4.862]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Incremental Cable (29.92)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.39811400000002,25.123973999999976,0.000
+			88.39745499999998,25.12350800000001,0.000
+			88.39713388199999,25.122026177000013,0.000
+			88.39719000000002,25.121493999999988,0.000
+			88.3968769,25.12024872000001,0.000
+			88.397997626,25.119977461000012,0.000
+			88.39828316199998,25.119691925999973,0.000
+			88.39811099999997,25.119124999999993,0.000
+			88.39786913500001,25.117971576000002,0.000
+			88.39839737599999,25.117671764000022,0.000
+			88.39847800000001,25.11662999999999,0.000
+			88.39563482199998,25.11678660400004,0.000
+			88.39481599999999,25.116682000000026,0.000
+			88.39440702000002,25.11671522000002,0.000
+			88.394192868,25.116986478999987,0.000
+			88.394078654,25.117543273000035,0.000
+			88.393678905,25.11817858900002,0.000
+			88.39263299999999,25.11861499999998,0.000
+			88.391530251,25.119377837000002,0.000
+			88.39085210500002,25.119399251999994,0.000
+			88.390516601,25.119220792999986,0.000
+			88.39002199999999,25.11862800000002,0.000
+			88.38963858,25.11777170099998,0.000
+			88.388498508,25.117718103000016,0.000
+			88.387989613,25.117236321999997,0.000
+			88.38748199999998,25.117110999999998,0.000
+			88.38449894399997,25.11717921500002,0.000
+			88.38393100000002,25.117422999999974,0.000
+			88.382678656,25.11839987899998,0.000
+			88.38167700000002,25.11977300000001,0.000
+			88.38148654600002,25.12029154999999,0.000
+			88.38092902599999,25.120675968999983,0.000
+			88.38007314700002,25.12092686599999,0.000
+			88.379032,25.12198399999999,0.000
+			88.37888103699999,25.122168945,0.000
+			88.37857408600001,25.122368819999995,0.000
+			88.37651823200002,25.12286136799995,0.000
+			88.37588199999999,25.12249700000001,0.000
+			88.37546175099999,25.122226051999974,0.000
+			88.37483357299999,25.122297435999997,0.000
+			88.37389130700001,25.122011901000008,0.000
+			88.373270268,25.121983347000025,0.000
+			88.37253500000003,25.122324999999986,0.000
+			88.372156055,25.122378689000016,0.000
+			88.371742654,25.122861367999974,0.000
+			88.370343531,25.12338960800002,0.000
+			88.37010700000002,25.12266899999997,0.000
+			88.36965110699998,25.121976209000024,0.000
+			88.36892299200002,25.122433064999992,0.000
+			88.368815917,25.122104698999955,0.000
+			88.36799500199999,25.12224032900002,0.000
+			88.36770899999999,25.12251900000001,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: 3
+<br/>name: Gobindapur Maheshpur to Madnaboti
+<br/>asset_code: 2932L1C19
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 5303.67625402012
+<br/>start_node: FPOI-1001
+<br/>s_coil_len: 0.0
+<br/>end_node: FPOI-1010
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NEW IL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental OFC
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 5.304
+<br/>ty: Incremental Cable (29.92)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Gobindapur Maheshpur to Madnaboti]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1C19]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[5303.67625402012]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1001]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1010]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NEW IL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[5.304]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Incremental Cable (29.92)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.40698200000003,25.222933000000005,0.000
+			88.407534,25.224872000000016,0.000
+			88.40877499999999,25.227587000000035,0.000
+			88.40989000000002,25.230308999999977,0.000
+			88.41108000000003,25.233464000000026,0.000
+			88.41226499999999,25.236310999999997,0.000
+			88.413137,25.23945700000002,0.000
+			88.414108,25.24236899999997,0.000
+			88.415098,25.245236999999975,0.000
+			88.41621900000001,25.248048999999988,0.000
+			88.41670476299998,25.249352095000006,0.000
+			88.417284,25.25005900000002,0.000
+			88.41773268999998,25.250665557999973,0.000
+			88.41852399999999,25.252694000000023,0.000
+			88.41887483199997,25.253730303999994,0.000
+			88.42015600000002,25.255795999999975,0.000
+			88.42129399999999,25.258619000000014,0.000
+			88.42196813100003,25.25982172399997,0.000
+			88.42305599999997,25.261167,0.000
+			88.42544700000002,25.26406600000002,0.000
+			88.42560662,25.264672616999974,0.000
+			88.426203572,25.26569423400002,0.000
+			88.42595799999998,25.266008000000006,0.000
+			88.42491100000001,25.26601799999996,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: 8
+<br/>name: Bamangola Bhq to Pakuahat
+<br/>asset_code: 2932L1C20
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 554.46605373389
+<br/>start_node: Bamangola  Bhq
+<br/>s_coil_len: 0.0
+<br/>end_node: Pakuahat
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NEW IL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental OFC
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.554
+<br/>ty: Incremental Cable (29.92)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[8]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Bamangola Bhq to Pakuahat]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1C20]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[554.46605373389]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Bamangola  Bhq]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Pakuahat]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NEW IL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.554]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Incremental Cable (29.92)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.36719699999998,25.122836000000007,0.000
+			88.36734403399998,25.123319184000025,0.000
+			88.367123934,25.123699897999984,0.000
+			88.36667778499998,25.123699897999984,0.000
+			88.36589256299999,25.12340841399998,0.000
+			88.36532744099998,25.12355713,0.000
+			88.365315544,25.123878358000013,0.000
+			88.36545236299997,25.124199584999985,0.000
+			88.365190622,25.12431260900001,0.000
+			88.365190622,25.124550554999953,0.000
+			88.36495267599997,25.12457434999999,0.000
+			88.36490500000002,25.124863000000005,0.000
+			88.36471799999998,25.125523999999984,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: 2
+<br/>name: Bamangola to Gobindapur Maheshpur
+<br/>asset_code: 2932L1C12
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 7352.755478308
+<br/>start_node: FPOI-1008
+<br/>s_coil_len: 0.0
+<br/>end_node: Gobindapur Maheshpur
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NEW IL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental OFC
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 7.353
+<br/>ty: Incremental Cable (29.92)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[2]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Bamangola to Gobindapur Maheshpur]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1C12]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[7352.755478308]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1008]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Gobindapur Maheshpur]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NEW IL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[7.353]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Incremental Cable (29.92)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.37676900000002,25.163962000000012,0.000
+			88.376434765,25.164214980999997,0.000
+			88.37692399999997,25.166652999999997,0.000
+			88.37766099999999,25.169534,0.000
+			88.37832900000001,25.172324000000003,0.000
+			88.37901,25.17523200000001,0.000
+			88.379423771,25.17666420400002,0.000
+			88.379385297,25.177064069999954,0.000
+			88.37982499999998,25.17805299999997,0.000
+			88.38121899999999,25.180837999999994,0.000
+			88.38253200000003,25.183701000000003,0.000
+			88.38388900000001,25.18654900000001,0.000
+			88.38543099999998,25.189791000000014,0.000
+			88.38675999999998,25.192560000000014,0.000
+			88.38822599999997,25.19524599999999,0.000
+			88.389771,25.198145,0.000
+			88.39133600000002,25.200900999999988,0.000
+			88.39241600000003,25.203739999999986,0.000
+			88.392910153,25.20498942400002,0.000
+			88.39400999999998,25.20647999999999,0.000
+			88.39644299999998,25.20979599999998,0.000
+			88.398729,25.21290599999997,0.000
+			88.40047199999998,25.21539200000001,0.000
+			88.40227800000002,25.21787999999998,0.000
+			88.40452499999998,25.220831999999955,0.000
+			88.40583538499999,25.222378525000007,0.000
+			88.40626368800002,25.222882970999986,0.000
+			88.40698200000003,25.222933000000005,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: 9
+<br/>name: Pakuahat to Block Router
+<br/>asset_code: NULL
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 951.72808066583
+<br/>start_node: Pakuahat
+<br/>s_coil_len: 0.0
+<br/>end_node: PAKUAHAT TE
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R2
+<br/>asset_type: Proposed OFC
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 0.952
+<br/>ty: Proposed Cable (23.11)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[9]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Pakuahat to Block Router]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[951.72808066583]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Pakuahat]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[PAKUAHAT TE]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Proposed OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.952]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Proposed Cable (23.11)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.364718,25.125524,0.000
+			88.36464431406611,25.125549500174692,0.000
+			88.36462765783908,25.125677991069008,0.000
+			88.36462527837807,25.125823138190363,0.000
+			88.36459196592399,25.12593259339663,0.000
+			88.36458720700197,25.125980182616733,0.000
+			88.36473949250635,25.126456074817913,0.000
+			88.36479041297184,25.126672843715536,0.000
+			88.36504382556897,25.126569337161797,0.000
+			88.36532222250665,25.126508660906147,0.000
+			88.36549354369907,25.126494384140113,0.000
+			88.36557920429529,25.12654078362973,0.000
+			88.36586830880749,25.12681918056741,0.000
+			88.36613956736215,25.127101146696603,0.000
+			88.36633230370363,25.12721536082488,0.000
+			88.36649291732152,25.12728317546355,0.000
+			88.36679272940826,25.127329574953162,0.000
+			88.36694977383465,25.12733314414467,0.000
+			88.36701045009029,25.1273045906126,0.000
+			88.36758152073169,25.126340908905235,0.000
+			88.36772785758356,25.12618386447884,0.000
+			88.36777425707317,25.12572700796573,0.000
+			88.36778385426454,25.124815743750396,0.000
+			88.36770522067073,25.124701414542965,0.000
+			88.36769950996428,25.12371536590212,0.000
+			88.36769324405033,25.122951289247,0.000
+			88.36769015868259,25.122718316219927,0.000
+			88.36767588191655,25.12259934316962,0.000
+			88.36770000000001,25.12252999999999,0.000
+			88.367709,25.122519,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Proposed Cable</name>
+<description><![CDATA[<p>cs: 4
+<br/>name: Madnaboti to Chandpur
+<br/>asset_code: NULL
+<br/>blk_code: 2932
+<br/>dt_code: 332
+<br/>st_code: 19
+<br/>seg_length: 22154.57834333714
+<br/>start_node: Madnaboti
+<br/>s_coil_len: 0.0
+<br/>end_node: Chandpur
+<br/>e_coil_len: 0.0
+<br/>num_fibre: 24 F
+<br/>status: Proposed
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: NULL
+<br/>phase: 3
+<br/>route_code: R1
+<br/>asset_type: Proposed OFC
+<br/>fibre_pos: NULL
+<br/>type: Proposed Cable
+<br/>length: 22.155
+<br/>ty: Proposed Cable (23.11)</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[4]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Madnaboti to Chandpur]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[22154.57834333714]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Madnaboti]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Chandpur]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24 F]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Proposed]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[3]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Proposed OFC]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Proposed Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[22.155]]></value></Data>
+	<Data name="ty"><displayName>ty</displayName><value><![CDATA[Proposed Cable (23.11)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.417575,25.158884,0.000
+			88.41775000000001,25.158900000000003,0.000
+			88.41781,25.15919,0.000
+			88.41747000000001,25.159450000000003,0.000
+			88.4174,25.15978,0.000
+			88.41712000000001,25.16021999999999,0.000
+			88.41676000000001,25.160370000000004,0.000
+			88.41624,25.160190000000004,0.000
+			88.41529000000001,25.15998,0.000
+			88.41483000000001,25.159990000000004,0.000
+			88.41456000000001,25.159960000000012,0.000
+			88.41432,25.15940000000001,0.000
+			88.41428,25.159200000000002,0.000
+			88.41218,25.1594,0.000
+			88.4124,25.160220000000002,0.000
+			88.41219000000001,25.16071,0.000
+			88.41169000000001,25.161000000000005,0.000
+			88.41169000000001,25.161260000000002,0.000
+			88.41136,25.162290000000002,0.000
+			88.41131,25.162820000000007,0.000
+			88.41022000000001,25.16268,0.000
+			88.40897000000001,25.162830000000003,0.000
+			88.40858,25.162860000000006,0.000
+			88.40773,25.163120000000003,0.000
+			88.4073,25.163390000000007,0.000
+			88.40728000000001,25.163610000000002,0.000
+			88.40740000000001,25.164309999999986,0.000
+			88.40735000000001,25.16462999999999,0.000
+			88.40633000000001,25.164790000000004,0.000
+			88.40515,25.164759999999987,0.000
+			88.40448,25.164640000000002,0.000
+			88.40356000000001,25.16437,0.000
+			88.40329000000001,25.16449,0.000
+			88.40302000000001,25.165360000000003,0.000
+			88.40261000000001,25.165640000000007,0.000
+			88.40176000000001,25.165960000000002,0.000
+			88.40152,25.165889999999987,0.000
+			88.40118000000001,25.1653,0.000
+			88.40062,25.16428,0.000
+			88.40019000000001,25.16421,0.000
+			88.39945,25.164320000000004,0.000
+			88.39889000000001,25.164160000000003,0.000
+			88.39861,25.16391,0.000
+			88.39818000000001,25.16374,0.000
+			88.39765000000001,25.16377,0.000
+			88.39736,25.16355,0.000
+			88.39718,25.16328,0.000
+			88.39716000000001,25.16315,0.000
+			88.39702000000001,25.163200000000003,0.000
+			88.39669,25.163380000000007,0.000
+			88.39630000000001,25.16365,0.000
+			88.39580000000001,25.163870000000003,0.000
+			88.39513000000001,25.164309999999997,0.000
+			88.39459000000001,25.16478,0.000
+			88.3939,25.165180000000003,0.000
+			88.39323,25.16578,0.000
+			88.39291,25.16607,0.000
+			88.3927,25.16631,0.000
+			88.39306,25.166670000000003,0.000
+			88.39376,25.16739,0.000
+			88.394,25.167659999999998,0.000
+			88.39437000000001,25.16828,0.000
+			88.39519000000001,25.169110000000003,0.000
+			88.39528000000001,25.169110000000003,0.000
+			88.3956,25.168909999999986,0.000
+			88.39607000000001,25.169249999999987,0.000
+			88.39640000000001,25.16975,0.000
+			88.39673,25.170050000000003,0.000
+			88.39695,25.170330000000003,0.000
+			88.3974,25.17067,0.000
+			88.39828000000001,25.17075,0.000
+			88.39863000000001,25.171229999999998,0.000
+			88.39914,25.17216,0.000
+			88.3995,25.17261999999999,0.000
+			88.40020000000001,25.173720000000007,0.000
+			88.39968,25.17394,0.000
+			88.39894000000001,25.174370000000003,0.000
+			88.39859000000001,25.174620000000004,0.000
+			88.39811,25.174910000000004,0.000
+			88.39741000000001,25.17516,0.000
+			88.39741000000001,25.175469999999997,0.000
+			88.3974,25.175880000000003,0.000
+			88.39744,25.17603,0.000
+			88.39768000000001,25.176550000000002,0.000
+			88.3978,25.17688,0.000
+			88.39772,25.177270000000004,0.000
+			88.39759000000001,25.177449999999997,0.000
+			88.3973,25.177640000000004,0.000
+			88.39725000000001,25.177870000000002,0.000
+			88.39734000000001,25.17811,0.000
+			88.39746000000001,25.178780000000003,0.000
+			88.39714000000001,25.178900000000002,0.000
+			88.39698000000001,25.17895,0.000
+			88.39684000000001,25.17942,0.000
+			88.39634000000001,25.179820000000003,0.000
+			88.39612000000001,25.18015,0.000
+			88.39601,25.180410000000002,0.000
+			88.39621000000001,25.180819999999986,0.000
+			88.39635000000001,25.18101,0.000
+			88.39626000000001,25.181160000000002,0.000
+			88.39586000000001,25.181239999999985,0.000
+			88.39553000000001,25.181490000000004,0.000
+			88.39545000000001,25.181710000000002,0.000
+			88.39562000000001,25.182139999999986,0.000
+			88.39628,25.18296,0.000
+			88.39644000000001,25.183219999999988,0.000
+			88.39640000000001,25.183619999999998,0.000
+			88.39603000000001,25.18392,0.000
+			88.39552,25.183930000000004,0.000
+			88.3952,25.18399,0.000
+			88.39511,25.184040000000003,0.000
+			88.39511,25.18427,0.000
+			88.3952,25.184870000000004,0.000
+			88.39524,25.185190000000002,0.000
+			88.39534,25.185759999999995,0.000
+			88.39547,25.18617,0.000
+			88.3957,25.18656,0.000
+			88.39594000000001,25.186840000000004,0.000
+			88.396,25.187230000000003,0.000
+			88.39583,25.187590000000004,0.000
+			88.39550000000001,25.18777,0.000
+			88.39515,25.18789,0.000
+			88.39478000000001,25.18803999999999,0.000
+			88.39483000000001,25.18868,0.000
+			88.39507,25.1888,0.000
+			88.39535000000001,25.18888,0.000
+			88.39611000000001,25.188759999999988,0.000
+			88.39665000000001,25.189079999999997,0.000
+			88.39756000000001,25.18896,0.000
+			88.39842,25.189020000000003,0.000
+			88.39992000000001,25.18884,0.000
+			88.40072,25.18861,0.000
+			88.40099000000001,25.188340000000004,0.000
+			88.40171000000001,25.18763,0.000
+			88.40215,25.18736,0.000
+			88.40204000000001,25.18824,0.000
+			88.402,25.188709999999997,0.000
+			88.40216000000001,25.18915,0.000
+			88.40254,25.189329999999998,0.000
+			88.40271000000001,25.190109999999994,0.000
+			88.40329000000001,25.191029999999998,0.000
+			88.40373000000001,25.19131,0.000
+			88.40400000000001,25.191950000000002,0.000
+			88.40415,25.192290000000003,0.000
+			88.40390000000001,25.19248999999999,0.000
+			88.40322,25.19289999999999,0.000
+			88.40303,25.193,0.000
+			88.40295,25.194110000000002,0.000
+			88.40270000000001,25.19468,0.000
+			88.40275000000001,25.195570000000004,0.000
+			88.40296000000001,25.19581,0.000
+			88.40344,25.196180000000002,0.000
+			88.40375,25.196839999999998,0.000
+			88.40404000000001,25.197149999999997,0.000
+			88.40419000000001,25.19734,0.000
+			88.40414000000001,25.19759,0.000
+			88.40413000000001,25.19805,0.000
+			88.4034,25.198569999999993,0.000
+			88.40312,25.198960000000003,0.000
+			88.40321,25.199299999999997,0.000
+			88.40372,25.200930000000003,0.000
+			88.40390000000001,25.201529999999998,0.000
+			88.40357,25.201780000000003,0.000
+			88.40307000000001,25.20201,0.000
+			88.40189000000001,25.202270000000002,0.000
+			88.4013,25.202460000000006,0.000
+			88.40069000000001,25.20226,0.000
+			88.39972,25.202370000000002,0.000
+			88.39931000000001,25.202460000000006,0.000
+			88.39873,25.202810000000003,0.000
+			88.39884,25.203120000000002,0.000
+			88.39867000000001,25.203889999999998,0.000
+			88.39856,25.204480000000004,0.000
+			88.39845000000001,25.204749999999997,0.000
+			88.39848,25.205140000000004,0.000
+			88.39810000000001,25.205750000000002,0.000
+			88.39787000000001,25.20596,0.000
+			88.39783000000001,25.206319999999987,0.000
+			88.39764000000001,25.206569999999996,0.000
+			88.39753,25.207020000000004,0.000
+			88.39750000000001,25.20717,0.000
+			88.39809000000001,25.20727,0.000
+			88.39846000000001,25.20738,0.000
+			88.39917000000001,25.207739999999987,0.000
+			88.40052,25.207739999999987,0.000
+			88.40176000000001,25.207659999999997,0.000
+			88.40266000000001,25.207629999999988,0.000
+			88.40355000000001,25.207400000000003,0.000
+			88.4043,25.207569999999997,0.000
+			88.4051,25.20793,0.000
+			88.40570000000001,25.208170000000003,0.000
+			88.40638000000001,25.20808,0.000
+			88.40700000000001,25.208050000000004,0.000
+			88.40789000000001,25.208330000000004,0.000
+			88.4097,25.208789999999997,0.000
+			88.41077000000001,25.2092,0.000
+			88.41148000000001,25.20971,0.000
+			88.41194,25.209829999999986,0.000
+			88.41238000000001,25.20992,0.000
+			88.4124,25.21032,0.000
+			88.41262,25.211150000000004,0.000
+			88.41274000000001,25.211280000000002,0.000
+			88.41312,25.211350000000003,0.000
+			88.41346,25.211600000000004,0.000
+			88.41403000000001,25.21158999999999,0.000
+			88.41408000000001,25.211920000000013,0.000
+			88.41411000000001,25.2121,0.000
+			88.41446,25.21223,0.000
+			88.41522,25.212110000000003,0.000
+			88.41595000000001,25.21214999999999,0.000
+			88.41655,25.212480000000006,0.000
+			88.41713,25.21255999999999,0.000
+			88.41760000000001,25.212860000000003,0.000
+			88.41775000000001,25.213190000000004,0.000
+			88.41781,25.21385,0.000
+			88.41826,25.214330000000007,0.000
+			88.41829000000001,25.214860000000005,0.000
+			88.41868000000001,25.21486,0.000
+			88.41904000000001,25.214940000000002,0.000
+			88.41948000000001,25.214900000000007,0.000
+			88.41963000000001,25.21502000000001,0.000
+			88.41965,25.21524,0.000
+			88.41951,25.21545,0.000
+			88.41928,25.215660000000007,0.000
+			88.41931000000001,25.21580000000001,0.000
+			88.41950000000001,25.216120000000004,0.000
+			88.41967000000001,25.2163,0.000
+			88.41998000000001,25.217039999999987,0.000
+			88.42020000000001,25.21752,0.000
+			88.42067,25.21781,0.000
+			88.4217,25.217789999999987,0.000
+			88.42191000000001,25.218390000000003,0.000
+			88.42174000000001,25.218549999999986,0.000
+			88.42107,25.218779999999985,0.000
+			88.42,25.218890000000005,0.000
+			88.41967000000001,25.219070000000002,0.000
+			88.41946,25.21935000000001,0.000
+			88.41947,25.21966,0.000
+			88.41948000000001,25.220050000000004,0.000
+			88.41950000000001,25.2206,0.000
+			88.41881000000001,25.22069,0.000
+			88.41835,25.220640000000003,0.000
+			88.41802000000001,25.220810000000004,0.000
+			88.41806000000001,25.221000000000007,0.000
+			88.41822,25.221149999999998,0.000
+			88.41843,25.221589999999992,0.000
+			88.41855000000001,25.22186000000001,0.000
+			88.41855000000001,25.222300000000008,0.000
+			88.4183,25.222489999999986,0.000
+			88.41774000000001,25.222620000000003,0.000
+			88.41734000000001,25.222900000000003,0.000
+			88.41722,25.22323,0.000
+			88.41715,25.2235,0.000
+			88.41695000000001,25.223670000000002,0.000
+			88.41668000000001,25.224019999999992,0.000
+			88.41673,25.22428,0.000
+			88.41681000000001,25.22484,0.000
+			88.41682,25.225,0.000
+			88.41679,25.22512,0.000
+			88.41694000000001,25.22511,0.000
+			88.41739000000001,25.225060000000006,0.000
+			88.41764,25.225100000000005,0.000
+			88.41832000000001,25.2253,0.000
+			88.41883000000001,25.22547,0.000
+			88.41927000000001,25.225369999999998,0.000
+			88.41980000000001,25.22504999999999,0.000
+			88.42024,25.225070000000002,0.000
+			88.42045,25.22546,0.000
+			88.42066000000001,25.225880000000007,0.000
+			88.42095,25.225970000000004,0.000
+			88.42167,25.22638,0.000
+			88.42222000000001,25.226910000000007,0.000
+			88.42306,25.22717,0.000
+			88.42393000000001,25.227130000000002,0.000
+			88.42425,25.22707,0.000
+			88.42488,25.226729999999993,0.000
+			88.42507,25.22662,0.000
+			88.42514000000001,25.226740000000003,0.000
+			88.42533,25.227280000000004,0.000
+			88.42547,25.22763,0.000
+			88.4256,25.228510000000007,0.000
+			88.42562000000001,25.229010000000002,0.000
+			88.42602000000001,25.229630000000004,0.000
+			88.42638000000001,25.23051,0.000
+			88.427,25.23118,0.000
+			88.42702000000001,25.23178,0.000
+			88.42715000000001,25.232519999999994,0.000
+			88.42696000000001,25.232840000000003,0.000
+			88.42708,25.234360000000006,0.000
+			88.42667,25.234730000000006,0.000
+			88.42654,25.23525,0.000
+			88.4265,25.235610000000005,0.000
+			88.42633000000001,25.23591,0.000
+			88.42552,25.23659999999999,0.000
+			88.42526000000001,25.237029999999987,0.000
+			88.42471,25.23751,0.000
+			88.42366000000001,25.238640000000007,0.000
+			88.42306,25.2395,0.000
+			88.42267000000001,25.239880000000003,0.000
+			88.42250000000001,25.239990000000002,0.000
+			88.42251,25.240150000000007,0.000
+			88.42258000000001,25.24048,0.000
+			88.42299000000001,25.241159999999997,0.000
+			88.42338000000001,25.241970000000002,0.000
+			88.42343000000001,25.24256,0.000
+			88.42362000000001,25.244050000000005,0.000
+			88.42394,25.24425,0.000
+			88.42461,25.244469999999996,0.000
+			88.42469000000001,25.24461,0.000
+			88.42477000000001,25.244909999999997,0.000
+			88.42500000000001,25.24625000000001,0.000
+			88.42508000000001,25.246580000000005,0.000
+			88.42536000000001,25.247230000000002,0.000
+			88.42541000000001,25.247460000000004,0.000
+			88.42528,25.247599999999988,0.000
+			88.42521,25.247720000000008,0.000
+			88.42528,25.247989999999987,0.000
+			88.42591,25.24894,0.000
+			88.42629000000001,25.249760000000002,0.000
+			88.42643000000001,25.25064,0.000
+			88.42630000000001,25.251320000000003,0.000
+			88.42663,25.251730000000006,0.000
+			88.42733000000001,25.252000000000006,0.000
+			88.42680000000001,25.25247999999999,0.000
+			88.42671000000001,25.25278,0.000
+			88.42701000000001,25.25352,0.000
+			88.42735,25.25496,0.000
+			88.42761,25.255600000000005,0.000
+			88.42783,25.255910000000007,0.000
+			88.42813000000001,25.256570000000004,0.000
+			88.42809000000001,25.25684,0.000
+			88.42849000000001,25.25787,0.000
+			88.42858000000001,25.258560000000003,0.000
+			88.42875000000001,25.25892000000001,0.000
+			88.42905,25.258999999999986,0.000
+			88.42996000000001,25.259760000000007,0.000
+			88.43019000000001,25.259990000000002,0.000
+			88.43019000000001,25.260070000000002,0.000
+			88.4304,25.260080000000002,0.000
+			88.43232,25.259850000000004,0.000
+			88.43253000000001,25.259850000000007,0.000
+			88.43251000000001,25.260040000000004,0.000
+			88.43246,25.260440000000003,0.000
+			88.43243000000001,25.260660000000005,0.000
+			88.43229000000001,25.26085,0.000
+			88.432,25.261290000000002,0.000
+			88.43206,25.261830000000007,0.000
+			88.43221000000001,25.2623,0.000
+			88.43219,25.263450000000002,0.000
+			88.43212000000001,25.26368,0.000
+			88.43182,25.263810000000007,0.000
+			88.43132000000001,25.263990000000003,0.000
+			88.43089,25.264270000000003,0.000
+			88.42968,25.264549999999996,0.000
+			88.42834,25.264849999999992,0.000
+			88.42754000000001,25.26472,0.000
+			88.42686,25.264679999999988,0.000
+			88.42624,25.264660000000003,0.000
+			88.42602000000001,25.26472,0.000
+			88.42585000000001,25.26457999999999,0.000
+			88.42558000000001,25.26420000000001,0.000
+			88.42553000000001,25.264300000000006,0.000
+			88.42552,25.264390000000002,0.000
+			88.42557000000001,25.26464,0.000
+			88.42566000000001,25.26484,0.000
+			88.42581000000001,25.264850000000003,0.000
+			88.42622,25.265590000000003,0.000
+			88.42605,25.26603,0.000
+			88.42473000000001,25.26638,0.000
+			88.42464000000001,25.26609,0.000
+			88.42491100000001,25.26601799999997,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+</Document>
+</kml>

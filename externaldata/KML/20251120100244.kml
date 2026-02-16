@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<name>Balagarh_Cable</name>
+<Style id="style1">
+	<LineStyle>
+		<color>ff17ff83</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style2">
+	<LineStyle>
+		<color>ff1c1ae3</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style3">
+	<LineStyle>
+		<color>ffea3f1d</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Style id="style4">
+	<LineStyle>
+		<color>ffcc6f9c</color>
+		<width>5</width>
+	</LineStyle>
+</Style>
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: BAKLIADHOBAPARA
+<br/>name: FPOI-1004 TO Bakliadhobapara
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 449.13118172667
+<br/>start_node: FPOI-1004
+<br/>s_coil_len: 20.0
+<br/>end_node: Bakliadhobapara
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.449
+<br/>S_N: 28</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[BAKLIADHOBAPARA]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1004 TO Bakliadhobapara]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[449.13118172667]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1004]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Bakliadhobapara]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.449]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[28]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.38913300000002,23.153483999999988,0.000
+			88.38905699999998,23.154221000000007,0.000
+			88.389204,23.154972999999984,0.000
+			88.389341,23.155771000000012,0.000
+			88.38942800000001,23.156267000000014,0.000
+			88.38959299999999,23.15738399999999,0.000
+			88.38971600000002,23.15738399999998,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: JIRAT
+<br/>name: FPOI-1002 TO Jirat
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 2133.11415706505
+<br/>start_node: FPOI-1002
+<br/>s_coil_len: 21.33370187
+<br/>end_node: Jirat
+<br/>e_coil_len: 21.33370187
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 2.133
+<br/>S_N: 18</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[JIRAT]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1002 TO Jirat]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[2133.11415706505]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1002]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[21.33370187]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Jirat]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[21.33370187]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[2.133]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[18]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.469806,23.10810300000003,0.000
+			88.47078900000002,23.107507000000005,0.000
+			88.47107799999998,23.106668000000013,0.000
+			88.47128199999997,23.105805999999973,0.000
+			88.47103399999997,23.104946999999978,0.000
+			88.47108700000001,23.104054000000026,0.000
+			88.470979,23.10318699999999,0.000
+			88.47177900000003,23.102701000000017,0.000
+			88.472283,23.10207300000002,0.000
+			88.47199599999999,23.101215000000032,0.000
+			88.47203100000002,23.100320000000007,0.000
+			88.47209400000003,23.09943299999997,0.000
+			88.47192100000001,23.098548999999988,0.000
+			88.47185400000001,23.097677999999974,0.000
+			88.47089299999999,23.097548000000014,0.000
+			88.46993099999997,23.097405999999975,0.000
+			88.46896199999998,23.09727299999998,0.000
+			88.46799900000002,23.09726000000001,0.000
+			88.46703400000001,23.097406999999972,0.000
+			88.46606200000002,23.097491999999992,0.000
+			88.465102,23.09733,0.000
+			88.464135,23.097215000000006,0.000
+			88.463731,23.097419999999993,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: GUPTIPARA - II
+<br/>name: Guptipara-Ii TO FPOI-1007
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 60.52904913734
+<br/>start_node: Guptipara-Ii
+<br/>s_coil_len: 20.0
+<br/>end_node: FPOI-1007
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.061
+<br/>S_N: 6</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[GUPTIPARA - II]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Guptipara-Ii TO FPOI-1007]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[60.52904913734]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Guptipara-Ii]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1007]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.061]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[6]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.43263000000002,23.19294000000002,0.000
+			88.43203899999997,23.192922000000003,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: SOMRA-II
+<br/>name: FPOI-1009 TO Somra-Ii
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 683.91899778256
+<br/>start_node: FPOI-1009
+<br/>s_coil_len: 20.0
+<br/>end_node: Somra-Ii
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.684
+<br/>S_N: 13</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[SOMRA-II]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1009 TO Somra-Ii]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[683.91899778256]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1009]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Somra-Ii]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.684]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[13]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.43686000000002,23.13082000000003,0.000
+			88.43658697299998,23.130502564999976,0.000
+			88.436282232,23.129762691999982,0.000
+			88.43558053999999,23.12904807799999,0.000
+			88.43584691500001,23.128770128999978,0.000
+			88.43568980499998,23.128202880000003,0.000
+			88.43511384599998,23.12804307800002,0.000
+			88.434221589,23.127891438000002,0.000
+			88.43332138400001,23.12788687300002,0.000
+			88.43243000000001,23.12779999999998,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: DUMURDAHA NITYANANDAPUR - I
+<br/>name: FPOI-1001 TO Dumurdaha Nityanandapur - I
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 2875.66223872627
+<br/>start_node: FPOI-1001
+<br/>s_coil_len: 28.76041652
+<br/>end_node: Dumurdaha Nityanandapur - I
+<br/>e_coil_len: 28.76041652
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 2.876
+<br/>S_N: 21</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[DUMURDAHA NITYANANDAPUR - I]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1001 TO Dumurdaha Nityanandapur - I]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[2875.66223872627]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1001]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[28.76041652]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Dumurdaha Nityanandapur - I]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[28.76041652]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[2.876]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[21]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.44733300000001,23.059567000000012,0.000
+			88.44732710199997,23.059568220000013,0.000
+			88.44699100000003,23.059718999999983,0.000
+			88.44667284299999,23.059842012999972,0.000
+			88.44644763399998,23.059476044000004,0.000
+			88.44585501799997,23.05893212000001,0.000
+			88.44517998700002,23.05836181199998,0.000
+			88.44453299999998,23.05793,0.000
+			88.44378899999998,23.057346999999993,0.000
+			88.44304299999999,23.056764000000005,0.000
+			88.44231300000001,23.05616700000001,0.000
+			88.44158199999998,23.055568999999988,0.000
+			88.44084400000003,23.054982,0.000
+			88.44009999999997,23.054396999999984,0.000
+			88.43935699999997,23.053811999999994,0.000
+			88.43861099999998,23.053229999999985,0.000
+			88.43788799999999,23.052629000000024,0.000
+			88.437251,23.05194899999998,0.000
+			88.436687,23.051215000000013,0.000
+			88.43613800000003,23.050472000000013,0.000
+			88.43558999999999,23.049728000000012,0.000
+			88.43504000000001,23.048985000000016,0.000
+			88.43448799999999,23.048242000000016,0.000
+			88.43393900000001,23.047498000000015,0.000
+			88.43338999999997,23.04675500000001,0.000
+			88.43295699999999,23.045951000000002,0.000
+			88.432774,23.045073,0.000
+			88.432616,23.044182999999975,0.000
+			88.43243999999999,23.043300999999982,0.000
+			88.43226900000002,23.042416000000003,0.000
+			88.432096,23.041528000000028,0.000
+			88.43193200000002,23.040643999999986,0.000
+			88.43161700000002,23.039783,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: GUPTIPARA - I
+<br/>name: FPOI-1007 TO GUPTIPARA TEL EXCH
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 727.41930307368
+<br/>start_node: FPOI-1007
+<br/>s_coil_len: 20.0
+<br/>end_node: GUPTIPARA TEL EXCH
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.727
+<br/>S_N: 7</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[GUPTIPARA - I]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1007 TO GUPTIPARA TEL EXCH]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[727.41930307368]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1007]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[GUPTIPARA TEL EXCH]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.727]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[7]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.43203899999997,23.192922000000003,0.000
+			88.43116099999997,23.192758000000026,0.000
+			88.43018899999998,23.19265200000001,0.000
+			88.42945200000003,23.19212900000002,0.000
+			88.42879599999998,23.191462,0.000
+			88.42854699999998,23.190600000000018,0.000
+			88.42832800000002,23.18972400000001,0.000
+			88.428091457,23.18921122799998,0.000
+			88.42730899999998,23.189286999999975,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: DUMURDAHA NITYANANDAPUR - II  TO PAKRI TEL EXCH (DUMURDAHA NITYANANDAPUR LOSSY)
+<br/>name: Dumurdaha Nityanandapur - Ii TO Mahipalpur
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 11796.54510701688
+<br/>start_node: Dumurdaha Nityanandapur - Ii
+<br/>s_coil_len: 86.02914501
+<br/>end_node: Mahipalpur
+<br/>e_coil_len: 86.02914501
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: LOSSY
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 11.797
+<br/>S_N: 24</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[DUMURDAHA NITYANANDAPUR - II  TO PAKRI TEL EXCH (DUMURDAHA NITYANANDAPUR LOSSY)]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Dumurdaha Nityanandapur - Ii TO Mahipalpur]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[11796.54510701688]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Dumurdaha Nityanandapur - Ii]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[86.02914501]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Mahipalpur]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[86.02914501]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[LOSSY]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[11.797]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[24]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.41271000000006,23.024720000000062,0.000
+			88.41322400000013,23.024130000000127,0.000
+			88.41276800000003,23.023327999999992,0.000
+			88.41231700000003,23.022545000000036,0.000
+			88.41186099999999,23.02175500000004,0.000
+			88.411069,23.02125000000001,0.000
+			88.41023200000001,23.020879999999973,0.000
+			88.40970600000003,23.020369000000137,0.000
+			88.40877799999998,23.020248000000105,0.000
+			88.40773537400003,23.02045887200012,0.000
+			88.40686899999992,23.02060400000005,0.000
+			88.40596000000005,23.020935000000065,0.000
+			88.40504800000008,23.021147000000045,0.000
+			88.40407500000003,23.021186999999934,0.000
+			88.40351465499992,23.021209876999993,0.000
+			88.40333400000003,23.02148999999998,0.000
+			88.40240815700008,23.021658849000012,0.000
+			88.40176800000012,23.02181399999995,0.000
+			88.40083400000009,23.02208000000013,0.000
+			88.39990400000005,23.022227999999927,0.000
+			88.3989380000001,23.02235200000007,0.000
+			88.39799100000005,23.022478000000035,0.000
+			88.397039,23.022688000000016,0.000
+			88.39592126400004,23.022994245000014,0.000
+			88.39555817000002,23.022804566999984,0.000
+			88.39521985400012,23.02260900000005,0.000
+			88.39478927700009,23.022676937000032,0.000
+			88.393839415,23.022844076000126,0.000
+			88.39285044600001,23.023076799000084,0.000
+			88.39210900000012,23.023524000000073,0.000
+			88.3916000000001,23.024228000000047,0.000
+			88.39146800000003,23.025113999999974,0.000
+			88.39113600000007,23.025948999999965,0.000
+			88.39107959200004,23.026485142000126,0.000
+			88.39121900000004,23.0268200000001,0.000
+			88.39133657399998,23.02719779000012,0.000
+			88.39132738400008,23.02771289700002,0.000
+			88.39090256200012,23.028043184000072,0.000
+			88.39074765700002,23.028464853000056,0.000
+			88.39017499999994,23.029138000000046,0.000
+			88.38944099999998,23.029722999999937,0.000
+			88.3889928050001,23.029963914000007,0.000
+			88.38815218400009,23.030128819000026,0.000
+			88.38759300000004,23.030278000000063,0.000
+			88.38672700000012,23.030708000000118,0.000
+			88.38612100000006,23.031362000000055,0.000
+			88.3859351970001,23.031968609999986,0.000
+			88.385648,23.032114999999973,0.000
+			88.38541766500009,23.03237311800001,0.000
+			88.38521900000006,23.032887000000073,0.000
+			88.38505479700007,23.033324902999993,0.000
+			88.38460199999997,23.033527000000106,0.000
+			88.3837640000001,23.033980000000103,0.000
+			88.38287092399992,23.03439356500013,0.000
+			88.38283594900014,23.034716887000062,0.000
+			88.382202,23.034928000000036,0.000
+			88.38126099999994,23.035184000000072,0.000
+			88.3803200000001,23.035403999999975,0.000
+			88.37979618800006,23.035615134000068,0.000
+			88.3793970000001,23.03561100000007,0.000
+			88.378445,23.035433999999952,0.000
+			88.37785097899996,23.03538908500008,0.000
+			88.37772600000005,23.03505900000005,0.000
+			88.3774840000001,23.034187000000024,0.000
+			88.37733344600008,23.03347361900006,0.000
+			88.37741700000004,23.033350000000045,0.000
+			88.37806513000004,23.033158339999996,0.000
+			88.37810099999996,23.033052000000055,0.000
+			88.37819005200004,23.032884702000107,0.000
+			88.37805200000003,23.03235499999994,0.000
+			88.377906,23.03164899999996,0.000
+			88.37788072200004,23.03142728200009,0.000
+			88.37804299999999,23.030973000000017,0.000
+			88.37808297600009,23.030618265999976,0.000
+			88.37799969500003,23.030475498000044,0.000
+			88.37773600000014,23.030435000000068,0.000
+			88.37739293200002,23.030374371000107,0.000
+			88.37722000000008,23.03002100000009,0.000
+			88.37703601300007,23.029821146000078,0.000
+			88.3765160000001,23.029803000000015,0.000
+			88.37574300000011,23.02972900000009,0.000
+			88.37496700000003,23.029776000000084,0.000
+			88.37421000000006,23.029957000000138,0.000
+			88.37344100000007,23.03006300000004,0.000
+			88.3724840000001,23.030242999999984,0.000
+			88.37153,23.030422999999985,0.000
+			88.37056999999999,23.030600999999933,0.000
+			88.37030808700007,23.030624214000117,0.000
+			88.37015700000012,23.030959000000113,0.000
+			88.37026400000008,23.031708999999978,0.000
+			88.37025900000003,23.032605000000046,0.000
+			88.3701772170001,23.0330096240001,0.000
+			88.36984000000001,23.033370000000104,0.000
+			88.369033,23.033491000000136,0.000
+			88.36839200000009,23.033567000000062,0.000
+			88.36744199999998,23.033748000000124,0.000
+			88.36668100000009,23.034293000000055,0.000
+			88.36638792500008,23.034532479000063,0.000
+			88.36642100000006,23.035107999999973,0.000
+			88.36665700000009,23.035983999999985,0.000
+			88.36702900000012,23.036813000000055,0.000
+			88.36731100000003,23.03767699999992,0.000
+			88.36756600000012,23.038544000000062,0.000
+			88.36766499999999,23.03942000000006,0.000
+			88.36762800000014,23.040321000000002,0.000
+			88.36776700000007,23.041208999999984,0.000
+			88.36792000000014,23.042093000000076,0.000
+			88.36806199999995,23.042982000000112,0.000
+			88.36812900000001,23.043873000000133,0.000
+			88.36763600000006,23.044643000000065,0.000
+			88.36791199999999,23.04548700000009,0.000
+			88.3682740000001,23.046311000000063,0.000
+			88.36855000000003,23.04718000000003,0.000
+			88.36854200000005,23.04807299999999,0.000
+			88.36868600000008,23.048402000000006,0.000
+			88.36898300000013,23.048800000000085,0.000
+			88.3694440000001,23.04940700000003,0.000
+			88.3699830000001,23.050049000000058,0.000
+			88.37082800000002,23.050495000000016,0.000
+			88.37168100000008,23.050951999999995,0.000
+			88.37242700000002,23.051333999999994,0.000
+			88.3734050220001,23.05138646499995,0.000
+			88.3738110000001,23.052072000000123,0.000
+			88.374022438,23.05270779500006,0.000
+			88.37444699999998,23.053471000000062,0.000
+			88.37478500000003,23.05430999999999,0.000
+			88.37513100000007,23.05514899999997,0.000
+			88.3754790000001,23.05598900000001,0.000
+			88.37568200000004,23.056868000000122,0.000
+			88.37573000000009,23.057763000000087,0.000
+			88.37578100000002,23.058662000000027,0.000
+			88.37591520500007,23.059615486999974,0.000
+			88.37618133500001,23.060356102999947,0.000
+			88.37625505400001,23.06082969700009,0.000
+			88.37644833500008,23.06206571900003,0.000
+			88.37653999999998,23.063046000000043,0.000
+			88.37641400000001,23.06393500000007,0.000
+			88.37627800000013,23.064814000000126,0.000
+			88.37616500000001,23.06571700000007,0.000
+			88.37605800000006,23.066617000000065,0.000
+			88.37600500000008,23.067508000000085,0.000
+			88.37618399999997,23.06838600000009,0.000
+			88.37639700000005,23.069266000000084,0.000
+			88.37634600000007,23.070170999999956,0.000
+			88.37630599999994,23.071065000000047,0.000
+			88.37625500000001,23.071965000000088,0.000
+			88.37616600000013,23.07285000000013,0.000
+			88.37591200000003,23.073729000000014,0.000
+			88.37554900000003,23.07451700000001,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: SOMRA-II
+<br/>name: FPOI-1009 TO FPOI-1005
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 629.74177736438
+<br/>start_node: FPOI-1009
+<br/>s_coil_len: 20.0
+<br/>end_node: FPOI-1005
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.63
+<br/>S_N: 11</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[SOMRA-II]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1009 TO FPOI-1005]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[629.74177736438]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1009]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1005]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.63]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[11]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.43686000000002,23.13082000000003,0.000
+			88.43703275500002,23.131064969000033,0.000
+			88.43730278599998,23.131760692,0.000
+			88.437522,23.132585000000006,0.000
+			88.43797,23.13337100000001,0.000
+			88.43802740199999,23.134304491000016,0.000
+			88.43804666099999,23.13483919700002,0.000
+			88.438181138,23.13518228999999,0.000
+			88.43818942799999,23.135453098000024,0.000
+			88.43780299999997,23.13555999999999,0.000
+			88.43732899999998,23.135533000000002,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: SRIJAKAMALPUR
+<br/>name: Srijakamalpur TO FPOI-1001
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 978.03354074287
+<br/>start_node: Srijakamalpur
+<br/>s_coil_len: 20.0
+<br/>end_node: FPOI-1001
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.978
+<br/>S_N: 20</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[SRIJAKAMALPUR]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Srijakamalpur TO FPOI-1001]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[978.03354074287]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Srijakamalpur]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1001]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.978]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[20]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.44731999999999,23.057119999999998,0.000
+			88.44770592399999,23.057734799000002,0.000
+			88.44807598699998,23.058221031000016,0.000
+			88.448587616,23.059148397,0.000
+			88.44875420099999,23.059513384000013,0.000
+			88.44896120099997,23.06000538400002,0.000
+			88.44913084900003,23.060380692000017,0.000
+			88.44929978599998,23.06058055400001,0.000
+			88.44910107599998,23.060805691999974,0.000
+			88.44865017500001,23.06101984600002,0.000
+			88.44841610700001,23.061486522000003,0.000
+			88.44757144599998,23.061953705000004,0.000
+			88.44720809400002,23.06096849099998,0.000
+			88.44707871000003,23.060555755,0.000
+			88.44685130300002,23.05989912000001,0.000
+			88.44732805400002,23.059570409,0.000
+			88.44733300000001,23.059567000000012,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: BALAGARH BHQ
+<br/>name: Balagarh Bdo TO FPOI-1002
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 2073.00736426817
+<br/>start_node: Balagarh Bdo
+<br/>s_coil_len: 20.73262548
+<br/>end_node: FPOI-1002
+<br/>e_coil_len: 20.73262548
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 2.073
+<br/>S_N: 15</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[BALAGARH BHQ]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Balagarh Bdo TO FPOI-1002]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[2073.00736426817]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Balagarh Bdo]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.73262548]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1002]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.73262548]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[2.073]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[15]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.45685800000001,23.09775000000002,0.000
+			88.45693899999998,23.09803099999999,0.000
+			88.45720399999999,23.098896000000025,0.000
+			88.457469,23.099761000000008,0.000
+			88.45774599999999,23.100623999999982,0.000
+			88.45802400000002,23.101488000000018,0.000
+			88.45842399999998,23.102307999999994,0.000
+			88.45884999999998,23.103117,0.000
+			88.459293,23.103916000000027,0.000
+			88.45974100000001,23.10471899999999,0.000
+			88.46006699999998,23.10556000000003,0.000
+			88.46002889800002,23.10608718100002,0.000
+			88.46040199999999,23.106162999999977,0.000
+			88.46137399999998,23.106138999999978,0.000
+			88.462312,23.106291999999993,0.000
+			88.46327600000001,23.10638899999999,0.000
+			88.46421700000002,23.106247999999994,0.000
+			88.46494799999999,23.106408999999985,0.000
+			88.46584200000001,23.10648700000003,0.000
+			88.46680800000001,23.106538999999998,0.000
+			88.46776299999999,23.10666900000001,0.000
+			88.46839999999997,23.107208000000018,0.000
+			88.46849978,23.107695696999997,0.000
+			88.46892500000001,23.107912999999993,0.000
+			88.469806,23.10810300000003,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: DUMURDAHA NITYANANDAPUR - II
+<br/>name: FPOI-1003 TO Dumurdaha Nityanandapur - Ii
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 834.95923064062
+<br/>start_node: FPOI-1003
+<br/>s_coil_len: 20.0
+<br/>end_node: Dumurdaha Nityanandapur - Ii
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 0.835
+<br/>S_N: 23</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[DUMURDAHA NITYANANDAPUR - II]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1003 TO Dumurdaha Nityanandapur - Ii]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[834.95923064062]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1003]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Dumurdaha Nityanandapur - Ii]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[0.835]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[23]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.41494999999998,23.021450000000016,0.000
+			88.415343554,23.021271134000017,0.000
+			88.41601758899998,23.021950410999978,0.000
+			88.416627,23.022667000000006,0.000
+			88.41676976000002,23.022783097000005,0.000
+			88.41594300000003,23.023005000000015,0.000
+			88.41518000000002,23.023472000000027,0.000
+			88.41502323600002,23.02356356000002,0.000
+			88.41510413700001,23.024163183999974,0.000
+			88.41501099999999,23.024258999999976,0.000
+			88.41454258499999,23.024515344999998,0.000
+			88.41418265200002,23.024249070999996,0.000
+			88.41408572799998,23.02405848799998,0.000
+			88.41342700000001,23.02435100000002,0.000
+			88.41271,23.024720000000006,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: EKTARPUR
+<br/>name: Ektarpur TO FPOI-1006
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 3913.05534018388
+<br/>start_node: Ektarpur
+<br/>s_coil_len: 39.13631521
+<br/>end_node: FPOI-1006
+<br/>e_coil_len: 39.13631521
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 3.913
+<br/>S_N: 26</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[EKTARPUR]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Ektarpur TO FPOI-1006]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[3913.05534018388]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Ektarpur]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[39.13631521]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1006]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[39.13631521]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[3.913]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[26]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.39234400100003,23.104201002000025,0.000
+			88.39260587000001,23.104781026000005,0.000
+			88.39302913,23.105436768000004,0.000
+			88.39330676999998,23.10619974299999,0.000
+			88.39349702700002,23.10715497299998,0.000
+			88.393544335,23.107958742999983,0.000
+			88.39335916300001,23.108532218999986,0.000
+			88.39335543800001,23.10884569199999,0.000
+			88.39352792400001,23.109671204999984,0.000
+			88.393710924,23.110628588999987,0.000
+			88.39386318099997,23.111430308000028,0.000
+			88.394047027,23.112191386000006,0.000
+			88.39430392399998,23.113359818999985,0.000
+			88.39446479700001,23.114073153999982,0.000
+			88.39475754,23.11494710300002,0.000
+			88.39510177,23.11600940800003,0.000
+			88.39535791100002,23.116432029000013,0.000
+			88.39568200000002,23.116519999999976,0.000
+			88.39674612699997,23.116346668000006,0.000
+			88.397196044,23.11631305600002,0.000
+			88.39753300000001,23.116528000000017,0.000
+			88.397839616,23.117412538000007,0.000
+			88.39820066800002,23.11823558899999,0.000
+			88.39863020500002,23.119158819000003,0.000
+			88.39897246200002,23.119977921999975,0.000
+			88.39927587300002,23.12071089699997,0.000
+			88.399621873,23.12159548699999,0.000
+			88.39990923200003,23.12235225699999,0.000
+			88.40038855400002,23.123693467000002,0.000
+			88.40052223200001,23.12414153800002,0.000
+			88.40088166800001,23.12499564099999,0.000
+			88.40110828399997,23.125796103000024,0.000
+			88.40115189800002,23.126122383999977,0.000
+			88.40068471900003,23.12642430800002,0.000
+			88.39987446200001,23.126823822000016,0.000
+			88.39927982199998,23.12746348899997,0.000
+			88.39878197600001,23.12835266799999,0.000
+			88.39833723200002,23.12914982199999,0.000
+			88.39790523200003,23.129966668,0.000
+			88.39756076999998,23.130781668000004,0.000
+			88.39726918100001,23.131703205,0.000
+			88.39734082199999,23.13247902699999,0.000
+			88.39765551300002,23.13349874300003,0.000
+			88.39795825700003,23.134655226999996,0.000
+			88.39843300000001,23.134650000000022,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: GUPTIPARA - I
+<br/>name: FPOI-1007 TO Guptipara-I
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 1697.44212991176
+<br/>start_node: FPOI-1007
+<br/>s_coil_len: 20.0
+<br/>end_node: Guptipara-I
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 1.697
+<br/>S_N: 2</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[GUPTIPARA - I]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1007 TO Guptipara-I]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1697.44212991176]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1007]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Guptipara-I]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.697]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[2]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.43203899999997,23.192922000000003,0.000
+			88.43121911200001,23.193761338999995,0.000
+			88.43078948300001,23.19461020099999,0.000
+			88.43069135799999,23.195546722999996,0.000
+			88.43054112499999,23.19637003100001,0.000
+			88.43024940200002,23.19719147799998,0.000
+			88.42968171000001,23.19800658499997,0.000
+			88.42913329499999,23.198600402000007,0.000
+			88.42847599999999,23.199337000000014,0.000
+			88.42803700000002,23.20014300000003,0.000
+			88.42760299999998,23.200948999999977,0.000
+			88.42713199999997,23.201655000000017,0.000
+			88.426244,23.20127700000001,0.000
+			88.42535900000001,23.200898999999993,0.000
+			88.42446899999999,23.200519999999994,0.000
+			88.42385171400002,23.200239108000005,0.000
+			88.42387200000002,23.199977999999987,0.000
+			88.42393737399999,23.199425331999976,0.000
+			88.423721,23.19934499999999,0.000
+			88.42274800000001,23.199256999999974,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: SOMRA-I
+<br/>name: Somra-I TO FPOI-1009
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 3143.97775378172
+<br/>start_node: Somra-I
+<br/>s_coil_len: 31.44406413
+<br/>end_node: FPOI-1009
+<br/>e_coil_len: 31.44406413
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 3.144
+<br/>S_N: 10</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[SOMRA-I]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Somra-I TO FPOI-1009]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[3143.97775378172]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Somra-I]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[31.44406413]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1009]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[31.44406413]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[3.144]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[10]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.42034899999999,23.15269999999998,0.000
+			88.42013167599998,23.152403694999972,0.000
+			88.419589159,23.152553601000022,0.000
+			88.41957300000001,23.152074000000034,0.000
+			88.41954397199999,23.151607259000002,0.000
+			88.419691,23.15118599999999,0.000
+			88.420099,23.150379999999984,0.000
+			88.420617,23.149609999999996,0.000
+			88.421153,23.14887299999998,0.000
+			88.42170299999998,23.148124999999986,0.000
+			88.422256,23.147380999999996,0.000
+			88.42278900000002,23.146615999999998,0.000
+			88.42334199999999,23.145878999999983,0.000
+			88.42388399999999,23.14513399999998,0.000
+			88.42442299999999,23.14438399999999,0.000
+			88.42496999999997,23.14363400000002,0.000
+			88.425522,23.142898999999996,0.000
+			88.42607199999998,23.142145000000028,0.000
+			88.426601,23.141392000000003,0.000
+			88.427143,23.140638000000017,0.000
+			88.42767199999997,23.139888999999982,0.000
+			88.42821900000001,23.139145999999982,0.000
+			88.42877199999998,23.138400999999984,0.000
+			88.42931900000002,23.137658999999985,0.000
+			88.42987699999998,23.136913999999983,0.000
+			88.43041599999998,23.136169,0.000
+			88.43097399999999,23.135426999999993,0.000
+			88.43152900000001,23.134691999999973,0.000
+			88.43212199999999,23.13396899999998,0.000
+			88.43289141499997,23.133420344999983,0.000
+			88.43365599999998,23.132857,0.000
+			88.43443400000001,23.13231899999999,0.000
+			88.43522300000001,23.131789000000026,0.000
+			88.43600300000003,23.13124599999997,0.000
+			88.43686000000002,23.13082000000003,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: CHAR KRISHNABATI
+<br/>name: Char Krishnabati TO FPOI-1007
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 4088.71210480283
+<br/>start_node: Char Krishnabati
+<br/>s_coil_len: 40.89245218
+<br/>end_node: FPOI-1007
+<br/>e_coil_len: 40.89245218
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 4.089
+<br/>S_N: 4</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[CHAR KRISHNABATI]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Char Krishnabati TO FPOI-1007]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[4088.71210480283]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[Char Krishnabati]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[40.89245218]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1007]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[40.89245218]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[4.089]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[4]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.44833899999998,23.210561999999985,0.000
+			88.44744100000003,23.21034500000002,0.000
+			88.44690000000003,23.20966800000002,0.000
+			88.44697500000001,23.20881700000001,0.000
+			88.44699100000003,23.207917000000005,0.000
+			88.44700999999998,23.207019000000003,0.000
+			88.44708100000003,23.20613400000002,0.000
+			88.447057486,23.205541616000005,0.000
+			88.44685600000003,23.204789000000005,0.000
+			88.44692542799999,23.204112414999987,0.000
+			88.446819,23.203258000000005,0.000
+			88.44651002799998,23.202169755000007,0.000
+			88.44634967799999,23.201620445999993,0.000
+			88.44629176799998,23.200961554000003,0.000
+			88.44655899999998,23.200125000000007,0.000
+			88.44692400000002,23.199292000000018,0.000
+			88.44713999999999,23.19841900000001,0.000
+			88.44752785700001,23.19776770499999,0.000
+			88.447882687,23.197144535000007,0.000
+			88.448284,23.196548000000007,0.000
+			88.44871799999999,23.19574299999999,0.000
+			88.44897099999997,23.194899000000014,0.000
+			88.448332,23.194273000000006,0.000
+			88.447674,23.19363099999997,0.000
+			88.44673799999998,23.193457000000024,0.000
+			88.445784,23.193576000000007,0.000
+			88.444884,23.19351999999997,0.000
+			88.44395400000002,23.193375000000003,0.000
+			88.44325099999998,23.193847000000012,0.000
+			88.443085,23.194703,0.000
+			88.442634,23.19549599999999,0.000
+			88.442023,23.196084999999982,0.000
+			88.44129600000002,23.196475000000028,0.000
+			88.44080600000001,23.196859000000018,0.000
+			88.44005199999998,23.197075999999985,0.000
+			88.43922600000002,23.196624999999983,0.000
+			88.43842699999999,23.196193999999988,0.000
+			88.43766,23.195759000000017,0.000
+			88.437093,23.19506899999999,0.000
+			88.43624,23.19464499999998,0.000
+			88.43549100000001,23.194131000000024,0.000
+			88.43467600000002,23.193654999999975,0.000
+			88.43375600000002,23.193407999999977,0.000
+			88.43280600000003,23.193327000000004,0.000
+			88.43187,23.193288999999993,0.000
+			88.43203899999997,23.192922000000003,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: GUPTIPARA TEL EXCH TO DIGRA BSNL JOINT CHAMBER(GUPTIPARA TE LOSSY)
+<br/>name: GUPTIPARA TEL EXCH TO FPOI-1008
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 4029.57002374976
+<br/>start_node: GUPTIPARA TEL EXCH
+<br/>s_coil_len: 40.30129229
+<br/>end_node: FPOI-1008
+<br/>e_coil_len: 40.30129229
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: LOSSY
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 4.03
+<br/>S_N: 8</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[GUPTIPARA TEL EXCH TO DIGRA BSNL JOINT CHAMBER(GUPTIPARA TE LOSSY)]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[GUPTIPARA TEL EXCH TO FPOI-1008]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[4029.57002374976]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[GUPTIPARA TEL EXCH]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[40.30129229]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[FPOI-1008]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[40.30129229]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[LOSSY]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[4.03]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[8]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.42730899999998,23.189286999999975,0.000
+			88.42806245700001,23.189080063999995,0.000
+			88.42796387800001,23.188895321000015,0.000
+			88.42793567000001,23.18870572399998,0.000
+			88.427773,23.188470999999993,0.000
+			88.42713199999997,23.187794999999984,0.000
+			88.426578592,23.18745329199999,0.000
+			88.42646941100003,23.187239213999984,0.000
+			88.426198,23.186279000000017,0.000
+			88.42583000000002,23.18544400000002,0.000
+			88.42557399999998,23.184760999999995,0.000
+			88.42528099999998,23.184096000000007,0.000
+			88.42501800000002,23.18344000000002,0.000
+			88.42477500000001,23.182757999999975,0.000
+			88.424533,23.18206700000002,0.000
+			88.42429900000002,23.181388000000027,0.000
+			88.423993,23.180724999999995,0.000
+			88.42368099999999,23.180068,0.000
+			88.42357299999998,23.17953799999998,0.000
+			88.42337400000002,23.178656999999987,0.000
+			88.42310600000002,23.177796999999998,0.000
+			88.422755,23.176956000000015,0.000
+			88.42240900000002,23.176125000000013,0.000
+			88.42154,23.175744999999996,0.000
+			88.42059499999999,23.17550599999998,0.000
+			88.41967799999998,23.175194999999974,0.000
+			88.41884299999998,23.174735,0.000
+			88.41809,23.17415999999997,0.000
+			88.41744899999998,23.173492000000014,0.000
+			88.41700900000001,23.17268899999999,0.000
+			88.41654323900002,23.171798411,0.000
+			88.41643099999999,23.170974000000005,0.000
+			88.41651999999999,23.170109000000025,0.000
+			88.41661800000003,23.169192000000002,0.000
+			88.41664200000002,23.168292000000005,0.000
+			88.41649999999998,23.167399999999986,0.000
+			88.41623700000002,23.166539,0.000
+			88.41571399999998,23.165835000000012,0.000
+			88.41556700000001,23.164957000000015,0.000
+			88.41600599999998,23.164162999999974,0.000
+			88.41656999999998,23.163431000000006,0.000
+			88.41715399999998,23.162712999999993,0.000
+			88.417753,23.161991000000018,0.000
+			88.41830099999999,23.16125699999997,0.000
+			88.418837,23.160497000000017,0.000
+			88.41941200000002,23.159795999999968,0.000
+			88.41979199999997,23.159010000000027,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+<Placemark>
+<name>Incremental Cable</name>
+<description><![CDATA[<p>cs: SRIPUR BALAGARH
+<br/>name: FPOI-1002 TO Sripur Balagarh
+<br/>asset_code: NULL
+<br/>blk_code: 2888
+<br/>dt_code: 338
+<br/>st_code: 19
+<br/>seg_length: 1852.8678695004
+<br/>start_node: FPOI-1002
+<br/>s_coil_len: 20.0
+<br/>end_node: Sripur Balagarh
+<br/>e_coil_len: 20.0
+<br/>num_fibre: 24
+<br/>status: Accepted
+<br/>remarks: NULL
+<br/>obs: NULL
+<br/>direction: NULL
+<br/>traverse: U
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: Incremental Cable
+<br/>fibre_pos: NULL
+<br/>type: Incremental Cable
+<br/>length: 1.853
+<br/>S_N: 16</p>]]></description>
+<ExtendedData>
+	<Data name="cs"><displayName>cs</displayName><value><![CDATA[SRIPUR BALAGARH]]></value></Data>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[FPOI-1002 TO Sripur Balagarh]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2888]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[338]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="seg_length"><displayName>seg_length</displayName><value><![CDATA[1852.8678695004]]></value></Data>
+	<Data name="start_node"><displayName>start_node</displayName><value><![CDATA[FPOI-1002]]></value></Data>
+	<Data name="s_coil_len"><displayName>s_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="end_node"><displayName>end_node</displayName><value><![CDATA[Sripur Balagarh]]></value></Data>
+	<Data name="e_coil_len"><displayName>e_coil_len</displayName><value><![CDATA[20.0]]></value></Data>
+	<Data name="num_fibre"><displayName>num_fibre</displayName><value><![CDATA[24]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="direction"><displayName>direction</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="traverse"><displayName>traverse</displayName><value><![CDATA[U]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="fibre_pos"><displayName>fibre_pos</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Incremental Cable]]></value></Data>
+	<Data name="length"><displayName>length</displayName><value><![CDATA[1.853]]></value></Data>
+	<Data name="S_N"><displayName>S_N</displayName><value><![CDATA[16]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<LineString>
+		<tessellate>1</tessellate>
+		<coordinates>
+			88.469806,23.10810300000003,0.000
+			88.469985543,23.108322278999992,0.000
+			88.469953326,23.108726923999996,0.000
+			88.469538,23.109427999999973,0.000
+			88.46882763399998,23.109976679,0.000
+			88.468677248,23.11050711399997,0.000
+			88.46870520099998,23.11095544599999,0.000
+			88.46873699999998,23.111861999999974,0.000
+			88.46873435499998,23.112355955,0.000
+			88.46855699999998,23.11273,0.000
+			88.468233,23.113578000000018,0.000
+			88.46790800000002,23.11443600000001,0.000
+			88.46759100000003,23.115277999999982,0.000
+			88.46723500000002,23.116115999999977,0.000
+			88.46686799999998,23.116945999999984,0.000
+			88.46654999999998,23.11779100000001,0.000
+			88.46635500000002,23.118671000000006,0.000
+			88.46601900000002,23.119506,0.000
+			88.46567199999998,23.120339,0.000
+			88.46543642199998,23.12079352400002,0.000
+			88.46564599999999,23.121262799000025,0.000
+			88.465280339,23.121962445999987,0.000
+			88.46478420099999,23.122733308000022,0.000
+			88.46454412399999,23.12314919099999,0.000
+			88.46468499999997,23.123483000000014,0.000
+		</coordinates>
+	</LineString>
+</Placemark>
+
+</Document>
+</kml>

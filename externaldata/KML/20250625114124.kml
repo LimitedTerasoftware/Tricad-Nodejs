@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<name>Bamongola PoPs</name>
+<Style id="style1">
+	<IconStyle>
+		<Icon>
+			<href>http://maps.gstatic.com/mapfiles/ms2/micons/purple-dot.png</href>
+		</Icon>
+	</IconStyle>
+</Style>
+<Style id="style2">
+	<IconStyle>
+		<Icon>
+			<href>http://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png</href>
+		</Icon>
+	</IconStyle>
+</Style>
+<Style id="style3">
+	<IconStyle>
+		<Icon>
+			<href>http://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png</href>
+		</Icon>
+	</IconStyle>
+</Style>
+<Style id="style4">
+	<IconStyle>
+		<Icon>
+			<href>http://maps.gstatic.com/mapfiles/ms2/micons/purple-dot.png</href>
+		</Icon>
+	</IconStyle>
+</Style>
+<Style id="style5">
+	<IconStyle>
+		<Icon>
+			<href>http://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png</href>
+		</Icon>
+	</IconStyle>
+</Style>
+<Placemark>
+<name>Gobindapur Maheshpur</name>
+<description><![CDATA[<p>name: Gobindapur Maheshpur
+<br/>lat: 25.222933
+<br/>long: 88.406982
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMONGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: 109858
+<br/>asset_code: 109858N1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: 13766
+<br/>conn_str: 1-6-3
+<br/>backhaul: F
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: GP
+<br/>gp_code: 109858
+<br/>block_ip: NULL
+<br/>gp_mac_id: 434454429537D233
+<br/>gp_sr_no: 434454429537D233
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: Ring 1
+<br/>type: GP
+<br/>Lebel: Gobindapur Maheshpur (109858)
+<br/>na: Gobindapur Maheshpur (109858)</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Gobindapur Maheshpur]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.222933]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.406982]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMONGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[109858]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[109858N1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[13766]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[1-6-3]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[F]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[109858]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[434454429537D233]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[434454429537D233]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[Ring 1]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[Gobindapur Maheshpur (109858)]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[Gobindapur Maheshpur (109858)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<Point>
+		<coordinates>88.40698200000003,25.222933000000005,0.000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>Bamangola Bhq</name>
+<description><![CDATA[<p>name: Bamangola Bhq
+<br/>lat: 25.122836
+<br/>long: 88.367197
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMONGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: B2932
+<br/>asset_code: B2932N1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: 182
+<br/>conn_str: 1-1-2
+<br/>backhaul: F
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: BHQ
+<br/>gp_code: B2932
+<br/>block_ip: NULL
+<br/>gp_mac_id: 4344544295381F9A
+<br/>gp_sr_no: 4344544295381F9A
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: Ring 2
+<br/>type: BHQ
+<br/>Lebel: Bamangola  Bhq (B2932)
+<br/>na: Bamangola Bhq (B2932)</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Bamangola Bhq]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.122836]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.367197]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMONGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[B2932]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[B2932N1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[182]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[1-1-2]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[F]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[BHQ]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[B2932]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[4344544295381F9A]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[4344544295381F9A]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[Ring 2]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[BHQ]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[Bamangola  Bhq (B2932)]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[Bamangola Bhq (B2932)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style3</styleUrl>
+	<Point>
+		<coordinates>88.36719699999998,25.122836000000007,0.000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>Pakuahat</name>
+<description><![CDATA[<p>name: Pakuahat
+<br/>lat: 25.125524
+<br/>long: 88.364718
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMONGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: 109861
+<br/>asset_code: 109861N1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: 761
+<br/>conn_str: 1-2-2
+<br/>backhaul: F
+<br/>phase: 1
+<br/>route_code: R2
+<br/>asset_type: GP
+<br/>gp_code: 109861
+<br/>block_ip: NULL
+<br/>gp_mac_id: 434454429539A1B2
+<br/>gp_sr_no: 434454429539A1B2
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: Ring 2
+<br/>type: GP
+<br/>Lebel: Pakuahat (109861)
+<br/>na: Pakuahat (109861)</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Pakuahat]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.125524]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.364718]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMONGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[109861]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[109861N1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[761]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[1-2-2]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[F]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[109861]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[434454429539A1B2]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[434454429539A1B2]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[Ring 2]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[Pakuahat (109861)]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[Pakuahat (109861)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<Point>
+		<coordinates>88.36471799999998,25.125523999999984,0.000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>Jagdala</name>
+<description><![CDATA[<p>name: Jagdala
+<br/>lat: 25.123974
+<br/>long: 88.398114
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMONGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: 109859
+<br/>asset_code: 109859N1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: 5959
+<br/>conn_str: 1-4-2
+<br/>backhaul: F
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: GP
+<br/>gp_code: 109859
+<br/>block_ip: NULL
+<br/>gp_mac_id: 43445442957A58D4
+<br/>gp_sr_no: 43445442957A58D4
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: Ring 1
+<br/>type: GP
+<br/>Lebel: Jagdala (109859)
+<br/>na: Jagdala (109859)</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Jagdala]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.123974]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.398114]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMONGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[109859]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[109859N1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[5959]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[1-4-2]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[F]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[109859]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[43445442957A58D4]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[43445442957A58D4]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[Ring 1]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[Jagdala (109859)]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[Jagdala (109859)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<Point>
+		<coordinates>88.39811400000002,25.123973999999976,0.000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>Chandpur</name>
+<description><![CDATA[<p>name: Chandpur
+<br/>lat: 25.158884
+<br/>long: 88.417575
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMONGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: 109857
+<br/>asset_code: 109857N1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: 14273
+<br/>conn_str: 1-3-1
+<br/>backhaul: F
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: GP
+<br/>gp_code: 109857
+<br/>block_ip: NULL
+<br/>gp_mac_id: 434454429539B535
+<br/>gp_sr_no: 434454429539B535
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: Ring 1
+<br/>type: GP
+<br/>Lebel: Chandpur (109857)
+<br/>na: Chandpur (109857)</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Chandpur]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.158884]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.417575]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMONGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[109857]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[109857N1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[14273]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[1-3-1]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[F]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[109857]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[434454429539B535]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[434454429539B535]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[Ring 1]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[Chandpur (109857)]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[Chandpur (109857)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<Point>
+		<coordinates>88.417575,25.158883999999993,0.000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>Bamangola</name>
+<description><![CDATA[<p>name: Bamangola
+<br/>lat: 25.163962
+<br/>long: 88.376769
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMONGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: 109856
+<br/>asset_code: 109856N1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: 5350
+<br/>conn_str: 3-1-1
+<br/>backhaul: F
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: GP
+<br/>gp_code: 109856
+<br/>block_ip: NULL
+<br/>gp_mac_id: 434454429539A504
+<br/>gp_sr_no: 434454429539A504
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: Ring 1
+<br/>type: GP
+<br/>Lebel: Bamangola (109856)
+<br/>na: Bamangola (109856)</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Bamangola]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.163962]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.376769]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMONGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[109856]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[109856N1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[5350]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[3-1-1]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[F]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[109856]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[434454429539A504]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[434454429539A504]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[Ring 1]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[Bamangola (109856)]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[Bamangola (109856)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<Point>
+		<coordinates>88.37676900000002,25.16396200000002,0.000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>Madnaboti</name>
+<description><![CDATA[<p>name: Madnaboti
+<br/>lat: 25.266018
+<br/>long: 88.424911
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMONGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: 109860
+<br/>asset_code: 109860N1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: 20219
+<br/>conn_str: 1-5-1
+<br/>backhaul: F
+<br/>phase: 1
+<br/>route_code: R1
+<br/>asset_type: GP
+<br/>gp_code: 109860
+<br/>block_ip: NULL
+<br/>gp_mac_id: 434454429538EEBB
+<br/>gp_sr_no: 434454429538EEBB
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: Ring 1
+<br/>type: GP
+<br/>Lebel: Madnaboti (109860)
+<br/>na: Madnaboti (109860)</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[Madnaboti]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.266018]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.424911]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMONGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[109860]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[109860N1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[20219]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[1-5-1]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[F]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[109860]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[434454429538EEBB]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[434454429538EEBB]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[Ring 1]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[GP]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[Madnaboti (109860)]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[Madnaboti (109860)]]></value></Data>
+</ExtendedData>
+<styleUrl>#style2</styleUrl>
+	<Point>
+		<coordinates>88.42491100000001,25.26601799999998,0.000</coordinates>
+	</Point>
+</Placemark>
+
+<Placemark>
+<name>PAKUAHAT T.E</name>
+<description><![CDATA[<p>name: PAKUAHAT T.E
+<br/>lat: 25.122519
+<br/>long: 88.367709
+<br/>remarks: NULL
+<br/>blk_code: 2932
+<br/>blk_name: BAMANGOLA
+<br/>dt_code: 332
+<br/>dt_name: MALDA
+<br/>st_code: 19
+<br/>st_name: WEST BENGAL
+<br/>lgd_code: 2932BR
+<br/>asset_code: 2932L1
+<br/>location: NULL
+<br/>loc_type: NULL
+<br/>obs: NULL
+<br/>status: Accepted
+<br/>geo_photo: NULL
+<br/>otdr_len: NULL
+<br/>conn_str: NULL
+<br/>backhaul: NULL
+<br/>phase: 1
+<br/>route_code: R1/R2
+<br/>asset_type: OLT
+<br/>gp_code: NULL
+<br/>block_ip: NULL
+<br/>gp_mac_id: NULL
+<br/>gp_sr_no: NULL
+<br/>nmsgp_cd: NULL
+<br/>nmsblk_cd: NULL
+<br/>cable_len: 0.0
+<br/>ring: NULL
+<br/>type: Block Router
+<br/>Lebel: NULL
+<br/>na: PAKUAHAT T.E</p>]]></description>
+<ExtendedData>
+	<Data name="name"><displayName>name</displayName><value><![CDATA[PAKUAHAT T.E]]></value></Data>
+	<Data name="lat"><displayName>lat</displayName><value><![CDATA[25.122519]]></value></Data>
+	<Data name="long"><displayName>long</displayName><value><![CDATA[88.367709]]></value></Data>
+	<Data name="remarks"><displayName>remarks</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="blk_code"><displayName>blk_code</displayName><value><![CDATA[2932]]></value></Data>
+	<Data name="blk_name"><displayName>blk_name</displayName><value><![CDATA[BAMANGOLA]]></value></Data>
+	<Data name="dt_code"><displayName>dt_code</displayName><value><![CDATA[332]]></value></Data>
+	<Data name="dt_name"><displayName>dt_name</displayName><value><![CDATA[MALDA]]></value></Data>
+	<Data name="st_code"><displayName>st_code</displayName><value><![CDATA[19]]></value></Data>
+	<Data name="st_name"><displayName>st_name</displayName><value><![CDATA[WEST BENGAL]]></value></Data>
+	<Data name="lgd_code"><displayName>lgd_code</displayName><value><![CDATA[2932BR]]></value></Data>
+	<Data name="asset_code"><displayName>asset_code</displayName><value><![CDATA[2932L1]]></value></Data>
+	<Data name="location"><displayName>location</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="loc_type"><displayName>loc_type</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="obs"><displayName>obs</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="status"><displayName>status</displayName><value><![CDATA[Accepted]]></value></Data>
+	<Data name="geo_photo"><displayName>geo_photo</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="otdr_len"><displayName>otdr_len</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="conn_str"><displayName>conn_str</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="backhaul"><displayName>backhaul</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="phase"><displayName>phase</displayName><value><![CDATA[1]]></value></Data>
+	<Data name="route_code"><displayName>route_code</displayName><value><![CDATA[R1/R2]]></value></Data>
+	<Data name="asset_type"><displayName>asset_type</displayName><value><![CDATA[OLT]]></value></Data>
+	<Data name="gp_code"><displayName>gp_code</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="block_ip"><displayName>block_ip</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_mac_id"><displayName>gp_mac_id</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="gp_sr_no"><displayName>gp_sr_no</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsgp_cd"><displayName>nmsgp_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="nmsblk_cd"><displayName>nmsblk_cd</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="cable_len"><displayName>cable_len</displayName><value><![CDATA[0.0]]></value></Data>
+	<Data name="ring"><displayName>ring</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="type"><displayName>type</displayName><value><![CDATA[Block Router]]></value></Data>
+	<Data name="Lebel"><displayName>Lebel</displayName><value><![CDATA[NULL]]></value></Data>
+	<Data name="na"><displayName>na</displayName><value><![CDATA[PAKUAHAT T.E]]></value></Data>
+</ExtendedData>
+<styleUrl>#style1</styleUrl>
+	<Point>
+		<coordinates>88.36770899999999,25.122519000000004,0.000</coordinates>
+	</Point>
+</Placemark>
+
+</Document>
+</kml>
