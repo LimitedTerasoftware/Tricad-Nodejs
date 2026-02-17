@@ -508,6 +508,7 @@ app.post("/create-joint", jointcontroller.createJoint)
 app.get("/joint_fiber/:joint_code", jointcontroller.fetchJointByCode)
 app.get("/get-joint-block", jointcontroller.getJointsByBlock)
 app.get("/fetch-joints-location", jointcontroller.fetchJointsByLocation)
+app.get("/get-all-joints", jointcontroller.fetchAllJointsLatest)
 
 
 //----------------------------------------db-backups----------------------

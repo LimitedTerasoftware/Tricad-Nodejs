@@ -110,7 +110,7 @@ async function createJoint(req, res) {
           state_id, state_name,
           district_id, district_name,
           block_id, block_name, user_id,
-          contractor_name, contractor_phone
+          contractor_name, contractor_phone,
           joint_code, joint_name,
           work_type, joint_type, date_time,
           gps_lat, gps_long, address, photo_path,
@@ -521,9 +521,128 @@ async function fetchJointsByLocation(req, res) {
   }
 }
 
+
+
+async function fetchAllJointsLatest(req, res) {
+  const { state_id, district_id, block_id } = req.query;
+  let { page = 1, limit = 10 } = req.query;
+  let connection;
+
+  page = parseInt(page);
+  limit = parseInt(limit);
+  const offset = (page - 1) * limit;
+
+  try {
+    connection = await pool.getConnection();
+
+    // -------- DYNAMIC WHERE --------
+    let whereClause = "";
+    let params = [];
+
+    if (state_id) {
+      whereClause += " AND j.state_id = ?";
+      params.push(state_id);
+    }
+    if (district_id) {
+      whereClause += " AND j.district_id = ?";
+      params.push(district_id);
+    }
+    if (block_id) {
+      whereClause += " AND j.block_id = ?";
+      params.push(block_id);
+    }
+
+    // -------- DATA QUERY --------
+    const [rows] = await connection.query(
+      `
+      SELECT 
+        j.joint_code,
+        j.joint_name,
+        j.state_id,
+        j.state_name,
+        j.district_id,
+        j.district_name,
+        j.block_id,
+        j.block_name,
+        j.work_type,
+        j.joint_type,
+        j.date_time,
+        j.created_at,
+        j.gps_lat,
+        j.gps_long,
+        j.address,
+        j.photo_path,
+        j.proof_photo,
+        j.user_id,
+        u.fullname AS user_name
+      FROM joint_fiber_managment j
+      INNER JOIN (
+        SELECT joint_code, MAX(created_at) AS latest_created
+        FROM joint_fiber_managment
+        GROUP BY joint_code
+      ) latest
+        ON j.joint_code = latest.joint_code
+       AND j.created_at = latest.latest_created
+      LEFT JOIN users u
+        ON u.id = j.user_id
+      WHERE 1=1
+      ${whereClause}
+      ORDER BY j.created_at DESC
+      LIMIT ? OFFSET ?
+      `,
+      [...params, limit, offset]
+    );
+
+    // -------- COUNT QUERY --------
+    const [countRows] = await connection.query(
+      `
+      SELECT COUNT(*) AS total
+      FROM (
+        SELECT j.joint_code
+        FROM joint_fiber_managment j
+        INNER JOIN (
+          SELECT joint_code, MAX(created_at) AS latest_created
+          FROM joint_fiber_managment
+          GROUP BY joint_code
+        ) latest
+          ON j.joint_code = latest.joint_code
+         AND j.created_at = latest.latest_created
+        WHERE 1=1
+        ${whereClause}
+      ) t
+      `,
+      params
+    );
+
+    const total = countRows[0].total;
+    const totalPages = Math.ceil(total / limit);
+
+    res.json({
+      success: true,
+      pagination: {
+        page,
+        limit,
+        total,
+        total_pages: totalPages,
+      },
+      data: rows,
+    });
+  } catch (err) {
+    console.error("Fetch joints error:", err);
+    res.status(500).json({
+      success: false,
+      error: err.message,
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
 module.exports = {
   createJoint,
   fetchJointByCode,
   getJointsByBlock,
   fetchJointsByLocation,
+  fetchAllJointsLatest
 };
